@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b8ddc8ee-aaaa-44b8-a4d8-950ea54e442f": {
+      "ProjectGuid": "b8ddc8ee-aaaa-44b8-a4d8-950ea54e442f",
+      "DisplayName": "CIPLATFORM",
+      "ColorIndex": 0
+    },
+    "9e59f4c8-1f78-4de6-81d5-2fbe214eec25": {
+      "ProjectGuid": "9e59f4c8-1f78-4de6-81d5-2fbe214eec25",
+      "DisplayName": "CIPLATFORM.Entities",
+      "ColorIndex": 1
+    },
+    "00e2015c-7238-4bfc-8462-7a0736a1d8e6": {
+      "ProjectGuid": "00e2015c-7238-4bfc-8462-7a0736a1d8e6",
+      "DisplayName": "CIPLATFORM.Respository",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}

@@ -1,0 +1,17 @@
+C:\CIPLATFORM\CIPLATFORM.Respository\bin\Debug\net6.0\CIPLATFORM.Respository.deps.json
+C:\CIPLATFORM\CIPLATFORM.Respository\bin\Debug\net6.0\CIPLATFORM.Respository.runtimeconfig.json
+C:\CIPLATFORM\CIPLATFORM.Respository\bin\Debug\net6.0\CIPLATFORM.Respository.dll
+C:\CIPLATFORM\CIPLATFORM.Respository\bin\Debug\net6.0\ref\CIPLATFORM.Respository.dll
+C:\CIPLATFORM\CIPLATFORM.Respository\bin\Debug\net6.0\CIPLATFORM.Respository.pdb
+C:\CIPLATFORM\CIPLATFORM.Respository\obj\Debug\net6.0\CIPLATFORM.Respository.csproj.AssemblyReference.cache
+C:\CIPLATFORM\CIPLATFORM.Respository\obj\Debug\net6.0\CIPLATFORM.Respository.GeneratedMSBuildEditorConfig.editorconfig
+C:\CIPLATFORM\CIPLATFORM.Respository\obj\Debug\net6.0\CIPLATFORM.Respository.AssemblyInfoInputs.cache
+C:\CIPLATFORM\CIPLATFORM.Respository\obj\Debug\net6.0\CIPLATFORM.Respository.AssemblyInfo.cs
+C:\CIPLATFORM\CIPLATFORM.Respository\obj\Debug\net6.0\CIPLATFORM.Respository.csproj.CoreCompileInputs.cache
+C:\CIPLATFORM\CIPLATFORM.Respository\obj\Debug\net6.0\CIPLATFORM.Respository.dll
+C:\CIPLATFORM\CIPLATFORM.Respository\obj\Debug\net6.0\ref\CIPLATFORM.Respository.dll
+C:\CIPLATFORM\CIPLATFORM.Respository\obj\Debug\net6.0\CIPLATFORM.Respository.pdb
+C:\CIPLATFORM\CIPLATFORM.Respository\obj\Debug\net6.0\CIPLATFORM.Respository.genruntimeconfig.cache
+C:\CIPLATFORM\CIPLATFORM.Respository\bin\Debug\net6.0\CIPLATFORM.Entities.dll
+C:\CIPLATFORM\CIPLATFORM.Respository\bin\Debug\net6.0\CIPLATFORM.Entities.pdb
+C:\CIPLATFORM\CIPLATFORM.Respository\obj\Debug\net6.0\CIPLATFORM.Respository.csproj.CopyComplete
