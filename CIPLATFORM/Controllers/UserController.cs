@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using CIPLATFORM.Entities.Models;
 using CIPLATFORM.Respository.Interface;
+using CIPLATFORM.Entities.ViewModels;
 
 namespace CIPLATFORM.Controllers
 {
@@ -75,20 +76,31 @@ namespace CIPLATFORM.Controllers
         }
 
         [HttpPost]
-        public IActionResult register(User obj)
+        public IActionResult register(Register obj)
         {
-            var user = _UserRepository.register(obj);
-            if (user != null)
+            if (ModelState.IsValid)
             {
-                TempData["unsuccess"] = "User already exist";
-                return View();
+                User user = new User();
+                {
+                    user.FirstName = obj.FirstName;
+                    user.LastName = obj.LastName;
+                    user.Email = obj.Email;
+                    user.Password = obj.Password;
+                    user.PhoneNumber = obj.PhoneNumber;
+                }
+                var check = _UserRepository.register(user);
+                if (check != null)
+                {
+                    TempData["unsuccess"] = "User already exist";
+                    return View();
+                }
+                else
+                {
+                    TempData["success"] = "Registration Successfull";
+                    return RedirectToAction("login", "User");
+                }
             }
-            else
-            {
-                TempData["success"] = "Registration Successful";
-                return RedirectToAction("Login", "User");
-            }
-            return RedirectToAction("login");
+            return View();
         }
 
 

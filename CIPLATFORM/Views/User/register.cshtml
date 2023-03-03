@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
 }
-@model CIPLATFORM.Entities.Models.User
+@model CIPLATFORM.Entities.ViewModels.Register;
 <!doctype html>
 <html lang="en">
 <head>
@@ -68,15 +68,16 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-12 col-sm-12 d-flex flex-column justify-content-center">
-                <span class="text-danger">@TempData["utsav"]</span>
+                <span class="text-danger"></span>
                 <div class="d-flex justify-content-center" style="color:red;font-size:25px">@TempData["unsuccess"]</div>
                 <form class="f1" asp-action="register">
                     <div class="form-group">
-                        <input type="text" asp-for="FirstName" class="form-control" placeholder="evan" id="exampleInputfirstname" required>
+                        <input type="text" asp-for="FirstName" class="form-control" placeholder="evan" id="exampleInputfirstname" >
+                        <span asp-validation-for="FirstName"></span>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputLastname">Last name</label>
-                        <input type="text" asp-for="LastName" class="form-control" placeholder="donohue" id="exampleInputLastname"  required>
+                        <input type="text" asp-for="LastName" class="form-control" placeholder="donohue" id="exampleInputLastname"  >
                     </div>
                     <div class="form-group">
                         <label for="exampleInputNumber">Phone Number</label>
@@ -85,16 +86,16 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email Address</label>
-                        <input type="text" asp-for="Email" class="form-control" placeholder="example@gmail.com" id="exampleInputEmail1"  required>
+                        <input type="text" asp-for="Email" class="form-control" placeholder="example@gmail.com" id="exampleInputEmail1" >
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password </label>
-                        <input type="password" asp-for="Password"  class="form-control" id="password"  required>
+                        <input type="password" asp-for="Password"  class="form-control" id="password" >
                         <span id="Message"></span>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Confirm Password </label>
-                        <input type="password" asp-for="Password" required onkeyup=" verifyPassword()" class="form-control" id="cpassword"  >
+                        <input type="password" asp-for="Password"  onkeyup=" verifyPassword()" class="form-control" id="cpassword"  >
                     </div>
                     <button type="submit" id="submit" class="btn btn-outline btn-block" style="background: #F8863400 0% 0% no-repeat padding-box;
 border: 2px solid #F88634;
@@ -115,16 +116,32 @@ opacity: 1; color:#F88634">
                     <div class="text-center pt-2" id="bottom">
                         <a href="">Privacy Policy</a>
                     </div>
-                    <span class="text-danger">@TempData["ErrorMes"]</span>
+                  
                 </form>
             </div>
         </div>
     </div>
 
+@*    <script type="text/javascript" language="javascript">
+function DisableBackButton() {
+window.history.forward();
+}
+DisableBackButton();
+window.onload = DisableBackButton;
+window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton(); }
+window.onunload = function () { void (0); };
+</script>
 
+
+@section Scripts{
+@{
+<partial name="_ValidationScriptsPartial" />
+}
+
+}*@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="~/js/site.js"></script>
+ 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

@@ -107,7 +107,25 @@
             </div>
           </div>
 
- 
+     <script type="text/javascript" language="javascript">
+function DisableBackButton() {
+window.history.forward();
+}
+DisableBackButton();
+window.onload = DisableBackButton;
+window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton(); }
+window.onunload = function () { void (0); };
+</script>
+
+@section Scripts{
+@{
+<partial name="_ValidationScriptsPartial" />
+}
+
+}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/js/site.js"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
