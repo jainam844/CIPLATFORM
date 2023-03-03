@@ -12,6 +12,7 @@ builder.Services.AddDbContext<CiPlatformContext>(options => options.UseSqlServer
 
     builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -29,6 +30,12 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
+
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Platform}/{action=HomeGrid}"
+//    );
 
 app.MapControllerRoute(
     name: "default",
@@ -37,17 +44,6 @@ app.MapControllerRoute(
 
 
 
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=User}/{action=forgot}");
 
-
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=newpassword}");
-
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=register}");
 
 app.Run();

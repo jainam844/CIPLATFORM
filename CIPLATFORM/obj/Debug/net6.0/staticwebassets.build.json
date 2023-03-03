@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Lo+sDp1Cj5TlIoOA0PlS3uRLeLPSaplsZgujEjUkF4w=",
+  "Hash": "0y2s3qmFImk7F7y4Vdq2GkUBmwVFtEhABYW8PcSTZ2I=",
   "Source": "CIPLATFORM",
   "BasePath": "_content/CIPLATFORM",
   "Mode": "Default",
@@ -49,6 +49,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\CIPLATFORM\\CIPLATFORM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CIPLATFORM.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\Home.css",
+      "SourceId": "CIPLATFORM",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "BasePath": "_content/CIPLATFORM",
+      "RelativePath": "css/Home.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Home.css"
+    },
+    {
+      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\HomeList.css",
+      "SourceId": "CIPLATFORM",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "BasePath": "_content/CIPLATFORM",
+      "RelativePath": "css/HomeList.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\HomeList.css"
     },
     {
       "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\site.css",

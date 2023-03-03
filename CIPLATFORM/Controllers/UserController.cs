@@ -27,8 +27,8 @@ namespace CIPLATFORM.Controllers
             {
                 return View();
             }
-        
-            return RedirectToAction("register", "User");
+            HttpContext.Session.SetString("Uname", user.FirstName + " " + user.LastName);
+            return RedirectToAction("HomeGrid", "Platform");
         }
 
         public IActionResult forgot()
@@ -47,7 +47,7 @@ namespace CIPLATFORM.Controllers
                 return View();
             }
             TempData["Message"] = "Check your email to reset password";
-            return RedirectToAction("Login");
+            return RedirectToAction("login");
         }
 
         public IActionResult newpassword()
@@ -80,10 +80,24 @@ namespace CIPLATFORM.Controllers
             var user = _UserRepository.register(obj);
             if (user != null)
             {
+                TempData["unsuccess"] = "User already exist";
                 return View();
+            }
+            else
+            {
+                TempData["success"] = "Registration Successful";
+                return RedirectToAction("Login", "User");
             }
             return RedirectToAction("login");
         }
+
+
+
+
+
+
+
+
 
     }
 }
