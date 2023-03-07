@@ -1,4 +1,5 @@
-﻿@model CIPLATFORM.Entities.Models.User;
+﻿@*@model CIPLATFORM.Entities.Models.User;*@
+@model CIPLATFORM.Entities.ViewModels.Register;
 @{
     Layout=null;
 }
@@ -69,10 +70,11 @@
               </div>
             </div>
             <div class="col-lg-3 col-md-12 col-sm-12 d-flex flex-column justify-content-center">
+                   <div class="d-flex pt-3 mt-3 justify-content-center" style="font-size:25px;color: #ff3333;">@TempData["msg"]</div>
               <form class="formmain" asp-action="forgot" method="post">
 
                 <div class="form-outline text-center mt-4 mb-3">
-                    Forgot Password
+                   <h3 >Forgot Password</h3> 
                 </div>
                 <div class="form-outline text-center mb-3">
                     Enter your email address you've using for your account below and we will send you a password reset link
@@ -82,7 +84,9 @@
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form3Example3">Email address</label>
                     <input asp-for="Email"  type="email" id="form3Example3" class="form-control form-control-lg"
-                    placeholder="Enter your email address..." />
+                    placeholder="Enter your email address..."  />
+                         <span asp-validation-for="Email" style="color:red"></span>                   
+                           
                 </div>
 
                 <div class="text-center text-lg-start mt-4 pt-2">

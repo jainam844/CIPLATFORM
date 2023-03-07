@@ -73,29 +73,34 @@
                 <form class="f1" asp-action="register">
                     <div class="form-group">
                         <input type="text" asp-for="FirstName" class="form-control" placeholder="evan" id="exampleInputfirstname" >
-                        <span asp-validation-for="FirstName"></span>
+                        <span asp-validation-for="FirstName" style="color:red"></span>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputLastname">Last name</label>
                         <input type="text" asp-for="LastName" class="form-control" placeholder="donohue" id="exampleInputLastname"  >
+                            <span asp-validation-for="LastName" style="color:red"></span>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputNumber">Phone Number</label>
                         <input type="text" asp-for="PhoneNumber" class="form-control" placeholder="7567611309" id="exampleInputNumber">
-                       
+                           <span asp-validation-for="PhoneNumber" style="color:red"></span>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email Address</label>
                         <input type="text" asp-for="Email" class="form-control" placeholder="example@gmail.com" id="exampleInputEmail1" >
+                            <span asp-validation-for="Email" style="color:red"></span>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password </label>
-                        <input type="password" asp-for="Password"  class="form-control" id="password" >
-                        <span id="Message"></span>
+                        <input type="password" asp-for="Password"  class="form-control"  >
+
+                  <span asp-validation-for="Password" style="color:red"></span>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Confirm Password </label>
-                        <input type="password" asp-for="Password"  onkeyup=" verifyPassword()" class="form-control" id="cpassword"  >
+                        <input type="password" asp-for="ConfirmPassword"   class="form-control"  >
+                        
+                  <span asp-validation-for="ConfirmPassword" style="color:red"></span>
                     </div>
                     <button type="submit" id="submit" class="btn btn-outline btn-block" style="background: #F8863400 0% 0% no-repeat padding-box;
 border: 2px solid #F88634;

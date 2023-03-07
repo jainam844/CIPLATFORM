@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BzmL06IGATRk1LCEz0H0E3jhLadbwyJbHMSGBlFiDrWbDy1bCpZc/I4vY4NCkYT+DuMXOIErUGwGmGUJCFucaQ==",
+  "dgSpecHash": "Rryi0lhCojY8AB8v5bsbh9RUG6XzOQUhwWfyHsSRG1gPvIqShDwXGI/lM5VCijjhN5sUy/xCCRcWrH+uAC8mGg==",
   "success": true,
   "projectFilePath": "C:\\CIPLATFORM\\CIPLATFORM\\CIPLATFORM.csproj",
   "expectedPackageFiles": [
@@ -54,6 +54,7 @@
     "C:\\Users\\pca158\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\pca158\\.nuget\\packages\\mimekit\\3.5.0\\mimekit.3.5.0.nupkg.sha512",
     "C:\\Users\\pca158\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\pca158\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\pca158\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\pca158\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\pca158\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",

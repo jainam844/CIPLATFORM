@@ -42,7 +42,10 @@ namespace CIPLATFORM.Respository.Repositories
         {
 
             var user = _CiPlatformContext.Users.FirstOrDefault(u => u.Email ==(obj.Email.ToLower()) && u.DeletedAt == null);
-
+            if(user == null)
+            {
+                return null;
+            }
            
 
             #region Genrate Token
@@ -88,6 +91,11 @@ namespace CIPLATFORM.Respository.Repositories
         public PasswordReset newpassword(User obj, string token)
         {
             var validToken = _CiPlatformContext.PasswordResets.FirstOrDefault(x => x.Token == token);
+            if (validToken == null)
+            {
+                return null;
+            }
+
             if (validToken != null)
             {
                 var user = _CiPlatformContext.Users.FirstOrDefault(x => x.Email == validToken.Email);

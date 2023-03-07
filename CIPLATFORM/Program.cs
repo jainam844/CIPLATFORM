@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<CiPlatformContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IPlatformRepository, PlatformRepository>();
 builder.Services.AddDbContext<CiPlatformContext>(options => options.UseSqlServer(
 
     builder.Configuration.GetConnectionString("DefaultConnection")));
