@@ -1,0 +1,125 @@
+﻿@model CIPLATFORM.Entities.ViewModels.CardsViewModel  
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" >
+        @foreach (var item in Model.missions)
+        {
+            <div class="col">
+                <div class="card ">
+                    <img src=~/images/@(item.MissionMedia.FirstOrDefault()?.MediaPath) class="card-img-top" alt="...">
+                    <div class="position-relative">
+                        <div class="position-absolute top-100 start-50 translate-middle round p-2 title" style="background-color: white;">
+                            @item.Theme.Title
+                        </div>
+                    </div>
+                    <div class="card-img-overlay">
+                        <p class="text-end text">
+                            <button class="btn btn-box" style="background-color: rgb(65, 60, 60) ; opacity: 45%;">
+                                <img src="~/images/pin.png" class="mx-2 cancle-img" alt="">
+                                <span style="color: white ; ">@item.City.Name</span>
+                            </button>
+
+
+
+                        </p>
+                        <div class="pt-1 text-end">
+                            <button class="btn btn-box rounded-5" style="background-color: rgb(65, 60, 60) ; opacity: 45%;">
+                                <img src="~/images/heart.png" class=" img-fluid cancle-img" alt="">
+                            </button>
+                        </div>
+
+                        <div class="text-end mt-3">
+
+                            <button class="btn btn-box rounded-5" style="background-color: rgb(65, 60, 60) ; opacity: 45%;">
+                                <img src="~/images/user.png" class=" img-fluid cancle-img" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Title</h5>
+                        <p class="card-text">
+                            @item.ShortDescription
+                        </p>
+                        <div class="container p-2">
+                            <div class="row d-flex">
+                                <div class="col-md-6">
+                                    @item.OrganizationName
+                                </div>
+                                <div class="col-md-6">
+                                    @*   @if (true)
+                                        {
+                                        for (var i = 0; i < (@item.MissionRatings.Rating); i++)
+                                        {
+                                        <i class="bi bi-star-fill checked"></i>
+                                        }
+                                        for (var i = 0; i < 5 - (@item.MissionRatings.Rating); i++)
+                                        {
+                                        <i class="bi bi-star"></i>
+                                        }
+                                        }*@
+                                    @* <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>
+                                        <i class="bi bi-star"></i>*@
+                                   @* @(item.MissionRatings.FirstOrDefault()?.Rating)*@
+                                    @for (int i = 1; i <= @item.MissionRatings.FirstOrDefault()?.Rating; i++)
+                                    {
+                                        <i class="bi bi-star-fill" style="color: #F8D441;"></i>
+                                    }
+                                    @for (int i = 1; i <= 5-@item.MissionRatings.FirstOrDefault()?.Rating; i++)
+                                    {
+                                        <i class="bi bi-star" style="color: #F8D441;"></i>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wrapper d-flex justify-content-center">
+                            <hr class="divider">
+                            <div class=" d-flex justify-content-center b2 ">
+
+                                <div class="d-flex justify-content-center .left .right ">
+                                    @*   @item.StartDate.ToShortDateString() until @item.EndDate.ToShortDateString()*@
+                                    @{
+                                        if (item.StartDate <= DateTime.Now)
+                                        {
+                                            <span>Ongoing Opportunity</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@item.StartDate.ToString().Substring(0,10)  until @item.EndDate.ToString().Substring(0,10) </span>
+                                        }
+                                    }
+
+                                </div>
+
+                            </div>
+                            <hr class="divider">
+                        </div>
+                        <div class="container">
+                            <div class="row mt-2">
+                                <div class="col-6 ">
+
+                                    <i class="bi bi-person-check " style="font-size: 28px;"></i>
+                                    10 <br>
+                                    seats left
+
+                                </div>
+                                <div class="col-6 ">
+                                    <i class="bi bi-clock" style="font-size: 25px;"></i>
+                                    @item.EndDate. @item.EndDate.ToString() <br> Deadline
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="d-flex justify-content-center apply2">
+                            <button type="button" class="btn btn-outline apply">
+                                Apply <i class=" ms-2 bi bi-arrow-right-short"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>

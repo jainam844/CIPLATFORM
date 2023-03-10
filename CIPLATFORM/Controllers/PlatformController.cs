@@ -19,25 +19,47 @@ namespace CIPLATFORM.Controllers
 
 
 
-            List<Country> countries = _PlatformRepository.GetCountryData();
-            ViewBag.countries = countries;
+            //List<Country> countries = _PlatformRepository.GetCountryData();
+            //ViewBag.countries = countries;
 
-            List<MissionTheme> themes = _PlatformRepository.GetMissionThemes();
-            ViewBag.themes = themes;
+            //List<MissionTheme> themes = _PlatformRepository.GetMissionThemes();
+            //ViewBag.themes = themes;
 
-            List<Skill> skills = _PlatformRepository.GetSkills();
-            ViewBag.skills = skills;
-
-
-            List<Mission> missionDeails = _PlatformRepository.GetMissionDetails();
-            ViewBag.MissionDeails = missionDeails;
+            //List<Skill> skills = _PlatformRepository.GetSkills();
+            //ViewBag.skills = skills;
 
 
+            //List<Mission> missionDeails = _PlatformRepository.GetMissionDetails();
+            //ViewBag.MissionDeails = missionDeails;
+            ViewBag.country = _PlatformRepository.GetCountryData();
 
-            return View();
+
+
+            ViewBag.skill = _PlatformRepository.GetSkills();
+
+            ViewBag.theme = _PlatformRepository.GetMissionThemes();
+
+
+            var data = _PlatformRepository.getCards();
+
+
+
+            var totalMission = _PlatformRepository.GetMissionCount();
+            ViewBag.totalMission = totalMission;
+
+            return View(data);
         }
 
-       
+
+        public IActionResult Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort)
+        {
+            List<Mission> cards = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort);
+            ViewBag.MissionDeails = cards;
+
+            return RedirectToAction("HomeGrid",cards);
+        }
+
+
         public JsonResult GetCity(int countryId)
         {
             List<City> city = _PlatformRepository.GetCityData(countryId);

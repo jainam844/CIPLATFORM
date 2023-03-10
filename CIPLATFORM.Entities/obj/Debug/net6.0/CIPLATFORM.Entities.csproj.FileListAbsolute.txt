@@ -3,7 +3,6 @@ C:\CIPLATFORM\CIPLATFORM.Entities\bin\Debug\net6.0\CIPLATFORM.Entities.runtimeco
 C:\CIPLATFORM\CIPLATFORM.Entities\bin\Debug\net6.0\CIPLATFORM.Entities.dll
 C:\CIPLATFORM\CIPLATFORM.Entities\bin\Debug\net6.0\ref\CIPLATFORM.Entities.dll
 C:\CIPLATFORM\CIPLATFORM.Entities\bin\Debug\net6.0\CIPLATFORM.Entities.pdb
-C:\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.csproj.AssemblyReference.cache
 C:\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.GeneratedMSBuildEditorConfig.editorconfig
 C:\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.AssemblyInfoInputs.cache
 C:\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.AssemblyInfo.cs
@@ -12,3 +11,4 @@ C:\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.dll
 C:\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\ref\CIPLATFORM.Entities.dll
 C:\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.pdb
 C:\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.genruntimeconfig.cache
+C:\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.csproj.AssemblyReference.cache

@@ -1,4 +1,5 @@
 ﻿using CIPLATFORM.Entities.Models;
+using CIPLATFORM.Entities.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +17,14 @@ namespace CIPLATFORM.Respository.Interface
         public List<MissionTheme> GetMissionThemes();
 
         public List<Skill> GetSkills();
-      
+
         public List<Mission> GetMissions();
         public List<Mission> GetMissionDetails();
-        public int GetMissionRatings(long missionID);
+       
+        public CardsViewModel getCards();
+        //public List<MissionSkill> GetMissionSkills();
+
+        public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort);
+        public int GetMissionCount();
     }
 }
