@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vZT8cdG+uVizWSspLl7FQDZazuEjWlBIQCeDVA+mou6vkVkJnxNtSAzOI8Xxgs8jFAiX8cO+zZh3tvm664kqoA==",
+  "dgSpecHash": "ikWzYKLOI1dwl43UbTL/jXLczLQCLnBnSHEV0bBmiqfV6MGdJo21qjE2zSR46OPpMS9gU3t+DBSx4PKtWhPk4A==",
   "success": true,
-  "projectFilePath": "C:\\CIPLATFORM\\CIPLATFORM\\CIPLATFORM.csproj",
+  "projectFilePath": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\CIPLATFORM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pca158\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\pca158\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

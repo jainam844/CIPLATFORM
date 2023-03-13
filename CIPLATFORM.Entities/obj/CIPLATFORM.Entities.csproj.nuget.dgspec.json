@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\CIPLATFORM\\CIPLATFORM.Entities\\CIPLATFORM.Entities.csproj": {}
+    "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM.Entities\\CIPLATFORM.Entities.csproj": {}
   },
   "projects": {
-    "C:\\CIPLATFORM\\CIPLATFORM.Entities\\CIPLATFORM.Entities.csproj": {
+    "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM.Entities\\CIPLATFORM.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CIPLATFORM\\CIPLATFORM.Entities\\CIPLATFORM.Entities.csproj",
+        "projectUniqueName": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM.Entities\\CIPLATFORM.Entities.csproj",
         "projectName": "CIPLATFORM.Entities",
-        "projectPath": "C:\\CIPLATFORM\\CIPLATFORM.Entities\\CIPLATFORM.Entities.csproj",
+        "projectPath": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM.Entities\\CIPLATFORM.Entities.csproj",
         "packagesPath": "C:\\Users\\pca158\\.nuget\\packages\\",
-        "outputPath": "C:\\CIPLATFORM\\CIPLATFORM.Entities\\obj\\",
+        "outputPath": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

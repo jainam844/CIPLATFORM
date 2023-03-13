@@ -1,12 +1,11 @@
 ﻿@using CIPLATFORM.Entities.ViewModels
+@model  CardsViewModel
 @*@{
     Layout=null;
     }
 *@
 
 
-@*@model IEnumerable<CIPLATFORM.Entities.Models.Country>*@
-   @model CardsViewModel
 
 @*<!doctype html>
     <html lang="en">*@
@@ -70,7 +69,7 @@
             <form class="d-flex">
                 <img src="~/images/user-img.png" class="profile-nav" alt="">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" style="color:black";
                        data-bs-toggle="dropdown" aria-expanded="false">
                         @ViewBag.Uname
                     </a>
@@ -80,7 +79,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Action1</a></li>
+                        <li><a class="dropdown-item" href="#"></a></li>
                     </ul>
                 </li>
             </form>
@@ -98,7 +97,7 @@
 
                         <img src="~/images/search.png" class="search" />
                         <input class="form-control mx-1" type="text" placeholder="Search Missions..."
-                               aria-label="Search">
+                               aria-label="Search" id="searchb" onkeyup="temp()">
 
                     </div>
 
@@ -107,69 +106,91 @@
 
                             <div class=" col-6 col-sm-3 dropdown ">
 
-
-                                <select id="countryId" onchange="GetCity();temp();" class="form-select select-menu profile-name d-flex justify-content-between h-100 w-100 "
-                                       style="background-color:white; border:1px solid  #c5c5c5;  box-shadow: 0.1rem 0.1rem #c5c5c5;"  aria-label="Default select example">
+                                @*
+                                    <select id="countryId" onchange="GetCity();temp();" class="form-select select-menu profile-name d-flex justify-content-between h-100 w-100 "
+                                    style="background-color:white; border:1px solid  #c5c5c5;  box-shadow: 0.1rem 0.1rem #c5c5c5;" aria-label="Default select example">
                                     <option selected>Country</option>
-                                    @foreach (var obj in @ViewBag.country)
+                                    @foreach (var obj in @ViewBag.countries)
                                     {
-                                        <option value="@obj.CountryId">@obj.Name</option>
+                                    <option value="@obj.CountryId">@obj.Name</option>
+                                    }
+                                    </select>*@
+
+
+                                <select class="form-select  border-white xyz" aria-label="Default select example" placeholder="Country" id="countryId" onchange="temp(); GetCity();">
+                                    <option selected>Country</option>
+                                    @foreach (var item in @ViewBag.countries)
+                                    {
+
+                                        <option value="@item.CountryId"> @item.Name</option>
                                     }
                                 </select>
 
                             </div>
                             <div class=" col-6 col-sm-3 dropdown">
-                                <button class="h-item  d-flex align-items-center justify-content-between w-100 p-0 " type="button"
-                                        data-bs-toggle="dropdown" style="background-color:white; border:1px solid  #c5c5c5;  box-shadow: 0.1rem 0.1rem #c5c5c5;">
-                                    <select   class="form-select select-menu profile-name d-flex justify-content-between h-100 w-100 "
-                                             aria-label="Default select example" id="selectCityList">
+                                @*      <button class="h-item  d-flex align-items-center justify-content-between w-100 p-0 " type="button"
+                                    data-bs-toggle="dropdown" style="background-color:white; border:1px solid  #c5c5c5;  box-shadow: 0.1rem 0.1rem #c5c5c5;">
+                                    <select onchange="temp()" ; class="form-select select-menu profile-name d-flex justify-content-between h-100 w-100 "
+                                    aria-label="Default select example" id="selectCityList">
 
-                                        <option selected>  City</option>
+                                    <option selected>  City</option>
+                                    @foreach (var item in @ViewBag.Cities)
+                                    {
 
+                                    <option value="@item.CityId"> @item.Name</option>
+                                    }
                                     </select>
-                                </button>
+                                    </button>*@
+
+
+
+
+
+
+
+
+                                <select class="form-select border-white xyz " aria-label="Default select example"
+                                        id="selectCityList" onchange="temp()">
+
+
+
+                                    <option selected>City</option>
+                                    @foreach (var item in @ViewBag.Cities)
+
+                                    {
+
+                                        <option value="@item.CityId"> @item.Name</option>
+                                    }
+
+                                </select>
 
                             </div>
                             <div class=" col-6 col-sm-3 pt-3 pt-sm-0 dropdown">
-                                <button class="h-item   d-flex  align-items-center justify-content-between w-100 h-100 p-0  " style="background-color:white;  border:1px solid  #c5c5c5; box-shadow:  0.1rem 0.1rem #c5c5c5;" type="button"
+                                <div class="h-item border-white xyz    d-flex  align-items-center justify-content-between w-100 h-100 p-0  " 
                                         data-bs-toggle="dropdown">
                                     <span class="ms-2"> Themes</span>
                                     <img src="~/images/drop-down.png" class="me-2" alt="Profile-dropdown" />
-                                </button>
-                                <ul class="dropdown-menu  " aria-labelledby="dropdownMenuButton1">
-                                    @foreach (var obj in @ViewBag.theme)
+                                </div>
+                                <ul class="dropdown-menu  " aria-labelledby="dropdownMenuButton1" onchange="temp()" ; id="theme">
+                                    @foreach (var item in @ViewBag.themes)
                                     {
-                                        <li>
-                                            <div class="form-check dropdown-item p-0 w-100 ">
-                                                <input class="form-check-input mx-auto ms-1" type="checkbox" value=""
-                                                   id="theme" />
-                                                <label class="form-check-label ps-4" style="font-size:12px;" for="@obj.MissionThemeId">
-                                                    @obj.Title
-                                                </label>
-                                            </div>
-                                        </li>
+
+                                        <li ><input type="checkbox" value="@item.MissionThemeId" /> @item.Title </li>
                                     }
                                 </ul>
 
                             </div>
                             <div class=" col-6 col-sm-3 pt-3 pt-sm-0 dropdown">
-                                <button class="h-item  d-flex align-items-center justify-content-between w-100 h-100 p-0 " style="background-color:white; border:1px solid  #c5c5c5;  box-shadow: 0.1rem 0.1rem #c5c5c5;" type="button"
+                                <div class="h-item border-white xyz  d-flex align-items-center justify-content-between w-100 h-100 p-0 " 
                                         data-bs-toggle="dropdown">
                                     <span class="profile-name d-flex ms-2">Skills</span>
                                     <img src="~/images/drop-down.png" class="me-2" alt="Profile-dropdown" />
-                                </button>
-                                <ul class="dropdown-menu dropdown-menu-end w-100">
-                                    @foreach (var obj in @ViewBag.skill)
+                                </div>
+                                <ul class="dropdown-menu dropdown-menu-end w-100" id="skill" onchange="temp()">
+                                    @foreach (var item in @ViewBag.skills)
                                     {
-                                        <li>
-                                            <div class="form-check dropdown-item p-0 w-100 ">
-                                                <input class="form-check-input mx-auto ms-1" type="checkbox" value=""
-                                                   id="skill" />
-                                                <label class="form-check-label ms-0 ps-4 ps-sm-4" style="font-size:12px;" for="@obj.SkillId">
-                                                    @obj.SkillName
-                                                </label>
-                                            </div>
-                                        </li>
+
+                                        <li><input type="checkbox" value="@item.SkillId" /> @item.Skill.SkillName </li>
                                     }
                                 </ul>
 
@@ -192,20 +213,12 @@
         <div class="col-md-9 col-sm-12"> <h3> Explore <b>@ViewBag.totalMission missions</b> </h3></div>
         <div class="col-md-3 col-sm-12 d-flex justy">
             <div class="dropdown h-dropdown">
-                <button style="background-color: white; border: none;">
-                    <a class="nav-link dropdown-toggle  " href="#" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        <span style="font-size: 14px;">short by</span>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action1</a></li>
-                        <li><a class="dropdown-item" href="#">Action1</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Action1</a></li>
-                    </ul>
-                </button>
+                <select class="form-select d-inline-flex w-100 mb-3" aria-label="Default select example">
+                    <option selected >Sort By</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    </select>
             </div>
             <div class="">
                 <a asp-controller="Platform" asp-action="HomeGrid">
@@ -219,13 +232,13 @@
             </div>
         </div>
     </div>
-    <div id="grid-view">
 
-        @{
-         Html.RenderPartial("_GridCard");
-         }
 
-    </div>
+    @{
+        Html.RenderPartial("_GridCard");
+    }
+
+
 
 
 

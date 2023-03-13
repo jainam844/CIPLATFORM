@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using CIPLATFORM.Entities.Models;
 using CIPLATFORM.Respository.Interface;
 using CIPLATFORM.Entities.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CIPLATFORM.Controllers
 {
@@ -31,6 +32,8 @@ namespace CIPLATFORM.Controllers
             }
             HttpContext.Session.SetString("Uname", user.FirstName + " " + user.LastName);
             return RedirectToAction("HomeGrid", "Platform");
+
+          
         }
 
         public IActionResult forgot()
@@ -126,9 +129,6 @@ namespace CIPLATFORM.Controllers
             }
             return View();
         }
-
-
-
 
 
 

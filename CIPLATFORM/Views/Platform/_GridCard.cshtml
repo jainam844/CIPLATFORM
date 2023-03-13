@@ -1,5 +1,7 @@
-﻿@model CIPLATFORM.Entities.ViewModels.CardsViewModel  
-
+﻿@using CIPLATFORM.Entities.ViewModels
+@model  CardsViewModel
+  <div id="grid-view">
+      
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" >
         @foreach (var item in Model.missions)
         {
@@ -8,7 +10,7 @@
                     <img src=~/images/@(item.MissionMedia.FirstOrDefault()?.MediaPath) class="card-img-top" alt="...">
                     <div class="position-relative">
                         <div class="position-absolute top-100 start-50 translate-middle round p-2 title" style="background-color: white;">
-                            @item.Theme.Title
+                        @item.Theme.Title
                         </div>
                     </div>
                     <div class="card-img-overlay">
@@ -56,7 +58,7 @@
                                         <i class="bi bi-star"></i>
                                         }
                                         }*@
-                                    @* <i class="bi bi-star"></i>
+                                  @*   <i class="bi bi-star"></i>
                                         <i class="bi bi-star"></i>
                                         <i class="bi bi-star"></i>
                                         <i class="bi bi-star"></i>
@@ -123,3 +125,4 @@
         }
 
     </div>
+        </div>

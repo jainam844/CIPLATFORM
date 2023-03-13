@@ -1,5 +1,7 @@
 ﻿using CIPLATFORM.Entities.Models;
+using CIPLATFORM.Entities.ViewModels;
 using CIPLATFORM.Respository.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -19,48 +21,62 @@ namespace CIPLATFORM.Controllers
 
 
 
-            //List<Country> countries = _PlatformRepository.GetCountryData();
-            //ViewBag.countries = countries;
+            List<Country> countries = _PlatformRepository.GetCountryData();
+            ViewBag.countries = countries;
+            List<City> Cities = _PlatformRepository.GetCitys();
+            ViewBag.Cities = Cities;
+            List<MissionTheme> themes = _PlatformRepository.GetMissionThemes();
+            ViewBag.themes = themes;
 
-            //List<MissionTheme> themes = _PlatformRepository.GetMissionThemes();
-            //ViewBag.themes = themes;
-
-            //List<Skill> skills = _PlatformRepository.GetSkills();
-            //ViewBag.skills = skills;
-
-
-            //List<Mission> missionDeails = _PlatformRepository.GetMissionDetails();
-            //ViewBag.MissionDeails = missionDeails;
-            ViewBag.country = _PlatformRepository.GetCountryData();
+            List<MissionSkill> skills = _PlatformRepository.GetSkills();
+            ViewBag.skills = skills;
 
 
+            List<Mission> missionDeails = _PlatformRepository.GetMissionDetails();
+            ViewBag.MissionDeails = missionDeails;
+            //ViewBag.country = _PlatformRepository.GetCountryData();
 
-            ViewBag.skill = _PlatformRepository.GetSkills();
-
-            ViewBag.theme = _PlatformRepository.GetMissionThemes();
 
 
-            var data = _PlatformRepository.getCards();
+            //ViewBag.skill = _PlatformRepository.GetSkills();
+
+            //ViewBag.theme = _PlatformRepository.GetMissionThemes();
+
+
 
 
 
             var totalMission = _PlatformRepository.GetMissionCount();
             ViewBag.totalMission = totalMission;
 
-            return View(data);
+
+
+            CardsViewModel ms = _PlatformRepository.getCards();
+
+
+            return View(ms);
+
+          
         }
+
+
 
 
         public IActionResult Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort)
         {
             List<Mission> cards = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort);
-            ViewBag.MissionDeails = cards;
+            CardsViewModel platformModel = new CardsViewModel();
+            {
+                platformModel.missions = cards;
+            }
 
-            return RedirectToAction("HomeGrid",cards);
+            return PartialView("_GridCard", platformModel);
+
+
         }
 
 
-        public JsonResult GetCity(int countryId)
+        public JsonResult GetCitys(int countryId)
         {
             List<City> city = _PlatformRepository.GetCityData(countryId);
             var json = JsonConvert.SerializeObject(city);

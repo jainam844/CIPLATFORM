@@ -14,13 +14,8 @@ namespace CIPLATFORM.Entities.ViewModels
         public List<Country> countries { get; set; }
         public List<MissionMedium> media { get; set; }
         public List<MissionRating> rating { get; set; }
+        public List<MissionTheme> missionthemes { get; set; }
+        public List<MissionSkill> missionskill { get; set; }
 
-        public CardsViewModel(List<Mission> missions, List<City> cities, List<Country> countries, List<MissionMedium> medias)
-        {
-            this.countries = countries;
-            this.missions = missions;
-            this.media = medias;
-            this.cities = cities;
-        }
     }
 }

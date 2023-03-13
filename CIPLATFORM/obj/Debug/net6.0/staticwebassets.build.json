@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0y2s3qmFImk7F7y4Vdq2GkUBmwVFtEhABYW8PcSTZ2I=",
+  "Hash": "qy8CLWdjdFkrRQb8iCRPngeO0L7ZtTUJnsgtQfxU8Ac=",
   "Source": "CIPLATFORM",
   "BasePath": "_content/CIPLATFORM",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CIPLATFORM\\wwwroot",
       "Source": "CIPLATFORM",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CIPLATFORM.styles.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CIPLATFORM.styles.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "CIPLATFORM.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\CIPLATFORM\\CIPLATFORM\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CIPLATFORM.styles.css"
+      "OriginalItemSpec": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CIPLATFORM.styles.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CIPLATFORM.bundle.scp.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CIPLATFORM.bundle.scp.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "CIPLATFORM.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\CIPLATFORM\\CIPLATFORM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CIPLATFORM.bundle.scp.css"
+      "OriginalItemSpec": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CIPLATFORM.bundle.scp.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\Home.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\Home.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "css/Home.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Home.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\HomeList.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\HomeList.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "css/HomeList.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\HomeList.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\site.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\site.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\style.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\style.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "css/style.css",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\favicon.ico",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\favicon.ico",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\404-Page-image.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\404-Page-image.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/404-Page-image.png",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\images\\404-Page-image.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\achieved.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\achieved.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/achieved.png",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\images\\achieved.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\add.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\add.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/add.png",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\images\\add.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\add1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\add1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/add1.png",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\images\\add1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Already-volunteered.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Already-volunteered.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Already-volunteered.png",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Already-volunteered.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Animal-welfare-_-save-birds-campaign.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Animal-welfare-_-save-birds-campaign.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Animal-welfare-_-save-birds-campaign.png",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Animal-welfare-_-save-birds-campaign.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Animal-welfare-_-save-birds-campaign-1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Animal-welfare-_-save-birds-campaign-1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Animal-welfare-_-save-birds-campaign-1.png",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Animal-welfare-_-save-birds-campaign-1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\arrow.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\arrow.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/arrow.png",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\images\\arrow.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Assets.zip",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Assets.zip",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Assets.zip",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Assets.zip"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\bell.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\bell.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/bell.png",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\images\\bell.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\bell-big.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\bell-big.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/bell-big.png",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\images\\bell-big.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\bin.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\bin.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/bin.png",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\images\\bin.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\calender.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\calender.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/calender.png",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\images\\calender.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\cancel.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\cancel.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/cancel.png",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\images\\cancel.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\cancel1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\cancel1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/cancel1.png",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\images\\cancel1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\checked.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\checked.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/checked.png",
       "AssetKind": "All",
@@ -408,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\images\\checked.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\cross.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\cross.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/cross.png",
       "AssetKind": "All",
@@ -425,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\images\\cross.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
       "AssetKind": "All",
@@ -442,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
       "AssetKind": "All",
@@ -459,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png",
       "AssetKind": "All",
@@ -476,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
       "AssetKind": "All",
@@ -493,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
       "AssetKind": "All",
@@ -510,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
       "AssetKind": "All",
@@ -527,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png",
       "AssetKind": "All",
@@ -544,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\images\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\deadline.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\deadline.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/deadline.png",
       "AssetKind": "All",
@@ -561,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\images\\deadline.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\doc.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\doc.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/doc.png",
       "AssetKind": "All",
@@ -578,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\images\\doc.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\down.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\down.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/down.png",
       "AssetKind": "All",
@@ -595,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\images\\down.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\drag-and-drop.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\drag-and-drop.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/drag-and-drop.png",
       "AssetKind": "All",
@@ -612,10 +612,10 @@
       "OriginalItemSpec": "wwwroot\\images\\drag-and-drop.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\drop-down.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\drop-down.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/drop-down.png",
       "AssetKind": "All",
@@ -629,10 +629,10 @@
       "OriginalItemSpec": "wwwroot\\images\\drop-down.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",
       "AssetKind": "All",
@@ -646,10 +646,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png",
       "AssetKind": "All",
@@ -680,10 +680,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\eye.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\eye.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/eye.png",
       "AssetKind": "All",
@@ -697,10 +697,10 @@
       "OriginalItemSpec": "wwwroot\\images\\eye.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\facebook.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\facebook.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/facebook.png",
       "AssetKind": "All",
@@ -714,10 +714,10 @@
       "OriginalItemSpec": "wwwroot\\images\\facebook.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\filter.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\filter.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/filter.png",
       "AssetKind": "All",
@@ -731,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\images\\filter.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\gift.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\gift.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/gift.png",
       "AssetKind": "All",
@@ -748,10 +748,10 @@
       "OriginalItemSpec": "wwwroot\\images\\gift.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\graph.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\graph.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/graph.png",
       "AssetKind": "All",
@@ -765,10 +765,10 @@
       "OriginalItemSpec": "wwwroot\\images\\graph.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\grid.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\grid.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/grid.png",
       "AssetKind": "All",
@@ -782,10 +782,10 @@
       "OriginalItemSpec": "wwwroot\\images\\grid.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Grow-Trees-On-the-path-to-environment-sustainability.png",
       "AssetKind": "All",
@@ -799,10 +799,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Grow-Trees-On-the-path-to-environment-sustainability-1.png",
       "AssetKind": "All",
@@ -816,10 +816,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-2.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-2.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Grow-Trees-On-the-path-to-environment-sustainability-2.png",
       "AssetKind": "All",
@@ -833,10 +833,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-2.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-3.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-3.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Grow-Trees-On-the-path-to-environment-sustainability-3.png",
       "AssetKind": "All",
@@ -850,10 +850,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-3.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-4.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-4.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Grow-Trees-On-the-path-to-environment-sustainability-4.png",
       "AssetKind": "All",
@@ -867,10 +867,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-4.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-5.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-5.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Grow-Trees-On-the-path-to-environment-sustainability-5.png",
       "AssetKind": "All",
@@ -884,10 +884,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-5.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-login.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-login.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Grow-Trees-On-the-path-to-environment-sustainability-login.png",
       "AssetKind": "All",
@@ -901,10 +901,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Grow-Trees-On-the-path-to-environment-sustainability-login.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\heart.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\heart.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/heart.png",
       "AssetKind": "All",
@@ -918,10 +918,10 @@
       "OriginalItemSpec": "wwwroot\\images\\heart.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\heart1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\heart1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/heart1.png",
       "AssetKind": "All",
@@ -935,10 +935,10 @@
       "OriginalItemSpec": "wwwroot\\images\\heart1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\hours.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\hours.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/hours.png",
       "AssetKind": "All",
@@ -952,10 +952,10 @@
       "OriginalItemSpec": "wwwroot\\images\\hours.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\image.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\image.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/image.png",
       "AssetKind": "All",
@@ -969,10 +969,10 @@
       "OriginalItemSpec": "wwwroot\\images\\image.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\image1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\image1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/image1.png",
       "AssetKind": "All",
@@ -986,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\images\\image1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\image2.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\image2.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/image2.png",
       "AssetKind": "All",
@@ -1003,10 +1003,10 @@
       "OriginalItemSpec": "wwwroot\\images\\image2.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\img.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\img.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/img.png",
       "AssetKind": "All",
@@ -1020,10 +1020,10 @@
       "OriginalItemSpec": "wwwroot\\images\\img.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\img1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\img1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/img1.png",
       "AssetKind": "All",
@@ -1037,10 +1037,10 @@
       "OriginalItemSpec": "wwwroot\\images\\img1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\img11.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\img11.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/img11.png",
       "AssetKind": "All",
@@ -1054,10 +1054,10 @@
       "OriginalItemSpec": "wwwroot\\images\\img11.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\img2.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\img2.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/img2.png",
       "AssetKind": "All",
@@ -1071,10 +1071,10 @@
       "OriginalItemSpec": "wwwroot\\images\\img2.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\img22.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\img22.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/img22.png",
       "AssetKind": "All",
@@ -1088,10 +1088,10 @@
       "OriginalItemSpec": "wwwroot\\images\\img22.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\img3.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\img3.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/img3.png",
       "AssetKind": "All",
@@ -1105,10 +1105,10 @@
       "OriginalItemSpec": "wwwroot\\images\\img3.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\img33.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\img33.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/img33.png",
       "AssetKind": "All",
@@ -1122,10 +1122,10 @@
       "OriginalItemSpec": "wwwroot\\images\\img33.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\info.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\info.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/info.png",
       "AssetKind": "All",
@@ -1139,10 +1139,10 @@
       "OriginalItemSpec": "wwwroot\\images\\info.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\left.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\left.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/left.png",
       "AssetKind": "All",
@@ -1156,10 +1156,10 @@
       "OriginalItemSpec": "wwwroot\\images\\left.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\left1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\left1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/left1.png",
       "AssetKind": "All",
@@ -1173,10 +1173,10 @@
       "OriginalItemSpec": "wwwroot\\images\\left1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\linkedin.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\linkedin.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/linkedin.png",
       "AssetKind": "All",
@@ -1190,10 +1190,10 @@
       "OriginalItemSpec": "wwwroot\\images\\linkedin.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\list.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\list.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/list.png",
       "AssetKind": "All",
@@ -1207,10 +1207,10 @@
       "OriginalItemSpec": "wwwroot\\images\\list.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\logo.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\logo.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/logo.png",
       "AssetKind": "All",
@@ -1224,10 +1224,10 @@
       "OriginalItemSpec": "wwwroot\\images\\logo.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\mission.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\mission.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/mission.png",
       "AssetKind": "All",
@@ -1241,10 +1241,10 @@
       "OriginalItemSpec": "wwwroot\\images\\mission.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\my-story.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\my-story.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/my-story.png",
       "AssetKind": "All",
@@ -1258,10 +1258,10 @@
       "OriginalItemSpec": "wwwroot\\images\\my-story.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\new-message.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\new-message.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/new-message.png",
       "AssetKind": "All",
@@ -1275,10 +1275,10 @@
       "OriginalItemSpec": "wwwroot\\images\\new-message.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\next.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\next.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/next.png",
       "AssetKind": "All",
@@ -1292,10 +1292,10 @@
       "OriginalItemSpec": "wwwroot\\images\\next.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Nourish-the-Children-in--African-country.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Nourish-the-Children-in--African-country.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Nourish-the-Children-in--African-country.png",
       "AssetKind": "All",
@@ -1309,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Nourish-the-Children-in--African-country.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Nourish-the-Children-in--African-country-1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Nourish-the-Children-in--African-country-1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Nourish-the-Children-in--African-country-1.png",
       "AssetKind": "All",
@@ -1326,10 +1326,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Nourish-the-Children-in--African-country-1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Open-Volunteering-Requests.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Open-Volunteering-Requests.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Open-Volunteering-Requests.png",
       "AssetKind": "All",
@@ -1343,10 +1343,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Open-Volunteering-Requests.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\organization.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\organization.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/organization.png",
       "AssetKind": "All",
@@ -1360,10 +1360,10 @@
       "OriginalItemSpec": "wwwroot\\images\\organization.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\pdf.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\pdf.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/pdf.png",
       "AssetKind": "All",
@@ -1377,10 +1377,10 @@
       "OriginalItemSpec": "wwwroot\\images\\pdf.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\pin.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\pin.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/pin.png",
       "AssetKind": "All",
@@ -1394,10 +1394,10 @@
       "OriginalItemSpec": "wwwroot\\images\\pin.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\pin1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\pin1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/pin1.png",
       "AssetKind": "All",
@@ -1411,10 +1411,10 @@
       "OriginalItemSpec": "wwwroot\\images\\pin1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Plantation-and-Afforestation-programme.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Plantation-and-Afforestation-programme.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Plantation-and-Afforestation-programme.png",
       "AssetKind": "All",
@@ -1428,10 +1428,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Plantation-and-Afforestation-programme.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Plantation-and-Afforestation-programme-1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Plantation-and-Afforestation-programme-1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Plantation-and-Afforestation-programme-1.png",
       "AssetKind": "All",
@@ -1445,10 +1445,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Plantation-and-Afforestation-programme-1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\previous.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\previous.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/previous.png",
       "AssetKind": "All",
@@ -1462,10 +1462,10 @@
       "OriginalItemSpec": "wwwroot\\images\\previous.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\right.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\right.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/right.png",
       "AssetKind": "All",
@@ -1479,10 +1479,10 @@
       "OriginalItemSpec": "wwwroot\\images\\right.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\right-arrow.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\right-arrow.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/right-arrow.png",
       "AssetKind": "All",
@@ -1496,10 +1496,10 @@
       "OriginalItemSpec": "wwwroot\\images\\right-arrow.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\right-arrow1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\right-arrow1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/right-arrow1.png",
       "AssetKind": "All",
@@ -1513,10 +1513,10 @@
       "OriginalItemSpec": "wwwroot\\images\\right-arrow1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\right-arrow2.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\right-arrow2.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/right-arrow2.png",
       "AssetKind": "All",
@@ -1530,10 +1530,10 @@
       "OriginalItemSpec": "wwwroot\\images\\right-arrow2.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\right-white.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\right-white.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/right-white.png",
       "AssetKind": "All",
@@ -1547,10 +1547,10 @@
       "OriginalItemSpec": "wwwroot\\images\\right-white.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\search.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\search.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/search.png",
       "AssetKind": "All",
@@ -1564,10 +1564,10 @@
       "OriginalItemSpec": "wwwroot\\images\\search.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Seats-left.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Seats-left.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Seats-left.png",
       "AssetKind": "All",
@@ -1581,10 +1581,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Seats-left.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\selected-star.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\selected-star.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/selected-star.png",
       "AssetKind": "All",
@@ -1598,10 +1598,10 @@
       "OriginalItemSpec": "wwwroot\\images\\selected-star.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\settings.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\settings.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/settings.png",
       "AssetKind": "All",
@@ -1615,10 +1615,10 @@
       "OriginalItemSpec": "wwwroot\\images\\settings.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\star.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\star.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/star.png",
       "AssetKind": "All",
@@ -1632,10 +1632,10 @@
       "OriginalItemSpec": "wwwroot\\images\\star.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\star-empty.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\star-empty.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/star-empty.png",
       "AssetKind": "All",
@@ -1649,10 +1649,10 @@
       "OriginalItemSpec": "wwwroot\\images\\star-empty.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Thumbs.db",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Thumbs.db",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Thumbs.db",
       "AssetKind": "All",
@@ -1666,10 +1666,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Thumbs.db"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\twitter.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\twitter.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/twitter.png",
       "AssetKind": "All",
@@ -1683,10 +1683,10 @@
       "OriginalItemSpec": "wwwroot\\images\\twitter.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\up.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\up.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/up.png",
       "AssetKind": "All",
@@ -1700,10 +1700,10 @@
       "OriginalItemSpec": "wwwroot\\images\\up.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\user.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\user.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/user.png",
       "AssetKind": "All",
@@ -1717,10 +1717,10 @@
       "OriginalItemSpec": "wwwroot\\images\\user.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\user1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\user1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/user1.png",
       "AssetKind": "All",
@@ -1734,10 +1734,10 @@
       "OriginalItemSpec": "wwwroot\\images\\user1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\user-img.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\user-img.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/user-img.png",
       "AssetKind": "All",
@@ -1751,10 +1751,10 @@
       "OriginalItemSpec": "wwwroot\\images\\user-img.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\user-img-large.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\user-img-large.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/user-img-large.png",
       "AssetKind": "All",
@@ -1768,10 +1768,10 @@
       "OriginalItemSpec": "wwwroot\\images\\user-img-large.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/volunteer1.png",
       "AssetKind": "All",
@@ -1785,10 +1785,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer1.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer2.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer2.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/volunteer2.png",
       "AssetKind": "All",
@@ -1802,10 +1802,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer2.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer3.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer3.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/volunteer3.png",
       "AssetKind": "All",
@@ -1819,10 +1819,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer3.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer4.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer4.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/volunteer4.png",
       "AssetKind": "All",
@@ -1836,10 +1836,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer4.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer5.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer5.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/volunteer5.png",
       "AssetKind": "All",
@@ -1853,10 +1853,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer5.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer6.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer6.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/volunteer6.png",
       "AssetKind": "All",
@@ -1870,10 +1870,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer6.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer7.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer7.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/volunteer7.png",
       "AssetKind": "All",
@@ -1887,10 +1887,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer7.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer8.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer8.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/volunteer8.png",
       "AssetKind": "All",
@@ -1904,10 +1904,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer8.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer9.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\volunteer9.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/volunteer9.png",
       "AssetKind": "All",
@@ -1921,10 +1921,10 @@
       "OriginalItemSpec": "wwwroot\\images\\volunteer9.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Volunteering-Rank.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Volunteering-Rank.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Volunteering-Rank.png",
       "AssetKind": "All",
@@ -1938,10 +1938,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Volunteering-Rank.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Voted-Missions.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\Voted-Missions.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/Voted-Missions.png",
       "AssetKind": "All",
@@ -1955,10 +1955,10 @@
       "OriginalItemSpec": "wwwroot\\images\\Voted-Missions.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\web.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\web.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/web.png",
       "AssetKind": "All",
@@ -1972,10 +1972,10 @@
       "OriginalItemSpec": "wwwroot\\images\\web.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\xlsx.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\xlsx.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "images/xlsx.png",
       "AssetKind": "All",
@@ -1989,10 +1989,10 @@
       "OriginalItemSpec": "wwwroot\\images\\xlsx.png"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\js\\site.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\js\\site.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -2006,10 +2006,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -2023,10 +2023,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -2040,10 +2040,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -2057,10 +2057,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -2074,10 +2074,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -2091,10 +2091,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -2108,10 +2108,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -2125,10 +2125,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -2142,10 +2142,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -2159,10 +2159,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -2176,10 +2176,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -2193,10 +2193,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -2210,10 +2210,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -2227,10 +2227,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -2244,10 +2244,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -2261,10 +2261,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -2278,10 +2278,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -2295,10 +2295,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -2312,10 +2312,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -2329,10 +2329,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -2346,10 +2346,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -2363,10 +2363,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -2380,10 +2380,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -2397,10 +2397,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -2414,10 +2414,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -2431,10 +2431,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -2448,10 +2448,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -2465,10 +2465,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -2482,10 +2482,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -2499,10 +2499,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -2516,10 +2516,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -2533,10 +2533,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -2550,10 +2550,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -2567,10 +2567,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -2584,10 +2584,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -2601,10 +2601,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -2618,10 +2618,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -2635,10 +2635,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -2652,10 +2652,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -2669,10 +2669,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -2686,10 +2686,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -2703,10 +2703,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -2720,10 +2720,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -2737,10 +2737,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -2754,10 +2754,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -2771,10 +2771,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -2788,10 +2788,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -2805,10 +2805,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -2822,10 +2822,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -2839,10 +2839,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -2856,10 +2856,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -2873,10 +2873,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -2890,10 +2890,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -2907,10 +2907,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -2924,10 +2924,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -2941,10 +2941,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -2958,10 +2958,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",

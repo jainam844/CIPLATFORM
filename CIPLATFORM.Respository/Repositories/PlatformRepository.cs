@@ -31,6 +31,11 @@ namespace CIPLATFORM.Respository.Repositories
             List<City> city = _CiPlatformContext.Cities.Where(i => i.CountryId == countryId).ToList();
             return city;
         }
+        public List<City> GetCitys()
+        {
+            List<City> cities = _CiPlatformContext.Cities.ToList();
+            return cities;
+        }
 
         public List<MissionTheme> GetMissionThemes()
         {
@@ -39,39 +44,76 @@ namespace CIPLATFORM.Respository.Repositories
 
         }
 
-        public List<Skill> GetSkills()
-        {
-            List<Skill> skills = _CiPlatformContext.Skills.ToList();
-            return skills;
+        //public List<Skill> GetSkills()
+        //{
+        //    List<Skill> skills = _CiPlatformContext.Skills.ToList();
+        //    return skills;
 
-        }
+        //}
         //public List<MissionSkill> GetMissionSkills()
         //{
         //    List<MissionSkill> skills = _CiPlatformContext.MissionSkills.ToList();
         //    return skills;
 
         //}
-        public List<MissionSkill> GetMissionSkills()
+        //public List<MissionSkill> GetMissionSkills()
+        //{
+
+        //    var skills = _CiPlatformContext.MissionSkills.Include(m => m.Skill).ToList();
+        //    return skills;
+
+        //}
+
+        public List<MissionSkill> GetSkills()
         {
 
             var skills = _CiPlatformContext.MissionSkills.Include(m => m.Skill).ToList();
             return skills;
 
         }
+        //public List<Mission> GetMissions()
+        //{
 
+        //    var missions = _CiPlatformContext.Missions.ToList();
+        //    return missions;
 
-        public List<Mission> GetMissions()
-        {
-
-            var missions = _CiPlatformContext.Missions.ToList();
-            return missions;
-
-        }
+        //}
         public List<Mission> GetMissionDetails()
         {
             List<Mission> missionDetails = _CiPlatformContext.Missions.Include(m => m.City).Include(m => m.Theme).Include(m => m.MissionMedia).ToList();
             return missionDetails;
         }
+
+
+        public CardsViewModel getCards()
+        {
+            List<Mission> missions = _CiPlatformContext.Missions.ToList();
+            List<MissionMedium> media = _CiPlatformContext.MissionMedia.Where(x => x.Default == 1).ToList();
+            List<MissionSkill> missionSkills = _CiPlatformContext.MissionSkills.ToList();
+            List<MissionTheme> missionThemes = _CiPlatformContext.MissionThemes.ToList();
+            List<MissionRating> rating = _CiPlatformContext.MissionRatings.ToList();
+            List<City> cities = _CiPlatformContext.Cities.ToList();
+            List<Country> countries = _CiPlatformContext.Countries.ToList();
+
+
+
+
+            CardsViewModel missionCards = new CardsViewModel();
+            {
+
+                missionCards.missions = missions;
+                missionCards.missionthemes = missionThemes;
+                missionCards.missionskill = missionSkills;
+                missionCards.media = media;
+                missionCards.rating = rating;
+                missionCards.countries = countries;
+                missionCards.cities = cities;
+            }
+            return missionCards;
+
+        }
+
+
         //public int GetMissionRatings(long missionID)
         // {
         //     MissionRating rating= _CiPlatformContext.MissionRatings.FirstOrDefault(a=>a.MissionId==missionID);
@@ -81,19 +123,19 @@ namespace CIPLATFORM.Respository.Repositories
 
 
 
-        public CardsViewModel getCards()
-        {
-            var cities = _CiPlatformContext.Cities.ToList();
-            var countries = _CiPlatformContext.Countries.ToList();
-            var missions = _CiPlatformContext.Missions.ToList();
-            var media = _CiPlatformContext.MissionMedia.ToList();
-            var rating = _CiPlatformContext.MissionRatings.ToList();
+        //public CardsViewModel getCards()
+        //{
+        //    var cities = _CiPlatformContext.Cities.ToList();
+        //    var countries = _CiPlatformContext.Countries.ToList();
+        //    var missions = _CiPlatformContext.Missions.ToList();
+        //    var media = _CiPlatformContext.MissionMedia.ToList();
+        //    var rating = _CiPlatformContext.MissionRatings.ToList();
 
 
-            var data = new CardsViewModel(missions, cities, countries, media);
+        //    var data = new CardsViewModel(missions, cities, countries, media);
 
-            return data;
-        }
+        //    return data;
+        //}
         public int GetMissionCount()
         {
 
@@ -119,19 +161,9 @@ namespace CIPLATFORM.Respository.Repositories
 
 
             if (cityId.Count != 0 || countryId.Count != 0 || themeId.Count != 0 || skillId.Count != 0)
-            {
-                foreach (var n in cityId)
-                {
-                    foreach (var item in missioncards)
-                    {
-                        bool citychek = cards.Any(x => x.MissionId == item.MissionId);
-                        if (item.CityId == n && citychek == false)
-                        {
-                            cards.Add(item);
-                        }
 
-                    }
-                }
+
+            {
 
                 foreach (var n in countryId)
                 {
@@ -146,6 +178,24 @@ namespace CIPLATFORM.Respository.Repositories
 
                 }
 
+                if (cityId.Count != 0 && countryId.Count != 0)
+                {
+                    cards.Clear();
+                    foreach (var n in cityId)
+                    {
+                        foreach (var item in missioncards)
+                        {
+                            bool citychek = cards.Any(x => x.MissionId == item.MissionId);
+                            if (item.CityId == n && citychek == false)
+                            {
+                                cards.Add(item);
+                            }
+
+                        }
+                    }
+                }
+
+
 
                 foreach (var n in themeId)
                 {
@@ -159,47 +209,47 @@ namespace CIPLATFORM.Respository.Repositories
                     }
                 }
 
-                //foreach (var n in skillId)
-                //{
-                //    foreach (var item in Missionskills)
-                //    {
-                //        bool skillchek = cards.Any(x => x.MissionId == item.MissionId);
-                //        if (item.SkillId == n && skillchek == false)
-                //        {
+                foreach (var n in skillId)
+                {
+                    foreach (var item in Missionskills)
+                    {
+                        bool skillchek = cards.Any(x => x.MissionId == item.MissionId);
+                        if (item.SkillId == n && skillchek == false)
+                        {
 
-                //            cards.Add(missioncards.FirstOrDefault(x => x.MissionId == item.MissionId));
-                //        }
-                //    }
-                //    foreach (var item in Missionskills)
-                //    {
-                //        if (item.SkillId == n)
-                //        {
-                //            temp.Add((int)item.MissionId);
-                //        }
-                //        foreach (var item2 in temp)
-                //        {
-                //            bool skillchek = missionDetails.Any(x => x.MissionId == item2);
-                //            if (skillchek == false)
-                //            {
-                //                cards.Add(missioncards.FirstOrDefault(x => x.MissionId == item2));
-                //            }
-                //        }
+                            cards.Add(missioncards.FirstOrDefault(x => x.MissionId == item.MissionId));
+                        }
+                    }
+                    //    foreach (var item in Missionskills)
+                    //    {
+                    //        if (item.SkillId == n)
+                    //        {
+                    //            temp.Add((int)item.MissionId);
+                    //        }
+                    //        foreach (var item2 in temp)
+                    //        {
+                    //            bool skillchek = missionDetails.Any(x => x.MissionId == item2);
+                    //            if (skillchek == false)
+                    //            {
+                    //                cards.Add(missioncards.FirstOrDefault(x => x.MissionId == item2));
+                    //            }
+                    //        }
 
-                //    }
-                //}
+                    //    }
+                    //}
 
-
-                return cards;
+                    }
+                    return cards;
 
 
             }
-
+            
             else if (cityId.Count == 0 && countryId.Count == 0 && themeId.Count == 0 && skillId.Count == 0 && search == null)
             {
-                foreach (var item in missioncards)
-                {
-                    cards.Add(item);
-                }
+                //foreach (var item in missioncards)
+                //{
+                //    cards.Add(item);
+                //}
                 return cards;
             }
 
@@ -215,7 +265,7 @@ namespace CIPLATFORM.Respository.Repositories
                 }
 
             }
-
+        
             if (sort != null)
             {
                 if (sort == 1)
@@ -232,6 +282,7 @@ namespace CIPLATFORM.Respository.Repositories
             return cards;
 
         }
+
 
     }
 }
