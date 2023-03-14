@@ -1,0 +1,337 @@
+﻿<style >
+input[type=range] {
+    -webkit-appearance: none;
+    width: 150px;
+    height: 10px;
+    background-color: #F88634;
+    border-radius: 5px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+
+
+
+
+@media only screen and (min-width:417px) and (max-width:425px) {
+
+
+    .work-btn {
+        height: 40px;
+    }
+}
+
+
+
+@media only screen and (min-width:300px)and (max-width:350px) {
+    input[type=range].i1 {
+        width: 120px;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.profile-nav {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.nav-item {
+    list-style-type: None;
+}
+
+.profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.anchor a:link {
+    color: rgb(14, 17, 14);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.anchor a:visited {
+    color: rgb(22, 18, 18);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.anchor a:hover {
+    color: rgb(66, 6, 230);
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.anchor a:active {
+    color: rgb(175, 49, 49);
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.navbar-search-sm {
+    display: inline-block;
+    margin-top: 8px;
+}
+
+    .navbar-search-sm .form-group {
+        width: 300px;
+        margin-bottom: 0;
+    }
+
+.navbar-links-sm {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.justy {
+    justify-content: space-between;
+}
+
+@media (max-width:400px) {
+    .font {
+        font-size: 12px;
+    }
+}
+
+.wrapper {
+    display: flex;
+}
+
+.divider {
+    flex-grow: 1;
+    border-color: rgb(57, 57, 196);
+}
+
+.left,
+.right {
+    border: 2px solid red;
+    height: 50px;
+    width: 50px;
+    background: yellow;
+}
+
+.b2 {
+    border: 2px solid rgb(219, 210, 210);
+    border-radius: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 5px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container-fluid {
+    position: relative;
+}
+
+
+.mySlides {
+    display: none;
+    padding-bottom: 5px;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 102%;
+    width: auto;
+    /* padding: 16px; */
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+.prev {
+    z-index: 1;
+    padding-left: 5px;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+
+    .active,
+    .demo:hover {
+        opacity: 1;
+    }
+
+.box {
+    width: 130px;
+}
+
+/* body {
+  
+  overflow-x: hidden; 
+} */
+.str {
+    width: 30px;
+}
+
+.apply {
+    width: 150px;
+    border-radius: 20px;
+    color: #F88634;
+    border: 2px solid #F88634;
+}
+
+.apply2 :hover {
+    background-color: #ffaf75;
+    ;
+}
+
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    border-color: transparent;
+    color: #505050;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    border-bottom: 3px solid #000000;
+    color: #000000;
+    font-weight: 500;
+}
+
+.nav-link {
+    color: #ADADAD;
+    font-size: 15px;
+    line-height: 18px;
+    padding: 14px 18px;
+}
+
+
+.nav-tabs .nav-link1:focus,
+.nav-tabs .nav-link1:hover,
+.nav-tabs .nav-item.show .nav-link1,
+.nav-tabs .nav-link1.active {
+    border-color: transparent;
+    color: #505050;
+}
+
+.nav-tabs .nav-item.show .nav-link1,
+.nav-tabs .nav-link1.active {
+    border-bottom: 3px solid #6b6a6a;
+    color: #0f0f0f;
+    font-weight: 500;
+    background-color: white;
+}
+
+.nav-link1 {
+    color: #b61a1a;
+    font-size: 15px;
+    line-height: 18px;
+    padding: 14px 18px;
+}
+
+
+
+.nav-tabs {
+    border-bottom: 1px solid #ADADAD;
+}
+
+.tab-content {
+    margin-top: 25px;
+}
+
+.tab-pane {
+    font-size: 15px;
+    line-height: 24px;
+    color: #3E3E3E;
+}
+
+.img50 {
+    border-radius: 50%;
+}
+
+.scr {
+    background-color: gainsboro;
+    /* width: 110px; */
+    height: 400px;
+    overflow: auto;
+}
+
+</style >

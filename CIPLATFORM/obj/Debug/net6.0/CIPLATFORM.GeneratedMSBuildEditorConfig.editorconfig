@@ -27,6 +27,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1cSG9tZUdyaWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Platform/Volunteer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1cVm9sdW50ZWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Platform/_GridCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1cX0dyaWRDYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

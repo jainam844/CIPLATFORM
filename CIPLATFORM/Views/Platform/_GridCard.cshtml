@@ -5,18 +5,12 @@
     <div class="row">
         <div class="col-md-9 col-sm-12"> <h3> Explore <b>@ViewBag.totalMission missions</b> </h3></div>
         <div class="col-md-3 col-sm-12 d-flex justy">
-            <button class="h-item border-0 d-flex  bg-light align-items-center justify-content-between " type="button"
-                    data-bs-toggle="dropdown">
-                <span class="profile-name d-flex">Sort By</span>
-                <img src="~/images/drop-down.png" alt="Profile-dropdown" />
-            </button>
-            <select >
-                <option><a class="dropdown-item" >Newest</a></option>
-                <option><a class="dropdown-item" >Oldest</a></option>
-              <option><a class="dropdown-item" >Lowest Available Seats</a></option>
-                <option><a class="dropdown-item" >Highest Available Seats</a></option>
-                <option><a class="dropdown-item" >My Favourite</a></option>
-                 <option><a class="dropdown-item" >Registration Deadline</a></option>
+
+            <select class="form-select w-50 mb-3" aria-label="Default select example" onchange="temp()" id="sort">
+
+                <option><a class="dropdown-item">Sort By</a></option>
+                <option value="1"><a class="dropdown-item">New to Old</a></option>
+                <option value="2"><a class="dropdown-item">Old to New</a></option>
             </select>
             <div class="">
 

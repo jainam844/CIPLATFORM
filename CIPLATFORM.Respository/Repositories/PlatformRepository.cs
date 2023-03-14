@@ -178,7 +178,7 @@ namespace CIPLATFORM.Respository.Repositories
 
                 }
 
-                if (cityId.Count != 0 )
+                if (cityId.Count != 0)
                 {
                     cards.Clear();
                     foreach (var n in cityId)
@@ -238,13 +238,13 @@ namespace CIPLATFORM.Respository.Repositories
                     //    }
                     //}
 
-                    }
-                if (search != null )
+                }
+                if (search != null)
                 {
-                   
+
                     foreach (var n in missioncards)
                     {
-              
+
                         var title = n.Title.ToLower();
                         if (title.Contains(search.ToLower()))
                         {
@@ -253,16 +253,56 @@ namespace CIPLATFORM.Respository.Repositories
                     }
 
                 }
+
+                if (sort != null)
+                {
+
+
+                    if (sort == 1)
+                    {
+                        //if (cards.Count != 0)
+                        //{
+                        cards = cards.OrderByDescending(x => x.CreatedAt).ToList();
+                        //}
+
+                        //else
+                        //{
+                        //    missioncards = missioncards.OrderByDescending(x => x.CreatedAt).ToList();
+                        //    return missioncards;
+                        //}
+                    }
+                    if (sort == 2)
+                    {
+                        //if (cards.Count != 0)
+                        //{
+                        cards = cards.OrderBy(x => x.CreatedAt).ToList();
+                        //}
+
+                        //else
+                        //{
+                        //    missioncards = missioncards.OrderBy(x => x.CreatedAt).ToList();
+                        //    return missioncards;
+                        //}
+                    }
+
+
+
+
+                }
+
+
+
+
                 return cards;
             }
-            
+
             else if (cityId.Count == 0 && countryId.Count == 0 && themeId.Count == 0 && skillId.Count == 0 && search == null)
             {
-                //foreach (var item in missioncards)
-                //{
-                //    cards.Add(item);
-                //}
-                return cards;
+                foreach (var item in missioncards)
+                {
+                    cards.Add(item);
+                }
+                //return cards;
             }
 
             if (search != null)
@@ -277,22 +317,44 @@ namespace CIPLATFORM.Respository.Repositories
                 }
 
             }
-        
+
             if (sort != null)
             {
+
+
                 if (sort == 1)
                 {
+                    //if (cards.Count != 0)
+                    //{
+                    //    cards = cards.OrderByDescending(x => x.CreatedAt).ToList();
+                    //}
 
-                    cards = cards.OrderByDescending(x => x.CreatedAt).ToList();
+                    //else
+                    //{
+                    missioncards = missioncards.OrderByDescending(x => x.CreatedAt).ToList();
+                    return missioncards;
+                    //}
                 }
                 if (sort == 2)
                 {
-                    cards = cards.OrderBy(x => x.CreatedAt).ToList();
+                    //if (cards.Count != 0)
+                    //{
+                    //    cards = cards.OrderBy(x => x.CreatedAt).ToList();
+                    //}
+
+                    //else
+                    //{
+                    missioncards = missioncards.OrderBy(x => x.CreatedAt).ToList();
+                    return missioncards;
+                    //}
                 }
+
+
+
 
             }
 
-           
+
             return cards;
 
         }
@@ -300,7 +362,7 @@ namespace CIPLATFORM.Respository.Repositories
 
 
 
-        
+
 
 
     }
