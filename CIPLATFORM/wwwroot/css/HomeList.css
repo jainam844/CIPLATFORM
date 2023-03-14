@@ -16,6 +16,7 @@
 
 * {
     box-sizing: border-box;
+   
 }
 
 .profile-nav {
@@ -202,4 +203,7 @@ li a{
 }
 a{
     color:black;
+}
+.title {
+    border-radius: 15px;
 }

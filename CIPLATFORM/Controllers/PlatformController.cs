@@ -77,8 +77,6 @@ namespace CIPLATFORM.Controllers
                 ViewBag.totalMission = cards.Count;
             }
             return PartialView("_GridCard", platformModel);
-            
-           
 
         }
 
@@ -92,13 +90,7 @@ namespace CIPLATFORM.Controllers
             return Json(json);
         }
 
-        public IActionResult HomeList()
-        {
-            string name = HttpContext.Session.GetString("Uname");
-            ViewBag.Uname = name;
-
-            return View();
-        }
+    
         public IActionResult nomission()
         {
             return View();

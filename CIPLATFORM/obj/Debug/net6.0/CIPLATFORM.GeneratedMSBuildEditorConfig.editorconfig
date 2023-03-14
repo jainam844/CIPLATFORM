@@ -27,12 +27,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1cSG9tZUdyaWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Platform/HomeList.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1cSG9tZUxpc3QuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Platform/_GridCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1cX0dyaWRDYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Platform/_ListCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1cX0xpc3RDYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Platform/_nomission.cshtml]

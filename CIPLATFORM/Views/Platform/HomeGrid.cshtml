@@ -1,5 +1,5 @@
 ﻿@using CIPLATFORM.Entities.ViewModels
-@model  CardsViewModel
+@model CardsViewModel
 @*@{
     Layout=null;
     }
@@ -33,25 +33,62 @@
 <!-- navbar-2 -->
 <hr class="d-none d-md-block">
    @{
-        Html.RenderPartial("navbar2");
-            //@Html.Partial("navbar2");
-    }
+    Html.RenderPartial("navbar2");
+    //@Html.Partial("navbar2");
+}
 
 
 <hr>
 <!-- explore -->
 
+
 <div class="container">
-  
 
-    @{
-        Html.RenderPartial("_GridCard");
+
+    <div id="grid">
+
+        @{
+
+            Html.RenderPartial("_GridCard");
+
+        }
+    </div>
+
+    <div id="list">
+
+        @{
+
+            Html.RenderPartial("_ListCard");
+
+        }
+    </div>
+
+</div>
+
+
+
+
+
+<script>
+    window.onload = opengrid();
+    function opengrid(){
+    console.log("Grid");
+    var div1 = document.getElementById("list");
+    var div2 = document.getElementById("grid");
+    div1.style.display = 'none';
+    div2.style.display = 'block';
+    console.log("Done");
+    }
+    function openlist(){
+    console.log("List");
+    var div1 = document.getElementById("list");
+    var div2 = document.getElementById("grid");
+    div1.style.display = 'block';
+    div2.style.display = 'none';
+    console.log("Done");
     }
 
-
-    @{
-        Html.RenderPartial("_ListCard");
-    }
+</script>
 
 
 
@@ -60,10 +97,35 @@
 
 
 
-    @*
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>*@
-    @*</body>
 
-        </html>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>*@
+@*</body>
+
+    </html>*@
