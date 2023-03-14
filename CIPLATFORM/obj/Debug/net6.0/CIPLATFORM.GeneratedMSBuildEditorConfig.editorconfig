@@ -35,8 +35,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1cX0dyaWRDYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Platform/_nomission.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxhdGZvcm1cX25vbWlzc2lvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Shared/navbar2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXG5hdmJhcjIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Shared/_ValidationScriptsPartial.cshtml]

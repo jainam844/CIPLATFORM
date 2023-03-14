@@ -80,7 +80,7 @@ namespace CIPLATFORM.Respository.Repositories
         //}
         public List<Mission> GetMissionDetails()
         {
-            List<Mission> missionDetails = _CiPlatformContext.Missions.Include(m => m.City).Include(m => m.Theme).Include(m => m.MissionMedia).ToList();
+            List<Mission> missionDetails = _CiPlatformContext.Missions.Include(m => m.City).Include(m => m.Theme).Include(m => m.MissionMedia).Include(m => m.MissionRatings).ToList();
             return missionDetails;
         }
 
@@ -178,7 +178,7 @@ namespace CIPLATFORM.Respository.Repositories
 
                 }
 
-                if (cityId.Count != 0 && countryId.Count != 0)
+                if (cityId.Count != 0 )
                 {
                     cards.Clear();
                     foreach (var n in cityId)
@@ -239,9 +239,21 @@ namespace CIPLATFORM.Respository.Repositories
                     //}
 
                     }
-                    return cards;
+                if (search != null )
+                {
+                   
+                    foreach (var n in missioncards)
+                    {
+              
+                        var title = n.Title.ToLower();
+                        if (title.Contains(search.ToLower()))
+                        {
+                            cards.Add(n);
+                        }
+                    }
 
-
+                }
+                return cards;
             }
             
             else if (cityId.Count == 0 && countryId.Count == 0 && themeId.Count == 0 && skillId.Count == 0 && search == null)
@@ -279,9 +291,16 @@ namespace CIPLATFORM.Respository.Repositories
                 }
 
             }
+
+           
             return cards;
 
         }
+
+
+
+
+        
 
 
     }

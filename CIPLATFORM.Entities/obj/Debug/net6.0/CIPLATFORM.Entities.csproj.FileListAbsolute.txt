@@ -17,7 +17,6 @@ D:\JAINAM\CIPLATFORM\CIPLATFORM.Entities\bin\Debug\net6.0\CIPLATFORM.Entities.ru
 D:\JAINAM\CIPLATFORM\CIPLATFORM.Entities\bin\Debug\net6.0\CIPLATFORM.Entities.dll
 D:\JAINAM\CIPLATFORM\CIPLATFORM.Entities\bin\Debug\net6.0\ref\CIPLATFORM.Entities.dll
 D:\JAINAM\CIPLATFORM\CIPLATFORM.Entities\bin\Debug\net6.0\CIPLATFORM.Entities.pdb
-D:\JAINAM\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.csproj.AssemblyReference.cache
 D:\JAINAM\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.GeneratedMSBuildEditorConfig.editorconfig
 D:\JAINAM\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.AssemblyInfoInputs.cache
 D:\JAINAM\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.AssemblyInfo.cs

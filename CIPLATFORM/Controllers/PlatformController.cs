@@ -66,12 +66,19 @@ namespace CIPLATFORM.Controllers
         {
             List<Mission> cards = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort);
             CardsViewModel platformModel = new CardsViewModel();
-            {
+      
                 platformModel.missions = cards;
+            if (cards.Count == 0)
+            {
+                return PartialView("_nomission");
             }
-
+            else if (cards.Count >= 1)
+            {
+                ViewBag.totalMission = cards.Count;
+            }
             return PartialView("_GridCard", platformModel);
-
+            
+           
 
         }
 
@@ -86,6 +93,13 @@ namespace CIPLATFORM.Controllers
         }
 
         public IActionResult HomeList()
+        {
+            string name = HttpContext.Session.GetString("Uname");
+            ViewBag.Uname = name;
+
+            return View();
+        }
+        public IActionResult nomission()
         {
             return View();
         }
