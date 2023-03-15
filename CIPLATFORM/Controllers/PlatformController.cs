@@ -56,18 +56,30 @@ namespace CIPLATFORM.Controllers
 
             return View(ms);
 
-          
+
         }
 
 
+        public IActionResult MissionListing(int mid)
+        {
+            string name = HttpContext.Session.GetString("Uname");
+            ViewBag.Uname = name;
 
+
+            MissionListingViewModel ml = _PlatformRepository.GetCardDetail(mid);
+
+
+            return View(ml);
+
+
+        }
 
         public IActionResult Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort)
         {
             List<Mission> cards = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort);
             CardsViewModel platformModel = new CardsViewModel();
-      
-                platformModel.missions = cards;
+
+            platformModel.missions = cards;
             if (cards.Count == 0)
             {
                 return PartialView("_nomission");
@@ -76,7 +88,7 @@ namespace CIPLATFORM.Controllers
             {
                 ViewBag.totalMission = cards.Count;
             }
-            return PartialView("_GridCard", platformModel);
+            return PartialView("_FilterMission", platformModel);
 
         }
 
@@ -90,7 +102,7 @@ namespace CIPLATFORM.Controllers
             return Json(json);
         }
 
-    
+
         public IActionResult nomission()
         {
             return View();

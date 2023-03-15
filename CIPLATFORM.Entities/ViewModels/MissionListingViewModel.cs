@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CIPLATFORM.Entities.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CIPLATFORM.Entities.ViewModels
 {
-    public partial class CountryCityViewModel
+    public class MissionListingViewModel
     {
-        public long CountryId { get; set; }
-        public long CityId { get; set; }
+        public Mission missions { get; set; }
+
     }
 }

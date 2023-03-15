@@ -1,4 +1,4 @@
-﻿<style >
+﻿
 input[type=range] {
     -webkit-appearance: none;
     width: 150px;
@@ -334,4 +334,4 @@ input[type=range]::-moz-range-thumb {
     overflow: auto;
 }
 
-</style >
+

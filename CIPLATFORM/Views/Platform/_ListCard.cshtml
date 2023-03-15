@@ -2,33 +2,9 @@
 @model CardsViewModel
 
 <link rel="stylesheet" href="~/css/HomeList.css">
-<div id="grid-view">
+<div id="list">
 
-    <div class="row">
-        <div class="col-md-9 col-sm-12"> <h3> Explore <b>@ViewBag.totalMission missions</b> </h3></div>
-        <div class="col-md-3 col-sm-12 d-flex justy">
-             
-            <select class="form-select w-50 mb-3" >
-                <option selected><a class="dropdown-item">Sort By</a></option>
-                <option><a class="dropdown-item">Newest</a></option>
-                <option><a class="dropdown-item">Oldest</a></option>
-                <option><a class="dropdown-item">Lowest Available Seats</a></option>
-                <option><a class="dropdown-item">Highest Available Seats</a></option>
-                <option><a class="dropdown-item">My Favourite</a></option>
-                <option><a class="dropdown-item">Registration Deadline</a></option>
-            </select>
-            <div class="">
-                <a onclick="opengrid()">
-                    <i class="bi bi-grid"></i>
-                </a>
-            </div>
-            <div class="">
-                <a onclick="openlist()">
-                    <i class="bi bi-list"></i>
-                </a>
-            </div>
-        </div>
-    </div>
+
     <div class="row">
         @foreach (var item in Model.missions)
         {

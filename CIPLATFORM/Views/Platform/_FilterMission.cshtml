@@ -1,0 +1,48 @@
+﻿<div id="filter">
+    <div class="row">
+        <div class="col-md-9 col-sm-12"> <h3>Explore <b>@ViewBag.totalMission missions</b></h3></div>
+        <div class="col-md-3 col-sm-12 d-flex justy">
+            <div class="dropdown h-dropdown">
+                <select class="form-select w-100 d-inline-flex mb-3" aria-label="Default select example" onchange="temp()" id="sort">
+                    <option selected>Sort by</option>
+                    <option value="1">New to Old</option>
+                    <option value="2">Old to New</option>
+
+                </select>
+            </div>
+            <div class="">
+                @* <a asp-controller="Platform" asp-action="HomeGrid">
+                    <i class="bi bi-grid"></i>
+                    </a>*@
+                <a onclick="opengrid()"><i class="bi bi-grid"></i></a>
+            </div>
+            <div class="">
+                @*<a asp-controller="Platform" asp-action="HomeList">
+                    <i class="bi bi-list"></i>
+                    </a>*@
+                <a onclick="openlist()"><i class="bi bi-list"></i></a>
+            </div>
+        </div>
+    </div>
+    <div id="grid-view">
+
+        @{
+
+            Html.RenderPartial("_GridCard");
+
+        }
+
+    </div>
+
+    <div id="list-view">
+
+        @{
+
+            Html.RenderPartial("_ListCard");
+
+        }
+    </div>
+
+
+
+</div>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YRo07lZems7IQjjXcUhTf0ZSnUptFAuWcHHZFfZZaEw=",
+  "Hash": "Mt/4DFuzKv1FhxAh6nLvL9NCPgnrSYk5k93FrUYjODw=",
   "Source": "CIPLATFORM",
   "BasePath": "_content/CIPLATFORM",
   "Mode": "Default",
@@ -85,6 +85,23 @@
       "OriginalItemSpec": "wwwroot\\css\\HomeList.css"
     },
     {
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\MissionListing.css",
+      "SourceId": "CIPLATFORM",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "BasePath": "_content/CIPLATFORM",
+      "RelativePath": "css/MissionListing.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\MissionListing.css"
+    },
+    {
       "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\site.css",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
@@ -117,23 +134,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
-    },
-    {
-      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\Volunteer.css",
-      "SourceId": "CIPLATFORM",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
-      "BasePath": "_content/CIPLATFORM",
-      "RelativePath": "css/Volunteer.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\Volunteer.css"
     },
     {
       "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\favicon.ico",

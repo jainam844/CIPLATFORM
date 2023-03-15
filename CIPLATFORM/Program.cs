@@ -44,6 +44,10 @@ app.MapControllerRoute(
     );
 
 
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Platform}/{action=MissionListing}"
+//    );
 
 
 

@@ -44,24 +44,15 @@
 
 <div class="container">
 
+ 
 
-    <div id="grid">
 
-        @{
+    @{
 
-            Html.RenderPartial("_GridCard");
+        Html.RenderPartial("_FilterMission");
 
-        }
-    </div>
+    }
 
-    <div id="list">
-
-        @{
-
-            Html.RenderPartial("_ListCard");
-
-        }
-    </div>
 
 </div>
 
@@ -69,26 +60,6 @@
 
 
 
-<script>
-    window.onload = opengrid();
-    function opengrid(){
-    console.log("Grid");
-    var div1 = document.getElementById("list");
-    var div2 = document.getElementById("grid");
-    div1.style.display = 'none';
-    div2.style.display = 'block';
-    console.log("Done");
-    }
-    function openlist(){
-    console.log("List");
-    var div1 = document.getElementById("list");
-    var div2 = document.getElementById("grid");
-    div1.style.display = 'block';
-    div2.style.display = 'none';
-    console.log("Done");
-    }
-
-</script>
 
 
 
