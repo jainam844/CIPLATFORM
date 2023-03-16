@@ -254,11 +254,12 @@ input[type=range]::-moz-range-thumb {
     border-radius: 20px;
     color: #F88634;
     border: 2px solid #F88634;
+    z-index:1;
 }
 
 .apply2 :hover {
     background-color: #ffaf75;
-    ;
+    
 }
 
 .nav-tabs .nav-link:focus,

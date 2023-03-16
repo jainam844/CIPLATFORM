@@ -72,7 +72,7 @@ namespace CIPLATFORM.Respository.Repositories
 
             // create email message
             var email = new MimeMessage();
-            email.From.Add(MailboxAddress.Parse("hetshah2207@gmail.com"));
+            email.From.Add(MailboxAddress.Parse("jainamshah492@gmail.com"));
             email.To.Add(MailboxAddress.Parse(user.Email));
             email.Subject = "Reset Your Password";
             email.Body = new TextPart(TextFormat.Html) { Text = mailBody };
@@ -80,7 +80,7 @@ namespace CIPLATFORM.Respository.Repositories
             // send email
             using var smtp = new SmtpClient();
             smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate("hetshah2207@gmail.com", "lpoqtojvkcgkwdms");
+            smtp.Authenticate("jainamshah492@gmail.com", "aflpkkevlfxzmmtx");
             smtp.Send(email);
             smtp.Disconnect(true);
             #endregion Send Mail

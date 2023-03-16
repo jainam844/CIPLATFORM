@@ -30,5 +30,6 @@ namespace CIPLATFORM.Respository.Interface
         public int GetMissionCount();
 
         public MissionListingViewModel GetCardDetail(int mid);
+        public List<MissionMedium> media(int mid);
     }
 }

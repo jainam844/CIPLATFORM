@@ -103,90 +103,113 @@
                 <div class="container p-0 pb-5 h-100" style="max-width: 100%; height: 100%;">
 
 
-                    <div class="mySlides h-100">
+                    @*    <div class="mySlides h-100">
                         <div class="numbertext">1 / 6</div>
                         <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
-                             style="max-width:100%; height: 100%;">
-                    </div>
+                        style="max-width:100%; height: 100%;">
+                        </div>
 
-                    <div class="mySlides h-100">
+                        <div class="mySlides h-100">
                         <div class="numbertext">2 / 6</div>
                         <img src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
-                             style="max-width:100%; height: 100%;">
-                    </div>
+                        style="max-width:100%; height: 100%;">
+                        </div>
 
-                    <div class="mySlides h-100">
+                        <div class="mySlides h-100">
                         <div class="numbertext">3 / 6</div>
                         <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
-                             style="max-width:100%; height: 100%;">
-                    </div>
+                        style="max-width:100%; height: 100%;">
+                        </div>
 
-                    <div class="mySlides h-100">
+                        <div class="mySlides h-100">
                         <div class="numbertext">4 / 6</div>
                         <img src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
-                             style="max-width:100%; height: 100%;">
-                    </div>
+                        style="max-width:100%; height: 100%;">
+                        </div>
 
-                    <div class="mySlides h-100">
+                        <div class="mySlides h-100">
                         <div class="numbertext">5 / 6</div>
                         <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
-                             style="max-width:100%; height: 100%;">
-                    </div>
+                        style="max-width:100%; height: 100%;">
+                        </div>
 
-                    <div class="mySlides h-100">
+                        <div class="mySlides h-100">
                         <div class="numbertext">6 / 6</div>
                         <img src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
-                             style="max-width:100%; height: 100%;">
-                    </div>
+                        style="max-width:100%; height: 100%;">
+                        </div>
 
+
+                    *@@for (int i = 1; i <= Model.missionmedias.Count; i++)
+                    {
+                        <div class="mySlides">
+
+                            <img src=~/images/@(Model.missionmedias[i-1].MediaPath) style="width:100%; ">
+                        </div>
+                    }
 
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-                    <div class="container-fluid row ps-4 g-2 ">
-                        <div class="col ">
-                            <div class="card h-75">
-                                <img class="demo cursor"
-                                     src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
-                                     style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+
+
+                    <div class="row g-1">
+
+                        @for (int i = 1; i <= Model.missionmedias.Count; i++)
+                        {
+                            <div class="col">
+                                <img class="demo cursor" src=~/images/@(Model.missionmedias[i-1].MediaPath) onclick="currentSlide(@i)" style="width:100%;">
                             </div>
-                        </div>
-                        <div class="col ">
-                            <div class="card h-75 ">
-                                <img class="demo cursor"
-                                     src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
-                                     style="width:100%" onclick="currentSlide(2)" alt="The Woods">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-75">
-                                <img class="demo cursor"
-                                     src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
-                                     style="width:100%" onclick="currentSlide(3)" alt="The Woods">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-75 ">
-                                <img class="demo cursor"
-                                     src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
-                                     style="width:100%" onclick="currentSlide(4)" alt="The Woods">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-75">
-                                <img class="demo cursor"
-                                     src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
-                                     style="width:100%" onclick="currentSlide(5)" alt="The Woods">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-75 ">
-                                <img class="demo cursor"
-                                     src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
-                                     style="width:100%" onclick="currentSlide(6)" alt="The Woods">
-                            </div>
-                        </div>
+
+
+                        }
                     </div>
+
+
+                    @* <div class="container-fluid row ps-4 g-2 ">*@
+                    @* <div class="col ">
+                        <div class="card h-75">
+                        <img class="demo cursor"
+                        src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                        style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+                        </div>
+                        </div>
+                        <div class="col ">
+                        <div class="card h-75 ">
+                        <img class="demo cursor"
+                        src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
+                        style="width:100%" onclick="currentSlide(2)" alt="The Woods">
+                        </div>
+                        </div>
+                        <div class="col">
+                        <div class="card h-75">
+                        <img class="demo cursor"
+                        src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                        style="width:100%" onclick="currentSlide(3)" alt="The Woods">
+                        </div>
+                        </div>
+                        <div class="col">
+                        <div class="card h-75 ">
+                        <img class="demo cursor"
+                        src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
+                        style="width:100%" onclick="currentSlide(4)" alt="The Woods">
+                        </div>
+                        </div>
+                        <div class="col">
+                        <div class="card h-75">
+                        <img class="demo cursor"
+                        src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                        style="width:100%" onclick="currentSlide(5)" alt="The Woods">
+                        </div>
+                        </div>
+                        <div class="col">
+                        <div class="card h-75 ">
+                        <img class="demo cursor"
+                        src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
+                        style="width:100%" onclick="currentSlide(6)" alt="The Woods">
+                        </div>
+                        </div>*@
+                    @*    </div>*@
                 </div>
             </div>
             <div class="col-lg-6">
@@ -299,15 +322,15 @@
                         <div class="col">
                             <div class=" h-100 border">
 
-                                <i class="bi bi-calendar3"> </i>
-                                <p class=" small">Date: Ongoing Opportunity</p>
+                                <i class="bi bi-calendar3">@Model.missions.StartDate.ToString().Substring(0,10) <br> until @Model.missions.EndDate.ToString().Substring(0,10) </i>
+                                <p class=" small"></p>
                             </div>
                         </div>
                         <div class="col">
                             <div class=" h-100  border">
                                 <i class="bi bi-people">
                                 </i>
-                                <p class=" small">Organization: CSE Network</p>
+                                <p class=" small">@Model.missions.OrganizationName</p>
                             </div>
                         </div>
                     </div>
@@ -568,7 +591,7 @@
                             <div class="row mt-3">
                                 <div class="col-4">
                                     <div class="row">
-                                        <img src="images/volunteer1.png" class="img50" alt="">
+                                        <img src="~/images/volunteer1.png" class="img50" alt="">
                                     </div>
                                     <div class="row">
                                         <span>Andrew Johnson</span>
@@ -577,7 +600,7 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="row">
-                                        <img src="images/volunteer2.png" class="img50" alt="">
+                                        <img src="~/images/volunteer2.png" class="img50" alt="">
                                     </div>
                                     <div class="row">
                                         <span>Andrew Johnson</span>
@@ -695,171 +718,135 @@
         </div>
     </div>
     <div class="row row-cols-1 mt-3 row-cols-md-2 row-cols-lg-3">
-        <div class="col">
-            <div class="card mb-4">
-                <img src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" class="card-img-top"
-                     alt="...">
 
-                <div class="card-body">
-                    <h5 class="card-title">Education Supplies for Every Pair of Shoes Sold</h5>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore...
-                    </p>
-                    <div class="container p-2">
-                        <div class="row d-flex">
-                            <div class="col-md-6">
-                                Australian Paradise
-                            </div>
-                            <div class="col-md-6">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                            </div>
+        @{
+            int n;
+            if (Model.relatedmissions.Count < 3)
+            {
+                n = Model.relatedmissions.Count;
+
+            }
+            else
+            {
+                n = 3;
+            }
+        }
+        @for (int i = 0; i < n; i++)
+        {
+            <div class="col">
+                <div class="card ">
+                    <img src=~/images/@(Model.relatedmissions[i].MissionMedia.FirstOrDefault()?.MediaPath) class="card-img-top" alt="...">
+                    <div class="position-relative">
+                        <div class="position-absolute top-100 start-50 translate-middle round p-2 " style="background-color: white;border-radius: 15px;">
+
+                            @Model.relatedmissions[i].Theme.Title
                         </div>
                     </div>
-                    <div class="row  d-flex justify-content-center text-center border bg-white ">
-                        <div class="col-12">
-                            <span class="missionDuration">From 10/01/2019 to 25/02/2019</span>
+                    <div class="card-img-overlay">
+                        <p class="text-end text">
+                            <button class="btn btn-box" style="background-color: rgb(65, 60, 60) ; opacity: 45%;">
+                                <img src="~/images/pin.png" class="mx-2 cancle-img" alt="">
+                                <span style="color: white ; ">@Model.relatedmissions[i].City.Name</span>
+                            </button>
+
+
+
+                        </p>
+                        <div class="pt-1 text-end">
+                            <button class="btn btn-box rounded-5" style="background-color: rgb(65, 60, 60) ; opacity: 45%;">
+                                <img src="~/images/heart.png" class=" img-fluid cancle-img" alt="">
+                            </button>
+                        </div>
+
+                        <div class="text-end">
+
+                            <button class="btn btn-box rounded-5" style="background-color: rgb(65, 60, 60) ; opacity: 45%;">
+                                <img src="~/images/user.png" class=" img-fluid cancle-img" alt="">
+                            </button>
                         </div>
                     </div>
-                    <div class="container">
-                        <div class="row mt-2">
-                            <div class="col-6 ">
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.relatedmissions[i].Title</h5>
+                        <p class="card-text">
+                            @Model.relatedmissions[i].ShortDescription
+                        </p>
+                        <div class="container p-2">
+                            <div class="row d-flex">
+                                <div class="col-md-6">
+                                    @Model.relatedmissions[i].OrganizationName
+                                </div>
+                                <div class="col-md-6">
+                                    @* <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>*@
 
-                                <i class="bi bi-person-check " style="font-size: 28px;"></i>
-                                10 <br>
-                                seats left
-
-                            </div>
-                            <div class="col-6 ">
-                                <i class="bi bi-clock" style="font-size: 25px;"></i>
-                                09/01/2019 <br> Deadline
+                                    @* @(item.MissionRatings.FirstOrDefault()?.Rating)*@
+                                    @* @for (int i = 0; i <= @item.MissionRatings.FirstOrDefault()?.Rating; i++)
+                                        {
+                                        <i class="bi bi-star-fill" style="color: #F8D441;"></i>
+                                        }*@
+                                    @for (int j = 1; j <= (int)@Model.relatedmissions[i].MissionRatings.Average(x => x.Rating); j++)
+                                    {
+                                        <i class="bi bi-star-fill" style="color: #F8D441;"></i>
+                                    }
+                                    @for (int j = 1; j <= 5 - (int)@Model.relatedmissions[i].MissionRatings.Average(x => x.Rating); j++)
+                                    {
+                                        <i class="bi bi-star" style="color: #F8D441;"></i>
+                                    }
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-center apply2">
-                        <button type="button" class="btn btn-outline apply">
-                            Apply
-                            <i class=" ms-2 bi bi-arrow-right-short"></i>
-                        </button>
+                        <div class="wrapper d-flex justify-content-center">
+                            <hr class="divider">
+                            <div class=" d-flex justify-content-center b2 ">
+
+                                <div class="d-flex justify-content-center .left .right ">
+                                    @* @item.StartDate.ToShortDateString() until @item.EndDate.ToShortDateString()*@
+                                    @{
+
+                                        if (Model.relatedmissions[i].StartDate <= DateTime.Now && DateTime.Now <= Model.relatedmissions[i].EndDate)
+                                        {
+                                            <span>Ongoing Opportunity</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@Model.relatedmissions[i].StartDate.ToString().Substring(0,10) until @Model.relatedmissions[i].EndDate.ToString().Substring(0,10) </span>
+                                        }
+                                    }
+                                </div>
+
+                            </div>
+                            <hr class="divider">
+                        </div>
+                        <div class="container">
+                            <div class="row mt-2">
+                                <div class="col-6 ">
+
+                                    <i class="bi bi-person-check " style="font-size: 28px;"></i>
+                                    10 <br>
+                                    seats left
+
+                                </div>
+                                <div class="col-6 ">
+                                    <i class="bi bi-clock" style="font-size: 25px;"></i>
+                                    @Model.relatedmissions[i].EndDate.ToString().Substring(0,10) <br> Deadline
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="d-flex justify-content-center apply2">
+                            <button type="button" class="btn btn-outline apply" >
+                             <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@Model.relatedmissions[i].MissionId" style="text-decoration:none;color:black"> Apply <i class=" ms-2 bi bi-arrow-right-short"></i></a>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            <div class="card mb-4">
-                <img src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" class="card-img-top"
-                     alt="...">
+        }
 
-                <div class="card-body">
-                    <h5 class="card-title">Education Supplies for Every Pair of Shoes Sold</h5>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore...
-                    </p>
-                    <div class="container p-2">
-                        <div class="row d-flex">
-                            <div class="col-md-6">
-                                Australian Paradise
-                            </div>
-                            <div class="col-md-6">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row  d-flex justify-content-center text-center border bg-white ">
-                        <div class="col-12">
-                            <span class="missionDuration">From 10/01/2019 to 25/02/2019</span>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="row mt-2">
-                            <div class="col-6 ">
-
-                                <i class="bi bi-person-check " style="font-size: 28px;"></i>
-                                10 <br>
-                                seats left
-
-                            </div>
-                            <div class="col-6 ">
-                                <i class="bi bi-clock" style="font-size: 25px;"></i>
-                                09/01/2019 <br> Deadline
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-center apply2">
-                        <button type="button" class="btn btn-outline apply">
-                            Apply
-                            <i class=" ms-2 bi bi-arrow-right-short"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card mb-4">
-                <img src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" class="card-img-top"
-                     alt="...">
-
-                <div class="card-body">
-                    <h5 class="card-title">Education Supplies for Every Pair of Shoes Sold</h5>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore...
-                    </p>
-                    <div class="container p-2">
-                        <div class="row d-flex">
-                            <div class="col-md-6">
-                                Australian Paradise
-                            </div>
-                            <div class="col-md-6">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row  d-flex justify-content-center text-center border bg-white ">
-                        <div class="col-12">
-                            <span class="missionDuration">From 10/01/2019 to 25/02/2019</span>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="row mt-2">
-                            <div class="col-6 ">
-
-                                <i class="bi bi-person-check " style="font-size: 28px;"></i>
-                                10 <br>
-                                seats left
-
-                            </div>
-                            <div class="col-6 ">
-                                <i class="bi bi-clock" style="font-size: 25px;"></i>
-                                09/01/2019 <br> Deadline
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="d-flex justify-content-center apply2">
-                        <button type="button" class="btn btn-outline apply">
-                            Apply
-                            <i class=" ms-2 bi bi-arrow-right-short"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 
