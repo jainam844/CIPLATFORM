@@ -1,4 +1,5 @@
-﻿using CIPLATFORM.Entities.Models;
+﻿using CIPLATFORM.Entities.Data;
+using CIPLATFORM.Entities.Models;
 using CIPLATFORM.Entities.ViewModels;
 using CIPLATFORM.Respository.Interface;
 using Microsoft.AspNetCore.Authorization;
@@ -10,9 +11,16 @@ namespace CIPLATFORM.Controllers
     public class PlatformController : Controller
     {
         public readonly IPlatformRepository _PlatformRepository;
-        public PlatformController(IPlatformRepository PlatformRepository)
+        public readonly CiPlatformContext _CiPlatformContext;
+        //public PlatformController(IPlatformRepository PlatformRepository)
+        //{
+        //    _PlatformRepository = PlatformRepository;
+        //}
+
+        public PlatformController(CiPlatformContext CiPlatformContext, IPlatformRepository PlatformRepository)
         {
             _PlatformRepository = PlatformRepository;
+            _CiPlatformContext = CiPlatformContext;
         }
         public IActionResult HomeGrid()
         {
@@ -58,7 +66,22 @@ namespace CIPLATFORM.Controllers
 
 
         }
+        [HttpPost]
+        public bool AddMissionToFavourite(int missionId)
+        {
+            var userId = (int)HttpContext.Session.GetInt32("userid");
+            var fav = _PlatformRepository.addToFav(missionId, userId);
+            if (fav != true)
+            {
+                _CiPlatformContext.SaveChanges();
+            }
+            else
+            {
+                _CiPlatformContext.SaveChanges();
 
+            }
+            return fav;
+        }
 
         public IActionResult MissionListing(int mid)
         {
@@ -72,7 +95,9 @@ namespace CIPLATFORM.Controllers
             return View(ml);
 
 
+
         }
+   
 
         public IActionResult Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort)
         {

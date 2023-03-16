@@ -166,50 +166,6 @@
                     </div>
 
 
-                    @* <div class="container-fluid row ps-4 g-2 ">*@
-                    @* <div class="col ">
-                        <div class="card h-75">
-                        <img class="demo cursor"
-                        src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
-                        style="width:100%" onclick="currentSlide(1)" alt="The Woods">
-                        </div>
-                        </div>
-                        <div class="col ">
-                        <div class="card h-75 ">
-                        <img class="demo cursor"
-                        src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
-                        style="width:100%" onclick="currentSlide(2)" alt="The Woods">
-                        </div>
-                        </div>
-                        <div class="col">
-                        <div class="card h-75">
-                        <img class="demo cursor"
-                        src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
-                        style="width:100%" onclick="currentSlide(3)" alt="The Woods">
-                        </div>
-                        </div>
-                        <div class="col">
-                        <div class="card h-75 ">
-                        <img class="demo cursor"
-                        src="~/images/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
-                        style="width:100%" onclick="currentSlide(4)" alt="The Woods">
-                        </div>
-                        </div>
-                        <div class="col">
-                        <div class="card h-75">
-                        <img class="demo cursor"
-                        src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
-                        style="width:100%" onclick="currentSlide(5)" alt="The Woods">
-                        </div>
-                        </div>
-                        <div class="col">
-                        <div class="card h-75 ">
-                        <img class="demo cursor"
-                        src="~/images/Grow-Trees-On-the-path-to-environment-sustainability.png"
-                        style="width:100%" onclick="currentSlide(6)" alt="The Woods">
-                        </div>
-                        </div>*@
-                    @*    </div>*@
                 </div>
             </div>
             <div class="col-lg-6">
@@ -274,9 +230,14 @@
                             <button type="submit" class="btn btn-outline w-100 rounded-pill" style="background: #F8863400 0% 0% no-repeat padding-box;
                              border: 2px solid #020201;
                                border-radius: 24px;
-                               opacity: 1; color:#020202">
-                                <i class="bi bi-suit-heart"></i> Add To Favourite
+                               opacity: 1; color:#020202" onclick="AddMissionToFavourite(@Model.missions.MissionId)">
+                                <i class="bi bi-suit-heart" id="addToFav"></i> Add To Favourite
                             </button>
+
+
+
+
+
 
                         </div>
                         <div class="col-12 col-md-6 col-sm-12 mt-2">
@@ -744,7 +705,7 @@
                     </div>
                     <div class="card-img-overlay">
                         <p class="text-end text">
-                            <button class="btn btn-box" style="background-color: rgb(65, 60, 60) ; opacity: 45%;">
+                            <button class="btn btn-box" style="background-color: rgb(65, 60, 60) ; opacity: 50%;">
                                 <img src="~/images/pin.png" class="mx-2 cancle-img" alt="">
                                 <span style="color: white ; ">@Model.relatedmissions[i].City.Name</span>
                             </button>
@@ -753,14 +714,14 @@
 
                         </p>
                         <div class="pt-1 text-end">
-                            <button class="btn btn-box rounded-5" style="background-color: rgb(65, 60, 60) ; opacity: 45%;">
+                            <button class="btn btn-box rounded-5" style="background-color: rgb(65, 60, 60) ; opacity: 50%;">
                                 <img src="~/images/heart.png" class=" img-fluid cancle-img" alt="">
                             </button>
                         </div>
 
                         <div class="text-end">
 
-                            <button class="btn btn-box rounded-5" style="background-color: rgb(65, 60, 60) ; opacity: 45%;">
+                            <button class="btn btn-box rounded-5" style="background-color: rgb(65, 60, 60) ; opacity: 50%;">
                                 <img src="~/images/user.png" class=" img-fluid cancle-img" alt="">
                             </button>
                         </div>
@@ -776,17 +737,7 @@
                                     @Model.relatedmissions[i].OrganizationName
                                 </div>
                                 <div class="col-md-6">
-                                    @* <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>
-                                        <i class="bi bi-star-fill"></i>*@
 
-                                    @* @(item.MissionRatings.FirstOrDefault()?.Rating)*@
-                                    @* @for (int i = 0; i <= @item.MissionRatings.FirstOrDefault()?.Rating; i++)
-                                        {
-                                        <i class="bi bi-star-fill" style="color: #F8D441;"></i>
-                                        }*@
                                     @for (int j = 1; j <= (int)@Model.relatedmissions[i].MissionRatings.Average(x => x.Rating); j++)
                                     {
                                         <i class="bi bi-star-fill" style="color: #F8D441;"></i>
@@ -838,8 +789,8 @@
 
                         <hr>
                         <div class="d-flex justify-content-center apply2">
-                            <button type="button" class="btn btn-outline apply" >
-                             <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@Model.relatedmissions[i].MissionId" style="text-decoration:none;color:black"> Apply <i class=" ms-2 bi bi-arrow-right-short"></i></a>
+                            <button type="button" class="btn btn-outline apply">
+                                <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@Model.relatedmissions[i].MissionId" style="text-decoration:none;color:black"> Apply <i class=" ms-2 bi bi-arrow-right-short"></i></a>
                             </button>
                         </div>
                     </div>
@@ -852,6 +803,13 @@
 
 </div>
 @*    </div>*@
+
+
+
+
+
+
+
 <script>
     // firefox, chrome
     //  document.body.scroll = "no"; // ie only

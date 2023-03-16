@@ -71,7 +71,7 @@ namespace CIPLATFORM.Respository.Repositories
             return skills;
 
         }
-  
+
         public List<Mission> GetMissionDetails()
         {
             List<Mission> missionDetails = _CiPlatformContext.Missions.Include(m => m.City).Include(m => m.Theme).Include(m => m.MissionMedia).Include(m => m.MissionRatings).Include(m => m.GoalMissions).Include(m => m.MissionSkills).ToList();
@@ -112,8 +112,8 @@ namespace CIPLATFORM.Respository.Repositories
             Mission mission = missions.FirstOrDefault(x => x.MissionId == mid);
 
             List<MissionMedium> photos = media(mid);
-            
-            List<Mission> relatedMissions = missions.Where(x => x.ThemeId == mission.ThemeId || x.CountryId == mission.CountryId || x.MissionSkills == mission.MissionSkills).ToList();
+
+            List<Mission> relatedMissions = missions.Where(x => x.OrganizationName == mission.OrganizationName || x.ThemeId == mission.ThemeId || x.CountryId == mission.CountryId).ToList();
             relatedMissions.Remove(mission);
             MissionListingViewModel CardDetail = new MissionListingViewModel();
             {
@@ -149,6 +149,28 @@ namespace CIPLATFORM.Respository.Repositories
         //    return data;
         //}
 
+        public bool addToFav(int missionId, int userId)
+        {
+            FavoriteMission favorite = new();
+            favorite.MissionId = missionId;
+            favorite.UserId = userId;
+
+            var fM = _CiPlatformContext.FavoriteMissions.FirstOrDefault(f => f.MissionId == missionId && f.UserId == userId);
+
+            if (fM == null)
+            {
+
+                _CiPlatformContext.FavoriteMissions.Add(favorite);
+                return true;
+            }
+
+            else
+            {
+                _CiPlatformContext.FavoriteMissions.Remove(fM);
+                return false;
+
+            }
+        }
         public List<MissionMedium> media(int mid)
         {
             List<MissionMedium> photos = _CiPlatformContext.MissionMedia.Where(x => x.MissionId == mid).ToList();

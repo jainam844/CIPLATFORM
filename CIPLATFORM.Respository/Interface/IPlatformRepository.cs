@@ -31,5 +31,6 @@ namespace CIPLATFORM.Respository.Interface
 
         public MissionListingViewModel GetCardDetail(int mid);
         public List<MissionMedium> media(int mid);
+        public bool addToFav(int missionId, int userId);
     }
 }

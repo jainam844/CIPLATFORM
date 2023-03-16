@@ -60,17 +60,21 @@
                             <div class="row mt-2">
                                 <div class="col-sm-7">
                                     @item.OrganizationName
-                                    @if (true)
-                                    {
-                                        @for (int i = 1; i <= @item.MissionRatings.FirstOrDefault()?.Rating; i++)
+                                    @{
+                                        if (item.MissionType == "Goal")
                                         {
-                                            <i class="bi bi-star-fill" style="color: #F8D441;"></i>
+                                            <span class="textline">@item.GoalMissions.FirstOrDefault()?.GoalObjectiveText </span>
                                         }
-                                        @for (int i = 1; i <= 5 - @item.MissionRatings.FirstOrDefault()?.Rating; i++)
+                                        else if (item.StartDate <= DateTime.Now && DateTime.Now <= item.EndDate)
                                         {
-                                            <i class="bi bi-star" style="color: #F8D441;"></i>
+                                            <span>Ongoing Opportunity</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@item.StartDate.ToString().Substring(0,10) until @item.EndDate.ToString().Substring(0,10) </span>
                                         }
                                     }
+
                                 </div>
                                 <div class="col-sm-5">
                                     <div class="wrapper  d-flex justify-content-center">
@@ -101,8 +105,8 @@
                                 <div class="col-sm-7">
                                     <div class="apply2">
                                         <button type="button" class="btn btn-outline apply">
-                                            Apply
-                                            <i class=" ms-2 bi bi-arrow-right-short"></i>
+                                           <a asp-controller="Platform" asp-action="MissionListing" style="text-decoration:none;color:black" asp-route-mid="@item.MissionId"> Apply <i class=" ms-2 bi bi-arrow-right-short"></i></a>
+                                           
                                         </button>
                                     </div>
                                 </div>
