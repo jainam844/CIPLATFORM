@@ -375,16 +375,16 @@
                     @Model.missions.OrganizationDetail
                 </div>
                 <div class="tab-pane fade" id="tab-3" role="tabpanel">
-                    <form>
+                    <form method="post">
                         <div class="form-group">
-
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                             <input type="hidden" value="mission.MissionId" id="mid" />
+                            <textarea class="form-control"  asp-for="commentDescription" id="exampleFormControlTextarea1" rows="3"
                                       placeholder="Enter your comments"></textarea>
                         </div>
 
-                        <div class=" mt-0 mb-2">
+                        <div class=" mt-0 mt-3">
                             <div class="apply2 d-flex justify-content-start">
-                                <button type="button" class="btn btn-outline apply">
+                                <button type="submit" class="btn btn-outline apply">
                                     Post Comment
 
                                 </button>
@@ -392,85 +392,28 @@
                         </div>
 
                         <div class="row scr mb-5 mt-4">
-                            <div class="container">
+                           
                                 <div class="col-12">
-                                    <div class="row mt-3" style="background-color: white">
-                                        <div class="col-12 col-md-2 d-flex justify-content-center align-items-center">
-                                            <img src="~/images/volunteer1.png"
+                                    
+                                        @foreach (var comment in Model.comments)
+                                        { <div class="container">
+                                            <div class="row mt-3" style="background-color: white">
+                                            <div class="col-12 col-md-2 d-flex justify-content-center align-items-center">
+                                                <img src="~/images/@comment.User.Avatar"
                                                  style="border-radius: 50%; height: 4.5em;" alt="">
-                                        </div>
-                                        <div class="col-md-10 col-12  ">
-                                            <span> Margaret Walsh</span>
-                                            <p>
-                                                Monday, October 21, 2019, 4.57 PM
-                                            </p>
-                                            <p>
-                                                Nice mission great opportunity for peoples
-                                            </p>
-                                        </div>
+                                            </div>
+                                            <div class="col-md-10 col-12  ">
+                                               <h5> <span>@comment.User.FirstName</span></h5>
+                                                <p>@comment.CreatedAt.ToString("dddd, MMMM dd, yyyy, h.mm tt")</p>
+                                                <p>@comment.CommentDescription</p>
+                                            </div>
+                                              </div>
+                                            </div>
+                                        }
                                     </div>
-                                    <div class="row mt-3" style="background-color: white">
-                                        <div class="col-12 col-md-2 d-flex justify-content-center align-items-center">
-                                            <img src="~/images/volunteer1.png"
-                                                 style="border-radius: 50%; height: 4.5em;" alt="">
-                                        </div>
-                                        <div class="col-md-10 col-12  ">
-                                            <span> Margaret Walsh</span>
-                                            <p>
-                                                Monday, October 21, 2019, 4.57 PM
-                                            </p>
-                                            <p>
-                                                Nice mission great opportunity for peoples
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3" style="background-color: white">
-                                        <div class="col-12 col-md-2 d-flex justify-content-center align-items-center">
-                                            <img src="~/images/volunteer1.png"
-                                                 style="border-radius: 50%; height: 4.5em;" alt="">
-                                        </div>
-                                        <div class="col-md-10 col-12   ">
-                                            <span> Margaret Walsh</span>
-                                            <p>
-                                                Monday, October 21, 2019, 4.57 PM
-                                            </p>
-                                            <p>
-                                                Nice mission great opportunity for peoples
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3" style="background-color: white">
-                                        <div class="col-12 col-md-2 d-flex justify-content-center align-items-center">
-                                            <img src="images/volunteer1.png"
-                                                 style="border-radius: 50%; height: 4.5em;" alt="">
-                                        </div>
-                                        <div class="col-md-10 col-12   ">
-                                            <span> Margaret Walsh</span>
-                                            <p>
-                                                Monday, October 21, 2019, 4.57 PM
-                                            </p>
-                                            <p>
-                                                Nice mission great opportunity for peoples
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3" style="background-color: white">
-                                        <div class="col-12 col-md-2 d-flex justify-content-center align-items-center">
-                                            <img src="images/volunteer1.png"
-                                                 style="border-radius: 50%; height: 4.5em;" alt="">
-                                        </div>
-                                        <div class="col-md-10 col-12   ">
-                                            <span> Margaret Walsh</span>
-                                            <p>
-                                                Monday, October 21, 2019, 4.57 PM
-                                            </p>
-                                            <p>
-                                                Nice mission great opportunity for peoples
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+                                
+                          
                         </div>
 
 
@@ -568,7 +511,7 @@
                                             <img src=~/images/@data.User.Avatar class="img50" alt="">
                                         </div>
                                         <div class="row">
-                                          <span class="d-flex justify-content-center">   @data.User.FirstName </span>
+                                            <span class="d-flex justify-content-center">   @data.User.FirstName </span>
                                         </div>
                                     </div>
                                 }

@@ -206,6 +206,10 @@ public partial class CiPlatformContext : DbContext
                 .IsUnicode(false)
                 .HasDefaultValueSql("('Pending')")
                 .HasColumnName("approval_status");
+            entity.Property(e => e.CommentDescription)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("comment_description");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")

@@ -24,10 +24,11 @@ namespace CIPLATFORM.Controllers
         }
         public IActionResult HomeGrid()
         {
+           
             string name = HttpContext.Session.GetString("Uname");
             ViewBag.Uname = name;
 
-
+           
 
             List<Country> countries = _PlatformRepository.GetCountryData();
             ViewBag.countries = countries;
@@ -117,6 +118,30 @@ namespace CIPLATFORM.Controllers
 
         }
 
+
+
+        [HttpPost]
+        public IActionResult MissionListing(MissionListingViewModel obj)
+        {
+            int UserId = (int)HttpContext.Session.GetInt32("Uname");
+            bool comntAdded = _PlatformRepository.addComment(obj, UserId);
+            if (comntAdded)
+            {
+                ViewBag.ComntAdded = "Comment Added";
+            }
+            else
+            {
+                ViewBag.ComntAdded = "Comment not Added";
+            }
+
+            int mid = (int)obj.missions.MissionId;
+            string name = HttpContext.Session.GetString("Uname");
+            ViewBag.Uname = name;
+            MissionListingViewModel volunteerModel = _PlatformRepository.GetCardDetail(mid);
+
+
+            return View(volunteerModel);
+        }
 
         public JsonResult GetCitys(int countryId)
         {

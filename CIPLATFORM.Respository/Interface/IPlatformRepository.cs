@@ -36,5 +36,8 @@ namespace CIPLATFORM.Respository.Interface
 
         //public int avgRating(int mid);
         public List<MissionDocument> document(int mid);
+
+        public bool addComment(MissionListingViewModel obj, int uid);
+
     }
 }

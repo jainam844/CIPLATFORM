@@ -44,25 +44,7 @@ namespace CIPLATFORM.Respository.Repositories
 
         }
 
-        //public List<Skill> GetSkills()
-        //{
-        //    List<Skill> skills = _CiPlatformContext.Skills.ToList();
-        //    return skills;
-
-        //}
-        //public List<MissionSkill> GetMissionSkills()
-        //{
-        //    List<MissionSkill> skills = _CiPlatformContext.MissionSkills.ToList();
-        //    return skills;
-
-        //}
-        //public List<MissionSkill> GetMissionSkills()
-        //{
-
-        //    var skills = _CiPlatformContext.MissionSkills.Include(m => m.Skill).ToList();
-        //    return skills;
-
-        //}
+       
 
         public List<MissionSkill> GetSkills()
         {
@@ -118,6 +100,10 @@ namespace CIPLATFORM.Respository.Repositories
             List<MissionApplication> applications = _CiPlatformContext.MissionApplications.Include(m => m.User).Where(x => x.MissionId == mid).ToList();
             List<Mission> relatedMissions = missions.Where(x => x.OrganizationName == mission.OrganizationName || x.ThemeId == mission.ThemeId || x.CountryId == mission.CountryId).ToList();
             relatedMissions.Remove(mission);
+          
+
+            List<Comment> comments = _CiPlatformContext.Comments.Include(m => m.User).Where(x => x.MissionId == mid).ToList();
+
             MissionListingViewModel CardDetail = new MissionListingViewModel();
             {
                 CardDetail.missions = mission;
@@ -127,33 +113,13 @@ namespace CIPLATFORM.Respository.Repositories
                 CardDetail.missionapplications = applications;
                 CardDetail.missionskills = missionSkills;
                 CardDetail.relatedmissions = relatedMissions;
+                CardDetail.comments = comments;
             }
 
             return CardDetail;
         }
 
-        //public int GetMissionRatings(long missionID)
-        // {
-        //     MissionRating rating= _CiPlatformContext.MissionRatings.FirstOrDefault(a=>a.MissionId==missionID);
-        //     return rating.Rating;
-        // }
-
-
-
-
-        //public CardsViewModel getCards()
-        //{
-        //    var cities = _CiPlatformContext.Cities.ToList();
-        //    var countries = _CiPlatformContext.Countries.ToList();
-        //    var missions = _CiPlatformContext.Missions.ToList();
-        //    var media = _CiPlatformContext.MissionMedia.ToList();
-        //    var rating = _CiPlatformContext.MissionRatings.ToList();
-
-
-        //    var data = new CardsViewModel(missions, cities, countries, media);
-
-        //    return data;
-        //}
+        
 
         public bool addToFav(int missionId, int userId)
         {
@@ -206,6 +172,24 @@ namespace CIPLATFORM.Respository.Repositories
 
         }
 
+        public bool addComment(MissionListingViewModel obj, int uid)
+        {
+            long mid = obj.missions.MissionId;
+            string commentDescription = obj.commentDescription;
+
+
+            Comment comment = new Comment();
+            {
+                comment.MissionId = mid;
+                comment.UserId = uid;
+                comment.CommentDescription = commentDescription;
+            }
+            _CiPlatformContext.Comments.Add(comment);
+            _CiPlatformContext.SaveChanges();
+
+            return true;
+
+        }
 
 
 
@@ -216,6 +200,7 @@ namespace CIPLATFORM.Respository.Repositories
 
         public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort)
         {
+            int pageSize = 1;
             List<Mission> cards = new List<Mission>();
             var missioncards = GetMissionDetails();
             var Missionskills = GetSkills();
@@ -349,6 +334,12 @@ namespace CIPLATFORM.Respository.Repositories
 
 
 
+                    //if (pageIndex != null)
+                    //{
+                    //    missioncards = missioncards.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+                    //}
+
+
 
                 }
 
@@ -415,8 +406,7 @@ namespace CIPLATFORM.Respository.Repositories
 
 
             }
-
-
+          
             return cards;
 
         }

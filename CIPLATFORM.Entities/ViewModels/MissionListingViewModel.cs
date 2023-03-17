@@ -19,7 +19,9 @@ namespace CIPLATFORM.Entities.ViewModels
         //public int rating { get; set; }
         public List<MissionSkill>? missionskills { get; set; }
         public List<MissionApplication>? missionapplications { get; set; }
-
+        //public List<Comment>? missioncomments { get; set; }
+        public List<Comment> comments { get; set; }
+        public string commentDescription { get; set; }
 
     }
 }
