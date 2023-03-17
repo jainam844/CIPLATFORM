@@ -112,14 +112,18 @@ namespace CIPLATFORM.Respository.Repositories
             Mission mission = missions.FirstOrDefault(x => x.MissionId == mid);
 
             List<MissionMedium> photos = media(mid);
-
+            List<MissionDocument> documents = document(mid);
+            //int rating = avgRating(mid);
+            List<MissionSkill> missionSkills = _CiPlatformContext.MissionSkills.Include(m => m.Skill).Where(x => x.MissionId == mid).ToList();
             List<Mission> relatedMissions = missions.Where(x => x.OrganizationName == mission.OrganizationName || x.ThemeId == mission.ThemeId || x.CountryId == mission.CountryId).ToList();
             relatedMissions.Remove(mission);
             MissionListingViewModel CardDetail = new MissionListingViewModel();
             {
                 CardDetail.missions = mission;
                 CardDetail.missionmedias = photos;
-
+                CardDetail.missiondocuments = documents;
+                //CardDetail.rating = rating;
+                CardDetail.missionskills = missionSkills;
                 CardDetail.relatedmissions = relatedMissions;
             }
 
@@ -171,6 +175,22 @@ namespace CIPLATFORM.Respository.Repositories
 
             }
         }
+
+        public List<MissionDocument> document(int mid)
+        {
+            List<MissionDocument> documents = _CiPlatformContext.MissionDocuments.Where(x => x.MissionId == mid).ToList();
+            return documents;
+        }
+
+
+
+
+
+
+
+
+
+
         public List<MissionMedium> media(int mid)
         {
             List<MissionMedium> photos = _CiPlatformContext.MissionMedia.Where(x => x.MissionId == mid).ToList();

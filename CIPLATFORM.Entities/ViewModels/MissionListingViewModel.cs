@@ -14,5 +14,10 @@ namespace CIPLATFORM.Entities.ViewModels
         public List<MissionDocument>? missiondocuments { get; set; }
 
         public List<Mission> relatedmissions { get; set; }
+
+        public List<MissionRating>? missionratings { get; set; }
+        //public int rating { get; set; }
+        public List<MissionSkill>? missionskills { get; set; }
+
     }
 }

@@ -297,7 +297,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="apply2 d-flex justify-content-center">
-                            <button type="button" class="btn btn-outline apply">
+                            <button type="button" class="btn btn-outline-dark apply">
                                 Apply Now
                                 <i class=" ms-2 bi bi-arrow-right-short"></i>
                             </button>
@@ -342,37 +342,37 @@
                 <div class="tab-pane fade show active" id="tab-1" role="tabpanel">
                     <h3>Introduction</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        @Model.missions.Description
                     </p>
                     <h3>Challenge</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        @Model.missions.Description
                     </p>
+
+                    <h3>Document</h3>
+                    <div>
+                        @foreach (var documents in Model.missiondocuments)
+                        {
+                            <a href=~/images/@documents.DocumentPath target="_blank">
+                                <button type="submit " class="btn btn-outline-dark rounded-pill ">
+                                    @if (@documents.DocumentType == "PDF")
+                                    {
+                                        <i class="bi bi-filetype-pdf">@documents.DocumentName</i>
+                                    }
+                                    else if (@documents.DocumentType == "Image")
+                                    {
+                                        <i class="bi bi-file-image">@documents.DocumentName</i>
+
+                                    }
+
+                                </button>
+                            </a>
+
+                        }
+                    </div>
                 </div>
                 <div class="tab-pane fade" id="tab-2" role="tabpanel">
-                    Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor
+                    @Model.missions.OrganizationDetail
                 </div>
                 <div class="tab-pane fade" id="tab-3" role="tabpanel">
                     <form>
@@ -506,23 +506,31 @@
 
                     <div class="row mt-3">
                         <div class="col-3">Skills</div>
-                        <div class="col-9">Cool, Easy going, Math, Computer</div>
+                        <div class="col-9">
+                            @foreach (var item in Model.missionskills)
+                            {
+                                @item.Skill.SkillName <br />
+                            }
+                        </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-3">Days</div>
-                        <div class="col-9">Weekend only</div>
+                        <div class="col-9">@Model.missions.Avaibility</div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-3 pe-0 mb-3">Rating</div>
                         <div class="col-9">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <span> (by 125 volunteers)</span>
+                            @for (int i = 1; i <= (int)@Model.missions.MissionRatings.Average(x => x.Rating); i++)
+                            {
+                                <i class="bi bi-star-fill" style="color: #F8D441;"></i>
+                            }
+                            @for (int i = 1; i <= 5 - (int)@Model.missions.MissionRatings.Average(x => x.Rating); i++)
+                            {
+                                <i class="bi bi-star" style="color: #F8D441;"></i>
+                            }
+                            (by @Model.missions.MissionRatings.Count volunteers)
                         </div>
                     </div>
                 </div>
