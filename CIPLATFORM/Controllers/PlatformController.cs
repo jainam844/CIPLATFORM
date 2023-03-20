@@ -24,11 +24,11 @@ namespace CIPLATFORM.Controllers
         }
         public IActionResult HomeGrid()
         {
-           
+
             string name = HttpContext.Session.GetString("Uname");
             ViewBag.Uname = name;
 
-           
+
 
             List<Country> countries = _PlatformRepository.GetCountryData();
             ViewBag.countries = countries;
@@ -62,6 +62,15 @@ namespace CIPLATFORM.Controllers
 
             CardsViewModel ms = _PlatformRepository.getCards();
 
+            int pageSize = 2;
+
+
+
+
+            ms.missions = ms.missions.Skip((1 - 1) * pageSize).Take(pageSize).ToList();
+
+
+
 
             return View(ms);
 
@@ -70,7 +79,8 @@ namespace CIPLATFORM.Controllers
         [HttpPost]
         public bool AddMissionToFavourite(int missionId)
         {
-            var userId = (int)HttpContext.Session.GetInt32("userid");
+            var userId = (int)HttpContext.Session.GetInt32("UId");
+
             var fav = _PlatformRepository.addToFav(missionId, userId);
             if (fav != true)
             {
@@ -88,21 +98,27 @@ namespace CIPLATFORM.Controllers
         {
             string name = HttpContext.Session.GetString("Uname");
             ViewBag.Uname = name;
+            //int UserId = (int)HttpContext.Session.GetInt32("userid");
+            //ViewBag.UId = UserId;
+            //string userid = HttpContext.Session.GetString("userId");
+            // ViewBag.userId = userid;
 
+            //ViewBag.userId = HttpContext.Session.GetInt32("userId");
+            //ViewBag.MId = mid;
 
             MissionListingViewModel ml = _PlatformRepository.GetCardDetail(mid);
-
+            ////ViewBag.MId = mid;
 
             return View(ml);
 
 
 
         }
-   
 
-        public IActionResult Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort)
+
+        public IActionResult Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort, int pageIndex)
         {
-            List<Mission> cards = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort);
+            List<Mission> cards = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort, pageIndex);
             CardsViewModel platformModel = new CardsViewModel();
 
             platformModel.missions = cards;
@@ -120,28 +136,21 @@ namespace CIPLATFORM.Controllers
 
 
 
+       
+
         [HttpPost]
-        public IActionResult MissionListing(MissionListingViewModel obj)
+        public void AddComment(int obj, string comnt)
         {
-            int UserId = (int)HttpContext.Session.GetInt32("Uname");
-            bool comntAdded = _PlatformRepository.addComment(obj, UserId);
-            if (comntAdded)
-            {
-                ViewBag.ComntAdded = "Comment Added";
-            }
-            else
-            {
-                ViewBag.ComntAdded = "Comment not Added";
-            }
 
-            int mid = (int)obj.missions.MissionId;
-            string name = HttpContext.Session.GetString("Uname");
-            ViewBag.Uname = name;
-            MissionListingViewModel volunteerModel = _PlatformRepository.GetCardDetail(mid);
+            int UserId = (int)HttpContext.Session.GetInt32("UId");
+            _PlatformRepository.addComment(obj, UserId, comnt);
+           
+            
 
-
-            return View(volunteerModel);
         }
+
+
+
 
         public JsonResult GetCitys(int countryId)
         {

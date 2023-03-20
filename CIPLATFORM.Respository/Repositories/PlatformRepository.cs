@@ -44,7 +44,7 @@ namespace CIPLATFORM.Respository.Repositories
 
         }
 
-       
+
 
         public List<MissionSkill> GetSkills()
         {
@@ -100,7 +100,7 @@ namespace CIPLATFORM.Respository.Repositories
             List<MissionApplication> applications = _CiPlatformContext.MissionApplications.Include(m => m.User).Where(x => x.MissionId == mid).ToList();
             List<Mission> relatedMissions = missions.Where(x => x.OrganizationName == mission.OrganizationName || x.ThemeId == mission.ThemeId || x.CountryId == mission.CountryId).ToList();
             relatedMissions.Remove(mission);
-          
+
 
             List<Comment> comments = _CiPlatformContext.Comments.Include(m => m.User).Where(x => x.MissionId == mid).ToList();
 
@@ -119,7 +119,7 @@ namespace CIPLATFORM.Respository.Repositories
             return CardDetail;
         }
 
-        
+
 
         public bool addToFav(int missionId, int userId)
         {
@@ -143,22 +143,11 @@ namespace CIPLATFORM.Respository.Repositories
 
             }
         }
-
         public List<MissionDocument> document(int mid)
         {
             List<MissionDocument> documents = _CiPlatformContext.MissionDocuments.Where(x => x.MissionId == mid).ToList();
             return documents;
         }
-
-
-
-
-
-
-
-
-
-
         public List<MissionMedium> media(int mid)
         {
             List<MissionMedium> photos = _CiPlatformContext.MissionMedia.Where(x => x.MissionId == mid).ToList();
@@ -172,35 +161,67 @@ namespace CIPLATFORM.Respository.Repositories
 
         }
 
-        public bool addComment(MissionListingViewModel obj, int uid)
+        //public bool addComment(MissionListingViewModel obj, int uid)
+        //{
+        //    long mid = obj.missions.MissionId;
+        //    string commentDescription = obj.commentDescription;
+
+
+        //    Comment comment = new Comment();
+        //    {
+        //        comment.MissionId = mid;
+        //        comment.UserId = uid;
+        //        comment.CommentDescription = commentDescription;
+        //    }
+        //    _CiPlatformContext.Comments.Add(comment);
+        //    _CiPlatformContext.SaveChanges();
+
+        //    return true;
+
+        //}
+
+        public void addComment(int mid, int uid, string comnt)
         {
-            long mid = obj.missions.MissionId;
-            string commentDescription = obj.commentDescription;
 
+            
+            
+                Comment comment = new Comment();
 
-            Comment comment = new Comment();
-            {
                 comment.MissionId = mid;
                 comment.UserId = uid;
-                comment.CommentDescription = commentDescription;
-            }
-            _CiPlatformContext.Comments.Add(comment);
-            _CiPlatformContext.SaveChanges();
+                comment.CommentDescription = comnt;
 
-            return true;
+                _CiPlatformContext.Comments.Add(comment);
+                _CiPlatformContext.SaveChanges();
+            
+            
+
+            
 
         }
 
 
+        //public void AddComments(long missionid, int userid, string commenttext)
+        //{
+        //    var addcomment = new Comment()
+        //    {
+        //        MissionId = missionid,
+        //        UserId = userid,
+        //        CommentDescription = commenttext,
+        //        CreatedAt = DateTime.Now,
+
+        //    };
+        //    _CiPlatformContext.Comments.Add(addcomment);
+        //    _CiPlatformContext.SaveChanges();
+        //}
 
 
 
 
 
-
-        public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort)
+        public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort, int pageIndex)
         {
-            int pageSize = 1;
+            int pageSize = 2;
             List<Mission> cards = new List<Mission>();
             var missioncards = GetMissionDetails();
             var Missionskills = GetSkills();
@@ -208,8 +229,6 @@ namespace CIPLATFORM.Respository.Repositories
 
 
             if (cityId.Count != 0 || countryId.Count != 0 || themeId.Count != 0 || skillId.Count != 0)
-
-
             {
 
                 foreach (var n in countryId)
@@ -303,8 +322,6 @@ namespace CIPLATFORM.Respository.Repositories
 
                 if (sort != null)
                 {
-
-
                     if (sort == 1)
                     {
                         //if (cards.Count != 0)
@@ -331,23 +348,16 @@ namespace CIPLATFORM.Respository.Repositories
                         //    return missioncards;
                         //}
                     }
-
-
-
-                    //if (pageIndex != null)
-                    //{
-                    //    missioncards = missioncards.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
-                    //}
-
-
-
                 }
 
-
-
+                if (pageIndex != null)
+                {
+                    cards = cards.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+                }
 
                 return cards;
             }
+
 
             else if (cityId.Count == 0 && countryId.Count == 0 && themeId.Count == 0 && skillId.Count == 0 && search == null)
             {
@@ -356,6 +366,7 @@ namespace CIPLATFORM.Respository.Repositories
                     cards.Add(item);
                 }
                 //return cards;
+
             }
 
             if (search != null)
@@ -369,11 +380,15 @@ namespace CIPLATFORM.Respository.Repositories
                     }
                 }
 
+                if (pageIndex != null)
+                {
+                    cards = cards.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+                }
+
             }
 
             if (sort != null)
             {
-
 
                 if (sort == 1)
                 {
@@ -384,8 +399,13 @@ namespace CIPLATFORM.Respository.Repositories
 
                     //else
                     //{
-                    missioncards = missioncards.OrderByDescending(x => x.CreatedAt).ToList();
+                    if (pageIndex != null)
+                    {
+                        missioncards = missioncards.OrderByDescending(x => x.CreatedAt).ToList();
+                        missioncards = missioncards.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+                    }
                     return missioncards;
+
                     //}
                 }
                 if (sort == 2)
@@ -404,9 +424,13 @@ namespace CIPLATFORM.Respository.Repositories
 
 
 
-
             }
-          
+
+            if (pageIndex != null)
+            {
+                cards = cards.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
+            }
+
             return cards;
 
         }
