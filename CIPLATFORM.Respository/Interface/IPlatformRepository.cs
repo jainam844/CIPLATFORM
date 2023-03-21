@@ -41,6 +41,7 @@ namespace CIPLATFORM.Respository.Interface
 
 
         public void addComment(int mid, int uid, string comnt);
+        public bool applyMission(int mid, int uid);
         //public void AddComments(long missionid, int userid, string commenttext);
 
     }

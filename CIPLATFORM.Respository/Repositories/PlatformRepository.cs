@@ -201,25 +201,34 @@ namespace CIPLATFORM.Respository.Repositories
         }
 
 
-        //public void AddComments(long missionid, int userid, string commenttext)
-        //{
-        //    var addcomment = new Comment()
-        //    {
-        //        MissionId = missionid,
-        //        UserId = userid,
-        //        CommentDescription = commenttext,
-        //        CreatedAt = DateTime.Now,
+        public bool applyMission(int mid, int uid)
+        {
+            MissionApplication application = new();
+            application.MissionId = mid;
+            application.UserId = uid;
 
-        //    };
-        //    _CiPlatformContext.Comments.Add(addcomment);
-        //    _CiPlatformContext.SaveChanges();
-        //}
+            var applicable = _CiPlatformContext.MissionApplications.FirstOrDefault(a => a.MissionId == mid && a.UserId == uid);
+
+            if (applicable == null)
+            {
+                application.CreatedAt = DateTime.Now;
+                application.AppliedAt = DateTime.Now;
+                _CiPlatformContext.MissionApplications.Add(application);
+                _CiPlatformContext.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+    
 
 
 
 
-
-        public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort, int pageIndex)
+    public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort, int pageIndex)
         {
             int pageSize = 2;
             List<Mission> cards = new List<Mission>();

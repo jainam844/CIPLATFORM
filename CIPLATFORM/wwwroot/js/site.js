@@ -124,7 +124,9 @@ function temp(z) {
         },  
         dataType: "html", // return datatype like JSON and HTML
         success: function (data) {
-
+            document.getElementById("selectCityList").innerHTML += `
+        <option value=${name}> City </option>
+        `;
             $("#filter").empty();
             console.log("grid Hii");
             $("#filter").html(data);
@@ -166,11 +168,14 @@ function AddMissionToFavourite(missionId) {
                 $('#addToFav').removeClass();
                 $('#addToFav').addClass("bi bi-heart-fill");
                 $('#addToFav').css("color", "red");
+
+               
             }
             else {
                 $('#addToFav').css("color", "black");
                 $('#addToFav').removeClass();
                 $('#addToFav').addClass("bi bi-heart");
+
             }
 
         },
@@ -184,27 +189,43 @@ function AddMissionToFavourite(missionId) {
 }
 
 
+function applyMission(missionId) {
 
-//$("#comment").click(function () {
-//    var commenttext = $("#commenttext textarea").val();
-//    var userid = @Convert.ToInt32(ViewBag.UserId);
-//   /* var userId = (int)HttpContext.Session.GetInt32("userid");*/
-//    var missionid = $("input[type='hidden']#mid").val();
-//    console.log(commenttext);
-//    console.log(userid);
-//    console.log(missionid);
-//    $.ajax({
-//        type: 'POST',
-//        url: '/Platform/Comment',
-//        data: {
-//            missionid: missionid,
-//            UserId: userid,
-//            commenttext: commenttext
-//        },
-//        success: function () {
-//        }
-//    });
-//});
+    $.ajax({
+
+        url: '/Platform/applyMission',
+        method: "POST",
+        data: {
+            'missionId': missionId,
+        },
+        success: function (missions) {
+     
+            if (missions == true) {
+                document.getElementById("okayyy").innerHTML += `
+      Applied Successfully...!!!
+        `
+                $('#applyMission').prop('disabled', true);
+                $('#applyMission').text("Applied");
+                $('#applyMission').css("color", "red");
+            }
+            else {
+                document.getElementById("fail").innerHTML += `
+     You've already Applied...!!! 
+        `
+                $('#addToFav').css("color", "black");
+
+            }
+
+        },
+        error: function (request, error) {
+            console.log("function not working");
+            alert('Error');
+        },
+
+    });
+
+}
+
 //function preventBack() { window.history.forward(); }
 //setTimeout("preventBack()", 0);
 //window.onunload = function () { null }

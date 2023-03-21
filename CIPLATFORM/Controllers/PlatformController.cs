@@ -149,8 +149,20 @@ namespace CIPLATFORM.Controllers
 
         }
 
-
-
+     
+        [HttpPost]
+        public bool applyMission(int missionId)
+        {
+            int UserId = (int)HttpContext.Session.GetInt32("UId");
+            var apply = _PlatformRepository.applyMission(missionId, UserId);
+            if (apply == true)
+            {
+                TempData["success"] = "Applied Successfully...";
+                return apply;
+            }
+            TempData["error"] = "You've already Applied... ";
+            return false;
+        }
 
         public JsonResult GetCitys(int countryId)
         {
