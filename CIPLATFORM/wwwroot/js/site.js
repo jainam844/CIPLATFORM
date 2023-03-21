@@ -1,7 +1,7 @@
 ﻿
 function GetCity() {
     var countryId = $('#countryId').find(":selected").val();
-/*    debugger;*/
+
     $.ajax({
         url: "/Platform/GetCitys",
         method: "GET",
@@ -36,8 +36,7 @@ $('#page li a').click(function () {
     temp(pageIndex);
 });
 
-
-
+/*filter */
 function temp(z) {
 
 
@@ -146,14 +145,7 @@ function temp(z) {
 }
 
 
-
-
-
-
-
-
-
-
+/*mission-listing page*/
 function AddMissionToFavourite(missionId) {
     $.ajax({
 
@@ -226,29 +218,13 @@ function applyMission(missionId) {
 
 }
 
-//function preventBack() { window.history.forward(); }
-//setTimeout("preventBack()", 0);
-//window.onunload = function () { null }
-
-
-
-
-
-
-
 
 
 function comment(missionid)
 {
-
-    //var crd = document.getElementById("comment");
     var comnt = $("#comment_text").val();
-
-    /*    var missionId = document.getElementsByClassName("mission_id").value;*/
     console.log("kkkkkkkkkkkkkkkkkkkkk");
     console.log(comnt);
-    
-
     $.ajax({
         url: "/Platform/AddComment",
         type: "POST", // POST
@@ -270,3 +246,41 @@ function comment(missionid)
         },
     });
 }
+
+function recommandToCoWorker(x) {
+    //var toUserId = $('#recommand').find(":checked").val();
+    var Missiond = x;
+    var toUserId = [];
+    var recommand = document.getElementById("recommand");
+    var list = recommand.getElementsByTagName("input");
+    for (i = 0; i < list.length; i++) {
+        if (list[i].checked) {
+            toUserId.push(list[i].value);
+        }
+
+    }
+
+    /* debugger;*/
+    $.ajax({
+        url: "/Platform/RecommandToCoWorker",
+        method: "Post",
+        data: {
+            "toUserId": toUserId,
+            "mid": Missiond
+        },
+        success: function (data) {
+            console.log(toUserId);
+
+        }
+        ,
+        error: function (e) {
+            console.log("Bye");
+            alert('Error');
+        },
+    });
+}
+
+
+//function preventBack() { window.history.forward(); }
+//setTimeout("preventBack()", 0);
+//window.onunload = function () { null }

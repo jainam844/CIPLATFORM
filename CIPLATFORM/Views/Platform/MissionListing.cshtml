@@ -105,21 +105,48 @@
                     <div class="row">
 
                         <div class="col-12 col-md-6 col-sm-12 mt-2">
-                            <button type="submit" class="btn btn-outline w-100 rounded-pill" style="background: #F8863400 0% 0% no-repeat padding-box;
-                             border: 2px solid #020201;
-                               border-radius: 24px;
-                               opacity: 1; color:#020202" onclick="AddMissionToFavourite(@Model.missions.MissionId)">
+                            @*<button type="submit" class="btn btn-outline w-100 rounded-pill" style="background: #F8863400 0% 0% no-repeat padding-box;
+                                border: 2px solid #020201;
+                                border-radius: 24px;
+                                opacity: 1; color:#020202" onclick="AddMissionToFavourite(@Model.missions.MissionId)">
                                 <i class="bi bi-heart-fill" id="addToFav"></i> Add To Favourite
-                            </button>
-                        </div>
-                        <div class="col-12 col-md-6 col-sm-12 mt-2">
+                                </button>*@
+                            @if (Model.favoriteMissions.Any(x => x.MissionId == Model.missions.MissionId && x.UserId == @ViewBag.UId))
+                            {
+                                <button type="button" class="btn btn-outline rounded-pill w-100" onclick="AddMissionToFavourite(@Model.missions.MissionId)" style="background: #F8863400 0% 0% no-repeat padding-box;border: 2px solid #020201;
+                               border-radius: 24px;
+                               opacity: 1; color:#020202">
+                                    <i class="bi bi-heart-fill" style="color:red;" id="addToFav"></i>
 
-                            <button type="submit" class="btn btn-outline w-100  rounded-pill" style="background: #F8863400 0% 0% no-repeat padding-box;
+                                    Add to Favourite
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="button" class="btn btn-outline rounded-pill w-100" onclick="AddMissionToFavourite(@Model.missions.MissionId)" style="background: #F8863400 0% 0% no-repeat padding-box;border: 2px solid #020201;  border-radius: 24px;
+                               opacity: 1; color:#020202">
+                                    <i class="bi bi-heart" id="addToFav"></i>
+                                    Add to Favourite
+                                </button>
+                            }
+                        </div>
+                        <div class="col-12 col-md-6 col-sm-12 mt-2" id="recommand" onchange="recommandToCoWorker(@Model.missions.MissionId)">
+
+                            <button type="button" class="btn btn-outline w-100  rounded-pill" data-bs-toggle="dropdown" aria-expanded="false" style="background: #F8863400 0% 0% no-repeat padding-box;
                                 border: 2px solid #020201;
                               border-radius: 24px;
                                 opacity: 1; color:#020202">
+
                                 <i class="bi bi-square-fill  "><span> Recommend to a Co-Worker</span></i>
                             </button>
+                            <ul class="dropdown-menu">
+
+                                @foreach (var item in Model.coworkers)
+                                {
+
+                                    <li><input type="checkbox" value="@item.UserId" /> @item.FirstName @item.LastName </li>
+                                }
+                            </ul>
                         </div>
                     </div>
                     <div class="wrapper  d-flex justify-content-center mt-3">
@@ -171,10 +198,24 @@
                     <div class="row mt-3">
 
                         <div class="apply2 d-flex justify-content-center">
-                            <button type="button" class="btn btn-outline apply" id="applyMission" onclick="applyMission(@Model.missions.MissionId)">
+                            @*<button type="button" class="btn btn-outline apply" id="applyMission" onclick="applyMission(@Model.missions.MissionId)">
                                 Apply Now
                                 <i class=" ms-2 bi bi-arrow-right-short"></i>
-                            </button>
+                                </button>*@
+                            @if (Model.missionapplications.Any(x => x.MissionId == Model.missions.MissionId && x.UserId == @ViewBag.UId))
+                            {
+                                <button type="button" class="btn btn-outline apply" id="applyMission" onclick="applyMission(@Model.missions.MissionId)" disabled>
+                                    Applied
+
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="button" class="btn btn-outline apply" id="applyMission" onclick="applyMission(@Model.missions.MissionId)">
+                                    Apply now
+                                    <i class=" ms-2 bi bi-arrow-right-short"></i>
+                                </button>
+                            }
                         </div>
                     </div>
 
@@ -183,7 +224,7 @@
         </div>
     </div>
 
-<!--tabs...........-->
+    <!--tabs...........-->
     <div class="row mt-3">
         <div class="col-lg-8">
 

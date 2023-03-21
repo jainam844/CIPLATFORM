@@ -31,15 +31,15 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
 
 
-                        <li class="nav-item mt-2">
-                            <a class="nav-link ms-lg-5" href="#">Stories</a>
+                        <li class="nav-item mt-1">
+                            <a asp-action="StoryListing" class="nav-link ms-lg-5" >Stories</a>
                         </li>
-                        <li class="nav-item dropdown mt-3">
-                            @*   <a    id="navbarDropdown"class="nav-link dropdown-toggle ms-lg-5" href="#"  role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false"  >
+                        <li class="nav-item dropdown mt-1">
+                               <a   asp-controller="Home" asp-action="Privacy" class="nav-link  ms-lg-5"   role="button"
+                                >
                                 policy
-                                </a>*@
-                            <a class="ms-lg-5" role="button" asp-controller="Home" class="nav-link dropdown-toggle ms-lg-5 " style="text-decoration: none; color:gray" id="navbarDropdown" asp-action="Privacy">Privacy</a>
+                                </a>
+                            @*<a class="ms-lg-5" role="button" asp-controller="Home" class="nav-link dropdown-toggle ms-lg-5 " style="text-decoration: none; color:gray" id="navbarDropdown" asp-action="Privacy">Privacy</a>*@
                             <ul class="dropdown-menu text-center w-50" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Action1</a></li>
                                 <li><a class="dropdown-item" href="#">Action2</a></li>
@@ -61,7 +61,7 @@
                            data-bs-toggle="dropdown" aria-expanded="false">
                             @ViewBag.Uname
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">Email Address</a></li>
                             <li><a class="dropdown-item" href="#">Mobile Number</a></li>
                             <li>
