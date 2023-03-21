@@ -336,3 +336,8 @@ input[type=range]::-moz-range-thumb {
 }
 
 
+.ex1 {
+    background-color: gainsboro;
+    height: 410px;
+    overflow: auto;
+}
