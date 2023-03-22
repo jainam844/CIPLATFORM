@@ -144,7 +144,7 @@
                                 @foreach (var item in Model.coworkers)
                                 {
 
-                                    <li><input type="checkbox" value="@item.UserId" /> @item.FirstName @item.LastName </li>
+                                    <li class="d-flex justify-content-start"><input type="checkbox" value="@item.UserId" class="d-flex justify-content-center ms-3" /> <span class="ms-3" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"> @item.FirstName @item.LastName</span> </li>
                                 }
                             </ul>
                         </div>

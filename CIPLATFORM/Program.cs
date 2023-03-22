@@ -42,6 +42,10 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=User}/{action=login}"
     );
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Platform}/{action=ShareStory}"
+//    );
 
 
 //app.MapControllerRoute(

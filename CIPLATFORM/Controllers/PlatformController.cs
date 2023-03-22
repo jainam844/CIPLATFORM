@@ -155,16 +155,18 @@ namespace CIPLATFORM.Controllers
         {
             return View();
         }
+        //page-3
         public IActionResult StoryListing()
         {
             string name = HttpContext.Session.GetString("Uname");
             ViewBag.Uname = name;
 
 
-
-            int UserId = (int)HttpContext.Session.GetInt32("UId");
-            ViewBag.UId = UserId;
-
+            if (name != null)
+            {
+                int UserId = (int)HttpContext.Session.GetInt32("UId");
+                ViewBag.UId = UserId;
+            }
 
             List<Country> countries = _PlatformRepository.GetCountryData();
             ViewBag.countries = countries;
@@ -180,7 +182,13 @@ namespace CIPLATFORM.Controllers
             StoryListingViewModel sl = _PlatformRepository.GetStoryDetail();
             return View(sl);
 
+        }
 
+        //page-4
+        public IActionResult ShareStory()
+        {
+            string name = HttpContext.Session.GetString("Uname");
+            ViewBag.Uname = name;
 
             return View();
         }

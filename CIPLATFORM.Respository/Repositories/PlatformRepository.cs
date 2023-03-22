@@ -251,7 +251,7 @@ namespace CIPLATFORM.Respository.Repositories
 
         public StoryListingViewModel GetStoryDetail()
         {
-            List<Story> stories = _CiPlatformContext.Stories.ToList();
+            List<Story> stories = _CiPlatformContext.Stories.Include(m=>m.User).Include(m=>m.StoryMedia).Include(m=>m.Mission).ToList();
             StoryListingViewModel StoryDetail = new StoryListingViewModel();
             {
                 StoryDetail.stories = stories;
@@ -260,6 +260,7 @@ namespace CIPLATFORM.Respository.Repositories
 
             return StoryDetail;
         }
+   
 
 
         public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort, int pageIndex)

@@ -1,0 +1,20 @@
+﻿.search {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+}
+
+.form-control {
+    padding-left: 35px;
+    height: 41px;
+    width: 100%;
+}
+
+.upload {
+    height: 150px;
+}
+
+.uploadImg {
+    height: 5rem;
+    width: 8rem;
+}
