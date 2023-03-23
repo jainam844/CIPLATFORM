@@ -192,5 +192,18 @@ namespace CIPLATFORM.Controllers
 
             return View();
         }
+
+        public IActionResult StoryDetail(int sid)
+        {
+            string name = HttpContext.Session.GetString("Uname");
+            ViewBag.Uname = name;
+            StoryListingViewModel sl = _PlatformRepository.GetStory(sid);
+
+            return View(sl);
+        }
+
+
+        
+
     }
 }

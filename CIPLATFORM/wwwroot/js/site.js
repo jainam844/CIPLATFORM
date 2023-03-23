@@ -32,7 +32,7 @@ $('#page li a').click(function () {
 
     var pageIndex = $(this).text();
     console.log(pageIndex)
-   
+
     temp(pageIndex);
 });
 
@@ -120,7 +120,7 @@ function temp(z) {
             'search': search,
             'sort': sort,
             "pageIndex": pageIndex
-        },  
+        },
         dataType: "html", // return datatype like JSON and HTML
         success: function (data) {
             document.getElementById("selectCityList").innerHTML += `
@@ -161,7 +161,7 @@ function AddMissionToFavourite(missionId) {
                 $('#addToFav').addClass("bi bi-heart-fill");
                 $('#addToFav').css("color", "red");
 
-               
+
             }
             else {
                 $('#addToFav').css("color", "black");
@@ -191,22 +191,18 @@ function applyMission(missionId) {
             'missionId': missionId,
         },
         success: function (missions) {
-     
-            if (missions == true) {
-                document.getElementById("okayyy").innerHTML += `
-      Applied Successfully...!!!
-        `
-                $('#applyMission').prop('disabled', true);
-                $('#applyMission').text("Applied");
-                $('#applyMission').css("color", "red");
-            }
-            else {
-                document.getElementById("fail").innerHTML += `
-     You've already Applied...!!! 
-        `
-                $('#addToFav').css("color", "black");
 
+            if (missions == true) {
+
+
+                $('#applyMission').prop('disabled', true);
+                $('#applyMission').text("   Your Request has been sent for Approve...!!!");
+                $('#applyMission').css("color", "red");
+
+                document.getElementById("okayyy").innerHTML += ` Applied Successfully...!!!`
+               
             }
+
 
         },
         error: function (request, error) {
@@ -220,8 +216,7 @@ function applyMission(missionId) {
 
 
 
-function comment(missionid)
-{
+function comment(missionid) {
     var comnt = $("#comment_text").val();
     console.log("kkkkkkkkkkkkkkkkkkkkk");
     console.log(comnt);
@@ -279,6 +274,7 @@ function recommandToCoWorker(x) {
         },
     });
 }
+
 
 
 //function preventBack() { window.history.forward(); }

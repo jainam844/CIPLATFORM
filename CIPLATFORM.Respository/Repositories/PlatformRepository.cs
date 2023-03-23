@@ -252,15 +252,60 @@ namespace CIPLATFORM.Respository.Repositories
         public StoryListingViewModel GetStoryDetail()
         {
             List<Story> stories = _CiPlatformContext.Stories.Include(m=>m.User).Include(m=>m.StoryMedia).Include(m=>m.Mission).ToList();
+            //List<StoryMedium> photos = smedia(sid);
             StoryListingViewModel StoryDetail = new StoryListingViewModel();
             {
                 StoryDetail.stories = stories;
+                //StoryDetail.storymedias = photos;
             }
 
 
             return StoryDetail;
         }
-   
+
+        //public StoryListingViewModel GetStory(int sid)
+        //{
+        //    //Story story = story.Where(x => x.StoryId == sid);
+        //    List<StoryMedium> photos = smedia(sid);
+        //    StoryListingViewModel StoryDetail = new StoryListingViewModel();
+        //    {
+
+        //        StoryDetail.storymedias = photos;
+        //    }
+        //    return StoryDetail;
+        //}
+
+
+        //public List<StoryMedium> smedia(int sid)
+        //{
+        //    List<StoryMedium> photos = _CiPlatformContext.StoryMedia.Where(x => x.StoryId == sid).ToList();
+        //    return photos;
+        //}
+
+        public StoryListingViewModel GetStory(int sid)
+        {
+
+            Story story = _CiPlatformContext.Stories.Include(m => m.User).FirstOrDefault(m => m.StoryId == sid);
+            List <StoryMedium> photos = smedia(sid);
+
+            StoryListingViewModel StoryDetail = new StoryListingViewModel();
+            {
+                StoryDetail.storymedias = photos;
+                StoryDetail.story=story;
+            }
+            return StoryDetail;
+        }
+        public List<StoryMedium> smedia(int sid)
+        {
+            List<StoryMedium> photos = _CiPlatformContext.StoryMedia.Where(x => x.StoryId == sid).ToList();
+            return photos;
+        }
+
+       
+
+
+
+
 
 
         public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort, int pageIndex)

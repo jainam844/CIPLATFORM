@@ -32,13 +32,12 @@
 
 
                         <li class="nav-item mt-1">
-                            <a asp-action="StoryListing" class="nav-link ms-lg-5" >Stories</a>
+                            <a asp-action="StoryListing" class="nav-link ms-lg-5">Stories</a>
                         </li>
                         <li class="nav-item dropdown mt-1">
-                               <a   asp-controller="Home" asp-action="Privacy" class="nav-link  ms-lg-5"   role="button"
-                                >
+                            <a asp-controller="Home" asp-action="Privacy" class="nav-link  ms-lg-5" role="button">
                                 policy
-                                </a>
+                            </a>
                             @*<a class="ms-lg-5" role="button" asp-controller="Home" class="nav-link dropdown-toggle ms-lg-5 " style="text-decoration: none; color:gray" id="navbarDropdown" asp-action="Privacy">Privacy</a>*@
                             <ul class="dropdown-menu text-center w-50" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Action1</a></li>
@@ -86,6 +85,7 @@
             crossorigin="anonymous"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     @*   <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -38,6 +38,9 @@ namespace CIPLATFORM.Respository.Interface
         public void RecommandToCoWorker(int FromUserId, List<int> ToUserId, int mid);
 
         public StoryListingViewModel GetStoryDetail();
-
+        public List<StoryMedium> smedia(int sid);
+        public StoryListingViewModel GetStory(int sid);
+        //public List<Story> GetStoryList(string? search);
+  
     }
 }

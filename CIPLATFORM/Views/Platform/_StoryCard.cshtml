@@ -1,6 +1,7 @@
 ﻿@using CIPLATFORM.Entities.ViewModels
 
 @model StoryListingViewModel
+
 <div class="container mt-3">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
@@ -16,8 +17,10 @@
                             <div class="  apply2">
                                 <button type="button" class="btn btn-outline apply "
                                     style="margin-bottom: 200px;  ">
-                                    View Details
-                                    <i class="bi bi-arrow-right"></i>
+                                    <a asp-controller="Platform" asp-action="StoryDetail"  asp-route-sid="@item.StoryId" style="text-decoration:none;color:black;">
+                                        View Details
+                                        <i class="bi bi-arrow-right"></i>
+                                    </a>
                                 </button>
                             </div>
                         </div>

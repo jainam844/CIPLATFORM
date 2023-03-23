@@ -202,10 +202,17 @@
                                 Apply Now
                                 <i class=" ms-2 bi bi-arrow-right-short"></i>
                                 </button>*@
-                            @if (Model.missionapplications.Any(x => x.MissionId == Model.missions.MissionId && x.UserId == @ViewBag.UId))
+                           @if (Model.missionapplications.Any(x => x.MissionId == Model.missions.MissionId && x.UserId == @ViewBag.UId && x.ApprovalStatus=="Approve"))
                             {
                                 <button type="button" class="btn btn-outline apply" id="applyMission" onclick="applyMission(@Model.missions.MissionId)" disabled>
                                     Applied
+
+                                </button>
+                            }
+                            else if (Model.missionapplications.Any(x => x.MissionId == Model.missions.MissionId && x.UserId == @ViewBag.UId && x.ApprovalStatus=="Pending"))
+                            {
+                                <button type="button" class="btn btn-outline apply" id="applyMission" onclick="applyMission(@Model.missions.MissionId)" disabled>
+                                    Your Request has been sent for Approve
 
                                 </button>
                             }
