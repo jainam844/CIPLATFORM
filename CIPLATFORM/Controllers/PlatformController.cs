@@ -56,7 +56,7 @@ namespace CIPLATFORM.Controllers
 
             CardsViewModel ms = _PlatformRepository.getCards();
 
-           
+
 
 
 
@@ -198,14 +198,34 @@ namespace CIPLATFORM.Controllers
             return View(sl);
 
         }
+        public IActionResult StoryFilter(string? search)
+        {
+
+            List<Story> cards = _PlatformRepository.StoryFilter(search);
+
+            StoryListingViewModel sModel = new StoryListingViewModel();
+            {
+                sModel.stories = cards;
+            }
+
+            return PartialView("_StoryCard", sModel);
+        }
 
         //page-4
+    
         public IActionResult ShareStory()
         {
             string name = HttpContext.Session.GetString("Uname");
             ViewBag.Uname = name;
 
-            return View();
+            if (name != null)
+            {
+                int UserId = (int)HttpContext.Session.GetInt32("UId");
+                ViewBag.UId = UserId;
+            }
+      
+            StoryListingViewModel ss = _PlatformRepository.ShareStory(@ViewBag.UId);
+            return View(ss);
         }
 
         public IActionResult StoryDetail(int sid)

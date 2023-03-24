@@ -6,16 +6,76 @@
                     <div class="d-flex align-items-center col-lg-6 col-12  .navbar-search-sm" role="search">
 
                         <img src="~/images/search.png" class="search" />
-                        <form>
                         <input class="form-control mx-1" type="text" placeholder="Search Missions..."
-                               aria-label="Search" id="searchb" name="search" oninput="searchMission()">
-</form>
+                               aria-label="Search" id="searchb" onkeyup="story()">
+
                     </div>
 
-                  
+                    <div class="col-lg-6 col-12 anchor">
+                        <div class="row">
+
+                            <div class=" col-6 col-sm-3 dropdown ">
+                                <select class="form-select  border-white xyz" aria-label="Default select example" placeholder="Country" id="countryId" onchange="temp(); GetCity();">
+                                    <option selected>Country</option>
+                                    @foreach (var item in @ViewBag.countries)
+                                    {
+
+                                        <option value="@item.CountryId"> @item.Name</option>
+                                    }
+                                </select>
+
+                            </div>
+                            <div class=" col-6 col-sm-3 dropdown">
+
+                                <select class="form-select border-white xyz " aria-label="Default select example"
+                                        id="selectCityList" onchange="temp()">
+                                    <option selected>City</option>
+                                    @foreach (var item in @ViewBag.Cities)
+
+                                    {
+
+                                      <option value="@item.CityId"> @item.Name</option>
+                                    }
+
+                                </select>
+                            </div>
+                            <div class=" col-6 col-sm-3 pt-3 pt-sm-0 dropdown">
+                                <div class="h-item border-white xyz    d-flex  align-items-center justify-content-between w-100 h-100 p-0  "
+                                     data-bs-toggle="dropdown">
+                                    <span class="ms-2"> Themes</span>
+                                    <img src="~/images/drop-down.png" class="me-2" alt="Profile-dropdown" />
+                                </div>
+                                <ul class="dropdown-menu  " aria-labelledby="dropdownMenuButton1" onchange="temp()" ; id="theme">
+                                    @foreach (var item in @ViewBag.themes)
+                                    {
+
+                                        <li><input type="checkbox" value="@item.MissionThemeId" /> @item.Title </li>
+                                    }
+                                </ul>
+
+                            </div>
+                            <div class=" col-6 col-sm-3 pt-3 pt-sm-0 dropdown">
+                                <div class="h-item border-white xyz  d-flex align-items-center justify-content-between w-100 h-100 p-0 "
+                                     data-bs-toggle="dropdown">
+                                    <span class="profile-name d-flex ms-2">Skills</span>
+                                    <img src="~/images/drop-down.png" class="me-2" alt="Profile-dropdown" />
+                                </div>
+                                <ul class="dropdown-menu dropdown-menu-end w-100" id="skill" onchange="temp()">
+                                    @foreach (var item in @ViewBag.skills)
+                                    {
+
+                                        <li><input type="checkbox" value="@item.SkillId" /> @item.Skill.SkillName </li>
+                                    }
+                                </ul>
+
+                            </div>
+
+                        </div>
+                    </div>
 
                 </div>
             </nav>
         </div>
     </div>
 </div>
+

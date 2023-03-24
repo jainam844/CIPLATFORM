@@ -363,13 +363,59 @@ namespace CIPLATFORM.Respository.Repositories
                 }
             }
 
+        public List<MissionApplication> Mission(int UId)
+        {
+            List<MissionApplication> missions = _CiPlatformContext.MissionApplications.Include(m => m.Mission).Where(x => x.UserId == UId).ToList();
+            return missions;
+        }
+
+        public StoryListingViewModel ShareStory(int UId)
+        {
+            List<MissionApplication> mission=Mission(UId);
+            StoryListingViewModel StoryDetail = new StoryListingViewModel();
+            {
+                StoryDetail.missions = mission;
+            }
+            return StoryDetail;
+
+        }
+
+        public List<Story> StoryFilter(string? search)
+        {
+            List<Story> cards = new List<Story>();
+            var missioncards = _CiPlatformContext.Stories.Include(m => m.StoryMedia).Include(m => m.Mission).Include(m => m.Mission.Theme).Include(m => m.User).ToList();
+            var Missionskills = _CiPlatformContext.MissionSkills.Include(m => m.Skill).ToList();
+            List<int> temp = new List<int>();
 
 
 
+            if (search != null)
+            {
 
 
 
-            public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort)
+                foreach (var n in missioncards)
+                {
+
+                    var title = n.Title.ToLower();
+                    if (title.Contains(search.ToLower()))
+                    {
+                        cards.Add(n);
+                    }
+
+
+                }
+
+
+            }
+            return cards;
+
+
+        }
+
+
+
+        public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort)
             {
                 
                 List<Mission> cards = new List<Mission>();

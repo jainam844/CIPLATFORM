@@ -300,6 +300,52 @@ function recommandStory(x) {
 
 
 
+function story() {
+
+
+
+
+    var search = document.getElementById("searchb").value;
+    console.log(search)
+
+
+
+
+    //debugger
+
+    $.ajax({
+        type: "POST", // POST
+        url: '/Platform/StoryFilter',
+        data: {
+
+            'search': search,
+
+        },
+        dataType: "html", // return datatype like JSON and HTML
+        success: function (data) {
+            /*debugger*/
+
+            console.log(data);
+            $("#StoryFilter").empty();
+            $("#StoryFilter").html(data);
+            //$("#StoriesId").empty();
+            //console.log("Filtered Story");
+            //$("#StoriesId").html(data);
+
+
+
+
+        },
+        error: function (e) {
+        /*    debugger*/
+            console.log("Bye");
+            alert('Error');
+        },
+    });
+}
+
+
+
 
 // Handles the hover over the stars
 
