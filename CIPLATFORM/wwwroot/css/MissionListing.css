@@ -341,3 +341,17 @@ input[type=range]::-moz-range-thumb {
     height: 410px;
     overflow: auto;
 }
+
+
+.rating {
+    float: left;
+}
+
+.star1 {
+    float: right;
+}
+
+    .star1:hover, .star1:hover ~ .star1 {
+        color: gold;
+    }
+

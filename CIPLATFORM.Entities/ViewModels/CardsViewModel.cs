@@ -17,5 +17,7 @@ namespace CIPLATFORM.Entities.ViewModels
         public List<MissionTheme> missionthemes { get; set; }
         public List<MissionSkill> missionskill { get; set; }
 
+        public List<FavoriteMission> favoriteMissions { get; set; }
+
     }
 }

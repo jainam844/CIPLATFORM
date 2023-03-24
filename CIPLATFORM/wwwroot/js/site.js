@@ -28,23 +28,12 @@ function GetCity() {
 }
 
 
-$('#page li a').click(function () {
-
-    var pageIndex = $(this).text();
-    console.log(pageIndex)
-
-    temp(pageIndex);
-});
 
 /*filter */
-function temp(z) {
+function temp() {
 
 
-    var pageIndex = z;
-    if (pageIndex == undefined) {
-        pageIndex = 1;
-    }
-
+   
 
 
 
@@ -119,13 +108,11 @@ function temp(z) {
             'skillId': checkedskillvalues,
             'search': search,
             'sort': sort,
-            "pageIndex": pageIndex
+           
         },
         dataType: "html", // return datatype like JSON and HTML
         success: function (data) {
-            document.getElementById("selectCityList").innerHTML += `
-        <option value=${name}> City </option>
-        `;
+          
             $("#filter").empty();
             console.log("grid Hii");
             $("#filter").html(data);
@@ -161,12 +148,13 @@ function AddMissionToFavourite(missionId) {
                 $('#addToFav').addClass("bi bi-heart-fill");
                 $('#addToFav').css("color", "red");
 
-
+                document.getElementById(missionId).className = "bi bi-heart-fill text-danger";
             }
             else {
                 $('#addToFav').css("color", "black");
                 $('#addToFav').removeClass();
                 $('#addToFav').addClass("bi bi-heart");
+                document.getElementById(missionId).className = "bi bi-heart";
 
             }
 
@@ -200,7 +188,7 @@ function applyMission(missionId) {
                 $('#applyMission').css("color", "red");
 
                 document.getElementById("okayyy").innerHTML += ` Applied Successfully...!!!`
-               
+
             }
 
 
@@ -274,6 +262,46 @@ function recommandToCoWorker(x) {
         },
     });
 }
+
+function recommandStory(x) {
+    //var toUserId = $('#recommand').find(":checked").val();
+    var Storyd = x;
+    var toUserId = [];
+    var recommand = document.getElementById("recommand");
+    var list = recommand.getElementsByTagName("input");
+    for (i = 0; i < list.length; i++) {
+        if (list[i].checked) {
+            toUserId.push(list[i].value);
+        }
+
+    }
+
+    /* debugger;*/
+    $.ajax({
+        url: "/Platform/RecommandStory",
+        method: "Post",
+        data: {
+            "toUserId": toUserId,
+            "sid": Storyd
+        },
+        success: function (data) {
+            console.log(toUserId);
+
+        }
+        ,
+        error: function (e) {
+            console.log("Bye");
+            alert('Error');
+        },
+    });
+}
+
+
+
+
+
+
+// Handles the hover over the stars
 
 
 

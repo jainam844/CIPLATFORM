@@ -27,6 +27,13 @@ namespace CIPLATFORM.Controllers
             ViewBag.Uname = name;
 
 
+            if (name != null)
+            {
+                int UserId = (int)HttpContext.Session.GetInt32("UId");
+                ViewBag.UId = UserId;
+            }
+
+
 
             List<Country> countries = _PlatformRepository.GetCountryData();
             ViewBag.countries = countries;
@@ -49,10 +56,9 @@ namespace CIPLATFORM.Controllers
 
             CardsViewModel ms = _PlatformRepository.getCards();
 
-            int pageSize = 2;
+           
 
 
-            ms.missions = ms.missions.Skip((1 - 1) * pageSize).Take(pageSize).ToList();
 
             return View(ms);
         }
@@ -62,9 +68,9 @@ namespace CIPLATFORM.Controllers
             var json = JsonConvert.SerializeObject(city);
             return Json(json);
         }
-        public IActionResult Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort, int pageIndex)
+        public IActionResult Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort)
         {
-            List<Mission> cards = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort, pageIndex);
+            List<Mission> cards = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort);
             CardsViewModel platformModel = new CardsViewModel();
 
             platformModel.missions = cards;
@@ -117,6 +123,15 @@ namespace CIPLATFORM.Controllers
 
             }
             return fav;
+        }
+
+        //Star Rating
+        [HttpPost]
+        public JsonResult MissionRating(int mid, int rating)
+        {
+            int UserId = (int)HttpContext.Session.GetInt32("UId");
+            bool success = _PlatformRepository.MissionRating(UserId, mid, rating);
+            return Json(success);
         }
 
         [HttpPost]
@@ -203,7 +218,15 @@ namespace CIPLATFORM.Controllers
         }
 
 
-        
+        public void RecommandStory(List<int> toUserId, int sid)
+        {
+            int FromUserId = (int)HttpContext.Session.GetInt32("UId");
+
+            _PlatformRepository.RecommandStory(FromUserId, toUserId, sid);
+
+            StoryListingViewModel volunteerModel = _PlatformRepository.GetStory(sid);
+
+        }
 
     }
 }

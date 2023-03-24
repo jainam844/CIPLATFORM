@@ -120,16 +120,36 @@
 
 
                     <div class="row">
-                        <div class="col-12 col-md-6 col-sm-12 mt-2">
+                    @*    <div class="col-12 col-md-6  mt-2">
 
                             <button type="submit" class="btn btn-outline w-100  rounded-pill" style="background: #F8863400 0% 0% no-repeat padding-box; border: 2px solid #020201;  border-radius: 24px;opacity: 1; color:#020202">
                                 <i class="bi bi-square-fill  "><span> Recommend to a Co-Worker</span></i>
                             </button>
+                        </div>*@
+
+                        <div class="col-12 col-md-6 mt-2" id="recommand" onclick="recommandStory(@Model.story.StoryId)">
+
+                            <button type="button" class="btn btn-outline-dark rounded-pill w-100" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-square-fill"></i>
+                                Recommend to a Co-Worker
+                            </button>
+                            <ul class="dropdown-menu">
+
+                                @foreach (var item in Model.coworkers)
+                                {
+
+                                    <li><input type="checkbox" value="@item.UserId" /> @item.FirstName @item.LastName </li>
+                                }
+                            </ul>
                         </div>
 
-                        <div class="col-12 col-md-6 col-sm-12 mt-2 apply2">
+                        <div class="col-12 col-md-6  mt-2 apply2">
                             <button type="submit" class="btn btn-outline w-100 apply">
-                                <span> Open Mission </span> <i class="bi bi-arrow-right ms-3"></i>
+
+                                  <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@Model.story.MissionId" style="text-decoration:none;color:black;">     <span> Open Mission </span>
+                     <i class="bi bi-arrow-right ms-3"></i>
+                    </a> 
+                             
                             </button>
                         </div>
                     </div>
