@@ -31,10 +31,10 @@
 
                     @for (int i = 1; i <= Model.missionmedias.Count; i++)
                     {
-                        <div class="mySlides">
+                            <div class="mySlides">
 
-                            <img src=~/images/@(Model.missionmedias[i-1].MediaPath) style="width:100%; ">
-                        </div>
+                                <img src=~/images/@(Model.missionmedias[i-1].MediaPath) style="width:100%; ">
+                            </div>
                     }
 
                     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -44,9 +44,9 @@
 
                         @for (int i = 1; i <= Model.missionmedias.Count; i++)
                         {
-                            <div class="col">
-                                <img class="demo cursor" src=~/images/@(Model.missionmedias[i-1].MediaPath) onclick="currentSlide(@i)" style="width:100%;">
-                            </div>
+                                <div class="col">
+                                    <img class="demo cursor" src=~/images/@(Model.missionmedias[i-1].MediaPath) onclick="currentSlide(@i)" style="width:100%;">
+                                </div>
                         }
                     </div>
                 </div>
@@ -65,12 +65,12 @@
                             <div class="d-flex justify-content-center .left .right ">
                                 @if (Model.missions.StartDate <= DateTime.Now && DateTime.Now <= Model.missions.EndDate)
                                 {
-                                    <span>Ongoing Opportunity</span>
+                                        <span>Ongoing Opportunity</span>
 
                                 }
                                 else
                                 {
-                                    <span>@Model.missions.StartDate.ToString().Substring(0,10) until @Model.missions.EndDate.ToString().Substring(0,10) </span>
+                                        <span>@Model.missions.StartDate.ToString().Substring(0,10) until @Model.missions.EndDate.ToString().Substring(0,10) </span>
                                 }
                             </div>
                         </div>
@@ -113,21 +113,21 @@
                                 </button>*@
                             @if (Model.favoriteMissions.Any(x => x.MissionId == Model.missions.MissionId && x.UserId == @ViewBag.UId))
                             {
-                                <button type="button" class="btn btn-outline rounded-pill w-100" onclick="AddMissionToFavourite(@Model.missions.MissionId)" style="background: #F8863400 0% 0% no-repeat padding-box;border: 2px solid #020201;
+                                    <button type="button" class="btn btn-outline rounded-pill w-100" onclick="AddMissionToFavourite(@Model.missions.MissionId)" style="background: #F8863400 0% 0% no-repeat padding-box;border: 2px solid #020201;
                                border-radius: 24px;
                                opacity: 1; color:#020202">
-                                    <i class="bi bi-heart-fill" style="color:red;" id="addToFav"></i>
+                                        <i class="bi bi-heart-fill" style="color:red;" id="addToFav"></i>
 
-                                    Add to Favourite
-                                </button>
+                                        Add to Favourite
+                                    </button>
                             }
                             else
                             {
-                                <button type="button" class="btn btn-outline rounded-pill w-100" onclick="AddMissionToFavourite(@Model.missions.MissionId)" style="background: #F8863400 0% 0% no-repeat padding-box;border: 2px solid #020201;  border-radius: 24px;
+                                    <button type="button" class="btn btn-outline rounded-pill w-100" onclick="AddMissionToFavourite(@Model.missions.MissionId)" style="background: #F8863400 0% 0% no-repeat padding-box;border: 2px solid #020201;  border-radius: 24px;
                                opacity: 1; color:#020202">
-                                    <i class="bi bi-heart" id="addToFav"></i>
-                                    Add to Favourite
-                                </button>
+                                        <i class="bi bi-heart" id="addToFav"></i>
+                                        Add to Favourite
+                                    </button>
                             }
                         </div>
                         <div class="col-12 col-md-6 col-sm-12 mt-2" id="recommand" onchange="recommandToCoWorker(@Model.missions.MissionId)">
@@ -144,7 +144,7 @@
                                 @foreach (var item in Model.coworkers)
                                 {
 
-                                    <li class="d-flex justify-content-start"><input type="checkbox" value="@item.UserId" class="d-flex justify-content-center ms-3" /> <span class="ms-3" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"> @item.FirstName @item.LastName</span> </li>
+                                        <li class="d-flex justify-content-start"><input type="checkbox" value="@item.UserId" class="d-flex justify-content-center ms-3" /> <span class="ms-3" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"> @item.FirstName @item.LastName</span> </li>
                                 }
                             </ul>
                         </div>
@@ -204,24 +204,24 @@
                                 </button>*@
                             @if (Model.missionapplications.Any(x => x.MissionId == Model.missions.MissionId && x.UserId == @ViewBag.UId && x.ApprovalStatus == "Approve"))
                             {
-                                <button type="button" class="btn btn-outline apply" id="applyMission" onclick="applyMission(@Model.missions.MissionId)" disabled>
-                                    Applied
+                                    <button type="button" class="btn btn-outline apply" id="applyMission" onclick="applyMission(@Model.missions.MissionId)" disabled>
+                                        Applied
 
-                                </button>
+                                    </button>
                             }
                             else if (Model.missionapplications.Any(x => x.MissionId == Model.missions.MissionId && x.UserId == @ViewBag.UId && x.ApprovalStatus == "Pending"))
                             {
-                                <button type="button" class="btn btn-outline apply" id="applyMission" onclick="applyMission(@Model.missions.MissionId)" disabled>
-                                    Your Request has been sent for Approve
+                                    <button type="button" class="btn btn-outline apply" id="applyMission" onclick="applyMission(@Model.missions.MissionId)" disabled>
+                                        Your Request has been sent for Approve
 
-                                </button>
+                                    </button>
                             }
                             else
                             {
-                                <button type="button" class="btn btn-outline apply" id="applyMission" onclick="applyMission(@Model.missions.MissionId)">
-                                    Apply now
-                                    <i class=" ms-2 bi bi-arrow-right-short"></i>
-                                </button>
+                                    <button type="button" class="btn btn-outline apply" id="applyMission" onclick="applyMission(@Model.missions.MissionId)">
+                                        Apply now
+                                        <i class=" ms-2 bi bi-arrow-right-short"></i>
+                                    </button>
                             }
                         </div>
                     </div>
@@ -270,20 +270,20 @@
                     <div>
                         @foreach (var documents in Model.missiondocuments)
                         {
-                            <a href=~/images/@documents.DocumentPath target="_blank">
-                                <button type="submit " class="btn btn-outline-dark rounded-pill ">
+                                <a href=~/images/@documents.DocumentPath target="_blank">
+                                    <button type="submit " class="btn btn-outline-dark rounded-pill ">
                                     @if (@documents.DocumentType == "PDF")
                                     {
-                                        <i class="bi bi-filetype-pdf">@documents.DocumentName</i>
+                                                <i class="bi bi-filetype-pdf">@documents.DocumentName</i>
                                     }
                                     else if (@documents.DocumentType == "Image")
                                     {
-                                        <i class="bi bi-file-image">@documents.DocumentName</i>
+                                                <i class="bi bi-file-image">@documents.DocumentName</i>
 
                                     }
 
-                                </button>
-                            </a>
+                                    </button>
+                                </a>
 
                         }
                     </div>
@@ -307,19 +307,19 @@
                         <div class="col-10 col-lg-8">
                             @foreach (var item in Model.comments)
                             {
-                                <div class="container">
-                                    <div class="row mt-4" style="background-color: white;">
-                                        <div class="col-md-3 col-12 d-flex justify-content-center align-items-center">
-                                            <img src="~/images/@item.User.Avatar"
+                                    <div class="container">
+                                        <div class="row mt-4" style="background-color: white;">
+                                            <div class="col-md-3 col-12 d-flex justify-content-center align-items-center">
+                                                <img src="~/images/@item.User.Avatar"
                                              style="border-radius: 50%; height: 4.5em;" alt="">
-                                        </div>
-                                        <div class="col-md-9 col-12">
-                                            <h5 class="my-1">@item.User.FirstName   @item.User.LastName</h5>
-                                            <p class="my-1">@item.CreatedAt.ToString("dddd, MMMM dd, yyyy, h.mm tt")</p>
-                                            <p class="my-1">@item.CommentDescription</p>
+                                            </div>
+                                            <div class="col-md-9 col-12">
+                                                <h5 class="my-1">@item.User.FirstName   @item.User.LastName</h5>
+                                                <p class="my-1">@item.CreatedAt.ToString("dddd, MMMM dd, yyyy, h.mm tt")</p>
+                                                <p class="my-1">@item.CommentDescription</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                             }
                         </div>
                     </div>
@@ -365,11 +365,11 @@
                         <div class="col-9">
                             @for (int i = 1; i <= (int)@Model.missions.MissionRatings.Average(x => x.Rating); i++)
                             {
-                                <i class="bi bi-star-fill" style="color: #F8D441;"></i>
+                                    <i class="bi bi-star-fill" style="color: #F8D441;"></i>
                             }
                             @for (int i = 1; i <= 5 - (int)@Model.missions.MissionRatings.Average(x => x.Rating); i++)
                             {
-                                <i class="bi bi-star" style="color: #F8D441;"></i>
+                                    <i class="bi bi-star" style="color: #F8D441;"></i>
                             }
                             (by @Model.missions.MissionRatings.Count volunteers)
                         </div>
@@ -392,14 +392,14 @@
                             <div class="row mt-3">
                                 @foreach (var data in Model.missionapplications)
                                 {
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <img src=~/images/@data.User.Avatar class="img50" alt="">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <img src=~/images/@data.User.Avatar class="img50" alt="">
+                                            </div>
+                                            <div class="row">
+                                                <span class="d-flex justify-content-center">   @data.User.FirstName </span>
+                                            </div>
                                         </div>
-                                        <div class="row">
-                                            <span class="d-flex justify-content-center">   @data.User.FirstName </span>
-                                        </div>
-                                    </div>
                                 }
                             </div>
                         </div>
@@ -454,108 +454,108 @@
         }
         @for (int i = 0; i < n; i++)
         {
-            <div class="col">
-                <div class="card ">
-                    <img src=~/images/@(Model.relatedmissions[i].MissionMedia.FirstOrDefault()?.MediaPath) class="card-img-top" alt="...">
-                    <div class="position-relative">
-                        <div class="position-absolute top-100 start-50 translate-middle round p-2 " style="background-color: white;border-radius: 15px;">
+                <div class="col">
+                    <div class="card ">
+                        <img src=~/images/@(Model.relatedmissions[i].MissionMedia.FirstOrDefault()?.MediaPath) class="card-img-top" alt="...">
+                        <div class="position-relative">
+                            <div class="position-absolute top-100 start-50 translate-middle round p-2 " style="background-color: white;border-radius: 15px;">
 
                             @Model.relatedmissions[i].Theme.Title
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-img-overlay">
-                        <p class="text-end text">
-                            <button class="btn btn-box" style="background-color: rgb(65, 60, 60) ; opacity: 50%;">
-                                <img src="~/images/pin.png" class="mx-2 cancle-img" alt="">
-                                <span style="color: white ; ">@Model.relatedmissions[i].City.Name</span>
-                            </button>
+                        <div class="card-img-overlay">
+                            <p class="text-end text">
+                                <button class="btn btn-box" style="background-color: rgb(65, 60, 60) ; opacity: 50%;">
+                                    <img src="~/images/pin.png" class="mx-2 cancle-img" alt="">
+                                    <span style="color: white ; ">@Model.relatedmissions[i].City.Name</span>
+                                </button>
 
 
 
-                        </p>
-                        <div class="pt-1 text-end">
-                            <button class="btn btn-box rounded-5" style="background-color: rgb(65, 60, 60) ; opacity: 50%;">
-                                <img src="~/images/heart.png" class=" img-fluid cancle-img" alt="">
-                            </button>
+                            </p>
+                            <div class="pt-1 text-end">
+                                <button class="btn btn-box rounded-5" style="background-color: rgb(65, 60, 60) ; opacity: 50%;">
+                                    <img src="~/images/heart.png" class=" img-fluid cancle-img" alt="">
+                                </button>
+                            </div>
+
+                            <div class="text-end">
+
+                                <button class="btn btn-box rounded-5" style="background-color: rgb(65, 60, 60) ; opacity: 50%;">
+                                    <img src="~/images/user.png" class=" img-fluid cancle-img" alt="">
+                                </button>
+                            </div>
                         </div>
-
-                        <div class="text-end">
-
-                            <button class="btn btn-box rounded-5" style="background-color: rgb(65, 60, 60) ; opacity: 50%;">
-                                <img src="~/images/user.png" class=" img-fluid cancle-img" alt="">
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">@Model.relatedmissions[i].Title</h5>
-                        <p class="card-text">
+                        <div class="card-body">
+                            <h5 class="card-title">@Model.relatedmissions[i].Title</h5>
+                            <p class="card-text">
                             @Model.relatedmissions[i].ShortDescription
-                        </p>
-                        <div class="container p-2">
-                            <div class="row d-flex">
-                                <div class="col-md-6">
+                            </p>
+                            <div class="container p-2">
+                                <div class="row d-flex">
+                                    <div class="col-md-6">
                                     @Model.relatedmissions[i].OrganizationName
-                                </div>
-                                <div class="col-md-6">
+                                    </div>
+                                    <div class="col-md-6">
 
                                     @for (int j = 1; j <= (int)@Model.relatedmissions[i].MissionRatings.Average(x => x.Rating); j++)
                                     {
-                                        <i class="bi bi-star-fill" style="color: #F8D441;"></i>
+                                                <i class="bi bi-star-fill" style="color: #F8D441;"></i>
                                     }
                                     @for (int j = 1; j <= 5 - (int)@Model.relatedmissions[i].MissionRatings.Average(x => x.Rating); j++)
                                     {
-                                        <i class="bi bi-star" style="color: #F8D441;"></i>
+                                                <i class="bi bi-star" style="color: #F8D441;"></i>
                                     }
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="wrapper d-flex justify-content-center">
-                            <hr class="divider">
-                            <div class=" d-flex justify-content-center b2 ">
+                            <div class="wrapper d-flex justify-content-center">
+                                <hr class="divider">
+                                <div class=" d-flex justify-content-center b2 ">
 
-                                <div class="d-flex justify-content-center .left .right ">
+                                    <div class="d-flex justify-content-center .left .right ">
                                     @* @item.StartDate.ToShortDateString() until @item.EndDate.ToShortDateString()*@
                                     @{
 
                                         if (Model.relatedmissions[i].StartDate <= DateTime.Now && DateTime.Now <= Model.relatedmissions[i].EndDate)
                                         {
-                                            <span>Ongoing Opportunity</span>
+                                                        <span>Ongoing Opportunity</span>
                                         }
                                         else
                                         {
-                                            <span>@Model.relatedmissions[i].StartDate.ToString().Substring(0,10) until @Model.relatedmissions[i].EndDate.ToString().Substring(0,10) </span>
+                                                        <span>@Model.relatedmissions[i].StartDate.ToString().Substring(0,10) until @Model.relatedmissions[i].EndDate.ToString().Substring(0,10) </span>
                                         }
                                     }
-                                </div>
+                                    </div>
 
+                                </div>
+                                <hr class="divider">
                             </div>
-                            <hr class="divider">
-                        </div>
-                        <div class="container">
-                            <div class="row mt-2">
-                                <div class="col-6 ">
+                            <div class="container">
+                                <div class="row mt-2">
+                                    <div class="col-6 ">
 
-                                    <i class="bi bi-person-check " style="font-size: 28px;"></i>
-                                    10 <br>
-                                    seats left
+                                        <i class="bi bi-person-check " style="font-size: 28px;"></i>
+                                        10 <br>
+                                        seats left
 
-                                </div>
-                                <div class="col-6 ">
-                                    <i class="bi bi-clock" style="font-size: 25px;"></i>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <i class="bi bi-clock" style="font-size: 25px;"></i>
                                     @Model.relatedmissions[i].EndDate.ToString().Substring(0,10) <br> Deadline
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <hr>
-                        <div class="d-flex justify-content-center apply2">
-                            <button type="button" class="btn btn-outline apply">
-                                <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@Model.relatedmissions[i].MissionId" style="text-decoration:none;color:black"> Apply <i class=" ms-2 bi bi-arrow-right-short"></i></a>
-                            </button>
+                            <hr>
+                            <div class="d-flex justify-content-center apply2">
+                                <button type="button" class="btn btn-outline apply">
+                                    <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@Model.relatedmissions[i].MissionId" style="text-decoration:none;color:black"> Apply <i class=" ms-2 bi bi-arrow-right-short"></i></a>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         }
 
 
@@ -575,38 +575,7 @@
 <script>
 
 
-    //    // firefox, chrome
-    ////  document.body.scroll = "no"; // ie only
-    //let slideIndex = 1;
-    //showSlides(slideIndex);
 
-    //// Next/previous controls
-    //function plusSlides(n) {
-    //    showSlides(slideIndex += n);
-    //}
-
-    //// Thumbnail image controls
-    //function currentSlide(n) {
-    //    showSlides(slideIndex = n);
-    //}
-
-    //function showSlides(n) {
-    //    let i;
-    //    let slides = document.getElementsByClassName("mySlides");
-    //    let dots = document.getElementsByClassName("demo");
-    //    let captionText = document.getElementById("caption");
-    //    if (n > slides.length) { slideIndex = 1 }
-    //    if (n < 1) { slideIndex = slides.length }
-    //    for (i = 0; i < slides.length; i++) {
-    //        slides[i].style.display = "none";
-    //    }
-    //    for (i = 0; i < dots.length; i++) {
-    //        dots[i].className = dots[i].className.replace(" active", "");
-    //    }
-    //    slides[slideIndex - 1].style.display = "block";
-    //    dots[slideIndex - 1].className += " active";
-    //    captionText.innerHTML = dots[slideIndex - 1].alt;
-    //}
 
     let slideIndex = 1;
                     showSlides(slideIndex);

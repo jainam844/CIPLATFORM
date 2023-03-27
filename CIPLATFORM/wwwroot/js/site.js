@@ -28,12 +28,46 @@ function GetCity() {
 }
 
 
+function Previous(pg) {
+    pg = pg - 1;
+
+    $.ajax({
+        url: "/Platform/Filter",
+        method: "POST",
+        data: {
+            "pg": pg,
+        },
+        success: function (data) {
+            $("#filter").html(data);
+        }
+    });
+}
+
+function NextPage(pg) {
+    pg = pg + 1;
+    console.log(pg);
+    $.ajax({
+        url: "/Platform/Filter",
+        method: "POST",
+        data: {
+            "pg": pg,
+        },
+        success: function (data) {
+            $("#filter").html(data);
+        }
+    });
+}
+
 
 /*filter */
-function temp() {
+function temp(pg) {
 
 
-   
+    if (pg == undefined) {
+        pg = 1;
+    }
+    console.log(pg);
+    
 
 
 
@@ -108,6 +142,7 @@ function temp() {
             'skillId': checkedskillvalues,
             'search': search,
             'sort': sort,
+            'pg': pg,
            
         },
         dataType: "html", // return datatype like JSON and HTML
@@ -142,19 +177,24 @@ function AddMissionToFavourite(missionId) {
             'missionId': missionId,
         },
         success: function (missions) {
-
+         
             if (missions == true) {
                 $('#addToFav').removeClass();
                 $('#addToFav').addClass("bi bi-heart-fill");
                 $('#addToFav').css("color", "red");
-
+           
                 document.getElementById(missionId).className = "bi bi-heart-fill text-danger";
+               
+              
             }
             else {
+              
                 $('#addToFav').css("color", "black");
                 $('#addToFav').removeClass();
                 $('#addToFav').addClass("bi bi-heart");
+            
                 document.getElementById(missionId).className = "bi bi-heart";
+                
 
             }
 
@@ -179,23 +219,33 @@ function applyMission(missionId) {
             'missionId': missionId,
         },
         success: function (missions) {
-
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            };
             if (missions == true) {
 
 
                 $('#applyMission').prop('disabled', true);
                 $('#applyMission').text("   Your Request has been sent for Approve...!!!");
+
                 $('#applyMission').css("color", "red");
 
-                document.getElementById("okayyy").innerHTML += ` Applied Successfully...!!!`
+/*                document.getElementById("okayyy").innerHTML += ` Applied Successfully...!!!`*/
+                toastr.success('Applied  successfully');
 
             }
 
 
         },
         error: function (request, error) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            };
             console.log("function not working");
             alert('Error');
+            toastr.error('function not working');
         },
 
     });
@@ -217,14 +267,24 @@ function comment(missionid) {
         },
         dataType: "html", // return datatype like JSON and HTML
         success: function (data) {
-
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            };
             $("#comment").html();
             console.log("Added ");
-            window.location.reload();
+            toastr.success('Comment Added  successfully');
+            setTimeout(function () { window.location.reload(); }, 3000);
+          
 
         },
         error: function (e) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            };
             console.log("Bye");
+            toastr.error('function not working');
             alert('Error');
         },
     });
@@ -252,12 +312,22 @@ function recommandToCoWorker(x) {
             "mid": Missiond
         },
         success: function (data) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            };
             console.log(toUserId);
-
+            toastr.success('Email Sent  successfully');
+         
         }
         ,
         error: function (e) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            };
             console.log("Bye");
+            toastr.error('function not working');
             alert('Error');
         },
     });
@@ -285,12 +355,21 @@ function recommandStory(x) {
             "sid": Storyd
         },
         success: function (data) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            };
             console.log(toUserId);
-
+            toastr.success('Email Sent  successfully');
         }
         ,
         error: function (e) {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            };
             console.log("Bye");
+            toastr.error('function not working');
             alert('Error');
         },
     });

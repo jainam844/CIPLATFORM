@@ -122,6 +122,7 @@ namespace CIPLATFORM.Controllers
                 if (check != null)
                 {
                     TempData["unsuccess"] = "User already exist";
+                  
                     return View();
                 }
                 else

@@ -194,174 +194,174 @@ namespace CIPLATFORM.Respository.Repositories
                 return true;
             }
         }
-            public void addComment(int mid, int uid, string comnt)
+        public void addComment(int mid, int uid, string comnt)
+        {
+            Comment comment = new Comment();
+
+            comment.MissionId = mid;
+            comment.UserId = uid;
+            comment.CommentDescription = comnt;
+
+            _CiPlatformContext.Comments.Add(comment);
+            _CiPlatformContext.SaveChanges();
+
+        }
+
+
+        public bool applyMission(int mid, int uid)
+        {
+            MissionApplication application = new();
+            application.MissionId = mid;
+            application.UserId = uid;
+
+            var applicable = _CiPlatformContext.MissionApplications.FirstOrDefault(a => a.MissionId == mid && a.UserId == uid);
+
+            if (applicable == null)
             {
-                Comment comment = new Comment();
+                application.CreatedAt = DateTime.Now;
+                application.AppliedAt = DateTime.Now;
+                _CiPlatformContext.MissionApplications.Add(application);
+                _CiPlatformContext.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-                comment.MissionId = mid;
-                comment.UserId = uid;
-                comment.CommentDescription = comnt;
 
-                _CiPlatformContext.Comments.Add(comment);
+
+
+
+
+        public void RecommandToCoWorker(int FromUserId, List<int> ToUserId, int mid)
+        {
+            var fromUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == FromUserId && u.DeletedAt == null);
+            var fromEmailId = fromUser.Email;
+            //if (user1 == null)
+            //{
+            //    return null;
+            //}
+
+            foreach (var user in ToUserId)
+            {
+                var toUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == user && u.DeletedAt == null);
+                var toEmailId = toUser.Email;
+
+                MissionInvite invite = new MissionInvite();
+                {
+                    invite.FromUserId = FromUserId;
+                    invite.ToUserId = user;
+                    invite.MissionId = mid;
+                }
+                _CiPlatformContext.Add(invite);
                 _CiPlatformContext.SaveChanges();
 
+
+
+                #region Send Mail
+                var mailBody = "<h1></h1><br><h2><a href='" + "https://localhost:7028/Platform/MissionListing?mid=" + mid + "'>Check Out this Mission!</a></h2>";
+
+                // create email message
+                var email = new MimeMessage();
+                email.From.Add(MailboxAddress.Parse(fromEmailId));
+                email.To.Add(MailboxAddress.Parse(toEmailId));
+                email.Subject = "Reset Your Password";
+                email.Body = new TextPart(TextFormat.Html) { Text = mailBody };
+
+                // send email
+                using var smtp = new SmtpClient();
+                smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+                smtp.Authenticate("jainamshah492@gmail.com", "aflpkkevlfxzmmtx");
+                smtp.Send(email);
+                smtp.Disconnect(true);
+                #endregion Send Mail
             }
+        }
 
 
-            public bool applyMission(int mid, int uid)
+
+        public StoryListingViewModel GetStoryDetail()
+        {
+            List<Story> stories = _CiPlatformContext.Stories.Include(m => m.User).Include(m => m.StoryMedia).Include(m => m.Mission).ToList();
+            //List<StoryMedium> photos = smedia(sid);
+            StoryListingViewModel StoryDetail = new StoryListingViewModel();
             {
-                MissionApplication application = new();
-                application.MissionId = mid;
-                application.UserId = uid;
-
-                var applicable = _CiPlatformContext.MissionApplications.FirstOrDefault(a => a.MissionId == mid && a.UserId == uid);
-
-                if (applicable == null)
-                {
-                    application.CreatedAt = DateTime.Now;
-                    application.AppliedAt = DateTime.Now;
-                    _CiPlatformContext.MissionApplications.Add(application);
-                    _CiPlatformContext.SaveChanges();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                StoryDetail.stories = stories;
+                //StoryDetail.storymedias = photos;
             }
 
 
+            return StoryDetail;
+        }
 
 
 
+        public StoryListingViewModel GetStory(int sid)
+        {
 
-            public void RecommandToCoWorker(int FromUserId, List<int> ToUserId, int mid)
+            Story story = _CiPlatformContext.Stories.Include(m => m.User).FirstOrDefault(m => m.StoryId == sid);
+            List<StoryMedium> photos = smedia(sid);
+            List<User> users = _CiPlatformContext.Users.ToList();
+            StoryListingViewModel StoryDetail = new StoryListingViewModel();
             {
-                var fromUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == FromUserId && u.DeletedAt == null);
-                var fromEmailId = fromUser.Email;
-                //if (user1 == null)
-                //{
-                //    return null;
-                //}
-
-                foreach (var user in ToUserId)
-                {
-                    var toUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == user && u.DeletedAt == null);
-                    var toEmailId = toUser.Email;
-
-                    MissionInvite invite = new MissionInvite();
-                    {
-                        invite.FromUserId = FromUserId;
-                        invite.ToUserId = user;
-                        invite.MissionId = mid;
-                    }
-                    _CiPlatformContext.Add(invite);
-                    _CiPlatformContext.SaveChanges();
-
-
-
-                    #region Send Mail
-                    var mailBody = "<h1></h1><br><h2><a href='" + "https://localhost:7028/Platform/MissionListing?mid=" + mid + "'>Check Out this Mission!</a></h2>";
-
-                    // create email message
-                    var email = new MimeMessage();
-                    email.From.Add(MailboxAddress.Parse(fromEmailId));
-                    email.To.Add(MailboxAddress.Parse(toEmailId));
-                    email.Subject = "Reset Your Password";
-                    email.Body = new TextPart(TextFormat.Html) { Text = mailBody };
-
-                    // send email
-                    using var smtp = new SmtpClient();
-                    smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-                    smtp.Authenticate("jainamshah492@gmail.com", "aflpkkevlfxzmmtx");
-                    smtp.Send(email);
-                    smtp.Disconnect(true);
-                    #endregion Send Mail
-                }
+                StoryDetail.storymedias = photos;
+                StoryDetail.story = story;
+                StoryDetail.coworkers = users;
             }
+            return StoryDetail;
+        }
+        public List<StoryMedium> smedia(int sid)
+        {
+            List<StoryMedium> photos = _CiPlatformContext.StoryMedia.Where(x => x.StoryId == sid).ToList();
+            return photos;
+        }
 
+        public void RecommandStory(int FromUserId, List<int> ToUserId, int sid)
+        {
+            var fromUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == FromUserId && u.DeletedAt == null);
+            var fromEmailId = fromUser.Email;
+            //if (user1 == null)
+            //{
+            //    return null;
+            //}
 
-
-            public StoryListingViewModel GetStoryDetail()
+            foreach (var user in ToUserId)
             {
-                List<Story> stories = _CiPlatformContext.Stories.Include(m => m.User).Include(m => m.StoryMedia).Include(m => m.Mission).ToList();
-                //List<StoryMedium> photos = smedia(sid);
-                StoryListingViewModel StoryDetail = new StoryListingViewModel();
+                var toUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == user && u.DeletedAt == null);
+                var toEmailId = toUser.Email;
+
+                StoryInvite invite = new StoryInvite();
                 {
-                    StoryDetail.stories = stories;
-                    //StoryDetail.storymedias = photos;
+                    invite.FromUserId = FromUserId;
+                    invite.ToUserId = user;
+                    invite.StoryId = sid;
                 }
+                _CiPlatformContext.Add(invite);
+                _CiPlatformContext.SaveChanges();
 
 
-                return StoryDetail;
+
+                #region Send Mail
+                var mailBody = "<h1></h1><br><h2><a href='" + "https://localhost:7028/Platform/StoryDetail?sid=" + sid + "'>Check Out this Mission!</a></h2>";
+
+                // create email message
+                var email = new MimeMessage();
+                email.From.Add(MailboxAddress.Parse(fromEmailId));
+                email.To.Add(MailboxAddress.Parse(toEmailId));
+                email.Subject = "Reset Your Password";
+                email.Body = new TextPart(TextFormat.Html) { Text = mailBody };
+
+                // send email
+                using var smtp = new SmtpClient();
+                smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+                smtp.Authenticate("jainamshah492@gmail.com", "aflpkkevlfxzmmtx");
+                smtp.Send(email);
+                smtp.Disconnect(true);
+                #endregion Send Mail
             }
-
-
-
-            public StoryListingViewModel GetStory(int sid)
-            {
-
-                Story story = _CiPlatformContext.Stories.Include(m => m.User).FirstOrDefault(m => m.StoryId == sid);
-                List<StoryMedium> photos = smedia(sid);
-                List<User> users = _CiPlatformContext.Users.ToList();
-                StoryListingViewModel StoryDetail = new StoryListingViewModel();
-                {
-                    StoryDetail.storymedias = photos;
-                    StoryDetail.story = story;
-                    StoryDetail.coworkers = users;
-                }
-                return StoryDetail;
-            }
-            public List<StoryMedium> smedia(int sid)
-            {
-                List<StoryMedium> photos = _CiPlatformContext.StoryMedia.Where(x => x.StoryId == sid).ToList();
-                return photos;
-            }
-
-            public void RecommandStory(int FromUserId, List<int> ToUserId, int sid)
-            {
-                var fromUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == FromUserId && u.DeletedAt == null);
-                var fromEmailId = fromUser.Email;
-                //if (user1 == null)
-                //{
-                //    return null;
-                //}
-
-                foreach (var user in ToUserId)
-                {
-                    var toUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == user && u.DeletedAt == null);
-                    var toEmailId = toUser.Email;
-
-                    StoryInvite invite = new StoryInvite();
-                    {
-                        invite.FromUserId = FromUserId;
-                        invite.ToUserId = user;
-                        invite.StoryId = sid;
-                    }
-                    _CiPlatformContext.Add(invite);
-                    _CiPlatformContext.SaveChanges();
-
-
-
-                    #region Send Mail
-                    var mailBody = "<h1></h1><br><h2><a href='" + "https://localhost:7028/Platform/StoryDetail?sid=" + sid + "'>Check Out this Mission!</a></h2>";
-
-                    // create email message
-                    var email = new MimeMessage();
-                    email.From.Add(MailboxAddress.Parse(fromEmailId));
-                    email.To.Add(MailboxAddress.Parse(toEmailId));
-                    email.Subject = "Reset Your Password";
-                    email.Body = new TextPart(TextFormat.Html) { Text = mailBody };
-
-                    // send email
-                    using var smtp = new SmtpClient();
-                    smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-                    smtp.Authenticate("jainamshah492@gmail.com", "aflpkkevlfxzmmtx");
-                    smtp.Send(email);
-                    smtp.Disconnect(true);
-                    #endregion Send Mail
-                }
-            }
+        }
 
         public List<MissionApplication> Mission(int UId)
         {
@@ -371,7 +371,7 @@ namespace CIPLATFORM.Respository.Repositories
 
         public StoryListingViewModel ShareStory(int UId)
         {
-            List<MissionApplication> mission=Mission(UId);
+            List<MissionApplication> mission = Mission(UId);
             StoryListingViewModel StoryDetail = new StoryListingViewModel();
             {
                 StoryDetail.missions = mission;
@@ -415,121 +415,131 @@ namespace CIPLATFORM.Respository.Repositories
 
 
 
-        public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort)
+        public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort, int pg)
+        {
+            var pageSize = 3;
+
+            List<Mission> cards = new List<Mission>();
+            var missioncards = GetMissionDetails();
+            var Missionskills = GetSkills();
+            List<int> temp = new List<int>();
+
+
+            if (cityId.Count != 0 || countryId.Count != 0 || themeId.Count != 0 || skillId.Count != 0)
             {
-                
-                List<Mission> cards = new List<Mission>();
-                var missioncards = GetMissionDetails();
-                var Missionskills = GetSkills();
-                List<int> temp = new List<int>();
 
-
-                if (cityId.Count != 0 || countryId.Count != 0 || themeId.Count != 0 || skillId.Count != 0)
-                {
-
-                    foreach (var n in countryId)
-                    {
-                        foreach (var item in missioncards)
-                        {
-                            bool countrychek = cards.Any(x => x.MissionId == item.MissionId);
-                            if (item.CountryId == n && countrychek == false)
-                            {
-                                cards.Add(item);
-                            }
-                        }
-
-                    }
-
-                    if (cityId.Count != 0)
-                    {
-                        cards.Clear();
-                        foreach (var n in cityId)
-                        {
-                            foreach (var item in missioncards)
-                            {
-                                bool citychek = cards.Any(x => x.MissionId == item.MissionId);
-                                if (item.CityId == n && citychek == false)
-                                {
-                                    cards.Add(item);
-                                }
-
-                            }
-                        }
-                    }
-
-
-
-                    foreach (var n in themeId)
-                    {
-                        foreach (var item in missioncards)
-                        {
-                            bool themechek = cards.Any(x => x.MissionId == item.MissionId);
-                            if (item.ThemeId == n && themechek == false)
-                            {
-                                cards.Add(item);
-                            }
-                        }
-                    }
-
-                    foreach (var n in skillId)
-                    {
-                        foreach (var item in Missionskills)
-                        {
-                            bool skillchek = cards.Any(x => x.MissionId == item.MissionId);
-                            if (item.SkillId == n && skillchek == false)
-                            {
-
-                                cards.Add(missioncards.FirstOrDefault(x => x.MissionId == item.MissionId));
-                            }
-                        }
-
-
-                    }
-                    if (search != null)
-                    {
-
-                        foreach (var n in missioncards)
-                        {
-
-                            var title = n.Title.ToLower();
-                            if (title.Contains(search.ToLower()))
-                            {
-                                cards.Add(n);
-                            }
-                        }
-
-                    }
-
-                    if (sort != null)
-                    {
-                        if (sort == 1)
-                        {
-
-                            cards = cards.OrderByDescending(x => x.CreatedAt).ToList();
-
-                        }
-                        if (sort == 2)
-                        {
-
-                            cards = cards.OrderBy(x => x.CreatedAt).ToList();
-
-                        }
-                    }
-
-
-                    return cards;
-                }
-
-
-                else if (cityId.Count == 0 && countryId.Count == 0 && themeId.Count == 0 && skillId.Count == 0 && search == null)
+                foreach (var n in countryId)
                 {
                     foreach (var item in missioncards)
                     {
-                        cards.Add(item);
+                        bool countrychek = cards.Any(x => x.MissionId == item.MissionId);
+                        if (item.CountryId == n && countrychek == false)
+                        {
+                            cards.Add(item);
+                        }
+                    }
+
+                }
+
+                if (cityId.Count != 0)
+                {
+                    cards.Clear();
+                    foreach (var n in cityId)
+                    {
+                        foreach (var item in missioncards)
+                        {
+                            bool citychek = cards.Any(x => x.MissionId == item.MissionId);
+                            if (item.CityId == n && citychek == false)
+                            {
+                                cards.Add(item);
+                            }
+
+                        }
+                    }
+                }
+
+
+
+                foreach (var n in themeId)
+                {
+                    foreach (var item in missioncards)
+                    {
+                        bool themechek = cards.Any(x => x.MissionId == item.MissionId);
+                        if (item.ThemeId == n && themechek == false)
+                        {
+                            cards.Add(item);
+                        }
+                    }
+                }
+
+                foreach (var n in skillId)
+                {
+                    foreach (var item in Missionskills)
+                    {
+                        bool skillchek = cards.Any(x => x.MissionId == item.MissionId);
+                        if (item.SkillId == n && skillchek == false)
+                        {
+
+                            cards.Add(missioncards.FirstOrDefault(x => x.MissionId == item.MissionId));
+                        }
                     }
 
 
                 }
+
+                if (search != null)
+                {
+
+                    foreach (var n in missioncards)
+                    {
+
+                        var title = n.Title.ToLower();
+                        if (title.Contains(search.ToLower()))
+                        {
+                            cards.Add(n);
+                        }
+                    }
+                    if (pg != 0)
+                    {
+                        cards = cards.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
+                    }
+
+                }
+
+                if (sort != null)
+                {
+                    if (sort == 1)
+                    {
+
+                        cards = cards.OrderByDescending(x => x.CreatedAt).ToList();
+
+                    }
+                    if (sort == 2)
+                    {
+
+                        cards = cards.OrderBy(x => x.CreatedAt).ToList();
+
+                    }
+                }
+
+                if (pg != 0)
+                {
+                    cards = cards.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
+                }
+                return cards;
+            }
+
+
+            else if (cityId.Count == 0 && countryId.Count == 0 && themeId.Count == 0 && skillId.Count == 0 && search == null)
+            {
+                foreach (var item in missioncards)
+                {
+                    cards.Add(item);
+                }
+                //if (pg != null)
+                //{
+                //    cards = cards.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
+                //}
 
                 if (search != null)
                 {
@@ -542,7 +552,10 @@ namespace CIPLATFORM.Respository.Repositories
                         }
                     }
 
-                   
+                    if (pg != 0)
+                    {
+                        cards = cards.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
+                    }
 
                 }
 
@@ -551,7 +564,11 @@ namespace CIPLATFORM.Respository.Repositories
 
                     if (sort == 1)
                     {
-
+                        missioncards = missioncards.OrderByDescending(x => x.CreatedAt).ToList();
+                        if (pg != 0)
+                        {
+                            missioncards = missioncards.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
+                        }
                         return missioncards;
 
 
@@ -560,18 +577,31 @@ namespace CIPLATFORM.Respository.Repositories
                     {
 
                         missioncards = missioncards.OrderBy(x => x.CreatedAt).ToList();
+                        if (pg != 0)
+                        {
+                            missioncards = missioncards.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
+                        }
                         return missioncards;
 
                     }
 
 
-
+                }
+                if (pg != 0)
+                {
+                    cards = cards.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
                 }
 
-               
-
-                return cards;
-
             }
+
+
+
+
+
+
+
+            return cards;
+
         }
     }
+}

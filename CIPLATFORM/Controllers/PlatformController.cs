@@ -58,6 +58,9 @@ namespace CIPLATFORM.Controllers
 
 
 
+            ViewBag.Totalpages = Math.Ceiling(ms.missions.Count() / 3.0);
+            ms.missions = ms.missions.Skip((1 - 1) * 3).Take(3).ToList();
+            ViewBag.pg_no = 1;
 
 
             return View(ms);
@@ -68,9 +71,22 @@ namespace CIPLATFORM.Controllers
             var json = JsonConvert.SerializeObject(city);
             return Json(json);
         }
-        public IActionResult Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort)
+        public IActionResult Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort, int pg)
         {
-            List<Mission> cards = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort);
+
+            string name = HttpContext.Session.GetString("Uname");
+            ViewBag.Uname = name;
+
+
+            if (name != null)
+            {
+                int UserId = (int)HttpContext.Session.GetInt32("UId");
+                ViewBag.UId = UserId;
+            }
+
+
+
+            List<Mission> cards = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort, pg);
             CardsViewModel platformModel = new CardsViewModel();
 
             platformModel.missions = cards;
@@ -80,8 +96,13 @@ namespace CIPLATFORM.Controllers
             }
             else if (cards.Count >= 1)
             {
-                ViewBag.totalMission = cards.Count;
+                ViewBag.totalMission = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort, 0).Count;
             }
+
+            ViewBag.pg_no = pg;
+            ViewBag.Totalpages = Math.Ceiling(_PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort, 0).Count() / 3.0);
+            platformModel.missions = cards.Skip((1 - 1) * 3).Take(3).ToList();
+
             return PartialView("_FilterMission", platformModel);
 
         }
@@ -212,7 +233,7 @@ namespace CIPLATFORM.Controllers
         }
 
         //page-4
-    
+
         public IActionResult ShareStory()
         {
             string name = HttpContext.Session.GetString("Uname");
@@ -223,7 +244,7 @@ namespace CIPLATFORM.Controllers
                 int UserId = (int)HttpContext.Session.GetInt32("UId");
                 ViewBag.UId = UserId;
             }
-      
+
             StoryListingViewModel ss = _PlatformRepository.ShareStory(@ViewBag.UId);
             return View(ss);
         }

@@ -132,3 +132,47 @@
 
 
 </div>
+
+
+
+<nav aria-label="Page navigation example mt-4">
+                <ul class="pagination justify-content-center" onchange="temp()">
+                   @* <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous" onclick="Previous(2)">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>*@
+                    @{
+                        double totalpages = ViewBag.Totalpages;
+
+
+
+                        for (int i = 1; i <= totalpages; i++)
+                        {
+                            @if (i == ViewBag.pg_no)
+                            {
+                                <li class="page-item ">
+                                    <a class="page-link" onclick="temp(@i)">@i </a>
+
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="page-item">
+                                    <a class="page-link" onclick="temp(@i)">@i</a>
+                                </li>
+                            }
+
+
+                        }
+                    }
+
+
+
+                   @* <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next" onclick="NextPage(1)">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>*@
+                </ul>
+            </nav>
