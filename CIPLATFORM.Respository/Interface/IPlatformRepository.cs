@@ -23,7 +23,7 @@ namespace CIPLATFORM.Respository.Interface
 
 
         public CardsViewModel getCards();
-        public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort,int pg);
+        public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort,int pg,int UId);
         public int GetMissionCount();
 
         public MissionListingViewModel GetCardDetail(int mid);

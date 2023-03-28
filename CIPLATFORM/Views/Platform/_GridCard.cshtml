@@ -2,33 +2,12 @@
 @model CardsViewModel
 <div id="grid">
 
-     @*   <div class="col-md-9 col-sm-12"> <h3>Explore <b>@ViewBag.totalMission missions</b></h3></div>*@
+    @*   <div class="col-md-9 col-sm-12"> <h3>Explore <b>@ViewBag.totalMission missions</b></h3></div>*@
 
-     <div class="row">
-        <div class="col-md-9 col-sm-12"><h3>Explore <b>@ViewBag.totalMission missions</b></h3> </div>
-        <div class="col-md-3 col-sm-12 d-flex justy">
-            <div class="dropdown h-dropdown">
-                <select class="form-select w-100 d-inline-flex mb-3" aria-label="Default select example" onchange="temp()" id="sort">
-                    <option selected>Sort by</option>
-                    <option value="1">New to Old</option>
-                    <option value="2">Old to New</option>
-
-                </select>
-            </div>
-            <div class="">
-                @* <a asp-controller="Platform" asp-action="HomeGrid">
-                    <i class="bi bi-grid"></i>
-                    </a>*@
-                <a onclick="opengrid()"><i class="bi bi-grid"></i></a>
-            </div>
-            <div class="">
-                @*<a asp-controller="Platform" asp-action="HomeList">
-                    <i class="bi bi-list"></i>
-                    </a>*@
-                <a onclick="openlist()"><i class="bi bi-list"></i></a>
-            </div>
-        </div>
-    </div>
+    @{
+        int a=ViewBag.UId;
+    }
+ <div class=""><h3>Explore <b>@ViewBag.totalMission missions</b></h3> </div>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
         @foreach (var item in Model.missions)
@@ -53,29 +32,33 @@
                         </p>
                         <div class="pt-1 text-end">
 
-                            @*
+
+                            @*  @if (item.FavoriteMissions.Any(x => x.MissionId == item.MissionId && x.UserId == @ViewBag.UId))
+                                {
                                 <button class="btn btn-box rounded-5" onclick="AddMissionToFavourite(@item.MissionId)" style="background-color: rgb(65, 60, 60) ; opacity: 45%;">
-                                <i class="bi bi-heart" style="color:white; font-size:20px" id="addToFav"></i>
-                                </button>*@
-
-
-
-
-
-                            @if (item.FavoriteMissions.Any(x => x.MissionId == item.MissionId && x.UserId == @ViewBag.UId))
+                                <i class="bi bi-heart-fill" style="color:red; font-size:20px" id="@item.MissionId"></i>
+                                </button>
+                                }
+                                else
+                                {
+                                <button class="btn btn-box rounded-5" onclick="AddMissionToFavourite(@item.MissionId)" style="background-color: rgb(65, 60, 60) ; opacity: 45%;">
+                                <i class="bi bi-heart" style="color:white; font-size:20px" id="@item.MissionId"></i>
+                                </button>
+                                }
+                            *@
+                            @if (item.FavoriteMissions.Any(x => x.MissionId == item.MissionId && x.UserId == a))
                             {
                                 <button class="btn btn-box rounded-5" onclick="AddMissionToFavourite(@item.MissionId)" style="background-color: rgb(65, 60, 60) ; opacity: 45%;">
                                     <i class="bi bi-heart-fill" style="color:red; font-size:20px" id="@item.MissionId"></i>
                                 </button>
                             }
+
                             else
                             {
                                 <button class="btn btn-box rounded-5" onclick="AddMissionToFavourite(@item.MissionId)" style="background-color: rgb(65, 60, 60) ; opacity: 45%;">
                                     <i class="bi bi-heart" style="color:white; font-size:20px" id="@item.MissionId"></i>
                                 </button>
                             }
-
-
 
                         </div>
 
@@ -191,44 +174,44 @@
 </div>
 
 
-   <nav aria-label="Page navigation example mt-4">
-                <ul class="pagination justify-content-center" onchange="temp()">
-                   @* <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous" onclick="Previous(2)">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>*@
-                    @{
-                        double totalpages = ViewBag.Totalpages;
+<nav aria-label="Page navigation example mt-4">
+    <ul class="pagination justify-content-center" onchange="temp()">
+        @* <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous" onclick="Previous(2)">
+            <span aria-hidden="true">&laquo;</span>
+            </a>
+            </li>*@
+        @{
+            double totalpages = ViewBag.Totalpages;
 
 
 
-                        for (int i = 1; i <= totalpages; i++)
-                        {
-                            @if (i == ViewBag.pg_no)
-                            {
-                                <li class="page-item ">
-                                    <a class="page-link" onclick="temp(@i)">@i </a>
+            for (int i = 1; i <= totalpages; i++)
+            {
+                @if (i == ViewBag.pg_no)
+                {
+                    <li class="page-item ">
+                        <a class="page-link" onclick="temp(@i)">@i </a>
 
-                                </li>
-                            }
-                            else
-                            {
-                                <li class="page-item">
-                                    <a class="page-link" onclick="temp(@i)">@i</a>
-                                </li>
-                            }
-
-
-                        }
-                    }
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                        <a class="page-link" onclick="temp(@i)">@i</a>
+                    </li>
+                }
 
 
+            }
+        }
 
-                   @* <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next" onclick="NextPage(1)">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>*@
-                </ul>
-            </nav>
+
+
+        @* <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next" onclick="NextPage(1)">
+            <span aria-hidden="true">&raquo;</span>
+            </a>
+            </li>*@
+    </ul>
+</nav>

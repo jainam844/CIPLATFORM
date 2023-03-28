@@ -67,7 +67,7 @@ function temp(pg) {
         pg = 1;
     }
     console.log(pg);
-    
+
 
 
 
@@ -143,11 +143,11 @@ function temp(pg) {
             'search': search,
             'sort': sort,
             'pg': pg,
-           
+
         },
         dataType: "html", // return datatype like JSON and HTML
         success: function (data) {
-          
+
             $("#filter").empty();
             console.log("grid Hii");
             $("#filter").html(data);
@@ -176,25 +176,25 @@ function AddMissionToFavourite(missionId) {
         data: {
             'missionId': missionId,
         },
-        success: function (missions) {
-         
-            if (missions == true) {
+        success: function (c) {
+
+            if (c == true) {
                 $('#addToFav').removeClass();
                 $('#addToFav').addClass("bi bi-heart-fill");
                 $('#addToFav').css("color", "red");
-           
+
                 document.getElementById(missionId).className = "bi bi-heart-fill text-danger";
-               
-              
+
+
             }
             else {
-              
+
                 $('#addToFav').css("color", "black");
                 $('#addToFav').removeClass();
                 $('#addToFav').addClass("bi bi-heart");
-            
+
                 document.getElementById(missionId).className = "bi bi-heart";
-                
+
 
             }
 
@@ -231,7 +231,7 @@ function applyMission(missionId) {
 
                 $('#applyMission').css("color", "red");
 
-/*                document.getElementById("okayyy").innerHTML += ` Applied Successfully...!!!`*/
+                /*                document.getElementById("okayyy").innerHTML += ` Applied Successfully...!!!`*/
                 toastr.success('Applied  successfully');
 
             }
@@ -275,7 +275,7 @@ function comment(missionid) {
             console.log("Added ");
             toastr.success('Comment Added  successfully');
             setTimeout(function () { window.location.reload(); }, 3000);
-          
+
 
         },
         error: function (e) {
@@ -318,7 +318,7 @@ function recommandToCoWorker(x) {
             };
             console.log(toUserId);
             toastr.success('Email Sent  successfully');
-         
+
         }
         ,
         error: function (e) {
@@ -416,7 +416,7 @@ function story() {
 
         },
         error: function (e) {
-        /*    debugger*/
+            /*    debugger*/
             console.log("Bye");
             alert('Error');
         },

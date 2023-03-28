@@ -34,6 +34,8 @@ namespace CIPLATFORM.Controllers
 
 
             HttpContext.Session.SetInt32("UId", (Int32)user.UserId);
+
+            HttpContext.Session.SetString("Avatar", user.Avatar);
             return RedirectToAction("HomeGrid", "Platform");
 
           

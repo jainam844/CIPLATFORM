@@ -25,4 +25,3 @@ D:\JAINAM\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.dl
 D:\JAINAM\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\ref\CIPLATFORM.Entities.dll
 D:\JAINAM\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.pdb
 D:\JAINAM\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.genruntimeconfig.cache
-D:\JAINAM\CIPLATFORM\CIPLATFORM.Entities\obj\Debug\net6.0\CIPLATFORM.Entities.csproj.AssemblyReference.cache

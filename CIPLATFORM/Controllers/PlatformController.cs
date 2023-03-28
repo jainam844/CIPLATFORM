@@ -26,14 +26,14 @@ namespace CIPLATFORM.Controllers
             string name = HttpContext.Session.GetString("Uname");
             ViewBag.Uname = name;
 
-
             if (name != null)
             {
                 int UserId = (int)HttpContext.Session.GetInt32("UId");
                 ViewBag.UId = UserId;
             }
 
-
+            string avtar = HttpContext.Session.GetString("Avatar");
+         ViewBag.Avtar = avtar;
 
             List<Country> countries = _PlatformRepository.GetCountryData();
             ViewBag.countries = countries;
@@ -73,11 +73,10 @@ namespace CIPLATFORM.Controllers
         }
         public IActionResult Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort, int pg)
         {
-
             string name = HttpContext.Session.GetString("Uname");
             ViewBag.Uname = name;
-
-
+            string avtar = HttpContext.Session.GetString("Avatar");
+            ViewBag.Avtar = avtar;
             if (name != null)
             {
                 int UserId = (int)HttpContext.Session.GetInt32("UId");
@@ -85,8 +84,7 @@ namespace CIPLATFORM.Controllers
             }
 
 
-
-            List<Mission> cards = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort, pg);
+            List<Mission> cards = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort, pg, @ViewBag.UId);
             CardsViewModel platformModel = new CardsViewModel();
 
             platformModel.missions = cards;
@@ -96,11 +94,11 @@ namespace CIPLATFORM.Controllers
             }
             else if (cards.Count >= 1)
             {
-                ViewBag.totalMission = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort, 0).Count;
+                ViewBag.totalMission = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort, 0, @ViewBag.UId).Count;
             }
 
             ViewBag.pg_no = pg;
-            ViewBag.Totalpages = Math.Ceiling(_PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort, 0).Count() / 3.0);
+            ViewBag.Totalpages = Math.Ceiling(_PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort, 0, @ViewBag.UId).Count / 3.0);
             platformModel.missions = cards.Skip((1 - 1) * 3).Take(3).ToList();
 
             return PartialView("_FilterMission", platformModel);
@@ -120,7 +118,8 @@ namespace CIPLATFORM.Controllers
                 ViewBag.UId = UserId;
             }
 
-
+            string avtar = HttpContext.Session.GetString("Avatar");
+            ViewBag.Avtar = avtar;
 
             MissionListingViewModel ml = _PlatformRepository.GetCardDetail(mid);
 
@@ -203,6 +202,8 @@ namespace CIPLATFORM.Controllers
                 int UserId = (int)HttpContext.Session.GetInt32("UId");
                 ViewBag.UId = UserId;
             }
+            string avtar = HttpContext.Session.GetString("Avatar");
+            ViewBag.Avtar = avtar;
 
             List<Country> countries = _PlatformRepository.GetCountryData();
             ViewBag.countries = countries;
@@ -244,7 +245,8 @@ namespace CIPLATFORM.Controllers
                 int UserId = (int)HttpContext.Session.GetInt32("UId");
                 ViewBag.UId = UserId;
             }
-
+            string avtar = HttpContext.Session.GetString("Avatar");
+            ViewBag.Avtar = avtar;
             StoryListingViewModel ss = _PlatformRepository.ShareStory(@ViewBag.UId);
             return View(ss);
         }
@@ -254,7 +256,8 @@ namespace CIPLATFORM.Controllers
             string name = HttpContext.Session.GetString("Uname");
             ViewBag.Uname = name;
             StoryListingViewModel sl = _PlatformRepository.GetStory(sid);
-
+            string avtar = HttpContext.Session.GetString("Avatar");
+            ViewBag.Avtar = avtar;
             return View(sl);
         }
 

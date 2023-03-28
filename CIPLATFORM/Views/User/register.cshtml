@@ -83,7 +83,7 @@
                     <div class="form-group">
                         <label for="exampleInputNumber">Phone Number</label>
                         <input type="text" asp-for="PhoneNumber" class="form-control" id="exampleInputNumber" pattern="^\d{10}$">
-                    
+
                         <span asp-validation-for="PhoneNumber" style="color:red"></span>
                     </div>
                     <div class="form-group">
@@ -104,10 +104,7 @@
 
                         <span asp-validation-for="ConfirmPassword" style="color:red"></span>
                     </div>
-                    <button type="submit" id="submit" class="btn btn-outline btn-block" style="background: #F8863400 0% 0% no-repeat padding-box;
-border: 2px solid #F88634;
-border-radius: 24px;
-opacity: 1; color:#F88634">
+                    <button type="submit" id="submit" class="btn btn-outline btn-block" style="background: #F8863400 0% 0% no-repeat padding-box;border: 2px solid #F88634;border-radius: 24px;opacity: 1; color:#F88634">
                         Register
                     </button>
 
