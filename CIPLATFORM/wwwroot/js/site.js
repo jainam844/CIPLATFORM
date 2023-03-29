@@ -179,22 +179,29 @@ function AddMissionToFavourite(missionId) {
         success: function (c) {
 
             if (c == true) {
+                toastr.options = {
+                    "closeButton": true,
+                    "progressBar": true
+                };
                 $('#addToFav').removeClass();
                 $('#addToFav').addClass("bi bi-heart-fill");
                 $('#addToFav').css("color", "red");
-
+                toastr.success("Added To the favourite");
                 document.getElementById(missionId).className = "bi bi-heart-fill text-danger";
-
+                toastr.success("Added To the favourite");
 
             }
             else {
-
+                toastr.options = {
+                    "closeButton": true,
+                    "progressBar": true
+                };
                 $('#addToFav').css("color", "black");
                 $('#addToFav').removeClass();
                 $('#addToFav').addClass("bi bi-heart");
-
+                toastr.error('Remove From the favourite');
                 document.getElementById(missionId).className = "bi bi-heart";
-
+                toastr.error('Remove From the favourite');
 
             }
 

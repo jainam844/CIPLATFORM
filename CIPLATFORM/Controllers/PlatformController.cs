@@ -247,9 +247,42 @@ namespace CIPLATFORM.Controllers
             }
             string avtar = HttpContext.Session.GetString("Avatar");
             ViewBag.Avtar = avtar;
+
+
             StoryListingViewModel ss = _PlatformRepository.ShareStory(@ViewBag.UId);
+
             return View(ss);
         }
+
+        [HttpPost]
+        public IActionResult ShareStory(StoryListingViewModel obj, int command, List<IFormFile> file)
+        {
+
+            string name = HttpContext.Session.GetString("Uname");
+            ViewBag.Uname = name;
+
+            string avtar = HttpContext.Session.GetString("Avtar");
+            ViewBag.Avtar = avtar;
+
+            if (name != null)
+            {
+                int UserId = (int)HttpContext.Session.GetInt32("UId");
+                ViewBag.UId = UserId;
+            }
+            bool abc = _PlatformRepository.saveStory(obj, command, @ViewBag.UId);
+            if (command == 1)
+            {
+                StoryListingViewModel ss = _PlatformRepository.ShareStory(@ViewBag.UId);
+
+                return View(ss);
+            }
+            if (command == 2)
+            {
+                return RedirectToAction("StoryListing", "Platform");
+            }
+            return View();
+        }
+
 
         public IActionResult StoryDetail(int sid)
         {

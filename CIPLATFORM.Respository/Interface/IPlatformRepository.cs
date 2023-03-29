@@ -46,5 +46,6 @@ namespace CIPLATFORM.Respository.Interface
         public List<Story> StoryFilter(string? search);
         public List<MissionApplication> Mission(int UId);
         public StoryListingViewModel ShareStory(int UId);
+        public bool saveStory(StoryListingViewModel obj, int status, int uid);
     }
 }

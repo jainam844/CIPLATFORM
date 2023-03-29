@@ -1,4 +1,5 @@
 ﻿@using CIPLATFORM.Entities.ViewModels
+@using Microsoft.AspNetCore.Html
 
 @model StoryListingViewModel
 
@@ -168,7 +169,15 @@
         </div>
 
         <p>
-            @Model.story.Description
+           
+
+
+             @{
+                            string htmlString =  @Model.story.Description;
+                            HtmlString renderedHtml = new HtmlString(htmlString);
+                            }
+
+                            @renderedHtml
         </p>
     </div>
     <hr>

@@ -21,7 +21,7 @@
 
 
 
-
+/*
 #uploaded-images {
     display: flex;
     flex-wrap: wrap;
@@ -42,7 +42,7 @@
     margin-bottom: 20px;
 }
 
-
+*/
 
 /*:root {
     --colorPrimaryNormal: #00b3bb;
@@ -97,3 +97,78 @@ body {
     margin-right: 10px;
     margin-bottom: 10px;
 }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tox-notifications-container {
+    display: none !important;
+}
+
+.file {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+output {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: relative;
+    border-radius: 5px;
+}
+
+    output .image {
+        height: 100%;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+        position: relative;
+    }
+
+        output .image img {
+            height: 75px;
+            width: 75px;
+        }
+
+        output .image span {
+            position: absolute;
+            top: -4px;
+            right: 4px;
+            cursor: pointer;
+            font-size: 22px;
+            color: white;
+        }
+
+            output .image span:hover {
+                opacity: 0.8;
+            }
+
+    output .span--hidden {
+        visibility: hidden;
+    }

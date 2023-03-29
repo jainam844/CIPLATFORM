@@ -59,7 +59,7 @@ namespace CIPLATFORM.Respository.Repositories
         }
         public List<Mission> GetMissionDetails()
         {
-            List<Mission> missionDetails = _CiPlatformContext.Missions.Include(m => m.City).Include(m => m.Theme).Include(m => m.MissionMedia).Include(m => m.MissionRatings).Include(m => m.GoalMissions).Include(m => m.MissionSkills).Include(m=>m.FavoriteMissions).ToList();
+            List<Mission> missionDetails = _CiPlatformContext.Missions.Include(m => m.City).Include(m => m.Theme).Include(m => m.MissionMedia).Include(m => m.MissionRatings).Include(m => m.GoalMissions).Include(m => m.MissionSkills).Include(m => m.FavoriteMissions).Include(m => m.MissionApplications).ToList();
             return missionDetails;
         }
 
@@ -99,7 +99,7 @@ namespace CIPLATFORM.Respository.Repositories
             List<MissionDocument> documents = document(mid);
             //int rating = avgRating(mid);
             List<MissionSkill> missionSkills = _CiPlatformContext.MissionSkills.Include(m => m.Skill).Where(x => x.MissionId == mid).ToList();
-            List<MissionApplication> applications = _CiPlatformContext.MissionApplications.Include(m => m.User).Where(x => x.MissionId == mid && x.ApprovalStatus=="Approve").ToList();
+            List<MissionApplication> applications = _CiPlatformContext.MissionApplications.Include(m => m.User).Where(x => x.MissionId == mid).ToList();
             List<Mission> relatedMissions = missions.Where(x => x.OrganizationName == mission.OrganizationName || x.ThemeId == mission.ThemeId || x.CountryId == mission.CountryId).ToList();
             relatedMissions.Remove(mission);
 
@@ -360,7 +360,7 @@ namespace CIPLATFORM.Respository.Repositories
 
         public List<MissionApplication> Mission(int UId)
         {
-            List<MissionApplication> missions = _CiPlatformContext.MissionApplications.Include(m => m.Mission).Where(x => x.UserId == UId).ToList();
+            List<MissionApplication> missions = _CiPlatformContext.MissionApplications.Include(m => m.Mission).Where(x => x.UserId == UId && x.ApprovalStatus == "Approve").ToList();
             return missions;
         }
 
@@ -374,6 +374,33 @@ namespace CIPLATFORM.Respository.Repositories
             return StoryDetail;
 
         }
+
+
+        public bool saveStory(StoryListingViewModel obj, int status, int uid)
+        {
+
+            Story str = new Story();
+            {
+                str.Title = obj.story.Title;
+                str.Description = obj.story.Description;
+                str.UserId = uid;
+                str.MissionId = obj.story.MissionId;
+            }
+            if (status == 1)
+            {
+                str.Status = "DRAFT";
+            }
+            if (status == 2)
+            {
+                str.Status = "PENDING";
+            }
+
+            _CiPlatformContext.Stories.Add(str);
+            _CiPlatformContext.SaveChanges();
+
+            return true;
+        }
+
 
         public List<Story> StoryFilter(string? search)
         {
@@ -408,7 +435,7 @@ namespace CIPLATFORM.Respository.Repositories
 
         }
 
-        public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort, int pg,int UId)
+        public List<Mission> Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort, int pg, int UId)
         {
             var pageSize = 3;
 
@@ -420,28 +447,29 @@ namespace CIPLATFORM.Respository.Repositories
             if (search != null)
             {
                 search = search.ToLower();
-                missioncards=missioncards.Where(x=>x.Title.ToLower().Contains(search)).ToList();
-               
+                missioncards = missioncards.Where(x => x.Title.ToLower().Contains(search)).ToList();
+
 
             }
-            if (countryId.Count>0) {
+            if (countryId.Count > 0)
+            {
 
-                missioncards=missioncards.Where(c => countryId.Contains((int)c.CountryId)).ToList();
-              
+                missioncards = missioncards.Where(c => countryId.Contains((int)c.CountryId)).ToList();
+
             }
             if (cityId.Count > 0)
             {
                 missioncards = missioncards.Where(c => cityId.Contains((int)c.CityId)).ToList();
-               
+
 
             }
-            if(themeId.Count > 0)
+            if (themeId.Count > 0)
 
             {
                 missioncards = missioncards.Where(c => themeId.Contains((int)c.ThemeId)).ToList();
 
             }
-            if(skillId.Count !=0)
+            if (skillId.Count != 0)
             {
                 //missioncards = missioncards.Where(c => skillId.Contains((int)c.MissionSkills.Any(x=>x.SkillId==(long)skillId))).ToList();
                 foreach (var n in skillId)
@@ -453,11 +481,11 @@ namespace CIPLATFORM.Respository.Repositories
                         {
 
                             cards.Add(missioncards.FirstOrDefault(x => x.MissionId == item.MissionId));
-                            
+
                         }
-                      
+
                     }
-                   
+
 
                 }
                 missioncards = cards;
@@ -491,7 +519,7 @@ namespace CIPLATFORM.Respository.Repositories
             }
 
             return missioncards;
-        
+
         }
     }
 }

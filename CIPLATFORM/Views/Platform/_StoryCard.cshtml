@@ -1,4 +1,5 @@
 ﻿@using CIPLATFORM.Entities.ViewModels
+@using Microsoft.AspNetCore.Html
 
 @model StoryListingViewModel
 
@@ -34,7 +35,12 @@
                     <div class="card-body">
                         <h5 class="card-title">@item.Title</h5>
                         <p class="card-text">
-                            @item.Description
+                    @{
+                            string htmlString = @item.Description;
+                            HtmlString renderedHtml = new HtmlString(htmlString);
+                            }
+
+                            @renderedHtml
                         </p>
 
                         <!-- <div class="container"> -->
