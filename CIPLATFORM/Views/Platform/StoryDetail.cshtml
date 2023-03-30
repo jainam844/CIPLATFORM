@@ -6,20 +6,20 @@
 
 
     @* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-        <title>Hello, world!</title>*@
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/Home.css">
-    <link rel="stylesheet" href="~/css/StoryDetail.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <title>Hello, world!</title>*@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/css/Home.css">
+<link rel="stylesheet" href="~/css/StoryDetail.css">
 
 
-
+<hr />
 
 <div class="container">
 
@@ -104,12 +104,12 @@
                         </div>
                         <div class="col-6 d-flex justify-content-end">
 
-                            <button type="button" class="btn btn-outline-secondary " style="  border-radius: 18px;">
+                            <button type="button" class="btn btn-outline-secondary website-counter mb-5" style="border:none">
                                 <i class="bi bi-eye"></i>
-                                25,000 Views
-
 
                             </button>
+                            <span style="font-size:16px;margin-top:6px">Views</span>
+                            @*  <button id="reset" >Reset</button>*@
                         </div>
                     </div>
 
@@ -121,14 +121,14 @@
 
 
                     <div class="row">
-                    @*    <div class="col-12 col-md-6  mt-2">
+                        @*    <div class="col-12 col-md-6  mt-2">
 
                             <button type="submit" class="btn btn-outline w-100  rounded-pill" style="background: #F8863400 0% 0% no-repeat padding-box; border: 2px solid #020201;  border-radius: 24px;opacity: 1; color:#020202">
-                                <i class="bi bi-square-fill  "><span> Recommend to a Co-Worker</span></i>
+                            <i class="bi bi-square-fill  "><span> Recommend to a Co-Worker</span></i>
                             </button>
-                        </div>*@
+                            </div>*@
 
-                        <div class="col-12 col-md-6 mt-2" id="recommand" >
+                        <div class="col-12 col-md-6 mt-2" id="recommand">
 
                             <button type="button" class="btn btn-outline-dark rounded-pill w-100" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-square-fill"></i>
@@ -147,10 +147,11 @@
                         <div class="col-12 col-md-6  mt-2 apply2">
                             <button type="submit" class="btn btn-outline w-100 apply">
 
-                                  <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@Model.story.MissionId" style="text-decoration:none;color:black;">     <span> Open Mission </span>
-                     <i class="bi bi-arrow-right ms-3"></i>
-                    </a> 
-                             
+                                <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@Model.story.MissionId" style="text-decoration:none;color:black;">
+                                    <span> Open Mission </span>
+                                    <i class="bi bi-arrow-right ms-3"></i>
+                                </a>
+
                             </button>
                         </div>
                     </div>
@@ -169,15 +170,15 @@
         </div>
 
         <p>
-           
 
 
-             @{
-                            string htmlString =  @Model.story.Description;
-                            HtmlString renderedHtml = new HtmlString(htmlString);
-                            }
 
-                            @renderedHtml
+            @{
+                string htmlString = @Model.story.Description;
+                HtmlString renderedHtml = new HtmlString(htmlString);
+            }
+
+            @renderedHtml
         </p>
     </div>
     <hr>
@@ -228,6 +229,30 @@
         dots[slideIndex - 1].className += " active";
         captionText.innerHTML = dots[slideIndex - 1].alt;
     }
+</script>
+
+<script>
+        var counterContainer = document.querySelector(".website-counter");
+    var resetButton = document.querySelector("#reset");
+    var visitCount = localStorage.getItem("page_view");
+
+    // Check if page_view entry is present
+    if (visitCount) {
+      visitCount = Number(visitCount) + 1;
+      localStorage.setItem("page_view", visitCount);
+    }
+    else {
+      visitCount = 1;
+      localStorage.setItem("page_view", 1);
+    }
+    counterContainer.innerHTML = visitCount;
+
+    // Adding onClick event listener
+    resetButton.addEventListener("click", () => {
+      visitCount = 1;
+      localStorage.setItem("page_view", 1);
+      counterContainer.innerHTML = visitCount;
+    });
 </script>
 @*  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

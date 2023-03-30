@@ -48,6 +48,6 @@ namespace CIPLATFORM.Respository.Interface
         public List<MissionApplication> Mission(int UId);
         public StoryListingViewModel ShareStory(int UId);
         public bool saveStory(StoryListingViewModel obj, int status, int uid);
-        public Task<bool> SaveImage(StoryListingViewModel obj, List<IFormFile> file);
+        public bool SaveImage(StoryListingViewModel obj, List<IFormFile> file);
     }
 }

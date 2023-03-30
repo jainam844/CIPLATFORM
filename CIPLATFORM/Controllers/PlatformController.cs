@@ -281,7 +281,7 @@ namespace CIPLATFORM.Controllers
                 ViewBag.UId = UserId;
             }
             bool abc = _PlatformRepository.saveStory(obj, command, @ViewBag.UId);
-            Task<bool> image = _PlatformRepository.SaveImage(obj, file);
+            bool image = _PlatformRepository.SaveImage(obj, file);
             if (command == 1)
             {
                 StoryListingViewModel ss = _PlatformRepository.ShareStory(@ViewBag.UId);

@@ -403,7 +403,7 @@ namespace CIPLATFORM.Respository.Repositories
         }
 
 
-        public async Task<bool> SaveImage(StoryListingViewModel obj, List<IFormFile> file)
+        public bool SaveImage(StoryListingViewModel obj, List<IFormFile> file)
         {
             var xyz = _CiPlatformContext.Stories.FirstOrDefault(x => x.Title == obj.story.Title);
             var filePaths = new List<string>();
@@ -427,7 +427,7 @@ namespace CIPLATFORM.Respository.Repositories
                     filePaths.Add(filePath);
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
-                        await formFile.CopyToAsync(stream);
+                        formFile.CopyToAsync(stream);
                     }
 
                 }
