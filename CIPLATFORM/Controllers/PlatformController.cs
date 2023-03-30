@@ -217,19 +217,30 @@ namespace CIPLATFORM.Controllers
 
 
             StoryListingViewModel sl = _PlatformRepository.GetStoryDetail();
+
+
+
+            ViewBag.Totalpages = Math.Ceiling(sl.stories.Count() / 3.0);
+            sl.stories = sl.stories.Skip((1 - 1) * 3).Take(3).ToList();
+            ViewBag.pg_no = 1;
+
+
             return View(sl);
 
         }
-        public IActionResult StoryFilter(string? search)
+        public IActionResult StoryFilter(string? search, int pg)
         {
 
-            List<Story> cards = _PlatformRepository.StoryFilter(search);
+            List<Story> cards = _PlatformRepository.StoryFilter(search,pg);
 
             StoryListingViewModel sModel = new StoryListingViewModel();
             {
                 sModel.stories = cards;
             }
 
+            ViewBag.pg_no = pg;
+            ViewBag.Totalpages = Math.Ceiling(_PlatformRepository.StoryFilter(search, 0).Count() / 3.0);
+            sModel.stories = cards.Skip((1 - 1) * 3).Take(3).ToList();
             return PartialView("_StoryCard", sModel);
         }
 
@@ -270,6 +281,7 @@ namespace CIPLATFORM.Controllers
                 ViewBag.UId = UserId;
             }
             bool abc = _PlatformRepository.saveStory(obj, command, @ViewBag.UId);
+            Task<bool> image = _PlatformRepository.SaveImage(obj, file);
             if (command == 1)
             {
                 StoryListingViewModel ss = _PlatformRepository.ShareStory(@ViewBag.UId);

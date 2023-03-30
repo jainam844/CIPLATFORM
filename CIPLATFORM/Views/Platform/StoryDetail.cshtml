@@ -65,7 +65,7 @@
                     {
                         <div class="mySlides">
 
-                            <img src=~/images/@(Model.storymedias[i-1].Path) style="width:100%;">
+                            <img src="~/images/A/@(Model.storymedias[i-1].Path)" style="width:100%;">
                         </div>
                     }
 
@@ -81,7 +81,7 @@
                         @for (int i = 1; i <= Model.storymedias.Count; i++)
                         {
                             <div class="col">
-                                <img class="demo cursor" src=~/images/@(Model.storymedias[i-1].Path) style="width:100%;" onclick="currentSlide(@i)">
+                                <img class="demo cursor" src="~/images/A/@(Model.storymedias[i-1].Path)" style="width:100%;" onclick="currentSlide(@i)">
                             </div>
                         }
                     </div>

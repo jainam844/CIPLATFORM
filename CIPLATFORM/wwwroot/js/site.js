@@ -386,10 +386,13 @@ function recommandStory(x) {
 
 
 
-function story() {
+function story(pg) {
 
 
-
+    if (pg == undefined) {
+        pg = 1;
+    }
+    console.log(pg);
 
     var search = document.getElementById("searchb").value;
     console.log(search)
@@ -405,6 +408,8 @@ function story() {
         data: {
 
             'search': search,
+            'pg': pg,
+
 
         },
         dataType: "html", // return datatype like JSON and HTML

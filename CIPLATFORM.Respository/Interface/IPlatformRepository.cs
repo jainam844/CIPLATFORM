@@ -1,5 +1,6 @@
 ﻿using CIPLATFORM.Entities.Models;
 using CIPLATFORM.Entities.ViewModels;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,9 +44,10 @@ namespace CIPLATFORM.Respository.Interface
         public StoryListingViewModel GetStory(int sid);
         //public List<Story> GetStoryList(string? search);
         public void RecommandStory(int FromUserId, List<int> ToUserId, int sid);
-        public List<Story> StoryFilter(string? search);
+        public List<Story> StoryFilter(string? search, int pg);
         public List<MissionApplication> Mission(int UId);
         public StoryListingViewModel ShareStory(int UId);
         public bool saveStory(StoryListingViewModel obj, int status, int uid);
+        public Task<bool> SaveImage(StoryListingViewModel obj, List<IFormFile> file);
     }
 }

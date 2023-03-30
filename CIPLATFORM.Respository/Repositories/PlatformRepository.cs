@@ -14,6 +14,7 @@ using MailKit.Security;
 using System.Net.Mail;
 
 using SmtpClient = MailKit.Net.Smtp.SmtpClient;
+using Microsoft.AspNetCore.Http;
 
 namespace CIPLATFORM.Respository.Repositories
 {
@@ -402,8 +403,41 @@ namespace CIPLATFORM.Respository.Repositories
         }
 
 
-        public List<Story> StoryFilter(string? search)
+        public async Task<bool> SaveImage(StoryListingViewModel obj, List<IFormFile> file)
         {
+            var xyz = _CiPlatformContext.Stories.FirstOrDefault(x => x.Title == obj.story.Title);
+            var filePaths = new List<string>();
+            foreach (var formFile in file)
+            {
+                StoryMedium mediaobj = new StoryMedium();
+
+
+
+                mediaobj.StoryId = xyz.StoryId;
+                mediaobj.Path = formFile.FileName;
+                mediaobj.Type = "png";
+
+                _CiPlatformContext.StoryMedia.Add(mediaobj);
+                _CiPlatformContext.SaveChanges();
+
+                if (formFile.Length > 0)
+                {
+                    // full path to file in temp location
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/A", formFile.FileName); //we are using Temp file name just for the example. Add your own file path.
+                    filePaths.Add(filePath);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await formFile.CopyToAsync(stream);
+                    }
+
+                }
+            }
+            return true;
+        }
+
+        public List<Story> StoryFilter(string? search,int pg)
+        {
+            var pageSize = 3;
             List<Story> cards = new List<Story>();
             var missioncards = _CiPlatformContext.Stories.Include(m => m.StoryMedia).Include(m => m.Mission).Include(m => m.Mission.Theme).Include(m => m.User).ToList();
             var Missionskills = _CiPlatformContext.MissionSkills.Include(m => m.Skill).ToList();
@@ -413,24 +447,16 @@ namespace CIPLATFORM.Respository.Repositories
 
             if (search != null)
             {
-
-
-
-                foreach (var n in missioncards)
-                {
-
-                    var title = n.Title.ToLower();
-                    if (title.Contains(search.ToLower()))
-                    {
-                        cards.Add(n);
-                    }
-
-
-                }
+                search = search.ToLower();
+                missioncards = missioncards.Where(x => x.Title.ToLower().Contains(search)).ToList();
 
 
             }
-            return cards;
+            if (pg != 0)
+            {
+                missioncards = missioncards.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
+            }
+            return missioncards;
 
 
         }
