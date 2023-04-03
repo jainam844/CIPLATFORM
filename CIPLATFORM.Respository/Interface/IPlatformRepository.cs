@@ -49,5 +49,7 @@ namespace CIPLATFORM.Respository.Interface
         public StoryListingViewModel ShareStory(int UId);
         public bool saveStory(StoryListingViewModel obj, int status, int uid);
         public bool SaveImage(StoryListingViewModel obj, List<IFormFile> file);
+
+        public StoryListingViewModel getData(int mid, int uid);
     }
 }

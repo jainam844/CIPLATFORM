@@ -379,30 +379,60 @@ namespace CIPLATFORM.Respository.Repositories
 
         public bool saveStory(StoryListingViewModel obj, int status, int uid)
         {
+            Story story = _CiPlatformContext.Stories.FirstOrDefault(x => x.UserId == uid && x.MissionId == obj.story.MissionId);
 
-            Story str = new Story();
+            if (story == null)
             {
-                str.Title = obj.story.Title;
-                str.Description = obj.story.Description;
-                str.UserId = uid;
-                str.MissionId = obj.story.MissionId;
-            }
-            if (status == 1)
-            {
-                str.Status = "DRAFT";
-            }
-            if (status == 2)
-            {
-                str.Status = "PENDING";
+                Story str = new Story();
+                {
+                    str.Title = obj.story.Title;
+                    str.PublishedAt = obj.story.PublishedAt;
+                    str.Description = obj.story.Description;
+                    str.UserId = uid;
+                    str.MissionId = obj.story.MissionId;
+
+                }
+
+                if (status == 1)
+                {
+                    str.Status = "DRAFT";
+                }
+                if (status == 2)
+                {
+                    str.Status = "PENDING";
+                }
+
+                _CiPlatformContext.Stories.Add(str);
+                _CiPlatformContext.SaveChanges();
             }
 
-            _CiPlatformContext.Stories.Add(str);
-            _CiPlatformContext.SaveChanges();
+            if (story != null)
+            {
+
+                {
+                    story.Title = obj.story.Title;
+                    story.PublishedAt = obj.story.PublishedAt;
+                    story.Description = obj.story.Description;
+                    story.UserId = uid;
+                    story.MissionId = obj.story.MissionId;
+                    story.UpdatedAt = DateTime.Now;
+                }
+
+                if (status == 1)
+                {
+                    story.Status = "DRAFT";
+                }
+                if (status == 2)
+                {
+                    story.Status = "PENDING";
+                }
+
+                _CiPlatformContext.Stories.Update(story);
+                _CiPlatformContext.SaveChanges();
+            }
 
             return true;
         }
-
-
         public bool SaveImage(StoryListingViewModel obj, List<IFormFile> file)
         {
             var xyz = _CiPlatformContext.Stories.FirstOrDefault(x => x.Title == obj.story.Title);
@@ -410,9 +440,6 @@ namespace CIPLATFORM.Respository.Repositories
             foreach (var formFile in file)
             {
                 StoryMedium mediaobj = new StoryMedium();
-
-
-
                 mediaobj.StoryId = xyz.StoryId;
                 mediaobj.Path = formFile.FileName;
                 mediaobj.Type = "png";
@@ -435,7 +462,27 @@ namespace CIPLATFORM.Respository.Repositories
             return true;
         }
 
-        public List<Story> StoryFilter(string? search,int pg)
+
+
+
+        public StoryListingViewModel getData(int mid, int uid)
+        {
+            StoryListingViewModel obj = new StoryListingViewModel();
+            Story story = _CiPlatformContext.Stories.FirstOrDefault(m => m.MissionId == mid && m.UserId == uid && m.Status == "DRAFT");
+
+            if (story != null)
+            {
+                {
+                    obj.story = story;
+                }
+
+                return obj;
+            }
+
+            return null;
+        }
+
+        public List<Story> StoryFilter(string? search, int pg)
         {
             var pageSize = 3;
             List<Story> cards = new List<Story>();
