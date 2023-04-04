@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="./CSS/css.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
 <title>Share your Story</title>
 
 <link rel="stylesheet" href="~/css/StoryListing.css">
@@ -73,14 +73,10 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <textarea asp-for="story.Description" id="editor"></textarea>
-
+                        <textarea id="editor" asp-for="story.Description" name=story.Description cols="172" rows="10" maxlength="40000"></textarea>
+                        @* <span class=text-danger></span>*@
                         <script>
-                            ClassicEditor
-                                .create(document.querySelector('#editor'))
-                                .catch(error => {
-                                    console.error(error);
-                                });
+                            CKEDITOR.replace('story.Description');
                         </script>
                     </div>
                 </div><br>
@@ -185,68 +181,147 @@
 
 
 
+@*
+
+    <script>
+    function Sdata() {
+    var div1 = document.getElementById("getData");
+    var selectedOption = div1.options[div1.selectedIndex];
+    var selectedValue = selectedOption.value;
+    console.log(selectedValue);
+    debugger
+    $.ajax({
+    type: "POST", // POST
+    url: '/Platform/CheckData',
+    data: {
+    'mid': selectedValue,
+    },
+    success: function (data) {
+    console.log(data);
+    data = JSON.parse(data);
+    console.log(data);
+    {
+    let myDateObj = new Date(data.story.PublishedAt);
+    const year = myDateObj.getFullYear();
+    const month = String(myDateObj.getMonth() + 1).padStart(2, '0');
+    const day = String(myDateObj.getDate()).padStart(2, '0');
+    const formattedDate = `${year}-${month}-${day}`;
+    data.PublishedAt = formattedDate;
+
+    // The data exists, so populate the form with the retrieved data
+    $("#formGroupExampleInput").val(data.story.Title);
+
+    $("#sDate").val(data.PublishedAt);
+    $("#surl").val(data.url);
+    //console.log(data.Description);
+    //var editor1 = CKEDITOR.instances.editor;
+
+    // Set the content of the editor
+    //editor1.setData('Your content goes here');
+    if (data.simg != null) {
+
+    console.log(data.simg);
+    let images = ""
+    data.simg.forEach((image, index) => {
+    images += `<div class="image"><img src="/images/A/${image}" alt="image"><span onclick="deleteImage(${index})">&times;</span></div>`
+
+    })
+    output.innerHTML = images;
+
+    }
+    else {
+    output.innerHTML = "No Images Are Choosen";
+    }
+    CKEDITOR.instances.editor.setData(data.story.Description);
+    }
+
+    },
+    error: function (e) {
+
+    alert('Error');
+    },
+    });
+    }
+    </script>*@
 
 
 <script>
-    function Sdata() {
+        function Sdata() {
         var div1 = document.getElementById("getData");
         var selectedOption = div1.options[div1.selectedIndex];
         var selectedValue = selectedOption.value;
         console.log(selectedValue);
-        debugger
-        $.ajax({
-            type: "POST", // POST
-            url: '/Platform/CheckData',
-            data: {
-                'mid': selectedValue,
-            },
-            success: function (data) {
-                console.log(data);
-                data = JSON.parse(data);
-                console.log(data);
-                {
-                    let myDateObj = new Date(data.story.PublishedAt);
-                    const year = myDateObj.getFullYear();
-                    const month = String(myDateObj.getMonth() + 1).padStart(2, '0');
-                    const day = String(myDateObj.getDate()).padStart(2, '0');
-                    const formattedDate = `${year}-${month}-${day}`;
-                    data.PublishedAt = formattedDate;
 
-                    // The data exists, so populate the form with the retrieved data
-                    $("#formGroupExampleInput").val(data.story.Title);
+        $.ajax(
+            {
+                type: "POST", // POST
+                url: '/Platform/CheckData',
+                data: {
+                    'mid': selectedValue,
+                },
 
-                    $("#sDate").val(data.PublishedAt);
-                     $("#surl").val(data.url);
-                    //console.log(data.Description);
-                    //var editor1 = CKEDITOR.instances.editor;
 
-                    // Set the content of the editor
-                    //editor1.setData('Your content goes here');
-                    if (data.simg != null) {
-                    debugger
-                    console.log(data.simg);
-                    let images = ""
-                    data.simg.forEach((image, index) => {
-                        images += `<div class="image"><img src="/images/A/${image}" alt="image"><span onclick="deleteImage(${index})">&times;</span></div>`
+                success: function (data) {
+                    console.log(data);
 
-                    })
-                    output.innerHTML = images;
+                    data = JSON.parse(data);
+                    console.log(data);
+                    if (data != null) {
+                        {
+                            let myDateObj = new Date(data.story.PublishedAt);
+                            const year = myDateObj.getFullYear();
+                            const month = String(myDateObj.getMonth() + 1).padStart(2, '0');
+                            const day = String(myDateObj.getDate()).padStart(2, '0');
+                            const formattedDate = `${year}-${month}-${day}`;
+                            data.PublishedAt = formattedDate;
 
-                }
-                else {
-                    output.innerHTML = "No Images Are Choosen";
-                }
-                }
-                debugger
-            },
-            error: function (e) {
-                debugger
-                alert('Error');
-            },
-        });
+                            // The data exists, so populate the form with the retrieved data
+                            $("#formGroupExampleInput").val(data.story.Title);
+
+                            $("#sDate").val(data.PublishedAt);
+                            $("#surl").val(data.url);
+                            //console.log(data.Description);
+                            //var editor1 = CKEDITOR.instances.editor;
+
+                            // Set the content of the editor
+                            //editor1.setData('Your content goes here');
+
+                            if (data.simg != null) {
+                                debugger
+                                console.log(data.simg);
+                                let images = ""
+                                data.simg.forEach((image, index) => {
+                                    images += `<div class="image"><img src="/images/A/${image}" alt="image"><span onclick="deleteImage(${index})">&times;</span></div>`
+
+                                })
+                                output.innerHTML = images;
+
+                            }
+                            else {
+                                output.innerHTML = "No Images Are Choosen";
+                            }
+                            CKEDITOR.instances.editor.setData(data.story.Description);
+
+                        }
+                    }
+                    else {
+                        $("#formGroupExampleInput").val("");
+                        $("#sDate").val("");
+                        $("#surl").val("");
+                        output.innerHTML = "No Images Are Choosen";
+                        CKEDITOR.instances.editor.setData("");
+                    }
+
+                },
+
+                error: function (e) {
+
+                    alert('Error');
+                },
+            }
+        );
     }
 </script>
-
 
 
 

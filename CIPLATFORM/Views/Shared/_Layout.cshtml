@@ -32,7 +32,7 @@
 
 
                         <li class="nav-item mt-1">
-                            <a asp-action="StoryListing" class="nav-link ms-lg-5">Stories</a>
+                            <a asp-action="StoryListing" asp-controller="Platform" class="nav-link ms-lg-5">Stories</a>
                         </li>
                         <li class="nav-item dropdown mt-1">
                             <a asp-controller="Home" asp-action="Privacy" class="nav-link  ms-lg-5" role="button">
@@ -61,12 +61,12 @@
                             @ViewBag.Uname
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Email Address</a></li>
-                            <li><a class="dropdown-item" href="#">Mobile Number</a></li>
+                            <li><a class="dropdown-item" asp-controller="Profile" asp-action="Profile">Add Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Volunteering Timesheet</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" asp-controller="User" asp-action="login">Logout</a></li>
+                            <li><a class="dropdown-item" asp-controller="User" asp-action="login">Log Out</a></li>
                         </ul>
                     </li>
                 </form>

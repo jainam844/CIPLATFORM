@@ -1,0 +1,60 @@
+﻿/*body{
+    background-color:yellow;
+}*/
+.apply {
+    width: 100px;
+    border-radius: 20px;
+    color: #F88634;
+    border: 2px solid #F88634;
+}
+
+.apply2 :hover {
+    background-color: #ffaf75;
+    
+}
+
+.scroll-hide select {
+    max-height: 100px;
+    max-width: 200px;
+    border: 2px solid #f3f3f3;
+    padding-left: 16px;
+    overflow: auto;
+    /* this will hide the scrollbar in mozilla based browsers */
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
+    /* this will hide the scrollbar in internet explorers */
+    -ms-overflow-style: none;
+}
+
+    /* this will hide the scrollbar in webkit based browsers - safari, chrome, etc */
+    .scroll-hide select::-webkit-scrollbar {
+        width: 0 !important;
+        display: none;
+    }
+
+
+
+.profile-nav {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.nav-item {
+    list-style-type: None;
+}
+
+.profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* .search {
+            width: 15px;
+            height: 15px;
+        } */
+
+.h-item {
+    height: 40px;
+}

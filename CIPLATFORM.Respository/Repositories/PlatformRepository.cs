@@ -495,13 +495,17 @@ namespace CIPLATFORM.Respository.Repositories
             StoryListingViewModel obj = new StoryListingViewModel();
             Story story = _CiPlatformContext.Stories.FirstOrDefault(m => m.MissionId == mid && m.UserId == uid && m.Status == "DRAFT");
           
-            List<StoryMedium> simgs = _CiPlatformContext.StoryMedia.Where(m => m.StoryId == story.StoryId && m.Type == "png").ToList();
-            StoryMedium? url = _CiPlatformContext.StoryMedia.FirstOrDefault(m => m.StoryId == story.StoryId && m.Type == "video");
+           
             if (story != null)
             {
+                List<StoryMedium> simgs = _CiPlatformContext.StoryMedia.Where(m => m.StoryId == story.StoryId && m.Type == "png").ToList();
+                StoryMedium? url = _CiPlatformContext.StoryMedia.FirstOrDefault(m => m.StoryId == story.StoryId && m.Type == "video");
                 {
                     obj.story = story;
-                    obj.url = url.Path;
+                    if (url != null)
+                    {
+                        obj.url = url.Path;
+                    }
                 }
                 foreach (var item in simgs)
                 {
