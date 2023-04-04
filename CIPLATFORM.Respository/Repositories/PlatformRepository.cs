@@ -459,6 +459,31 @@ namespace CIPLATFORM.Respository.Repositories
 
                 }
             }
+
+            if (obj.url != null)
+            {
+                var checkurl = _CiPlatformContext.StoryMedia.Where(m => m.StoryId == xyz.StoryId && m.Type == "video").FirstOrDefault();
+
+                if (checkurl != null)
+                {
+                    checkurl.Path = obj.url;
+                    checkurl.UpdatedAt = DateTime.Now;
+
+                    _CiPlatformContext.StoryMedia.Update(checkurl);
+                    _CiPlatformContext.SaveChanges();
+                }
+                else
+                {
+                    StoryMedium forUrl = new StoryMedium();
+                    {
+                        forUrl.StoryId = xyz.StoryId;
+                        forUrl.Type = "video";
+                        forUrl.Path = obj.url;
+                    }
+                    _CiPlatformContext.StoryMedia.Add(forUrl);
+                    _CiPlatformContext.SaveChanges();
+                }
+            }
             return true;
         }
 
@@ -469,13 +494,22 @@ namespace CIPLATFORM.Respository.Repositories
         {
             StoryListingViewModel obj = new StoryListingViewModel();
             Story story = _CiPlatformContext.Stories.FirstOrDefault(m => m.MissionId == mid && m.UserId == uid && m.Status == "DRAFT");
-
+          
+            List<StoryMedium> simgs = _CiPlatformContext.StoryMedia.Where(m => m.StoryId == story.StoryId && m.Type == "png").ToList();
+            StoryMedium? url = _CiPlatformContext.StoryMedia.FirstOrDefault(m => m.StoryId == story.StoryId && m.Type == "video");
             if (story != null)
             {
                 {
                     obj.story = story;
+                    obj.url = url.Path;
                 }
-
+                foreach (var item in simgs)
+                {
+                    obj.simg.Add(item.Path);
+                 
+                    story.StoryMedia.Remove(item);
+                }
+                story.StoryMedia.Remove(url);
                 return obj;
             }
 

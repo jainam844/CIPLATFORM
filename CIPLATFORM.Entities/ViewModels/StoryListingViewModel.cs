@@ -16,5 +16,8 @@ namespace CIPLATFORM.Entities.ViewModels
 
         public List<MissionApplication> missions { get; set; }
 
+        public List<string> simg { get; set; } = new List<string>();
+        public string url { get; set; }
+
     }
 }

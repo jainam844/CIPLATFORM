@@ -313,8 +313,6 @@ namespace CIPLATFORM.Controllers
 
             var dataExists = JsonConvert.SerializeObject(SM);
 
-
-
             // Return a boolean value indicating whether the data exists
             return Json(dataExists);
 

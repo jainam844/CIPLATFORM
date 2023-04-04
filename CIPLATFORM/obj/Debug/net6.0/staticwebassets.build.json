@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/ZoMsGXgy/Z3jHF4sb16Ycu2XLX6EhwB6sWoHbTXlqY=",
+  "Hash": "+JsppeUo4spSWeSTcss/LtmcKws1yZtRfdyOTypCmgI=",
   "Source": "CIPLATFORM",
   "BasePath": "_content/CIPLATFORM",
   "Mode": "Default",
@@ -255,6 +255,23 @@
       "OriginalItemSpec": "wwwroot\\images\\A\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
     },
     {
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\image.png",
+      "SourceId": "CIPLATFORM",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "BasePath": "_content/CIPLATFORM",
+      "RelativePath": "images/A/image.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\A\\image.png"
+    },
+    {
       "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\image1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
@@ -270,6 +287,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\A\\image1.png"
+    },
+    {
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\img1.png",
+      "SourceId": "CIPLATFORM",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "BasePath": "_content/CIPLATFORM",
+      "RelativePath": "images/A/img1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\A\\img1.png"
+    },
+    {
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\img2.png",
+      "SourceId": "CIPLATFORM",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "BasePath": "_content/CIPLATFORM",
+      "RelativePath": "images/A/img2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\A\\img2.png"
     },
     {
       "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\achieved.png",

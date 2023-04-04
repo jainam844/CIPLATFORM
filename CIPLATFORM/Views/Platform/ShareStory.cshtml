@@ -27,7 +27,7 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-lg-12">
-                      <h4>  <span class="story">Share your story</span></h4>
+                        <h4>  <span class="story">Share your story</span></h4>
                     </div>
                 </div><br>
                 <div class="row">
@@ -36,7 +36,7 @@
                             Select Mission
                         </label>
                         <div class="col-lg-12">
-                            <select class="form-select" aria-label="Default select example" id="getData" aria-placeholder="Select your mission" asp-for="story.MissionId"  onchange="Sdata();">
+                            <select class="form-select" aria-label="Default select example" id="getData" aria-placeholder="Select your mission" asp-for="story.MissionId" onchange="Sdata();">
                                 <option value="0">Select your mission</option>
                                 @foreach (var obj in Model.missions)
                                 {
@@ -90,7 +90,7 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter your url">
+                            <input type="text" id="surl" asp-for="url" class="form-control" placeholder="Enter your url">
                         </div>
                     </div>
                 </div><br>
@@ -116,7 +116,7 @@
                         <button class="cancell rounded-pill btn btn-outline-dark">Cancel</button>
                     </div>
                     <div class="col-lg-6 col-md-9 col-10 text-end">
-                        
+
                         <button type="submit" class="threebt rounded-pill btn btn-outline-warning" style="border:1px thin black" value="1" name="command">Save</button>
                         <button type="submit" class="threebt rounded-pill btn btn-outline-warning" value="2" name="command">Submit</button>
                     </div>
@@ -188,49 +188,63 @@
 
 
 <script>
-function Sdata() {
-    var div1 = document.getElementById("getData");
-    var selectedOption = div1.options[div1.selectedIndex];
-    var selectedValue = selectedOption.value;
-    console.log(selectedValue);
-    debugger
-    $.ajax({
-        type: "POST", // POST
-        url: '/Platform/CheckData',
-        data: {
-            'mid': selectedValue,
-        },
-        success: function (data) {
-            console.log(data);
-            data = JSON.parse(data);
-            console.log(data);
-            {
-                let myDateObj = new Date(data.story.PublishedAt);
-                const year = myDateObj.getFullYear();
-                const month = String(myDateObj.getMonth() + 1).padStart(2, '0');
-                const day = String(myDateObj.getDate()).padStart(2, '0');
-                const formattedDate = `${year}-${month}-${day}`;
-                data.PublishedAt = formattedDate;
+    function Sdata() {
+        var div1 = document.getElementById("getData");
+        var selectedOption = div1.options[div1.selectedIndex];
+        var selectedValue = selectedOption.value;
+        console.log(selectedValue);
+        debugger
+        $.ajax({
+            type: "POST", // POST
+            url: '/Platform/CheckData',
+            data: {
+                'mid': selectedValue,
+            },
+            success: function (data) {
+                console.log(data);
+                data = JSON.parse(data);
+                console.log(data);
+                {
+                    let myDateObj = new Date(data.story.PublishedAt);
+                    const year = myDateObj.getFullYear();
+                    const month = String(myDateObj.getMonth() + 1).padStart(2, '0');
+                    const day = String(myDateObj.getDate()).padStart(2, '0');
+                    const formattedDate = `${year}-${month}-${day}`;
+                    data.PublishedAt = formattedDate;
 
-                // The data exists, so populate the form with the retrieved data
-                $("#formGroupExampleInput").val(data.story.Title);
+                    // The data exists, so populate the form with the retrieved data
+                    $("#formGroupExampleInput").val(data.story.Title);
 
-                $("#sDate").val(data.PublishedAt);
-                console.log(data.Description);
-                var editor1 = CKEDITOR.instances.editor;
+                    $("#sDate").val(data.PublishedAt);
+                     $("#surl").val(data.url);
+                    //console.log(data.Description);
+                    //var editor1 = CKEDITOR.instances.editor;
 
-                // Set the content of the editor
-                editor1.setData('Your content goes here');
+                    // Set the content of the editor
+                    //editor1.setData('Your content goes here');
+                    if (data.simg != null) {
+                    debugger
+                    console.log(data.simg);
+                    let images = ""
+                    data.simg.forEach((image, index) => {
+                        images += `<div class="image"><img src="/images/A/${image}" alt="image"><span onclick="deleteImage(${index})">&times;</span></div>`
 
-            }
-            debugger
-        },
-        error: function (e) {
-            debugger
-            alert('Error');
-        },
-    });
-}
+                    })
+                    output.innerHTML = images;
+
+                }
+                else {
+                    output.innerHTML = "No Images Are Choosen";
+                }
+                }
+                debugger
+            },
+            error: function (e) {
+                debugger
+                alert('Error');
+            },
+        });
+    }
 </script>
 
 

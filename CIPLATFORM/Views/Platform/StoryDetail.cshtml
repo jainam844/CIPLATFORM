@@ -128,13 +128,13 @@
                             </button>
                             </div>*@
 
-                        <div class="col-12 col-md-6 mt-2" id="recommand">
+                        <div class="col-12 col-md-6 mt-2" id="recommand" style=" bottom:60px;">
 
-                            <button type="button" class="btn btn-outline-dark rounded-pill w-100" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button type="button" class="btn btn-outline-dark rounded-pill w-100 dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-square-fill"></i>
                                 Recommend to a Co-Worker
                             </button>
-                            <ul class="dropdown-menu" onclick="recommandStory(@Model.story.StoryId)">
+                            <ul class="dropdown-menu "  aria-labelledby="dropdownMenuButton1" onclick="recommandStory(@Model.story.StoryId)" >
 
                                 @foreach (var item in Model.coworkers)
                                 {
