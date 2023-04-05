@@ -33,12 +33,14 @@ namespace CIPLATFORM.Controllers
             }
 
             string avtar = HttpContext.Session.GetString("Avatar");
-         ViewBag.Avtar = avtar;
+            ViewBag.Avtar = avtar;
 
             List<Country> countries = _PlatformRepository.GetCountryData();
             ViewBag.countries = countries;
+
             List<City> Cities = _PlatformRepository.GetCitys();
             ViewBag.Cities = Cities;
+
             List<MissionTheme> themes = _PlatformRepository.GetMissionThemes();
             ViewBag.themes = themes;
 
@@ -231,7 +233,7 @@ namespace CIPLATFORM.Controllers
         public IActionResult StoryFilter(string? search, int pg)
         {
 
-            List<Story> cards = _PlatformRepository.StoryFilter(search,pg);
+            List<Story> cards = _PlatformRepository.StoryFilter(search, pg);
 
             StoryListingViewModel sModel = new StoryListingViewModel();
             {

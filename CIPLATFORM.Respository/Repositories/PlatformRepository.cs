@@ -310,7 +310,7 @@ namespace CIPLATFORM.Respository.Repositories
         }
         public List<StoryMedium> smedia(int sid)
         {
-            List<StoryMedium> photos = _CiPlatformContext.StoryMedia.Where(x => x.StoryId == sid).ToList();
+            List<StoryMedium> photos = _CiPlatformContext.StoryMedia.Where(x => x.StoryId == sid && x.Type=="png").ToList();
             return photos;
         }
 
