@@ -9,7 +9,7 @@ namespace CIPLATFORM.Controllers
             string name = HttpContext.Session.GetString("Uname");
             ViewBag.Uname = name;
 
-            string avtar = HttpContext.Session.GetString("Avtar");
+            string avtar = HttpContext.Session.GetString("Avatar");
             ViewBag.Avtar = avtar;
 
             if (name != null)
