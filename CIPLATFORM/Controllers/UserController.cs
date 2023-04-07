@@ -28,6 +28,7 @@ namespace CIPLATFORM.Controllers
            if(user==null)
             {
                 TempData["loginerror"] = "Invalid Email Or Password.Plz Verify..!!";
+               
                 return View();
             }
             HttpContext.Session.SetString("Uname", user.FirstName + " " + user.LastName);
@@ -37,7 +38,7 @@ namespace CIPLATFORM.Controllers
 
             HttpContext.Session.SetString("Avatar", user.Avatar);
 
-
+            TempData["logins"] = "Successfully logged.!!";
 
             return RedirectToAction("HomeGrid", "Platform");
 

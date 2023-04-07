@@ -1,44 +1,42 @@
 ﻿@using CIPLATFORM.Entities.ViewModels
 @model CardsViewModel
-@*@{
-    Layout=null;
-    }
-*@
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
-
-@*<!doctype html>
-    <html lang="en">*@
-
-@*<head>
-
-    <meta charset="utf-8color <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
-    <link rel="stylesheet" href="~/css/Home.css">
 
-    -moz-text-size-adjusttitle>Home-Grid</title>
-
-    </head>*@
-
-@*<body>*@
-<!-- navbar-1 -->
 <link rel="stylesheet" href="~/css/Home.css">
 
+
+
+
+
+ @if (TempData["logins"] != null)
+            {
+               
+                <script type="text/javascript">
+
+
+                    toastr.success('@TempData["logins"]')
+                </script>
+
+            }
+
+
+
 <!-- navbar-2 -->
+
+
 <hr class="d-none d-md-block">
    @{
     Html.RenderPartial("navbar2");
-    //@Html.Partial("navbar2");
+   
 }
 
 
 <hr>
+
+
 <!-- explore -->
 
    <div class="row">
@@ -69,9 +67,6 @@
         </div>
     </div>
 <div class="container" >
-
- 
-
 
     @{
 

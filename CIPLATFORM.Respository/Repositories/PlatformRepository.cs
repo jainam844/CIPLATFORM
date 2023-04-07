@@ -104,7 +104,7 @@ namespace CIPLATFORM.Respository.Repositories
             List<Mission> relatedMissions = missions.Where(x => x.OrganizationName == mission.OrganizationName || x.ThemeId == mission.ThemeId || x.CountryId == mission.CountryId).ToList();
             relatedMissions.Remove(mission);
 
-            List<Comment> comments = _CiPlatformContext.Comments.Include(m => m.User).Where(x => x.MissionId == mid).ToList();
+            List<Comment> comments = _CiPlatformContext.Comments.Include(m => m.User).Where(x => x.MissionId == mid && x.ApprovalStatus== "Published").ToList();
             List<User> users = _CiPlatformContext.Users.ToList();
             List<FavoriteMission> favoriteMission = _CiPlatformContext.FavoriteMissions.ToList();
             MissionListingViewModel CardDetail = new MissionListingViewModel();
@@ -451,10 +451,13 @@ namespace CIPLATFORM.Respository.Repositories
                 {
                     // full path to file in temp location
                     var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/A", formFile.FileName); //we are using Temp file name just for the example. Add your own file path.
-                    filePaths.Add(filePath);
-                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    if (File.Exists(filePath) == false)
                     {
-                        formFile.CopyToAsync(stream);
+                        filePaths.Add(filePath);
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            formFile.CopyToAsync(stream);
+                        }
                     }
 
                 }

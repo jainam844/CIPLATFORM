@@ -176,7 +176,7 @@
 
 </script>
 
-<script>
+@*<script>
         function Sdata() {
         var div1 = document.getElementById("getData");
         var selectedOption = div1.options[div1.selectedIndex];
@@ -248,8 +248,116 @@
             }
         );
     }
-</script>
+</script>*@
 
+<script>
+    function Sdata() {
+    var div1 = document.getElementById("getData");
+    var selectedOption = div1.options[div1.selectedIndex];
+    var selectedValue = selectedOption.value;
+    console.log(selectedValue);
+
+    $.ajax(
+        {
+            type: "POST", // POST
+            url: '/Platform/CheckData',
+            data: {
+                'mid': selectedValue,
+            },
+
+
+            success: function (data) {
+                console.log(data);
+
+                data = JSON.parse(data);
+                console.log(data);
+                if (data != null) {
+                    {
+                        if (data.story.PublishedAt != null)
+                        {
+                            let myDateObj = new Date(data.story.PublishedAt);
+                            const year = myDateObj.getFullYear();
+                            const month = String(myDateObj.getMonth() + 1).padStart(2, '0');
+                            const day = String(myDateObj.getDate()).padStart(2, '0');
+                            const formattedDate = `${year}-${month}-${day}`;
+                            data.PublishedAt = formattedDate;
+                        }
+
+                        
+                        $("#formGroupExampleInput").val(data.story.Title);
+                        $("#sDate").val(data.PublishedAt);
+                        $("#surl").val(data.url);
+                        
+
+                        if (data.simg != null) {
+                            function toDataUrl(url, callback) {
+                                console.log(url);
+                                var newUrl = url;
+                                var xhr = new XMLHttpRequest();
+                                xhr.onload = function () {
+                                    callback(xhr.response);
+                                };
+                                xhr.open('GET', newUrl);
+                                xhr.responseType = 'blob';
+                                xhr.send();
+                            }
+
+                            
+                            const dT = new DataTransfer();
+                            let image;
+
+
+
+                           
+                            console.log(data.simg);
+                            let images = ""
+                            data.simg.forEach((image, index) => {
+                                /*returnImage = image;*/
+                                showImg = "/images/A/" + image;
+                                toDataUrl(showImg, function (x) {
+                                    image = x;
+                                    
+                                    dT.items.add(new File([image], image, {
+                                        type: "image/png"
+                                    }));
+                                    imagesArray.push(new File([image], image, {
+                                        type: "image/png"
+                                    }));
+                                
+                                });
+                                images += `<div class="image"><img src="${showImg}" alt="image"><span onclick="deleteImage(${index})">&times;</span></div>`
+
+                            })
+                            output.innerHTML = images;
+                           
+
+                        }
+                        else {
+                            output.innerHTML = "No Images Are Choosen";
+                        }
+                        CKEDITOR.instances.editor.setData(data.story.Description);
+
+                    }
+                }
+                else {
+                    $("#formGroupExampleInput").val("");
+                    $("#sDate").val("");
+                    $("#surl").val("");
+                    output.innerHTML = "No Images Are Choosen";
+                    CKEDITOR.instances.editor.setData("");
+                }
+
+            },
+
+            error: function (e) {
+            
+                alert('Error');
+            },
+        }
+    );
+}
+
+    </script>
 
 
 

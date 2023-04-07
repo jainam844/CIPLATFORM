@@ -10,12 +10,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/style.css">
+   
     <title>Register</title>
 </head>
 <body>
+
+     @if (TempData["unsuccess"] != null)
+            {
+                <script src="~/lib/jquery/dist/jquery.min.js"></script>
+                <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+                <script type="text/javascript">
+
+
+                    toastr.error('@TempData["unsuccess"]')
+                </script>
+
+            } 
 
     <div class="">
         <div class="row container-fluid px-0 mx-0">
@@ -70,7 +84,7 @@
             </div>
             <div class="col-lg-3 col-md-12 col-sm-12 d-flex flex-column justify-content-center">
                 <span class="text-danger"></span>
-                <div class="d-flex justify-content-center" style="color:red;font-size:25px">@TempData["unsuccess"]</div>
+                <div class="d-flex justify-content-center" style="color:red;font-size:25px"></div>
                 <form class="f1" asp-action="register">
                     <div class="form-group">
                          <label for="exampleInputLastname">First Name</label>

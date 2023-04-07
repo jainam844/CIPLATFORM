@@ -1,72 +1,111 @@
 ﻿   @* <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">*@
+
+
 <link rel="stylesheet" href="~/css/Profile.css">
    @* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">*@
 
  @using CIPLATFORM.Entities.ViewModels
 @model ProfileViewModel
-<div class="container">
-    <div class="row">
-        <div class="col-lg-3 col-sm-4">
-
-            <div class="border p-3 d-flex justify-content-center align-items-center flex-column">
-                <img src=~/images/@ViewBag.Avtar style="border-radius: 50%; height:125px; width:125px" class="">
 
 
-                <span style="color: #414141;" class="">Evan Donohue</span>
-                <button class="border-0 p-0" style="background-color: white;" class="btn btn-primary"
-                        data-toggle="modal" data-target="#exampleModal">
-                    <span class="" style="color: #414141;">Change Password</span>
-                </button>
 
 
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Chane Password</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                           <form method="post">
+<form method="post">
+    <div class="container">
+        <div class="row">
+            @if (TempData["true"] != null)
+            {
+
+                <script type="text/javascript">
+
+
+                    toastr.success('@TempData["true"]')
+                </script>
+
+            }
+
+            @if (TempData["false"] != null)
+            {
+
+                <script type="text/javascript">
+
+
+                    toastr.error('@TempData["false"]')
+                </script>
+
+            }
+
+
+            @if (TempData["morefalse"] != null)
+            {
+
+                <script type="text/javascript">
+
+
+                    toastr.error('@TempData["morefalse"]')
+                </script>
+
+            }
+
+            <div class="col-lg-3 col-sm-4">
+
+                <div class="border p-3 d-flex justify-content-center align-items-center flex-column">
+                    <img src=~/images/@ViewBag.Avtar style="border-radius: 50%; height:125px; width:125px" class="">
+
+
+                    <span style="color: #414141;" class="">Evan Donohue</span>
+                    <button type="button" class="border-0 p-0" style="background-color: white;"
+                            data-toggle="modal" data-target="#exampleModal">
+                        <span class="" style="color: #414141;">Change Password</span>
+                    </button>
+
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Chane Password</h5>
+                                    <button type="button" class="btn-close" aria-label="Close" data-dismiss="modal"></button>
+                                </div>
+
                                 <div class="modal-body">
 
                                     <input type="text" asp-for="resetPass.OldPassword" class="form-control " placeholder="Enter old password">
-                                    @*<span style="color:red;" asp-validation-for="resetPass.OldPassword"></span>*@
-                                    <input type="text" asp-for="resetPass.Password" class="form-control mt-3"  placeholder="Enter  New password">
-                                    @*<span style="color:red;" asp-validation-for="resetPass.Password"></span>*@
-                                    <input type="text" asp-for="resetPass.ConfirmPassword"  class="form-control mt-3"
+
+                                    <input type="text" asp-for="resetPass.Password" class="form-control mt-3" placeholder="Enter  New password">
+
+                                    <input type="text" asp-for="resetPass.ConfirmPassword" class="form-control mt-3"
                                            placeholder="Enter Confirm password">
-                                    @*<span style="color:red;" asp-validation-for="resetPass.ConfirmPassword"></span>*@
+
 
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                     <button type="submit" value="1" name="save" class="btn btn-primary">Save changes</button>
                                 </div>
-                            </form>
+
+                            </div>
                         </div>
                     </div>
+
+
+
+
+
+
                 </div>
-
-
-
-
-
-
             </div>
-        </div>
 
-        <div class="col-lg-9 col-sm-8">
-            <h4 style="color: #414141;">Basic Information</h4>
-            <hr>
-            <form>
+            <div class="col-lg-9 col-sm-8">
+                <h4 style="color: #414141;">Basic Information</h4>
+                <hr>
+
                 <div class="row mt-3">
                     <div class="col-12 col-sm-6">
                         <label>Name</label>
-                        <input type="text" asp-for="FirstName"  class="form-control" placeholder="Enter your name">
+                        <input type="text" asp-for="FirstName" class="form-control" placeholder="Enter your name">
                     </div>
                     <div class="col-12 col-sm-6">
                         <label>Surname</label>
@@ -86,21 +125,21 @@
                 <div class="row mt-3">
                     <div class="col-12 col-sm-6">
                         <label>Title</label>
-                        <input type="text" asp-for="Title"  class="form-control" placeholder="Enter your title">
+                        <input type="text" asp-for="Title" class="form-control" placeholder="Enter your title">
                     </div>
                     <div class="col-12 col-sm-6">
                         <label>Department</label>
-                        <input type="text"  asp-for="Department"  class="form-control" placeholder="Enter your manager details">
+                        <input type="text" asp-for="Department" class="form-control" placeholder="Enter your manager details">
                     </div>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">My Profile*</label>
-                    <textarea class="form-control"  asp-for="ProfileText" id="exampleFormControlTextarea1" rows="4"
+                    <textarea class="form-control" asp-for="ProfileText" id="exampleFormControlTextarea1" rows="4"
                               placeholder="Enter your comments..."></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleFormControlTextarea1">Why I Volunteer?</label>
-                    <textarea class="form-control"  asp-for="WhyIVolunteer" id="exampleFormControlTextarea1" rows="4"
+                    <textarea class="form-control" asp-for="WhyIVolunteer" id="exampleFormControlTextarea1" rows="4"
                               placeholder="Enter your comments..."></textarea>
                 </div>
                 <h4 style="color: #414141;" class="mt-3">Address Information</h4>
@@ -110,7 +149,7 @@
                         <label>Country*</label>
 
                         <select class="form-select" asp-for="CountryId" aria-label="Default select example" data-bs-display="static"
-                             aria-placeholder="Select your country"   id="countryId" onchange=" GetCity();" >
+                                aria-placeholder="Select your country" id="countryId" onchange=" GetCity();">
                             <option value="0" selected>Select your country</option>
                             @foreach (var item in @ViewBag.countries)
                             {
@@ -121,15 +160,15 @@
                     </div>
                     <div class="col-12 col-sm-6">
                         <label>City*</label>
-                        <select class="form-select" asp-for="CityId"  aria-label="Default select example" data-bs-display="static"
-                               aria-placeholder="Select your city"  id="selectCityList"  >
-                            <option value="0" selected >Select your city</option>
-                             @foreach (var item in @ViewBag.Cities)
+                        <select class="form-select" asp-for="CityId" aria-label="Default select example" data-bs-display="static"
+                                aria-placeholder="Select your city" id="selectCityList">
+                            <option value="0" selected>Select your city</option>
+                            @foreach (var item in @ViewBag.Cities)
 
-                                    {
+                            {
 
-                                      <option value="@item.CityId"> @item.Name</option>
-                                    }
+                                <option value="@item.CityId"> @item.Name</option>
+                            }
 
                         </select>
                     </div>
@@ -150,7 +189,7 @@
                     </div>
                     <div class="col-12 col-sm-6">
                         <label>LinkedIn</label><br>
-                        <input type="text" class="form-control" placeholder="Enter linkedIn URL">
+                        <input type="text" asp-for="LinkedInUrl" class="form-control" placeholder="Enter linkedIn URL">
                     </div>
 
                 </div>
@@ -160,22 +199,29 @@
 
 
                 <div class="form-group mt-3">
+                    <div class="form-control" id="PrintSkills" rows="8"
+                         placeholder="">
 
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"
-                              placeholder=""></textarea>
+
+                        @for (int item = 0; item < @Model.userSkills.Count; item++)
+                        {
+
+                            <li>
+                                <input asp-for="skillsToAdd" type="hidden"
+                                   value="@Model.userSkills[item].SkillId" \>
+                                @Model.userSkills[@item].Skill.SkillName
+                            </li>
+                        }
+
+                    </div>
+
+
                 </div>
-
-
                 <div class="row mt-3">
                     <div class="col-12 ">
-
-
-                        <!-- Button HTML (to Trigger Modal) -->
                         <a href="#myModal" class="btn btn-outline-dark rounded-pill" data-bs-toggle="modal">
                             <span>Add Skills</span>
                         </a>
-
-                        <!-- Modal HTML -->
                         <div id="myModal" class="modal fade">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -184,109 +230,49 @@
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                     </div>
                                     <div class="modal-body">
-
                                         <div class="row">
+                                            <div class="col-5 p-0 ">
+                                                <div class="scroll-hide p-0">
+                                                    <select class="form-control p-0" asp-for="skills" id="features"
+                                                            multiple="multiple"
+                                                            style="height:500px;">
 
-                                            <div class="col-5 ">
-                                                <div class="container ">
-                                                    <div class="row text-center">
+                                                        @foreach (var item in @Model.skills)
+                                                        {
 
-
-                                                        <div class="col-xs-4  scroll-hide">
-                                                            <select class="form-control" id="features"
-                                                                    name="Features[]" multiple="multiple"
-                                                                    style="height:200px;">
-
-
-                                                                <option value="2">Row 2</option>
-
-
-                                                                <option value="4">Row 4</option>
-
-
-                                                                <option value="5">Row 5</option>
-
-
-                                                                <option value="6">Row 6</option>
-
-
-                                                                <option value="7">Row 7</option>
-
-
-                                                                <option value="8">Row 8</option>
-
-
-                                                                <option value="9">Row 9</option>
-
-
-                                                            </select>
-                                                        </div>
-
-
-
-
-
-
-
-
-
-                                                    </div>
-
+                                                            <option value="@item.SkillId"> @item.SkillName</option>
+                                                        }
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <!-- <button style="width:10px;height: 30px;"> > </button> -->
-                                            <div class="col-2 mt-3">
-
-                                                <div class="col-xs-2">
-
-
-                                                    <div class="input-group">
-                                                        <button type="button" value="" class="border-0" id="add">
-                                                            >
-                                                        </button>
-                                                    </div>
-
-
-
-
-                                                    <div class="input-group" style="padding-top:10px;">
-                                                        <button type="button" value="" class="border-0" id="remove">
-                                                            <
-                                                        </button>
-                                                    </div>
-
-
-                                                </div>
-
+                                            <div class="col-2 mt-3 px-0 d-flex flex-column justify-content-center">
+                                                <button type="button" value="" class="border-0" style="background-color:white;" id="add">
+                                                    >
+                                                </button>
+                                                <button type="button" value="" class="border-0 pt-2" style="background-color:white;" id="remove">
+                                                    <
+                                                </button>
                                             </div>
-                                            <div class="col-5 ">
-                                                <div class="container ">
-
-                                                    <div class="col-xs-4 scroll-hide">
-                                                        <select class="form-control" name="FeatureCodes[]" size="9"
-                                                                id="selected_features" multiple="multiple"
-                                                                style="height:200px;">
-
-
-                                                            <option value="1">Row 1</option>
-
-
-                                                            <option value="3">Row 3</option>
-
-
-                                                        </select>
-                                                    </div>
+                                            <div class="col-5 p-0">
+                                                <div class="scroll-hide p-0">
+                                                    <select class="form-control p-0" size="9"
+                                                            id="selected_features" multiple="multiple"
+                                                            style="max-height:500px;">
+                                                        @foreach (var item in @Model.userSkills)
+                                                        {
+                                                            <option value="@item.SkillId"> @item.Skill.SkillName</option>
+                                                        }
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                     <div class="apply-2 mb-2">
                                         <button type="button" class="btn btn-outline-dark rounded-pill ms-3"
                                                 data-bs-dismiss="modal">
                                             Cancel
                                         </button>
-                                        <button type="submit"  value="2" name="save" class="btn btn-outline apply">
+                                        <button type="button" class="btn btn-outline apply" onclick="printSelect();">
                                             Save
                                         </button>
                                     </div>
@@ -294,12 +280,11 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="row mt-3">
                     <div class="col-12 text-end apply2">
-                        <button type="button"  value="3" name="save" class="btn btn-outline apply">
+                        <button type="submit" value="3" name="save" class="btn btn-outline apply">
                             Save
 
                         </button>
@@ -308,62 +293,69 @@
 
 
 
-            </form>
 
+
+            </div>
         </div>
-
     </div>
+    <hr>
+    <div class="container mb-3">
+        <div class="row">
 
+            <div class="col-12 ">
+                <a href="#" style="color: #333333;text-decoration: none;">Privacy Policy</a>
 
+                <button type="button" class="border-0 p-0" style="background-color: white;" class="btn btn-primary"
+                        data-toggle="modal" data-target="#exampleModal1">
+                    <span><a href="#" class="ms-3" style="color: #333333;text-decoration: none;">Contact Us</a></span>
+                </button>
+                <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title " id="exampleModalLabel">Contact Us</h5>
+                                <button type="button" class="btn-close" aria-label="Close" data-dismiss="modal"></button>
+                            </div>
 
-</div>
-<hr>
-<div class="container mb-3">
-    <div class="row">
+                            <div class="modal-body">
 
-        <div class="col-12 ">
-            <a href="#" style="color: #333333;text-decoration: none;">Privacy Policy</a>
-
-            <button class="border-0 p-0" style="background-color: white;" class="btn btn-primary"
-                    data-toggle="modal" data-target="#exampleModal1">
-                <span><a href="#" class="ms-3" style="color: #333333;text-decoration: none;">Contact Us</a></span>
-            </button>
-            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
-                 aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title " id="exampleModalLabel">Contact Us</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                          <form method="post">
-                        <div class="modal-body">
-                          
                                 <label>Name*</label>
-                                <input type="text" class="form-control" placeholder="Enter your name">
+                                <input type="text" asp-for="contactus.Name" class="form-control" placeholder="Enter your name">
                                 <label class="mt-3">Email Address*</label>
-                                <input type="text" class="form-control" placeholder="Enter your Email Address">
+
+                                <input type="email" asp-for="contactus.Email" class="form-control" placeholder="Enter your Email Address">
                                 <label class="mt-3">Subject*</label>
-                                <input type="text" class="form-control" placeholder="Enter your Subject">
+
+                                <input type="text" class="form-control" asp-for="contactus.subject" placeholder="Enter your Subject">
                                 <label class="mt-3" for="exampleFormControlTextarea1">Message*</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+
+
+                                <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="contactus.Message" rows="4"
                                           placeholder="Enter your message..."></textarea>
-                          
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" value="4" name="save" class="btn btn-primary">Save changes</button>
+                            </div>
+
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" value="4" name="save" class="btn btn-primary">Save changes</button>
-                        </div>
-                          </form>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
-</div>
+</form>
+
+
+
+
+
+
+
+
 
 @*<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>*@
@@ -376,6 +368,28 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
         integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
+
+<script>
+      function printSelect()
+      {
+          console.log("Add TO Skill Text");
+        var selectValue = document.getElementById("selected_features");
+          console.log(selectValue);
+
+             var list = selectValue.getElementsByTagName("option");
+              console.log(list);
+               $("#PrintSkills").empty();
+
+             for (i = 0; i < list.length; i++)
+             {
+                document.getElementById("PrintSkills").innerHTML +=
+                `<li>
+                    <input asp-for="skillsToAdd" name="skillsToAdd" type="hidden"value="${list[i].value}" \ >  ${list[i].text}
+                 </li>`;
+                console.log(list[i].text);
+             }
+    }
+</script>
 
 
 <script>
