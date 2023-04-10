@@ -25,29 +25,24 @@ namespace CIPLATFORM.Controllers
 
         public IActionResult Privacy()
         {
+            string name = HttpContext.Session.GetString("Uname");
+            ViewBag.Uname = name;
+
+            if (name != null)
+            {
+                int UserId = (int)HttpContext.Session.GetInt32("UId");
+                ViewBag.UId = UserId;
+            }
+
+            string avtar = HttpContext.Session.GetString("Avatar");
+            ViewBag.Avtar = avtar;
+
+
             return View();
         }
 
 
-        public IActionResult forgot()
-        {
-            return View();
-        }
-
-        public IActionResult login()
-        {
-            return View();
-        }
-        public IActionResult register()
-        {
-            return View();
-        }
-
-        public IActionResult newpassword()
-        {
-            return View();
-        }
-
+  
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

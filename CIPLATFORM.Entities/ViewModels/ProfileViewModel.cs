@@ -70,6 +70,7 @@
 
 
 using CIPLATFORM.Entities.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -121,6 +122,9 @@ namespace CIPLATFORM.Entities.ViewModels
         public List<Skill> skills { get; set; } = new List<Skill>();
         public List<int>? skillsToAdd { get; set; }
         public Contactus contactus { get; set; }
+        public IFormFile? Avatarfile { get; set; }
+
+
 
     }
     public class ResetPassword

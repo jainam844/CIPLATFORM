@@ -3,6 +3,15 @@
 
 
 <link rel="stylesheet" href="~/css/Profile.css">
+<style>
+    .Avatarfile {
+        width: 125px;
+        height: 125px;
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+</style>
    @* <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">*@
 
  @using CIPLATFORM.Entities.ViewModels
@@ -11,7 +20,7 @@
 
 
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <div class="container">
         <div class="row">
             @if (TempData["true"] != null)
@@ -51,7 +60,10 @@
             <div class="col-lg-3 col-sm-4">
 
                 <div class="border p-3 d-flex justify-content-center align-items-center flex-column">
-                    <img src=~/images/@ViewBag.Avtar style="border-radius: 50%; height:125px; width:125px" class="">
+
+                    <input id="profileImageInput" type="file" asp-for="Avatarfile" class="Avatarfile" accept="image/jpeg, image/png, image/jpg" />
+
+                    <img src=~/images/@Model.Avatar style="border-radius: 50%; height:125px; width:125px" class="ProfileImage">
 
 
                     <span style="color: #414141;" class="">Evan Donohue</span>
@@ -303,7 +315,7 @@
         <div class="row">
 
             <div class="col-12 ">
-                <a href="#" style="color: #333333;text-decoration: none;">Privacy Policy</a>
+                <a  style="color: #333333;text-decoration: none;" asp-controller="Home" asp-action="Privacy">Privacy Policy</a>
 
                 <button type="button" class="border-0 p-0" style="background-color: white;" class="btn btn-primary"
                         data-toggle="modal" data-target="#exampleModal1">
@@ -368,6 +380,27 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
         integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
+
+
+<script>
+    var readURL = function(input) {
+    if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+    $('.ProfileImage').attr('src', e.target.result);
+
+    }
+
+    reader.readAsDataURL(input.files[0]);
+    }
+    }
+    $("#profileImageInput").on('change', function(){
+
+    readURL(this);
+
+    });
+
+</script>
 
 <script>
       function printSelect()

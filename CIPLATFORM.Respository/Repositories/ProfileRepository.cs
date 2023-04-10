@@ -44,6 +44,7 @@ namespace CIPLATFORM.Respository.Repositories
                     pm.UserId = user.UserId;
                     pm.FirstName = user.FirstName;
                     pm.LastName = user.LastName;
+                    pm.Avatar=user.Avatar;
                     pm.EmployeeId = user.EmployeeId;
                     pm.Title = user.Title;
                     pm.Department = user.Department;
@@ -86,11 +87,19 @@ namespace CIPLATFORM.Respository.Repositories
         {
 
             User pm = _CiPlatformContext.Users.FirstOrDefault(x => x.UserId == UId);
+
+
+
             if (pm != null)
             {
                 {
                     pm.FirstName = user.FirstName;
                     pm.LastName = user.LastName;
+
+                    if (user.Avatarfile != null)
+                    {
+                        pm.Avatar = user.Avatarfile.FileName;
+                    }
                     pm.EmployeeId = user.EmployeeId;
                     pm.Title = user.Title;
                     pm.Department = user.Department;

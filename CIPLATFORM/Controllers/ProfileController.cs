@@ -103,8 +103,9 @@ namespace CIPLATFORM.Controllers
             if (save == 3)
             {
                 bool saveprofile = _ProfileRepository.saveProfile(obj, @ViewBag.UId);
-                obj.skills = _ProfileRepository.getUser(@ViewBag.UId).skills;
-                obj.userSkills = _ProfileRepository.getUser(@ViewBag.UId).userSkills;
+                //obj.skills = _ProfileRepository.getUser(@ViewBag.UId).skills;
+                //obj.userSkills = _ProfileRepository.getUser(@ViewBag.UId).userSkills;
+                obj = _ProfileRepository.getUser(@ViewBag.UId);
                 if (saveprofile)
                 {
                     TempData["true"] = "Profile Updated Successfully";
