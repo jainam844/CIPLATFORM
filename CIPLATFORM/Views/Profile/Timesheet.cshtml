@@ -1,0 +1,255 @@
+﻿
+<style>
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+        table tbody {
+            display: table;
+            width: 100%;
+        }
+
+    table, tr, td, th {
+        padding: 10px;
+        margin: auto;
+        border: none;
+    }
+</style>
+
+
+
+<div class="container">
+    <h2 class="mb-4 mt-4">Volunteering Timesheet</h2>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="container">
+                <div class="border">
+                    <div class="container">
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <h6>Volunteering Hours</h6>
+                            </div>
+                            <div class="col-6 d-flex justify-content-end">
+
+
+
+                                <button type="button" class="btn btn-outline-warning rounded-pill"
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                    <i class="bi bi-plus"></i>
+                                    Add
+                                </button>
+
+
+                                <div class="modal fade" id="exampleModal1" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                    Please input
+                                                    below Volunteering Hours
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <label class="mb-1 ">Mission</label>
+                                                <select type="text" class="form-control form-select"
+                                                        placeholder="Select your Mission">
+                                                    <option value="1">hiii</option>
+                                                    <option value="2">hiii</option>
+                                                    <option value="3">hiii</option>
+                                                </select>
+                                                <label class="mb-1 mt-3">
+                                                    Date
+                                                </label>
+
+                                                <div class="form-group">
+                                                    <input type="date" id="sDate"
+                                                           class="form-control">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label class="mb-1 mt-3">Hours</label>
+                                                        <input type="text" class="form-control"
+                                                               placeholder="Enter Spent Hours">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label class="mb-1 mt-3">
+                                                            Minute
+                                                        </label>
+                                                        <input type="text" class="form-control"
+                                                               placeholder="Enter Spent Minutes">
+                                                    </div>
+                                                </div>
+
+                                                <label class="mb-1 mt-3"
+                                                       for="exampleFormControlTextarea1">Message</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                          rows="4" placeholder="Enter your message..."></textarea>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary "
+                                                        data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="button" class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <table class="table ">
+                            <tbody>
+                                <tr class=" mt-3 mb-3">
+
+                                    <th scope="col"><b>Mission</b> </th>
+                                    <th scope="col"><b>Date</b> </th>
+                                    <th scope="col"><b>Hours</b> </th>
+                                    <th scope="col"> <b>Minutes</b> </th>
+                                    <th scope="col"></th>
+                                </tr>
+
+                                <tr class="mt-3 mb-3">
+                                    <td scope="col">Environment Conservation</td>
+
+                                    <td scope="col">22/02/2022</td>
+                                    <td scope="col">1h</td>
+                                    <td scope="col">30min</td>
+                                    <td scope="col">
+                                        <button type="button" class="btn p-0" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal1">
+                                            <i class="bi bi-pencil-square" style="color: coral;"></i>
+                                        </button>
+                                        <button type="button" class="btn p-0" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal1">
+                                            <i class="bi bi-trash ms-3"></i>
+                                        </button>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-6 mt-lg-0 mt-3">
+            <div class="container">
+                <div class="border">
+                    <div class="container">
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <h6>Volunteering Goals</h6>
+                            </div>
+                            <div class="col-6 d-flex justify-content-end">
+                                <button type="button" class="btn btn-outline-warning rounded-pill"
+                                        data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="bi bi-plus"></i>
+                                    Add
+                                </button>
+
+
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                                                    Please input
+                                                    below Volunteering Goal
+                                                </h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <label class="mb-1 ">Mission</label>
+                                                <select type="text" class="form-control form-select"
+                                                        placeholder="Select your Mission">
+                                                    <option value="1">hiii</option>
+                                                    <option value="2">hiii</option>
+                                                    <option value="3">hiii</option>
+                                                </select>
+                                                <label class="mb-1 mt-3">Actions</label>
+                                                <input type="text" class="form-control" placeholder="Enter Actions">
+
+                                                <label class="mb-1 mt-3">
+                                                    Date
+                                                </label>
+
+                                                <div class="form-group">
+                                                    <input type="date" id="sDate"
+                                                           class="form-control">
+                                                </div>
+
+                                                <label class="mb-1 mt-3"
+                                                       for="exampleFormControlTextarea1">Message</label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                          rows="4" placeholder="Enter your message..."></textarea>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type="button" class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                        <table class="table ">
+                            <tbody>
+                                <tr class="  mt-3 mb-3">
+                                    <th scope="col"><b>Mission</b> </th>
+                                    <th scope="col"> <b>Date</b> </th>
+                                    <th scope="col"> <b>Action</b> </th>
+
+                                    <th scope="col"></th>
+
+                                </tr>
+
+
+                                <tr class=" mt-3 mb-3">
+                                    <td scope="col">Plantation Programme</td>
+                                    <td scope="col">22/02/2022</td>
+                                    <td scope="col">0</td>
+
+                                    <td scope="col">
+                                        <button type="button" class="btn p-0" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal">
+                                            <i class="bi bi-pencil-square" style="color: coral;"></i>
+                                        </button>
+                                        <button type="button" class="btn p-0" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal">
+                                            <i class="bi bi-trash ms-3"></i>
+                                        </button>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
