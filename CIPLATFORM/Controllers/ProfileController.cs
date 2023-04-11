@@ -163,7 +163,9 @@ namespace CIPLATFORM.Controllers
 
             }
 
-            return View();
+            ProfileViewModel pm = _ProfileRepository.GetTimsheet(@ViewBag.UId);
+            return View(pm);
+
         }
     }
 }

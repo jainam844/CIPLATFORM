@@ -1,4 +1,6 @@
-﻿
+﻿ @using CIPLATFORM.Entities.ViewModels
+@model ProfileViewModel
+
 <style>
 
     table {
@@ -16,6 +18,22 @@
         padding: 10px;
         margin: auto;
         border: none;
+    }
+
+    .profile-nav {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .nav-item {
+        list-style-type: None;
+    }
+
+    .profile {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
     }
 </style>
 
@@ -58,11 +76,12 @@
                                             <div class="modal-body">
 
                                                 <label class="mb-1 ">Mission</label>
-                                                <select type="text" class="form-control form-select"
-                                                        placeholder="Select your Mission">
-                                                    <option value="1">hiii</option>
-                                                    <option value="2">hiii</option>
-                                                    <option value="3">hiii</option>
+                                                <select type="text" class="form-control form-select">
+                                                    <option value="0">Select your mission</option>
+                                                    @foreach (var obj in Model.timemissions)
+                                                    {
+                                                        <option value="@obj.Mission.MissionId">@obj.Mission.Title</option>
+                                                    }
                                                 </select>
                                                 <label class="mb-1 mt-3">
                                                     Date
@@ -118,24 +137,24 @@
                                     <th scope="col"></th>
                                 </tr>
 
-                                <tr class="mt-3 mb-3">
-                                    <td scope="col">Environment Conservation</td>
+                                @foreach (var obj in Model.timesheets)
+                                {
+                                    <tr class=" mt-3 mb-3">
+                                        <td scope="col">@obj.Mission.Title</td>
+                                        <td scope="col">@obj.CreatedAt.ToString().Substring(0,10)</td>
+                                        <td scope="col">@obj.Time.ToString().Substring(0,2)h</td>
+                                        <td scope="col">@obj.Time.ToString().Substring(3,2)min</td>
+                                        <td scope="col">
+                                            <button type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                                <i class="bi bi-pencil-square" style="color: coral;"></i>
+                                            </button>
+                                            <button type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                                <i class="bi bi-trash ms-3"></i>
+                                            </button>
+                                        </td>
 
-                                    <td scope="col">22/02/2022</td>
-                                    <td scope="col">1h</td>
-                                    <td scope="col">30min</td>
-                                    <td scope="col">
-                                        <button type="button" class="btn p-0" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal1">
-                                            <i class="bi bi-pencil-square" style="color: coral;"></i>
-                                        </button>
-                                        <button type="button" class="btn p-0" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal1">
-                                            <i class="bi bi-trash ms-3"></i>
-                                        </button>
-                                    </td>
-
-                                </tr>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -175,11 +194,12 @@
                                             <div class="modal-body">
 
                                                 <label class="mb-1 ">Mission</label>
-                                                <select type="text" class="form-control form-select"
-                                                        placeholder="Select your Mission">
-                                                    <option value="1">hiii</option>
-                                                    <option value="2">hiii</option>
-                                                    <option value="3">hiii</option>
+                                                <select type="text" class="form-control form-select">
+                                                    <option value="0">Select your mission</option>
+                                                    @foreach (var obj in Model.goalmissions)
+                                                    {
+                                                        <option value="@obj.Mission.MissionId">@obj.Mission.Title</option>
+                                                    }
                                                 </select>
                                                 <label class="mb-1 mt-3">Actions</label>
                                                 <input type="text" class="form-control" placeholder="Enter Actions">
@@ -225,24 +245,25 @@
 
                                 </tr>
 
+                                @foreach (var obj in Model.goaltimesheets)
+                                {
+                                    <tr class=" mt-3 mb-3">
+                                        <td scope="col">@obj.Mission.Title</td>
+                                        <td scope="col">@obj.CreatedAt.ToString().Substring(0,10)</td>
+                                        <td scope="col">@obj.Action</td>
 
-                                <tr class=" mt-3 mb-3">
-                                    <td scope="col">Plantation Programme</td>
-                                    <td scope="col">22/02/2022</td>
-                                    <td scope="col">0</td>
-
-                                    <td scope="col">
-                                        <button type="button" class="btn p-0" data-bs-toggle="modal"
+                                        <td scope="col">
+                                            <button type="button" class="btn p-0" data-bs-toggle="modal"
                                                 data-bs-target="#exampleModal">
-                                            <i class="bi bi-pencil-square" style="color: coral;"></i>
-                                        </button>
-                                        <button type="button" class="btn p-0" data-bs-toggle="modal"
+                                                <i class="bi bi-pencil-square" style="color: coral;"></i>
+                                            </button>
+                                            <button type="button" class="btn p-0" data-bs-toggle="modal"
                                                 data-bs-target="#exampleModal">
-                                            <i class="bi bi-trash ms-3"></i>
-                                        </button>
-                                    </td>
-
-                                </tr>
+                                                <i class="bi bi-trash ms-3"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>

@@ -44,7 +44,7 @@ namespace CIPLATFORM.Respository.Repositories
                     pm.UserId = user.UserId;
                     pm.FirstName = user.FirstName;
                     pm.LastName = user.LastName;
-                    pm.Avatar=user.Avatar;
+                    pm.Avatar = user.Avatar;
                     pm.EmployeeId = user.EmployeeId;
                     pm.Title = user.Title;
                     pm.Department = user.Department;
@@ -157,6 +157,42 @@ namespace CIPLATFORM.Respository.Repositories
             return true;
         }
 
+        public List<MissionApplication> TimeMission(int UId)
+        {
+            List<MissionApplication> missions = _CiPlatformContext.MissionApplications.Include(m => m.Mission).Where(x => x.UserId == UId && x.ApprovalStatus == "Approve" && x.Mission.MissionType == "Time").ToList();
+            return missions;
+        }
+        public List<MissionApplication> GoalMission(int UId)
+        {
+            List<MissionApplication> missions = _CiPlatformContext.MissionApplications.Include(m => m.Mission).Where(x => x.UserId == UId && x.ApprovalStatus == "Approve" && x.Mission.MissionType == "Goal").ToList();
+            return missions;
+        }
+        public List<Timesheet> timesheet(int UId)
+        {
+            List<Timesheet> tts = _CiPlatformContext.Timesheets.Include(m => m.Mission).Where(x => x.UserId == UId && x.Status == "APPROVED" && x.Mission.MissionType == "Time").ToList();
+            return tts;
+        }
+        public List<Timesheet> goaltimesheet(int UId)
+        {
+            List<Timesheet> gts = _CiPlatformContext.Timesheets.Include(m => m.Mission).Where(x => x.UserId == UId && x.Status == "APPROVED" && x.Mission.MissionType == "Goal").ToList();
+            return gts;
+        }
+        public ProfileViewModel GetTimsheet(int UId)
+        {
+            List<MissionApplication> tm = TimeMission(UId);
+            List<MissionApplication> gm = GoalMission(UId);
+            List<Timesheet> ts = timesheet(UId);
+            List<Timesheet> gs = goaltimesheet(UId);
+            ProfileViewModel Timemodel = new ProfileViewModel();
+            {
+                Timemodel.timemissions = tm;
+                Timemodel.goalmissions = gm;
+                Timemodel.timesheets = ts;
+                Timemodel.goaltimesheets = gs;
+            }
+            return Timemodel;
+
+        }
 
     }
 }

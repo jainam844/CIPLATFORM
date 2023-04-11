@@ -124,7 +124,10 @@ namespace CIPLATFORM.Entities.ViewModels
         public Contactus contactus { get; set; }
         public IFormFile? Avatarfile { get; set; }
 
-
+        public List<MissionApplication> timemissions { get; set; } = new List<MissionApplication>();
+        public List<MissionApplication> goalmissions { get; set; } = new List<MissionApplication>();
+        public List<Timesheet> timesheets { get; set; } = new List<Timesheet>();
+        public List<Timesheet> goaltimesheets { get; set; } = new List<Timesheet>();
 
     }
     public class ResetPassword
