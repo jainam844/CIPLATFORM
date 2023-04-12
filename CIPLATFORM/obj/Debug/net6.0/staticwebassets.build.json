@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ju46DMtBHSx5lY6yJ6RBuRre7nMiE1dYsJUv5bqynic=",
+  "Hash": "slSWTl36H7lzLQFxWALMlj7bWrqT3wX8fnwOU3vfPOU=",
   "Source": "CIPLATFORM",
   "BasePath": "_content/CIPLATFORM",
   "Mode": "Default",
@@ -238,12 +238,12 @@
       "OriginalItemSpec": "wwwroot\\images\\404-Page-image.png"
     },
     {
-      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\Animal-welfare-&-save-birds-campaign-1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
-      "RelativePath": "images/A/CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
+      "RelativePath": "images/A/Animal-welfare-&-save-birds-campaign-1.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -252,15 +252,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\A\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png"
+      "OriginalItemSpec": "wwwroot\\images\\A\\Animal-welfare-&-save-birds-campaign-1.png"
     },
     {
-      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
-      "RelativePath": "images/A/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
+      "RelativePath": "images/A/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -269,7 +269,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\A\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
+      "OriginalItemSpec": "wwwroot\\images\\A\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png"
     },
     {
       "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",
@@ -289,6 +289,23 @@
       "OriginalItemSpec": "wwwroot\\images\\A\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
     },
     {
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\Grow-Trees-On-the-path-to-environment-sustainability-1.png",
+      "SourceId": "CIPLATFORM",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "BasePath": "_content/CIPLATFORM",
+      "RelativePath": "images/A/Grow-Trees-On-the-path-to-environment-sustainability-1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\A\\Grow-Trees-On-the-path-to-environment-sustainability-1.png"
+    },
+    {
       "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\image.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
@@ -306,12 +323,12 @@
       "OriginalItemSpec": "wwwroot\\images\\A\\image.png"
     },
     {
-      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\image1.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\image2.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
-      "RelativePath": "images/A/image1.png",
+      "RelativePath": "images/A/image2.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -320,41 +337,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\A\\image1.png"
-    },
-    {
-      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\img1.png",
-      "SourceId": "CIPLATFORM",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
-      "BasePath": "_content/CIPLATFORM",
-      "RelativePath": "images/A/img1.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\A\\img1.png"
-    },
-    {
-      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\img2.png",
-      "SourceId": "CIPLATFORM",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
-      "BasePath": "_content/CIPLATFORM",
-      "RelativePath": "images/A/img2.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\A\\img2.png"
+      "OriginalItemSpec": "wwwroot\\images\\A\\image2.png"
     },
     {
       "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\img22.png",
@@ -374,12 +357,12 @@
       "OriginalItemSpec": "wwwroot\\images\\A\\img22.png"
     },
     {
-      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\user-img.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\img3.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
-      "RelativePath": "images/A/user-img.png",
+      "RelativePath": "images/A/img3.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -388,15 +371,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\A\\user-img.png"
+      "OriginalItemSpec": "wwwroot\\images\\A\\img3.png"
     },
     {
-      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\user-img-large.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\Nourish-the-Children-in--African-country-1.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
-      "RelativePath": "images/A/user-img-large.png",
+      "RelativePath": "images/A/Nourish-the-Children-in--African-country-1.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -405,15 +388,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\A\\user-img-large.png"
+      "OriginalItemSpec": "wwwroot\\images\\A\\Nourish-the-Children-in--African-country-1.png"
     },
     {
-      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\volunteer2.png",
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\volunteer7.png",
       "SourceId": "CIPLATFORM",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
       "BasePath": "_content/CIPLATFORM",
-      "RelativePath": "images/A/volunteer2.png",
+      "RelativePath": "images/A/volunteer7.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -422,58 +405,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\A\\volunteer2.png"
-    },
-    {
-      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\volunteer3.png",
-      "SourceId": "CIPLATFORM",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
-      "BasePath": "_content/CIPLATFORM",
-      "RelativePath": "images/A/volunteer3.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\A\\volunteer3.png"
-    },
-    {
-      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\volunteer4.png",
-      "SourceId": "CIPLATFORM",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
-      "BasePath": "_content/CIPLATFORM",
-      "RelativePath": "images/A/volunteer4.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\A\\volunteer4.png"
-    },
-    {
-      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\volunteer5.png",
-      "SourceId": "CIPLATFORM",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
-      "BasePath": "_content/CIPLATFORM",
-      "RelativePath": "images/A/volunteer5.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\A\\volunteer5.png"
+      "OriginalItemSpec": "wwwroot\\images\\A\\volunteer7.png"
     },
     {
       "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\achieved.png",

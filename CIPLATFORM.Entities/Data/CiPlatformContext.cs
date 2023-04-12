@@ -26,6 +26,8 @@ public partial class CiPlatformContext : DbContext
 
     public virtual DbSet<Comment> Comments { get; set; }
 
+    public virtual DbSet<ContactU> ContactUs { get; set; }
+
     public virtual DbSet<Country> Countries { get; set; }
 
     public virtual DbSet<FavoriteMission> FavoriteMissions { get; set; }
@@ -232,6 +234,39 @@ public partial class CiPlatformContext : DbContext
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_user_comment");
+        });
+
+        modelBuilder.Entity<ContactU>(entity =>
+        {
+            entity.HasKey(e => e.ContactId).HasName("PK__contact___024E7A86A52108CE");
+
+            entity.ToTable("contact_us");
+
+            entity.Property(e => e.ContactId).HasColumnName("contact_id");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime")
+                .HasColumnName("created_at");
+            entity.Property(e => e.DeletedAt)
+                .HasColumnType("datetime")
+                .HasColumnName("deleted_at");
+            entity.Property(e => e.Email)
+                .HasMaxLength(128)
+                .IsUnicode(false)
+                .HasColumnName("email");
+            entity.Property(e => e.Message)
+                .HasColumnType("text")
+                .HasColumnName("message");
+            entity.Property(e => e.Name)
+                .HasMaxLength(16)
+                .IsUnicode(false)
+                .HasColumnName("name");
+            entity.Property(e => e.Subject)
+                .HasColumnType("text")
+                .HasColumnName("subject");
+            entity.Property(e => e.UpdatedAt)
+                .HasColumnType("datetime")
+                .HasColumnName("updated_at");
         });
 
         modelBuilder.Entity<Country>(entity =>

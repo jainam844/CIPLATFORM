@@ -1,0 +1,63 @@
+﻿ @using CIPLATFORM.Entities.ViewModels
+@model ProfileViewModel
+
+<form method="post" id="timesheetform">
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Please input
+                below Volunteering Hours
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <label class="mb-1 ">Mission</label>
+              <select type="text" asp-for="Timesheet.MissionId"  class="form-select form-control">
+                <option value="">Select your mission</option>
+                @foreach (var obj in Model.timemissions)
+                {
+                    <option value="@obj.Mission.MissionId">@obj.Mission.Title</option>
+                }
+            </select>
+            <label class="mb-1 mt-3">
+                Date
+            </label>
+
+            <div class="form-group">
+                <input type="date" id="sDate" asp-for="Timesheet.DateVolunteereed"
+                       class="form-control">
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label class="mb-1 mt-3">Hours</label>
+                    <input type="text" class="form-control" asp-for="Hours" 
+                           placeholder="Enter Spent Hours">
+                </div>
+                <div class="col-6">
+                    <label class="mb-1 mt-3">
+                        Minute
+                    </label>
+                    <input type="text" class="form-control" asp-for="Minutes"
+                           placeholder="Enter Spent Minutes">
+                </div>
+            </div>
+
+            <label class="mb-1 mt-3"
+                   for="exampleFormControlTextarea1">Message</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="Timesheet.Notes"
+                      rows="4" placeholder="Enter your message..."></textarea>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary "
+                    data-bs-dismiss="modal">
+                Close
+            </button>
+              <button type="submit" name="tid" value="@Model.Timesheet.TimesheetId" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</div>
+</form>

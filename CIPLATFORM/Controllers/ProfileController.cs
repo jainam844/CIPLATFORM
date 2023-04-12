@@ -114,6 +114,15 @@ namespace CIPLATFORM.Controllers
                 {
                     TempData["false"] = "User does not exist";
                 }
+
+                if (obj.Avatar != null)
+                {
+                    HttpContext.Session.SetString("Avatar", obj.Avatar);
+                }
+                else
+                {
+                    HttpContext.Session.SetString("Avatar", "");
+                }
                 return View(obj);
             }
             if (save == 4)
@@ -165,6 +174,49 @@ namespace CIPLATFORM.Controllers
 
             ProfileViewModel pm = _ProfileRepository.GetTimsheet(@ViewBag.UId);
             return View(pm);
+
+        }
+
+
+        [HttpPost]
+        public IActionResult Timesheet(ProfileViewModel obj, int tid)
+        {
+            string? name = HttpContext.Session.GetString("Uname");
+            ViewBag.Uname = name;
+
+            string? avtar = HttpContext.Session.GetString("Avatar");
+            ViewBag.Avtar = avtar;
+
+            if (name != null)
+            {
+                int UserId = (int)HttpContext.Session.GetInt32("UId");
+                ViewBag.UId = UserId;
+            }
+            bool b = _ProfileRepository.updatetimesheet(obj, tid, ViewBag.UId);
+            if (b)
+                TempData["true"] = "Activity added successfully";
+            else
+                TempData["false"] = "Activity updated successfully";
+
+            ProfileViewModel pm = _ProfileRepository.GetTimsheet(@ViewBag.UId);
+            return View(pm);
+        }
+        public IActionResult getActivity(int tid)
+        {
+            int UserId = (int)HttpContext.Session.GetInt32("UId");
+
+            ProfileViewModel tm = _ProfileRepository.GetActivity(tid, UserId);
+            return PartialView("_TimeCard", tm);
+        }
+
+        public IActionResult getGoalActivity(int tid)
+        {
+            int UserId = (int)HttpContext.Session.GetInt32("UId");
+
+            ProfileViewModel tm = _ProfileRepository.GetActivity(tid, UserId);
+
+
+            return PartialView("_GoalCard", tm);
 
         }
     }

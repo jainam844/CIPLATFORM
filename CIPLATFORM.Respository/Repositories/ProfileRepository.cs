@@ -135,6 +135,17 @@ namespace CIPLATFORM.Respository.Repositories
 
         public bool ContactUs(ProfileViewModel obj)
         {
+            ContactU cu = new ContactU();
+            {
+                cu.Name = obj.contactus.Name;
+                cu.Email = obj.contactus.Email;
+                cu.Subject = obj.contactus.subject;
+                cu.Message = obj.contactus.Message;
+            }
+
+            _CiPlatformContext.ContactUs.Add(cu);
+            _CiPlatformContext.SaveChanges();
+
 
             #region Send Mail
             var mailBody = "<h2>I hope this email finds you well. My name is " + obj.contactus.Name + " and I wanted to take a moment to you.</h1>" + "<h1>" + obj.contactus.Message + "</h1><br><h2>" + "</h2>";
@@ -194,5 +205,84 @@ namespace CIPLATFORM.Respository.Repositories
 
         }
 
+
+
+
+
+
+
+        public ProfileViewModel GetActivity(int obj, int UId)
+        {
+            Timesheet timesheet = _CiPlatformContext.Timesheets.FirstOrDefault(x => x.TimesheetId == obj);
+            ProfileViewModel pm = new ProfileViewModel();
+            {
+                pm.Timesheet.Time = timesheet.Time;
+                pm.Timesheet.DateVolunteereed = timesheet.DateVolunteereed;
+                pm.Timesheet.Notes = timesheet.Notes;
+                pm.Timesheet.MissionId = timesheet.MissionId;
+                pm.Timesheet.TimesheetId = obj;
+                pm.Timesheet.Action = timesheet.Action;
+                pm.Hours = timesheet.Time.Value.Hours;
+                pm.Minutes = timesheet.Time.Value.Minutes;
+                pm.timemissions = TimeMission(UId);
+                pm.goalmissions = GoalMission(UId);
+            }
+            return pm;
+        }
+        public bool updatetimesheet(ProfileViewModel obj, int tid, int UId)
+        {
+            Timesheet ts = _CiPlatformContext.Timesheets.FirstOrDefault(x => x.TimesheetId == tid);
+            if (ts != null)
+            {
+                ts.MissionId = obj.Timesheet.MissionId;
+                if (obj.Hours != null || obj.Minutes != null)
+                {
+                    ts.Time = new TimeSpan(obj.Hours, obj.Minutes, 0);
+                }
+                else
+                {
+                    ts.Time = new TimeSpan(0, 0, 0);
+                }
+                if (obj.Timesheet.Action != null)
+                {
+                    ts.Action = obj.Timesheet.Action;
+                }
+                else
+                {
+                    ts.Action = 0;
+                }
+                ts.DateVolunteereed = obj.Timesheet.DateVolunteereed;
+                ts.Notes = obj.Timesheet.Notes;
+                ts.UpdatedAt = DateTime.Now;
+
+                _CiPlatformContext.Timesheets.Update(ts);
+                _CiPlatformContext.SaveChanges();
+
+                return false;
+            }
+            else
+            {
+                Timesheet Ts = new Timesheet();
+                {
+                    Ts.MissionId = obj.Timesheet.MissionId;
+                    Ts.UserId = UId;
+                    Ts.Time = new TimeSpan(obj.Hours, obj.Minutes, 0);
+                    if (obj.Timesheet.Action != null)
+                    {
+                        Ts.Action = obj.Timesheet.Action;
+                    }
+                    else
+                    {
+                        Ts.Action = 0;
+                    }
+                    //Ts.Time = new TimeSpan(obj.Hours, obj.Minutes, 0);
+                    Ts.DateVolunteereed = obj.Timesheet.DateVolunteereed;
+                    Ts.Notes = obj.Timesheet.Notes;
+                    _CiPlatformContext.Timesheets.Add(Ts);
+                    _CiPlatformContext.SaveChanges();
+                }
+                return true;
+            }
+        }
     }
 }

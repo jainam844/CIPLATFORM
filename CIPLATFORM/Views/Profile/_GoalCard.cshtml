@@ -1,0 +1,51 @@
+﻿ @using CIPLATFORM.Entities.ViewModels
+@model ProfileViewModel
+<form method="post" id="goalsheetform">
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Please input
+                below Volunteering Goal
+            </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <label class="mb-1 ">Mission</label>
+            <select type="text" class="form-control form-select" asp-for="Timesheet.MissionId">
+                <option value="">Select your mission</option>
+                @foreach (var obj in Model.goalmissions)
+                {
+                    <option value="@obj.Mission.MissionId">@obj.Mission.Title</option>
+                }
+            </select>
+            <label class="mb-1 mt-3">Actions</label>
+            <input type="text" class="form-control" placeholder="Enter Actions" asp-for="Timesheet.Action">
+
+            <label class="mb-1 mt-3">
+                Date
+            </label>
+
+            <div class="form-group">
+                <input type="date" id="sDate" asp-for="Timesheet.DateVolunteereed"
+                       class="form-control">
+            </div>
+
+            <label class="mb-1 mt-3"
+                   for="exampleFormControlTextarea1">Message</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" asp-for="Timesheet.Notes"
+                      rows="4" placeholder="Enter your message..."></textarea>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+                Close
+            </button>
+            <button type="submit" name="tid" value="@Model.Timesheet.TimesheetId" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</div>
+</form>

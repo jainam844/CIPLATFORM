@@ -437,6 +437,71 @@ function story(pg) {
 
 
 
+function getActivity(x) {
+    console.log("TimeSheet!!!!!!!!");
+    {
+        if (x > 0) {
+            $.ajax({
+                url: "/Profile/getActivity",
+                method: "Post",
+                data:
+                {
+                    "tid": x,
+                },
+                success: function (data) {
+                    console.log(data);
+                    debugger
+                    $("#TimesheetTime").empty();
+                    $("#TimesheetTime").html(data);
+                },
+                error: function (e) {
+                    console.log("Bye");
+                    alert('Error');
+                },
+            });
+        }
+        else {
+            const myForm = document.querySelector('#timesheetform');
+
+            myForm.querySelectorAll('.form-control').forEach((element, index) => {
+                element.value = "";
+            });
+        }
+    }
+}
+
+function getgoalActivity(x) {
+    console.log("TimeSheet!!!!!!!!");
+    {
+        if (x > 0) {
+            $.ajax({
+                url: "/Profile/getGoalActivity",
+                method: "Post",
+                data:
+                {
+                    "tid": x,
+                },
+                success: function (data) {
+                    console.log(data);
+                    debugger
+                    $("#TimesheetGoal").empty();
+                    $("#TimesheetGoal").html(data);
+                },
+                error: function (e) {
+                    console.log("Bye");
+                    alert('Error');
+                },
+            });
+        }
+        else {
+            const myForm = document.querySelector('#goalsheetform');
+
+            myForm.querySelectorAll('.form-control').forEach((element, index) => {
+                element.value = "";
+            });
+        }
+    }
+}
 
 // Handles the hover over the stars
 

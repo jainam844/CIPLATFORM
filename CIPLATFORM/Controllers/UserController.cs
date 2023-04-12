@@ -36,7 +36,18 @@ namespace CIPLATFORM.Controllers
 
             HttpContext.Session.SetInt32("UId", (Int32)user.UserId);
 
-            HttpContext.Session.SetString("Avatar", user.Avatar);
+            if (user.Avatar != null)
+            {
+                HttpContext.Session.SetString("Avatar", user.Avatar);
+            }
+
+            else
+            {
+                HttpContext.Session.SetString("Avatar", "");
+            }
+
+
+          
 
             TempData["logins"] = "Successfully logged.!!";
 

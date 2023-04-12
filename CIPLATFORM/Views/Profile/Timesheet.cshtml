@@ -1,4 +1,4 @@
-﻿ @using CIPLATFORM.Entities.ViewModels
+﻿@* @using CIPLATFORM.Entities.ViewModels
 @model ProfileViewModel
 
 <style>
@@ -54,8 +54,8 @@
 
 
 
-                                <button type="button" class="btn btn-outline-warning rounded-pill"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                <button type="button" class="btn btn-outline-warning rounded-pill" onclick="getActivity();" data-bs-target="#TimesheetTime"
+                                        data-bs-toggle="modal" >
                                     <i class="bi bi-plus"></i>
                                     Add
                                 </button>
@@ -63,64 +63,12 @@
 
                                 <div class="modal fade" id="exampleModal1" tabindex="-1"
                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                                    Please input
-                                                    below Volunteering Hours
-                                                </h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
 
-                                                <label class="mb-1 ">Mission</label>
-                                                <select type="text" class="form-control form-select">
-                                                    <option value="0">Select your mission</option>
-                                                    @foreach (var obj in Model.timemissions)
-                                                    {
-                                                        <option value="@obj.Mission.MissionId">@obj.Mission.Title</option>
-                                                    }
-                                                </select>
-                                                <label class="mb-1 mt-3">
-                                                    Date
-                                                </label>
+                                    @{
+                                        Html.RenderPartial("_TimeCard");
 
-                                                <div class="form-group">
-                                                    <input type="date" id="sDate"
-                                                           class="form-control">
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <label class="mb-1 mt-3">Hours</label>
-                                                        <input type="text" class="form-control"
-                                                               placeholder="Enter Spent Hours">
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <label class="mb-1 mt-3">
-                                                            Minute
-                                                        </label>
-                                                        <input type="text" class="form-control"
-                                                               placeholder="Enter Spent Minutes">
-                                                    </div>
-                                                </div>
-
-                                                <label class="mb-1 mt-3"
-                                                       for="exampleFormControlTextarea1">Message</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                          rows="4" placeholder="Enter your message..."></textarea>
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary "
-                                                        data-bs-dismiss="modal">
-                                                    Close
-                                                </button>
-                                                <button type="button" class="btn btn-primary">Submit</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    }
+                                  
                                 </div>
 
                             </div>
@@ -141,7 +89,7 @@
                                 {
                                     <tr class=" mt-3 mb-3">
                                         <td scope="col">@obj.Mission.Title</td>
-                                        <td scope="col">@obj.CreatedAt.ToString().Substring(0,10)</td>
+                                        <td scope="col">@obj.DateVolunteereed.ToString().Substring(0,10)</td>
                                         <td scope="col">@obj.Time.ToString().Substring(0,2)h</td>
                                         <td scope="col">@obj.Time.ToString().Substring(3,2)min</td>
                                         <td scope="col">
@@ -181,53 +129,12 @@
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                                    Please input
-                                                    below Volunteering Goal
-                                                </h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
 
-                                                <label class="mb-1 ">Mission</label>
-                                                <select type="text" class="form-control form-select">
-                                                    <option value="0">Select your mission</option>
-                                                    @foreach (var obj in Model.goalmissions)
-                                                    {
-                                                        <option value="@obj.Mission.MissionId">@obj.Mission.Title</option>
-                                                    }
-                                                </select>
-                                                <label class="mb-1 mt-3">Actions</label>
-                                                <input type="text" class="form-control" placeholder="Enter Actions">
+                                    @{
+                                        Html.RenderPartial("_GoalCard");
 
-                                                <label class="mb-1 mt-3">
-                                                    Date
-                                                </label>
-
-                                                <div class="form-group">
-                                                    <input type="date" id="sDate"
-                                                           class="form-control">
-                                                </div>
-
-                                                <label class="mb-1 mt-3"
-                                                       for="exampleFormControlTextarea1">Message</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1"
-                                                          rows="4" placeholder="Enter your message..."></textarea>
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">
-                                                    Close
-                                                </button>
-                                                <button type="button" class="btn btn-primary">Submit</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    }
+                                  
                                 </div>
 
 
@@ -249,7 +156,7 @@
                                 {
                                     <tr class=" mt-3 mb-3">
                                         <td scope="col">@obj.Mission.Title</td>
-                                        <td scope="col">@obj.CreatedAt.ToString().Substring(0,10)</td>
+                                        <td scope="col">@obj.DateVolunteereed.ToString().Substring(0,10)</td>
                                         <td scope="col">@obj.Action</td>
 
                                         <td scope="col">
@@ -274,3 +181,177 @@
 </div>
 
 
+*@
+
+
+
+
+
+
+
+
+
+
+@using CIPLATFORM.Entities.ViewModels
+@model ProfileViewModel
+
+
+
+<style>
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+        table tbody {
+            display: table;
+            width: 100%;
+        }
+
+    table, tr, td, th {
+        padding: 10px;
+        margin: auto;
+        border: none;
+    }
+
+    .profile-nav {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .nav-item {
+        list-style-type: None;
+    }
+
+    .profile {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+</style>
+
+<hr />
+<div class="container">
+    <h2 class="mb-4 mt-4">Volunteering Timesheet</h2>
+    <div class="row">
+         @if (TempData["true"] != null)
+            {
+                <script type="text/javascript">
+                    toastr.success('@TempData["true"]')
+                </script>
+            }
+            @if (TempData["false"] != null)
+            {
+                <script type="text/javascript">
+                    toastr.success('@TempData["false"]')
+                </script>
+            }
+        <div class="col-lg-6">
+            <div class="container">
+                <div class="border">
+                    <div class="container">
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <h6>Volunteering Hours</h6>
+                            </div>
+                            <div class="col-6 d-flex justify-content-end">
+                                <button type="button" class="btn btn-outline-warning rounded-pill" data-bs-toggle="modal" onclick="getActivity();" data-bs-target="#TimesheetTime">
+                                    <i class="bi bi-plus"></i>
+                                    Add
+                                </button>
+                                <div class="modal fade" id="TimesheetTime" tabindex="-1" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+                                    @{
+                                        Html.RenderPartial("_TimeCard");
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table ">
+                            <tbody>
+                                <tr class=" mt-3 mb-3">
+                                    <th scope="col"><b>Mission</b> </th>
+                                    <th scope="col"><b>Date</b> </th>
+                                    <th scope="col"><b>Hours</b> </th>
+                                    <th scope="col"><b>Minutes</b> </th>
+                                    <th scope="col"></th>
+                                </tr>
+                                @foreach (var obj in Model.timesheets)
+                                {
+                                    <tr class=" mt-3 mb-3">
+                                        <td scope="col">@obj.Mission.Title</td>
+                                        <td scope="col">@obj.DateVolunteereed.ToString().Substring(0,10)</td>
+                                        <td scope="col">@obj.Time.Value.Hours h</td>
+                                        <td scope="col">@obj.Time.Value.Minutes min</td>
+                                        <td scope="col">
+                                            <button type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#TimesheetTime" onclick="getActivity(@obj.TimesheetId);">
+                                                <i class="bi bi-pencil-square" style="color: coral;"></i>
+                                            </button>
+                                           
+                                            <button type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#TimesheetTime">
+                                                <i class="bi bi-trash ms-3"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-lg-0 mt-3">
+            <div class="container">
+                <div class="border">
+                    <div class="container">
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <h6>Volunteering Goals</h6>
+                            </div>
+                            <div class="col-6 d-flex justify-content-end">
+                                <button type="button" class="btn btn-outline-warning rounded-pill" onclick="getgoalActivity()" data-bs-toggle="modal" data-bs-target="#TimesheetGoal">
+                                    <i class="bi bi-plus"></i>
+                                    Add
+                                </button>
+                                <div class="modal fade" id="TimesheetGoal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    @{
+                                        Html.RenderPartial("_GoalCard");
+                                    }
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table ">
+                            <tbody>
+                                <tr class=" mt-3 mb-3">
+                                    <th scope="col"><b>Mission</b></th>
+                                    <th scope="col"><b>Date</b></th>
+                                    <th scope="col"><b>Action</b></th>
+                                    <th scope="col"></th>
+                                </tr>
+                                @foreach (var obj in Model.goaltimesheets)
+                                {
+                                    <tr class=" mt-3 mb-3">
+                                        <td scope="col">@obj.Mission.Title</td>
+                                        <td scope="col">@obj.DateVolunteereed.ToString().Substring(0,10)</td>
+                                        <td scope="col">@obj.Action</td>
+                                        <td scope="col">
+                                            <button type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#TimesheetGoal" onclick="getgoalActivity(@obj.TimesheetId)">
+                                                <i class="bi bi-pencil-square" style="color: coral;"></i>
+                                            </button>
+                                            <button type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#TimesheetGoal">
+                                                <i class="bi bi-trash ms-3"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
