@@ -219,5 +219,18 @@ namespace CIPLATFORM.Controllers
             return PartialView("_GoalCard", tm);
 
         }
+
+
+        public IActionResult DeleteActivity(int tid)
+        {
+            int UserId = (int)HttpContext.Session.GetInt32("UId");
+            bool tm = _ProfileRepository.deletetimesheet(tid);
+            if (tm)
+                TempData["delete"] = "Activity deleted successfully";
+            else
+                TempData["delete"] = "Activity cannot deleted";
+            return RedirectToAction("Timesheet");
+
+        }
     }
 }

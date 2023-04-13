@@ -281,7 +281,7 @@ function comment(missionid) {
             $("#comment").html();
             console.log("Added ");
             toastr.success('Comment Added  successfully');
-           /* setTimeout(function () { window.location.reload(); }, 3000);*/
+            /* setTimeout(function () { window.location.reload(); }, 3000);*/
 
 
         },
@@ -502,6 +502,9 @@ function getgoalActivity(x) {
         }
     }
 }
+
+
+
 
 // Handles the hover over the stars
 

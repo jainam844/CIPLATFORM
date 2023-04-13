@@ -180,12 +180,12 @@ namespace CIPLATFORM.Respository.Repositories
         }
         public List<Timesheet> timesheet(int UId)
         {
-            List<Timesheet> tts = _CiPlatformContext.Timesheets.Include(m => m.Mission).Where(x => x.UserId == UId && x.Status == "APPROVED" && x.Mission.MissionType == "Time").ToList();
+            List<Timesheet> tts = _CiPlatformContext.Timesheets.Include(m => m.Mission).Where(x => x.UserId == UId && x.Status == "APPROVED" && x.Mission.MissionType == "Time" && x.DeletedAt == null).ToList();
             return tts;
         }
         public List<Timesheet> goaltimesheet(int UId)
         {
-            List<Timesheet> gts = _CiPlatformContext.Timesheets.Include(m => m.Mission).Where(x => x.UserId == UId && x.Status == "APPROVED" && x.Mission.MissionType == "Goal").ToList();
+            List<Timesheet> gts = _CiPlatformContext.Timesheets.Include(m => m.Mission).Where(x => x.UserId == UId && x.Status == "APPROVED" && x.Mission.MissionType == "Goal" && x.DeletedAt == null).ToList();
             return gts;
         }
         public ProfileViewModel GetTimsheet(int UId)
@@ -283,6 +283,24 @@ namespace CIPLATFORM.Respository.Repositories
                 }
                 return true;
             }
+        }
+
+
+        public bool deletetimesheet(int tid)
+        {
+            if (tid != 0)
+            {
+                Timesheet timesheet = _CiPlatformContext.Timesheets.FirstOrDefault(x => x.TimesheetId == tid);
+                timesheet.DeletedAt = DateTime.Now;
+                _CiPlatformContext.Timesheets.Update(timesheet);
+                _CiPlatformContext.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }
