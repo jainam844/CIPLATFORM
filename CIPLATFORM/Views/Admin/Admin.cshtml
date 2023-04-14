@@ -1,0 +1,356 @@
+﻿
+@using CIPLATFORM.Entities.ViewModels
+@model AdminViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
+
+
+    <link rel="stylesheet" href="~/css/Admin.css">
+
+    <title>@ViewData["Title"] - CIPLATFORM</title>
+
+
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <div class="row flex-nowrap g-0">
+
+            <div class="col-2  col-lg-3 col-sm-4 col-xl-2 side-nav ">
+                <div class="d-flex flex-column align-items-center align-items-sm-start min-vh-100">
+                    <ul class="nav nav-pills flex-column align-items-center align-items-sm-start nav-list w-100"
+                        id="menu">
+
+                        <li>
+                            <a class="d-flex align-items-center pb-3 ps-2 mt-4 text-white text-decoration-none">
+                                <span class="fs-5 d-none d-sm-inline">NAVIGATION</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="nav-link align-middle active" id="nav-user-tab" data-bs-toggle="tab"
+                               data-bs-target="#nav-user" role="tab" aria-controls="nav-user" aria-selected="true">
+                                <i class="bi bi-person mr-3" style="font-size: 18px;"></i> <span class="ms-1 d-none d-sm-inline">User</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link align-middle " id="nav-cms-tab" data-bs-toggle="tab"
+                               data-bs-target="#nav-cms" role="tab" aria-controls="nav-cms" aria-selected="true">
+                                <i class="bi bi-file-earmark-text mr-3" style="font-size: 18px;"></i><span class="ms-1 d-none d-sm-inline">CMS Page</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link align-middle" id="nav-mission-tab" data-bs-toggle="tab"
+                               data-bs-target="#nav-mission" role="tab" aria-controls="nav-mission"
+                               aria-selected="true">
+                                <i class="bi bi-bullseye mr-3" style="font-size: 18px;"></i>
+                                <span class="ms-1 d-none d-sm-inline">Mission</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link align-middle" id="nav-theme-tab" data-bs-toggle="tab"
+                               data-bs-target="#nav-theme" role="tab" aria-controls="nav-theme" aria-selected="true">
+                                <i class="bi bi-columns-gap mr-3" style="font-size: 18px;"></i> <span class="ms-1 d-none d-sm-inline">Mission Theme</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link align-middle " id="nav-skill-tab" data-bs-toggle="tab"
+                               data-bs-target="#nav-skill" role="tab" aria-controls="nav-skill" aria-selected="true">
+                                <i class="bi bi-tools mr-3"></i> <span class="ms-1 d-none d-sm-inline">
+                                    Mission Skills
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link align-middle" id="nav-application-tab" data-bs-toggle="tab"
+                               data-bs-target="#nav-application" role="tab" aria-controls="nav-application"
+                               aria-selected="true">
+                                <i class="bi bi-folder2 mr-3" style="font-size: 22px;"></i> <span class="ms-1 d-none d-sm-inline">
+                                    Mission Application
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link align-middle" id="nav-story-tab" data-bs-toggle="tab"
+                               data-bs-target="#nav-story" role="tab" aria-controls="nav-story" aria-selected="true">
+                                <i class="bi bi-journal-text mr-3" style="font-size: 18px;"></i> <span class="ms-1 d-none d-sm-inline"> Story</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link align-middle" id="nav-banner-tab" data-bs-toggle="tab"
+                               data-bs-target="#nav-banner" role="tab" aria-controls="nav-banner" aria-selected="true">
+                                <i class="bi bi-box mr-3" style="font-size: 18px;"></i> <span class="ms-1 d-none d-sm-inline">
+                                    Banner Management
+                                </span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+
+                    <hr>
+
+                </div>
+            </div>
+
+
+            <div class="col-10 col-lg-9 col-sm-8 col-xl-10">
+
+
+                <nav class="navbar navbar-expand-lg navbar-light "
+                     style=" background: #FFFFFF 0% 0% no-repeat padding-box; box-shadow: 3px 5px 10px #00000014; opacity: 1;">
+                    <div class="container-fluid">
+
+                        <span> @{
+                                DateTime currentDate = DateTime.Now;
+                                string dateString = currentDate.ToString("dddd, MMMM d, yyyy h:mm tt");
+                                Console.WriteLine(dateString);
+                            }
+                            @dateString</span>
+
+
+                        <form class="d-flex" class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <img src="~/images/user-img.png" class="profile-nav" alt="">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                   style="color: black;" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Evan Donohue
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Action1</a></li>
+                                    <li><a class="dropdown-item" href="#">Action1</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Action1</a></li>
+                                </ul>
+                            </li>
+                        </form>
+                    </div>
+                </nav>
+
+
+                <div class="m-2">
+                    <div class="tab-content" id="nav-tabContent">
+
+                        <div class="tab-pane fade show active" id="nav-user" role="tabpanel"
+                             aria-labelledby="nav-user-tab">
+                            @{
+                                Html.RenderPartial("_User");
+
+                            }
+                        </div>
+
+
+                        <div class="tab-pane fade" id="nav-cms" role="tabpanel" aria-labelledby="nav-cms-tab">
+
+                            @{
+                                Html.RenderPartial("_CMSPages");
+
+                            }
+                        </div>
+
+
+                        <div class="tab-pane fade" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
+
+                            @{
+                                Html.RenderPartial("_Mission");
+
+                            }
+                        </div>
+
+                        <div class="tab-pane fade" id="nav-theme" role="tabpanel" aria-labelledby="nav-theme-tab">
+                            <h4 class="pt-3 pb-2">Theme</h4>
+                        </div>
+
+                        <div class="tab-pane fade" id="nav-skill" role="tabpanel" aria-labelledby="nav-skill-tab">
+                            <h4 class="pt-3 pb-2">Skills</h4>
+                        </div>
+
+                        <div class="tab-pane fade" id="nav-application" role="tabpanel" aria-labelledby="nav-application-tab">
+                            <h4 class="pt-3 pb-2">Application</h4>
+                            <div class="row mt-3 g-0">
+                                <div class="col-12 col-lg-6 col-xl-3 col-sm-8">
+
+                                    <div class="form-group has-search">
+                                        <span class=" form-control-feedback"><i class="bi bi-search"></i></span>
+                                        <input type="text" class="form-control " placeholder="Search">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12 col-lg-6 col-sm-4 col-xl-9">
+                                </div>
+
+                            </div>
+
+
+                            <table class="table mt-3">
+                                <tbody>
+
+                                    <tr style="background-color: #F8F9FC;">
+                                        <th scope="col">Mission Title</th>
+                                        <th scope="col">Mission Id</th>
+                                        <th scope="col">User Id</th>
+                                        <th scope="col">User Name </th>
+
+                                        <th scope="col">Applied Date</th>
+                                        <th scope="col" style="text-align: center;">Action</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Hi JAINAM..!!!</td>
+                                        <td>236514</td>
+                                        <td>123654789</td>
+                                        <td>Jainam</td>
+                                        <td> 15/02/2019</td>
+                                        <td style=" text-align:center;">
+                                            <button type="button" class="btn p-0 ms-3 ">
+                                                <i class="bi bi-check-circle"
+                                                   style="font-size: 20px; color: greenyellow;"></i>
+                                            </button>
+                                            <button type="button" class="btn p-0 ms-3">
+                                                <i class="bi bi-x-circle" style="font-size: 20px; color:#F88634"></i>
+                                            </button>
+                                        </td>
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="nav-story" role="tabpanel" aria-labelledby="nav-story-tab">
+                            <h4 class="pt-3 pb-2">Story</h4>
+
+                            <div class="row mt-3 g-0">
+                                <div class="col-12 col-lg-6 col-xl-3 col-sm-8">
+
+                                    <div class="form-group has-search">
+                                        <span class="fa fa-search form-control-feedback"></span>
+                                        <input type="text" class="form-control " placeholder="Search">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-sm-4 col-xl-9">
+                                </div>
+
+                            </div>
+
+                            <table class="table mt-3">
+                                <tbody>
+
+                                    <tr style="background-color: #F8F9FC;">
+                                        <th scope="col">Story Title</th>
+                                        <th scope="col">Full Name</th>
+
+                                        <th scope="col">Mission Title</th>
+
+                                        <th scope="col" style="text-align: center;">Action</th>
+                                    </tr>
+                                    <tr>
+                                        <td> Plant Tree</td>
+
+                                        <td> Jainam Shah</td>
+                                        <td>Plant Tree</td>
+
+                                        <td style=" text-align:center;">
+                                            <button type="button"
+                                                    class="btn btn-outline-warning rounded-pill" style="height: 4vh;">
+
+                                                View
+                                            </button>
+                                            <button type="button" class="btn p-0 ms-3 ">
+                                                <i class="bi bi-check-circle"
+                                                   style="font-size: 20px; color: greenyellow;"></i>
+                                            </button>
+                                            <button type="button" class="btn p-0 ms-3">
+                                                <i class="bi bi-x-circle" style="font-size: 20px; color:#F88634"></i>
+                                            </button>
+                                            <button type="button" class="btn p-0">
+                                                <i class="bi bi-trash ms-3"></i>
+                                            </button>
+                                        </td>
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="tab-pane fade" id="nav-banner" role="tabpanel" aria-labelledby="nav-banner-tab">
+                            <h4 class="pt-3 pb-2">Banner</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <script>
+        function addform(x) {
+            var page = document.getElementById(x);
+            var cmsPage = page.querySelector("#cmspage");
+            var addForm = page.querySelector("#add");
+            cmsPage.style.display = "none";
+            addForm.style.display = 'block';
+        }
+        function addpage(x) {
+            var page = document.getElementById(x);
+            var cmsPage = page.querySelector("#cmspage");
+            var addForm = page.querySelector("#add");
+            cmsPage.style.display = "block";
+            addForm.style.display = 'none';
+        }
+        function editform(x) {
+            var page = document.getElementById(x);
+            var cmsPage = page.querySelector("#cmspage");
+            var addForm = page.querySelector("#edit");
+            cmsPage.style.display = "none";
+            addForm.style.display = 'block';
+        }
+        function editpage(x) {
+            var page = document.getElementById(x);
+            var cmsPage = page.querySelector("#cmspage");
+            var addForm = page.querySelector("#edit");
+            cmsPage.style.display = "block";
+            addForm.style.display = 'none';
+        }
+
+
+    </script>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+
+
+
+
+</body>
+
+</html>

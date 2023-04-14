@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "slSWTl36H7lzLQFxWALMlj7bWrqT3wX8fnwOU3vfPOU=",
+  "Hash": "DHKD0cspLDfO8gtnaxv9NQ+s6y1lkN4Qz1NNEq1kdnA=",
   "Source": "CIPLATFORM",
   "BasePath": "_content/CIPLATFORM",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CIPLATFORM.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\Admin.css",
+      "SourceId": "CIPLATFORM",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "BasePath": "_content/CIPLATFORM",
+      "RelativePath": "css/Admin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Admin.css"
     },
     {
       "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\css\\Home.css",

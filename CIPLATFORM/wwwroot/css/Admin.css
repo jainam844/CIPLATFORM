@@ -1,0 +1,154 @@
+﻿
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.ac {
+    border-color: transparent;
+    color: #505050;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.ac {
+    border-bottom: 3px solid #000000;
+    color: #000000;
+    font-weight: 500;
+}
+
+.nav-link {
+    color: #ADADAD;
+    font-size: 15px;
+    line-height: 18px;
+    padding: 14px 18px;
+}
+
+
+.nav-tabs .nav-link1:focus,
+.nav-tabs .nav-link1:hover,
+.nav-tabs .nav-item.show .nav-link1,
+.nav-tabs .nav-link1.ac {
+    border-color: transparent;
+    color: #505050;
+}
+
+.nav-tabs .nav-item.show .nav-link1,
+.nav-tabs .nav-link1.ac {
+    border-bottom: 3px solid #6b6a6a;
+    color: #0f0f0f;
+    font-weight: 500;
+    background-color: white;
+}
+
+.nav-link1 {
+    color: #b61a1a;
+    font-size: 15px;
+    line-height: 18px;
+    padding: 14px 18px;
+}
+
+
+
+.nav-tabs {
+    border-bottom: 1px solid #ADADAD;
+}
+
+.tab-content {
+    margin-top: 25px;
+}
+
+.tab-pane {
+    font-size: 15px;
+    line-height: 24px;
+    color: #3E3E3E;
+}
+
+.profile-nav {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.nav-item {
+    list-style-type: None;
+}
+
+.profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.side-nav {
+    background-color: #F88634;
+}
+
+.nav-list li {
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.side-nav .nav-link {
+    color: white;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+    color: #F88634;
+    background-color: white;
+}
+
+.userProfile {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px
+}
+
+.profile span {
+    padding: 8px;
+    font-size: 16px;
+    line-height: 18px;
+    color: #000000;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    color: #F88634;
+    background-color: #ffffff;
+}
+
+.form-group input:focus {
+    outline: 0px !important;
+    box-shadow: none !important;
+    border-color: #bdbbbb;
+}
+
+table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+    table tbody {
+        display: table;
+        width: 100%;
+    }
+
+

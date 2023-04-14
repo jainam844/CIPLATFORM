@@ -506,6 +506,10 @@ function getgoalActivity(x) {
 
 
 
+
+
+
+
 // Handles the hover over the stars
 
 

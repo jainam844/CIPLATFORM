@@ -15,6 +15,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\JAINAM\CIPLATFORM\CIPLATFORM
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Admin/Admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Admin/_CMSPages.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0NNU1BhZ2VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Admin/_Mission.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX01pc3Npb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Admin/_User.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1VzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
