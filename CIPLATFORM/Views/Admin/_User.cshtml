@@ -1,24 +1,41 @@
 ﻿
 @using CIPLATFORM.Entities.ViewModels
 @model AdminViewModel
+<style>
+    
+
+.pagination > li > a
+{
+    background-color: white;
+    color: #5A4181;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #FFFFFF;
+    background-color: #F88634;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181 !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181;
+}
+</style>
 <div id="cmspage">
 
-    <h4 class="pt-3 pb-2">User</h4>
-    <div class="row mt-3 g-0">
-        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-            <div class="form-group has-search">
-                <span class="form-control-feedback"> <i class="bi bi-search"></i> </span>
-                <input type="text" class="form-control " placeholder="Search">
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-8 col-xl-9 text-sm-end mt-3 mt-sm-0">
-            <button type="button" onclick="addform('nav-user');"
-                    class="btn btn-outline-warning rounded-pill">
-                <i class="bi bi-plus"></i>
-                Add
-            </button>
-        </div>
-    </div>
+   
     <table class="table mt-3">
         <tbody>
        
@@ -62,7 +79,7 @@
 </div>
 
 
-<div class="border" id="add" style="display: none;">
+<div class="border mt-3" id="add" style="display: none;">
     <h3 class="p-3 m-0" style="background-color: #F8F9FC;"> Add User</h3>
     <hr class="m-0">
     <form action="" class="px-3">
@@ -99,7 +116,7 @@
         </div>
     </form>
 </div>
-<div class="border" id="edit" style="display: none;">
+<div class="border mt-3" id="edit" style="display: none;">
     <h3 class="p-3 m-0" style="background-color: #F8F9FC;"> Edit User </h3>
     <hr class="m-0">
     <form action="" class="px-3">
@@ -136,3 +153,57 @@
         </div>
     </form>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav aria-label="Page navigation example mt-5">
+    <ul class="pagination justify-content-end" onchange="searchuser()">
+        @* <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous" onclick="Previous(2)">
+            <span aria-hidden="true">&laquo;</span>
+            </a>
+            </li>*@
+        @{
+            double totalpages = ViewBag.Totalpages;
+
+
+
+            for (int i = 1; i <= totalpages; i++)
+            {
+                @if (i == ViewBag.pg_no)
+                {
+                    <li class="page-item ">
+                        <a class="page-link" onclick="searchuser(@i)">@i </a>
+
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                        <a class="page-link" onclick="searchuser(@i)">@i</a>
+                    </li>
+                }
+
+
+            }
+        }
+
+
+
+        @* <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next" onclick="NextPage(1)">
+            <span aria-hidden="true">&raquo;</span>
+            </a>
+            </li>*@
+    </ul>
+</nav>

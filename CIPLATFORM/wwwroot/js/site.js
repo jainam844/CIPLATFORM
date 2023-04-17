@@ -2,7 +2,8 @@
 function GetCity() {
     var countryId = $('#countryId').find(":selected").val();
 
-    $.ajax({
+    $.ajax(
+        {
         url: "/Platform/GetCitys",
         method: "GET",
         data: {

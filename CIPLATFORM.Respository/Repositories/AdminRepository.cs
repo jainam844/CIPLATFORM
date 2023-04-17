@@ -1,4 +1,5 @@
 ﻿using CIPLATFORM.Entities.Data;
+using CIPLATFORM.Entities.Models;
 using CIPLATFORM.Entities.ViewModels;
 using CIPLATFORM.Respository.Interface;
 using System;
@@ -26,7 +27,28 @@ namespace CIPLATFORM.Respository.Repositories
 
             return um;
         }
-        
+        public List<User> Usersearch(string search, int pg)
+        {
+            var pageSize = 5;
+            List<User> users = _CiPlatformContext.Users.ToList();
+           
+
+
+            if (search != null)
+            {
+                search = search.ToLower();
+                users = users.Where(x => x.FirstName.ToLower().Contains(search)).ToList();
+
+
+            }
+            if (pg != 0)
+            {
+                users = users.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
+            }
+            return users;
+
+
+        }
 
 
     }

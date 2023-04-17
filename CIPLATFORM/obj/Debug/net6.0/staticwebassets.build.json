@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DHKD0cspLDfO8gtnaxv9NQ+s6y1lkN4Qz1NNEq1kdnA=",
+  "Hash": "XgEcaOgoy8XfUsiKduNFLobCp/38fH4crLwhuh/oyto=",
   "Source": "CIPLATFORM",
   "BasePath": "_content/CIPLATFORM",
   "Mode": "Default",
@@ -2327,6 +2327,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\xlsx.png"
+    },
+    {
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\js\\admin.js",
+      "SourceId": "CIPLATFORM",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "BasePath": "_content/CIPLATFORM",
+      "RelativePath": "js/admin.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\admin.js"
     },
     {
       "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\js\\site.js",

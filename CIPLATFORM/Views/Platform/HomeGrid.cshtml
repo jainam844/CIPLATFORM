@@ -8,19 +8,51 @@
 <link rel="stylesheet" href="~/css/Home.css">
 
 
+<style>
+    
 
+.pagination > li > a
+{
+    background-color: white;
+    color: #5A4181;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #FFFFFF;
+    background-color: #F88634;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181 !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181;
+}
+</style>
 
 
  @if (TempData["logins"] != null)
-            {
-               
-                <script type="text/javascript">
+{
 
+    <script type="text/javascript">
 
-                    toastr.success('@TempData["logins"]')
-                </script>
+         toastr.success('@TempData["logins"]');
 
-            }
+                           
+    </script>
+
+}
 
 
 
@@ -28,9 +60,9 @@
 
 
 <hr class="d-none d-md-block">
-   @{
+@{
     Html.RenderPartial("navbar2");
-   
+
 }
 
 
@@ -39,34 +71,34 @@
 
 <!-- explore -->
 
-   <div class="row">
-         <div class="col-md-9 col-sm-12 "></div>
-        <div class="col-md-3 col-sm-12 d-flex justy ">
-            <div class="dropdown h-dropdown">
-                <select class="form-select w-100 d-inline-flex mb-3" aria-label="Default select example" onchange="temp()" id="sort">
-                    <option selected>Sort by</option>
-                    <option value="1">New to Old</option>
-                    <option value="2">Old to New</option>
-                      <option value="3">Favourite Mission</option>
+<div class="row">
+    <div class="col-md-9 col-sm-12 "></div>
+    <div class="col-md-3 col-sm-12 d-flex justy ">
+        <div class="dropdown h-dropdown">
+            <select class="form-select w-100 d-inline-flex mb-3" aria-label="Default select example" onchange="temp()" id="sort">
+                <option selected>Sort by</option>
+                <option value="1">New to Old</option>
+                <option value="2">Old to New</option>
+                <option value="3">Favourite Mission</option>
 
 
-                </select>
-            </div>
-            <div class="">
-                @* <a asp-controller="Platform" asp-action="HomeGrid">
-                    <i class="bi bi-grid"></i>
-                    </a>*@
-                <a onclick="opengrid()"><i class="bi bi-grid"></i></a>
-            </div>
-            <div class="">
-                @*<a asp-controller="Platform" asp-action="HomeList">
-                    <i class="bi bi-list"></i>
-                    </a>*@
-                <a onclick="openlist()"><i class="bi bi-list"></i></a>
-            </div>
+            </select>
+        </div>
+        <div class="">
+            @* <a asp-controller="Platform" asp-action="HomeGrid">
+                <i class="bi bi-grid"></i>
+                </a>*@
+            <a onclick="opengrid()"><i class="bi bi-grid"></i></a>
+        </div>
+        <div class="">
+            @*<a asp-controller="Platform" asp-action="HomeList">
+                <i class="bi bi-list"></i>
+                </a>*@
+            <a onclick="openlist()"><i class="bi bi-list"></i></a>
         </div>
     </div>
-<div class="container" >
+</div>
+<div class="container">
 
     @{
 
@@ -83,23 +115,23 @@
 
 
 <script>
-    window.onload = opengrid();
-    function opengrid() {
-    console.log("Grid");
-    var div1 = document.getElementById("list-view");
-    var div2 = document.getElementById("grid-view");
-    div1.style.display = 'none';
-    div2.style.display = 'block';
-    console.log("Done");
-}
-function openlist() {
-    console.log("List");
-    var div1 = document.getElementById("list-view");
-    var div2 = document.getElementById("grid-view");
-    div1.style.display = 'block';
-    div2.style.display = 'none';
-    console.log("Done");
-}
+        window.onload = opengrid();
+        function opengrid() {
+        console.log("Grid");
+        var div1 = document.getElementById("list-view");
+        var div2 = document.getElementById("grid-view");
+        div1.style.display = 'none';
+        div2.style.display = 'block';
+        console.log("Done");
+    }
+    function openlist() {
+        console.log("List");
+        var div1 = document.getElementById("list-view");
+        var div2 = document.getElementById("grid-view");
+        div1.style.display = 'block';
+        div2.style.display = 'none';
+        console.log("Done");
+    }
 </script>
 
 

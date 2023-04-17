@@ -2,7 +2,38 @@
 @using Microsoft.AspNetCore.Html
 
 @model StoryListingViewModel
+<style>
+    
 
+.pagination > li > a
+{
+    background-color: white;
+    color: #5A4181;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+     color: #FFFFFF;
+    background-color: #F88634;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181 !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #5A4181 !Important;
+    border: solid 1px #5A4181;
+}
+</style>
 <div class="container mt-3">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
