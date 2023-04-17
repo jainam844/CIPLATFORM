@@ -1,45 +1,44 @@
-﻿
-@using CIPLATFORM.Entities.ViewModels
+﻿@using CIPLATFORM.Entities.ViewModels
 @model AdminViewModel
 <style>
-    
 
-.pagination > li > a
-{
-    background-color: white;
-    color: #5A4181;
-}
 
-.pagination > li > a:focus,
-.pagination > li > a:hover,
-.pagination > li > span:focus,
-.pagination > li > span:hover
-{
-    color: #FFFFFF;
-    background-color: #F88634;
-    border-color: #ddd;
-}
+    .pagination > li > a {
+        background-color: white;
+        color: #5A4181;
+    }
 
-.pagination > .active > a
-{
-    color: white;
-    background-color: #5A4181 !Important;
-    border: solid 1px #5A4181 !Important;
-}
+        .pagination > li > a:focus,
+        .pagination > li > a:hover,
+        .pagination > li > span:focus,
+        .pagination > li > span:hover {
+            color: #FFFFFF;
+            background-color: #F88634;
+            border-color: #ddd;
+        }
 
-.pagination > .active > a:hover
-{
-    background-color: #5A4181 !Important;
-    border: solid 1px #5A4181;
-}
+    .pagination > .active > a {
+        color: white;
+        background-color: #5A4181 !Important;
+        border: solid 1px #5A4181 !Important;
+    }
+
+        .pagination > .active > a:hover {
+            background-color: #5A4181 !Important;
+            border: solid 1px #5A4181;
+        }
+
+
+
+
 </style>
 <div id="cmspage">
 
-   
+
     <table class="table mt-3">
         <tbody>
-       
-                
+
+
 
             <tr style="background-color: #F8F9FC;">
                 <th scope="col">FirstName </th>
@@ -50,29 +49,40 @@
                 <th scope="col">Status</th>
                 <th scope="col" style="text-align: center;">Action</th>
             </tr>
-                 @foreach (var obj in Model.users)
+            @foreach (var obj in Model.users)
             {
-            <tr>
-                <td>@obj.FirstName</td>
-                <td>@obj.LastName</td>
-                <td>@obj.Email</td>
-                <td>@obj.EmployeeId</td>
-                <td>@obj.Department</td>
-               @if(obj.Status == 1){                    <td style=" width: 33px; color: #3CDD5F; ">                        Active                    </td>                    }                    else{                    <td style=" width: 33px; color: #FF4545; ">                        Inactive                    </td>                    }
+                <tr>
+                    <td>@obj.FirstName</td>
+                    <td>@obj.LastName</td>
+                    <td>@obj.Email</td>
+                    <td>@obj.EmployeeId</td>
+                    <td>@obj.Department</td>
+                    @if (obj.Status == 1)
+                    {
+                        <td style=" width: 33px; color: #3CDD5F; ">
+                            Active
+                        </td>
+                    }
+                    else
+                    {
+                        <td style=" width: 33px; color: #FF4545; ">
+                            Inactive
+                        </td>
+                    }
 
 
-                <td style=" text-align:center;">
-                    <button type="button" class="btn p-0"
+                    <td style=" text-align:center;">
+                        <button type="button" class="btn p-0"
                             onclick="editform('nav-user');">
-                        <i class="bi bi-pencil-square" style="color: coral;"></i>
-                    </button>
+                            <i class="bi bi-pencil-square" style="color: coral;"></i>
+                        </button>
 
-                    <button type="button" class="btn p-0">
-                        <i class="bi bi-trash ms-3"></i>
-                    </button>
-                </td>
+                        <button type="button" class="btn p-0">
+                            <i class="bi bi-trash ms-3"></i>
+                        </button>
+                    </td>
                 </tr>
-                }
+            }
 
         </tbody>
     </table>
@@ -167,7 +177,7 @@
 
 
 <nav aria-label="Page navigation example mt-5">
-    <ul class="pagination justify-content-end" onchange="searchuser()">
+    <ul class="pagination justify-content-end me-5" onchange="searchuser()">
         @* <li class="page-item">
             <a class="page-link" href="#" aria-label="Previous" onclick="Previous(2)">
             <span aria-hidden="true">&laquo;</span>
@@ -182,8 +192,8 @@
             {
                 @if (i == ViewBag.pg_no)
                 {
-                    <li class="page-item ">
-                        <a class="page-link" onclick="searchuser(@i)">@i </a>
+                    <li class="page-item  " >
+                        <a class="page-link  " onclick="searchuser(@i)">@i </a>
 
                     </li>
                 }

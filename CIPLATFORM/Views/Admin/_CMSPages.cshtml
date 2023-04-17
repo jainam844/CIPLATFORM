@@ -1,6 +1,39 @@
 ﻿
 @using CIPLATFORM.Entities.ViewModels
 @model AdminViewModel
+<style>
+
+
+    .pagination > li > a {
+        background-color: white;
+        color: #5A4181;
+    }
+
+        .pagination > li > a:focus,
+        .pagination > li > a:hover,
+        .pagination > li > span:focus,
+        .pagination > li > span:hover {
+            color: #FFFFFF;
+            background-color: #F88634;
+            border-color: #ddd;
+        }
+
+    .pagination > .active > a {
+        color: white;
+        background-color: #5A4181 !Important;
+        border: solid 1px #5A4181 !Important;
+    }
+
+        .pagination > .active > a:hover {
+            background-color: #5A4181 !Important;
+            border: solid 1px #5A4181;
+        }
+
+
+
+
+</style>
+
 <div id="cmspage">
     <h4 class="pt-3 pb-2">CMS Page</h4>
     <div class="row mt-3 g-0">
@@ -28,10 +61,12 @@
                 <th scope="col">Status</th>
                 <th scope="col" style="text-align: center;">Action</th>
             </tr>
+             @foreach (var obj in Model.cmspages)
+            {
             <tr>
-                <td>Jainam</td>
+                <td>@obj.Title</td>
 
-                <td> <span style="color: #3CDD5F; ">Active</span></td>
+                <td> <span style="color: #3CDD5F; ">@obj.Status</span></td>
                 <td style=" text-align:center;">
                     <button type="button" class="btn p-0"
                             onclick="editform('nav-cms')">
@@ -42,6 +77,8 @@
                         <i class="bi bi-trash ms-3"></i>
                     </button>
                 </td>
+                </tr>
+                }
 
 
         </tbody>

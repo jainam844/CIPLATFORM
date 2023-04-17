@@ -27,6 +27,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX01pc3Npb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Admin/_MissionApplication.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX01pc3Npb25BcHBsaWNhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Admin/_Story.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1N0b3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/JAINAM/CIPLATFORM/CIPLATFORM/Views/Admin/_User.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1VzZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

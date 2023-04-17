@@ -170,7 +170,7 @@
                         <label>Country*</label>
 
                         <select class="form-select" asp-for="CountryId" aria-label="Default select example" data-bs-display="static"
-                                aria-placeholder="Select your country" id="countryId" onchange=" GetCity();">
+                                aria-placeholder="Select your country" id="countryId" onchange=" GetProfileCity();">
                             <option value="0" selected>Select your country</option>
                             @foreach (var item in @ViewBag.countries)
                             {

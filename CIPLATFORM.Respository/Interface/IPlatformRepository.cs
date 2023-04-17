@@ -13,7 +13,7 @@ namespace CIPLATFORM.Respository.Interface
     {
         public List<Country> GetCountryData();
         public List<City> GetCitys();
-        public List<City> GetCityData(int countryId);
+        public List<City> GetCityData(List<int>? countryId);
 
 
         public List<MissionTheme> GetMissionThemes();

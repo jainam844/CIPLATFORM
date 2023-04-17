@@ -42,6 +42,8 @@ namespace CIPLATFORM.Controllers
             ViewBag.Totalpages = Math.Ceiling(_AdminRepository.Usersearch(search, 0).Count() / 5.0);
             am.users = fusers.Skip((1 - 1) * 5).Take(5).ToList();
 
+
+
             return PartialView("_User", am);
         }
 

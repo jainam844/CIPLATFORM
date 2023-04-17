@@ -34,9 +34,15 @@ namespace CIPLATFORM.Respository.Repositories
             List<Country> country = _CiPlatformContext.Countries.ToList();
             return country;
         }
-        public List<City> GetCityData(int countryId)
+        public List<City> GetCityData(List<int>? countryId)
         {
-            List<City> city = _CiPlatformContext.Cities.Where(i => i.CountryId == countryId).ToList();
+            //List<City> city = _CiPlatformContext.Cities.Where(i => i.CountryId == countryId).ToList();
+            //return city;
+
+
+            List<City> city = _CiPlatformContext.Cities.Where(i => countryId.Contains((int)i.CountryId)).ToList();
+            if (countryId.Count == 0)
+                city = _CiPlatformContext.Cities.ToList();
             return city;
         }
         public List<City> GetCitys()

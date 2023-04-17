@@ -67,9 +67,9 @@ namespace CIPLATFORM.Controllers
 
             return View(ms);
         }
-        public JsonResult GetCitys(int countryId)
+        public JsonResult GetCitys(List<int>? countryId)
         {
-            List<City> city = _PlatformRepository.GetCityData(countryId);
+            List<City> city = _PlatformRepository.GetCityData( countryId);
             var json = JsonConvert.SerializeObject(city);
             return Json(json);
         }

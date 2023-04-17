@@ -1,63 +1,157 @@
 ﻿
-function GetCity() {
-    var countryId = $('#countryId').find(":selected").val();
+//function GetCity() {
+//    var countryId = $('#countryId').find(":selected").val();
 
-    $.ajax(
-        {
+//    $.ajax(
+//        {
+//        url: "/Platform/GetCitys",
+//        method: "GET",
+//        data: {
+//            "countryId": countryId
+//        },
+//        success: function (data) {
+//            data = JSON.parse(data);
+//            $("#selectCityList").empty();
+//            document.getElementById("selectCityList").innerHTML += `
+//        <option value=${name}> City </option>
+//        `;
+//            data.forEach((name) => {
+//                document.getElementById("selectCityList").innerHTML += `
+//        <option value=${name.CityId} >${name.Name}</option>
+//        `;
+//            })
+//        },
+//        error: function (error) {
+//            console.log("Bye city");
+//            console.log(error);
+//        }
+//    })
+//}
+
+
+
+
+function GetCity() {
+  
+    var countryIds = [];
+    var countrydiv = document.getElementById("countryId");
+    var list = countrydiv.getElementsByTagName("input");
+    for (i = 0; i < list.length; i++) {
+        if (list[i].checked) {
+            countryIds.push(list[i].value);
+        }
+
+    }
+    console.log("countryids:" + countryIds);
+    /* var countryId = $('#countryId').find(":selected").val();*/
+
+    $.ajax({
         url: "/Platform/GetCitys",
-        method: "GET",
+        method: "POST",
         data: {
-            "countryId": countryId
+            'countryId': countryIds
         },
         success: function (data) {
             data = JSON.parse(data);
+            console.log(data);
             $("#selectCityList").empty();
+            //    document.getElementById("selectCityList").innerHTML += `
+            //<option value=${name}> City </option>
+            //`;
+
             document.getElementById("selectCityList").innerHTML += `
-        <option value=${name}> City </option>
+          <ul class="dropdown-menu">
         `;
             data.forEach((name) => {
+                //        document.getElementById("selectCityList").innerHTML += `
+                //<option value=${name.CityId} >${name.Name}</option>
+                //`;
+
                 document.getElementById("selectCityList").innerHTML += `
-        <option value=${name.CityId} >${name.Name}</option>
-        `;
+                     <li><input type="checkbox" value="${name.CityId}" />${name.Name}</li>
+                    `;
             })
-        },
-        error: function (error) {
-            console.log("Bye city");
-            console.log(error);
+            document.getElementById("selectCityList").innerHTML += `
+          </ul>
+        `;
         }
-    })
-}
-
-
-function Previous(pg) {
-    pg = pg - 1;
-
-    $.ajax({
-        url: "/Platform/Filter",
-        method: "POST",
-        data: {
-            "pg": pg,
+        ,
+        error: function (e) {
+            console.log("Bye");
+            alert('Error');
         },
-        success: function (data) {
-            $("#filter").html(data);
-        }
     });
 }
 
-function NextPage(pg) {
-    pg = pg + 1;
-    console.log(pg);
+
+
+function GetProfileCity() {
+    debugger
+
+    var countryId = $('#countryId').find(":selected").val();
+    debugger
     $.ajax({
-        url: "/Platform/Filter",
+        url: "/Platform/GetCitys",
         method: "POST",
         data: {
-            "pg": pg,
+            'countryId': countryId
         },
         success: function (data) {
-            $("#filter").html(data);
+            data = JSON.parse(data);
+            console.log(data);
+            $("#selectCityList").empty();
+            document.getElementById("selectCityList").innerHTML += `
+            <option value=${name}> City </option>
+            `;
+
+
+            data.forEach((name) => {
+                document.getElementById("selectCityList").innerHTML += `
+                <option value=${name.CityId} >${name.Name}</option>
+                `;
+
+            });
         }
+        ,
+        error: function (e) {
+            console.log("Bye");
+            alert('Error');
+        },
     });
 }
+
+
+
+
+//function Previous(pg) {
+//    pg = pg - 1;
+
+//    $.ajax({
+//        url: "/Platform/Filter",
+//        method: "POST",
+//        data: {
+//            "pg": pg,
+//        },
+//        success: function (data) {
+//            $("#filter").html(data);
+//        }
+//    });
+//}
+
+//function NextPage(pg) {
+//    pg = pg + 1;
+//    console.log(pg);
+//    $.ajax({
+//        url: "/Platform/Filter",
+//        method: "POST",
+//        data: {
+//            "pg": pg,
+//        },
+//        success: function (data) {
+//            $("#filter").html(data);
+//        }
+//    });
+//}
 
 
 /*filter */
@@ -72,11 +166,34 @@ function temp(pg) {
 
 
 
+    //var checkedcntryvalues = [];
+    //var div1 = document.getElementById("countryId");
+    //var list = div1.getElementsByTagName("option");
+    //for (i = 0; i < list.length; i++) {
+    //    if (list[i].selected) {
+    //        checkedcntryvalues.push(list[i].value);
+    //    }
+
+    //}
+    //console.log(checkedcntryvalues);
+
+
+    //var checkedvalues = [];
+    //var div = document.getElementById("selectCityList");
+    //var list = div.getElementsByTagName("option");
+    //for (i = 0; i < list.length; i++) {
+    //    if (list[i].selected) {
+    //        checkedvalues.push(list[i].value);
+    //    }
+
+    //}
+    //console.log(checkedvalues);
+
     var checkedcntryvalues = [];
     var div1 = document.getElementById("countryId");
-    var list = div1.getElementsByTagName("option");
+    var list = div1.getElementsByTagName("input");
     for (i = 0; i < list.length; i++) {
-        if (list[i].selected) {
+        if (list[i].checked) {
             checkedcntryvalues.push(list[i].value);
         }
 
@@ -86,9 +203,9 @@ function temp(pg) {
 
     var checkedvalues = [];
     var div = document.getElementById("selectCityList");
-    var list = div.getElementsByTagName("option");
+    var list = div.getElementsByTagName("input");
     for (i = 0; i < list.length; i++) {
-        if (list[i].selected) {
+        if (list[i].checked) {
             checkedvalues.push(list[i].value);
         }
 

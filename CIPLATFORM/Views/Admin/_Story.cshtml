@@ -1,0 +1,74 @@
+﻿@using CIPLATFORM.Entities.ViewModels
+@model AdminViewModel
+<style>
+
+
+    .pagination > li > a {
+        background-color: white;
+        color: #5A4181;
+    }
+
+        .pagination > li > a:focus,
+        .pagination > li > a:hover,
+        .pagination > li > span:focus,
+        .pagination > li > span:hover {
+            color: #FFFFFF;
+            background-color: #F88634;
+            border-color: #ddd;
+        }
+
+    .pagination > .active > a {
+        color: white;
+        background-color: #5A4181 !Important;
+        border: solid 1px #5A4181 !Important;
+    }
+
+        .pagination > .active > a:hover {
+            background-color: #5A4181 !Important;
+            border: solid 1px #5A4181;
+        }
+</style>
+
+<div id="cmspage">
+    <table class="table mt-3">
+        <tbody>
+
+            <tr style="background-color: #F8F9FC;">
+                <th scope="col">Story Title</th>
+                <th scope="col">Full Name</th>
+
+                <th scope="col">Mission Title</th>
+
+                <th scope="col" style="text-align: center;">Action</th>
+            </tr>
+              @foreach (var obj in Model.stories)
+            {
+            <tr>
+                <td> @obj.Title</td>
+
+                <td> @obj.User.FirstName @obj.User.LastName</td>
+                <td>@obj.Mission.Title</td>
+
+                <td style=" text-align:center;">
+                    <button type="button"
+                            class="btn btn-outline-warning rounded-pill" style="height: 4vh;">
+
+                        View
+                    </button>
+                    <button type="button" class="btn p-0 ms-3 ">
+                        <i class="bi bi-check-circle"
+                           style="font-size: 20px; color: greenyellow;"></i>
+                    </button>
+                    <button type="button" class="btn p-0 ms-3">
+                        <i class="bi bi-x-circle" style="font-size: 20px; color:#F88634"></i>
+                    </button>
+                    <button type="button" class="btn p-0">
+                        <i class="bi bi-trash ms-3"></i>
+                    </button>
+                </td>
+             </tr>
+             }
+
+        </tbody>
+    </table>
+</div>

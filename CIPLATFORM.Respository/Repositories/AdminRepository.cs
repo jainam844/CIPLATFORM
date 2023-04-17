@@ -23,7 +23,10 @@ namespace CIPLATFORM.Respository.Repositories
         {
             AdminViewModel um = new AdminViewModel();
             um.users = _CiPlatformContext.Users.ToList();
+            um.cmspages= _CiPlatformContext.CmsPages.ToList();
             um.missions= _CiPlatformContext.Missions.ToList();  
+            um.missionapplications= _CiPlatformContext.MissionApplications.ToList();
+            um.stories=_CiPlatformContext.Stories.ToList(); 
 
             return um;
         }
