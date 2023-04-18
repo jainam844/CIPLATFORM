@@ -41,34 +41,67 @@
 
                 <th scope="col" style="text-align: center;">Action</th>
             </tr>
-              @foreach (var obj in Model.stories)
+            @foreach (var obj in Model.stories)
             {
-            <tr>
-                <td> @obj.Title</td>
+                <tr>
+                    <td> @obj.Title</td>
 
-                <td> @obj.User.FirstName @obj.User.LastName</td>
-                <td>@obj.Mission.Title</td>
+                    <td> @obj.User.FirstName @obj.User.LastName</td>
+                    <td>@obj.Mission.Title</td>
 
-                <td style=" text-align:center;">
-                    <button type="button"
+                    <td style=" text-align:center;">
+                        <button type="button"
                             class="btn btn-outline-warning rounded-pill" style="height: 4vh;">
 
-                        View
-                    </button>
-                    <button type="button" class="btn p-0 ms-3 ">
-                        <i class="bi bi-check-circle"
-                           style="font-size: 20px; color: greenyellow;"></i>
-                    </button>
-                    <button type="button" class="btn p-0 ms-3">
-                        <i class="bi bi-x-circle" style="font-size: 20px; color:#F88634"></i>
-                    </button>
-                    <button type="button" class="btn p-0">
-                        <i class="bi bi-trash ms-3"></i>
-                    </button>
-                </td>
-             </tr>
-             }
+                            View
+                        </button>
+                        <button type="button" class="btn p-0 me-3" onclick=" if (confirm('Are you sure you want to Accept?')) { return location.href=' @Url.Action("Approval", "Admin" ,new {id = @obj.StoryId,page = 7,status = 1})' } ">
+                            <i class="bi bi-check-circle" style="color: green;"></i>
+
+                        </button>
+                        <button type="button" class="btn p-0 me-3" onclick=" if (confirm('Are you sure you want to Decline?')) { return location.href=' @Url.Action("Approval", "Admin" ,new {id = @obj.StoryId,page = 7,status = 0})' } ">
+                            <i class="bi bi-x-circle" style="color: red;"></i>
+                        </button>
+                        <button type="button" class="btn p-0">
+                            <i class="bi bi-trash ms-3"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
 
         </tbody>
     </table>
 </div>
+
+
+<nav aria-label="Page navigation example mt-5" id="cmspage">
+    <ul class="pagination justify-content-end me-5" onchange="searchuser(1,'story')">
+
+        @{
+            double totalpages = ViewBag.Totalpages7;
+
+
+
+            for (int i = 1; i <= totalpages; i++)
+            {
+                @if (i == ViewBag.pg_no)
+                {
+                    <li class="page-item  ">
+                        <a class="page-link  " onclick="searchuser(@i,'story')">@i </a>
+
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                        <a class="page-link" onclick="searchuser(@i,'story')">@i</a>
+                    </li>
+                }
+
+
+            }
+        }
+
+
+    </ul>
+</nav>

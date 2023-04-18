@@ -1,31 +1,32 @@
 ﻿@using CIPLATFORM.Entities.ViewModels
 @model AdminViewModel
 
+
+
+
 <div id="cmspage">
 
     <table class="table mt-3">
         <tbody>
             <tr style="background-color: #F8F9FC;">
-                <th scope="col">Mission title</th>
-                <th scope="col">Mission type</th>
-                <th scope="col">Start date</th>
-                <th scope="col">End Date</th>
+                <th scope="col">Theme Title</th>
+                <th scope="col">Status</th>
+              
                 <th scope="col" style="text-align: center;">Actions</th>
             </tr>
-            @foreach (var obj in Model.missions)
+            @foreach (var obj in Model.missionthemes)
             {
                 <tr>
                     <td>@obj.Title</td>
-                    <td>@obj.MissionType</td>
-                    <td>@obj.StartDate.Value.ToShortDateString()</td>
-                    <td> @obj.EndDate.Value.ToShortDateString() </td>
+                    <td><span style="color: #3CDD5F; ">@obj.Status</span></td>
+                    
 
                     <td style="text-align: center;">
-                        <button type="button" class="btn p-0" onclick="editform('nav-mission');">
+                        <button type="button" class="btn p-0" onclick="editform('nav-theme');">
                             <i class="bi bi-pencil-square" style="color: coral;"></i>
                         </button>
-                        <button type="button" class="btn p-0" onclick=" if (confirm('Are you sure you want to delete?')) { return location.href='@Url.Action("DeleteActivity", "Admin" ,new {id = @obj.MissionId,page = 3})' } ">
-                            <i class="bi bi-trash ms-3"></i>
+                        <button type="button" class="btn p-0">
+                            <i class=" bi bi-trash ms-3"></i>
                         </button>
                     </td>
                 </tr>
@@ -33,17 +34,15 @@
         </tbody>
     </table>
 
-
-
-    <nav aria-label="Page navigation example mt-5">
-        <ul class="pagination justify-content-end me-5" onchange="searchuser(1,'mission')">
+        <nav aria-label="Page navigation example mt-5">
+        <ul class="pagination justify-content-end me-5" onchange="searchuser(1,'missiontheme')">
             @* <li class="page-item">
                 <a class="page-link" href="#" aria-label="Previous" onclick="Previous(2)">
                 <span aria-hidden="true">&laquo;</span>
                 </a>
                 </li>*@
             @{
-                double totalpages = ViewBag.Totalpages3;
+                double totalpages = ViewBag.Totalpages4;
 
 
 
@@ -52,14 +51,14 @@
                     @if (i == ViewBag.pg_no)
                     {
                         <li class="page-item  ">
-                            <a class="page-link  " onclick="searchuser(@i,'mission')">@i </a>
+                            <a class="page-link  " onclick="searchuser(@i,'missiontheme')">@i </a>
 
                         </li>
                     }
                     else
                     {
                         <li class="page-item">
-                            <a class="page-link" onclick="searchuser(@i,'mission')">@i</a>
+                            <a class="page-link" onclick="searchuser(@i,'missiontheme')">@i</a>
                         </li>
                     }
 
@@ -69,19 +68,22 @@
 
         </ul>
     </nav>
+
+  
 </div>
 
 
 
 <div class="border mt-3" id="add" style="display: none;">
-    <h3 class="p-3 m-0" style="background-color: #F8F9FC;"> Add mission</h3>
+    <h3 class="p-3 m-0" style="background-color: #F8F9FC;"> Add mission theme</h3>
     <hr class="m-0">
     <form action="" class="px-3">
         <label for="select mission" class="mt-3"> Title </label>
         <input type="text" class="form-control" id="formGroupExampleInput">
-        <label for="mission1" class="mt-3"> Description</label><textarea id="mission1" cols="172" rows="10" maxlength="40000"></textarea>
+        <label for="theme1" class="mt-3"> Description</label>
+        <textarea id="theme1" cols="172" rows="10"     maxlength="40000"></textarea>
         <script>
-            var abc = document.getElementById("mission1");
+            var abc = document.getElementById("theme1");
             CKEDITOR.replace(abc);
         </script>
         <label for="select mission" class="mt-3"> Slug </label>
@@ -98,7 +100,7 @@
             <div class="col-10"></div>
             <div class="col-2">
                 <button type="button" class="cancell rounded-pill btn btn-outline-dark"
-                        onclick="addpage('nav-mission');">
+                        onclick="addpage('nav-theme');">
                     Cancel
                 </button>
                 <button type="submit" class="threebt rounded-pill btn btn-outline-warning"
@@ -113,15 +115,15 @@
 
 
 <div class="border mt-3" id="edit" style="display: none;">
-    <h3 class="p-3 m-0" style="background-color: #F8F9FC;"> Edit mission </h3>
+    <h3 class="p-3 m-0" style="background-color: #F8F9FC;"> Edit mission theme </h3>
     <hr class="m-0">
     <form action="" class="px-3">
         <label for="select mission" class="mt-3"> Title </label>
         <input type="text" class="form-control" id="formGroupExampleInput">
         <label for="mission2" class="mt-3"> Description</label>
-        <textarea id="mission2" cols="172" rows="10" maxlength="40000"></textarea>
+           <textarea id="theme2" cols="172" rows="10"    maxlength="40000"></textarea>
         <script>
-            var abc = document.getElementById("mission2");
+            var abc = document.getElementById("theme2");
             CKEDITOR.replace(abc);
         </script>
         <label for="select mission" class="mt-3"> Slug </label>
@@ -138,7 +140,7 @@
             <div class="col-10"></div>
             <div class="col-2">
                 <button type="button" class="cancell rounded-pill btn btn-outline-dark"
-                        onclick="editpage('nav-mission');">
+                        onclick="editpage('nav-theme');">
                     Cancel
                 </button>
                 <button type="submit" class="threebt rounded-pill btn btn-outline-warning"

@@ -11,7 +11,9 @@ namespace CIPLATFORM.Respository.Interface
     public interface IAdminRepository
     {
         public AdminViewModel getData();
-        public List<User> Usersearch(string search, int pg);
-
+        public AdminViewModel Usersearch(string search, int pg);
+        public bool addcms(AdminViewModel obj, int command);
+        public bool deleteactivity(int id,int page);
+        public bool Approval(int id, int page, int status);
     }
 }

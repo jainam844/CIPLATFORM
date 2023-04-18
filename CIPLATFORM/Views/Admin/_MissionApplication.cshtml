@@ -42,26 +42,57 @@
                 <th scope="col">Applied Date</th>
                 <th scope="col" style="text-align: center;">Action</th>
             </tr>
-              @foreach (var obj in Model.missionapplications)
+            @foreach (var obj in Model.missionapplications)
             {
-            <tr>
-                <td>@obj.Mission.Title</td>
-                <td>@obj.MissionId</td>
-                <td>@obj.UserId</td>
-                <td>@obj.User.FirstName</td>
-                <td> @obj.AppliedAt</td>
-                <td style=" text-align:center;">
-                    <button type="button" class="btn p-0 ms-3 ">
-                        <i class="bi bi-check-circle"
-                           style="font-size: 20px; color: greenyellow;"></i>
-                    </button>
-                    <button type="button" class="btn p-0 ms-3">
-                        <i class="bi bi-x-circle" style="font-size: 20px; color:#F88634"></i>
-                    </button>
-                </td>
+                <tr>
+                    <td>@obj.Mission.Title</td>
+                    <td>@obj.MissionId</td>
+                    <td>@obj.UserId</td>
+                    <td>@obj.User.FirstName</td>
+                    <td> @obj.AppliedAt</td>
+                    <td style=" text-align:center;">
+                        <button type="button" class="btn p-0 me-3" onclick=" if (confirm('Are you sure you want to Accept?')) { return location.href=' @Url.Action("Approval", "Admin" ,new {id = @obj.MissionApplicationId,page = 6,status = 1})' } ">
+                            <i class="bi bi-check-circle" style="color: green;"></i>
+                        </button>
+                        <button type="button" class="btn p-0 me-3" onclick=" if (confirm('Are you sure you want to Decline?')) { return location.href=' @Url.Action("Approval", "Admin" ,new {id = @obj.MissionApplicationId,page = 6,status = 0})' } ">
+                            <i class="bi bi-x-circle" style="color: red;"></i>
+                        </button>
+                    </td>
                 </tr>
-                }
+            }
 
         </tbody>
     </table>
 </div>
+
+<nav aria-label="Page navigation example mt-5" id="cmspage">
+    <ul class="pagination justify-content-end me-5" onchange="searchuser(1,'missionapplication')">
+
+        @{
+            double totalpages = ViewBag.Totalpages6;
+
+
+
+            for (int i = 1; i <= totalpages; i++)
+            {
+                @if (i == ViewBag.pg_no)
+                {
+                    <li class="page-item  ">
+                        <a class="page-link  " onclick="searchuser(@i,'missionapplication')">@i </a>
+
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                        <a class="page-link" onclick="searchuser(@i,'missionapplication')">@i</a>
+                    </li>
+                }
+
+
+            }
+        }
+
+
+    </ul>
+</nav>
