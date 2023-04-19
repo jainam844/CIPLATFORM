@@ -15,5 +15,6 @@ namespace CIPLATFORM.Respository.Interface
         public bool addcms(AdminViewModel obj, int command);
         public bool deleteactivity(int id,int page);
         public bool Approval(int id, int page, int status);
+        public AdminViewModel EditForm(int id, string page);
     }
 }

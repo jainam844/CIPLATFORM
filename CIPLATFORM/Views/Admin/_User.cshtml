@@ -27,9 +27,14 @@
             background-color: #5A4181 !Important;
             border: solid 1px #5A4181;
         }
-
-
-
+      
+    .Avatarfile {
+        width: 125px;
+        height: 125px;
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
 
 </style>
 <div id="cmspage">
@@ -77,7 +82,7 @@
                             <i class="bi bi-pencil-square" style="color: coral;"></i>
                         </button>
 
-                        <button type="button" class="btn p-0"  onclick=" if (confirm('Are you sure you want to delete?')) { return location.href='@Url.Action("DeleteActivity", "Admin" ,new {id = @obj.UserId,page = 1})' } ">
+                        <button type="button" class="btn p-0" onclick=" if (confirm('Are you sure you want to delete?')) { return location.href='@Url.Action("DeleteActivity", "Admin" ,new {id = @obj.UserId,page = 1})' } ">
                             <i class="bi bi-trash ms-3"></i>
                         </button>
                     </td>
@@ -87,76 +92,173 @@
         </tbody>
     </table>
 
-    <nav aria-label="Page navigation example mt-5"  id="cmspage">
-    <ul class="pagination justify-content-end me-5" onchange="searchuser(1,'user')">
-       
-        @{
-            double totalpages = ViewBag.Totalpages1;
+    <nav aria-label="Page navigation example mt-5" id="cmspage">
+        <ul class="pagination justify-content-end me-5" onchange="searchuser(1,'user')">
+
+            @{
+                double totalpages = ViewBag.Totalpages1;
 
 
 
-            for (int i = 1; i <= totalpages; i++)
-            {
-                @if (i == ViewBag.pg_no)
+                for (int i = 1; i <= totalpages; i++)
                 {
-                    <li class="page-item  " >
-                        <a class="page-link  " onclick="searchuser(@i,'user')">@i </a>
+                    @if (i == ViewBag.pg_no)
+                    {
+                        <li class="page-item  ">
+                            <a class="page-link  " onclick="searchuser(@i,'user')">@i </a>
 
-                    </li>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a class="page-link" onclick="searchuser(@i,'user')">@i</a>
+                        </li>
+                    }
+
+
                 }
-                else
-                {
-                    <li class="page-item">
-                        <a class="page-link" onclick="searchuser(@i,'user')">@i</a>
-                    </li>
-                }
-
-
             }
-        }
 
-      
-    </ul>
-</nav>
+
+        </ul>
+    </nav>
 </div>
 
 
 <div class="border mt-3" id="add" style="display: none;">
     <h3 class="p-3 m-0" style="background-color: #F8F9FC;"> Add User</h3>
     <hr class="m-0">
-    <form action="" class="px-3">
+    @*  <form action="" class="px-3">
         <label for="select mission" class="mt-3"> Title </label>
         <input type="text" class="form-control" id="formGroupExampleInput">
         <label for="user1" class="mt-3"> Description</label>
         <textarea id="user1" cols="172" rows="10" maxlength="40000"></textarea>
         <script>
-            var abc = document.getElementById("user1");
-            CKEDITOR.replace(abc);
+        var abc = document.getElementById("user1");
+        CKEDITOR.replace(abc);
         </script>
         <label for="select mission" class="mt-3"> Slug </label>
         <input type="text" class="form-control" id="formGroupExampleInput">
 
         <label class="mb-1 mt-3">Mission</label>
         <select type="text" class="form-select form-control">
-            <option value="1">Select your mission</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+        <option value="1">Select your mission</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
         </select>
         <div class="row my-3">
-            <div class="col-10"></div>
-            <div class="col-2">
-                <button type="button" class="cancell rounded-pill btn btn-outline-dark"
-                        onclick="addpage('nav-user');">
-                    Cancel
-                </button>
-                <button type="submit" class="threebt rounded-pill btn btn-outline-warning"
-                        value="2" name="command">
+        <div class="col-10"></div>
+        <div class="col-2">
+        <button type="button" class="cancell rounded-pill btn btn-outline-dark"
+        onclick="addpage('nav-user');">
+        Cancel
+        </button>
+        <button type="submit" class="threebt rounded-pill btn btn-outline-warning"
+        value="2" name="command">
+        Save
+        </button>
+        </div>
+        </div>
+        </form>*@
+    <form class="px-3">
+        <div class="row">
+             <div class="col-lg-12 ">
+
+                <div class="border p-3 d-flex justify-content-center align-items-center flex-column">
+
+                    <input id="profileImageInput" type="file" class="Avatarfile" accept="image/jpeg, image/png, image/jpg" />
+                     <span style="color: #414141;" class="">Evan Donohue</span>
+                        </div>
+            </div>
+
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 col-sm-6">
+                <label>Name</label>
+                <input type="text" class="form-control" placeholder="Enter your name">
+            </div>
+            <div class="col-12 col-sm-6">
+                <label>Surname</label>
+                <input type="text" class="form-control" placeholder="Enter your surname">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 col-sm-6">
+                <label>Email</label>
+                <input type="email" class="form-control" placeholder="Enter Email">
+            </div>
+            <div class="col-12 col-sm-6">
+                <label>Password</label>
+                <input type="password" class="form-control" placeholder="Enter Password">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 col-sm-6">
+                <label>Employee ID</label>
+                <input type="text" class="form-control" placeholder="Enter your employee id">
+            </div>
+            <div class="col-12 col-sm-6">
+                  <label>Department</label>
+                <input type="text" class="form-control" placeholder="Enter your manager details">
+            </div>
+        </div>
+
+          <div class="row mt-3">
+            <div class="col-12 col-sm-6">
+                <label>Country*</label>
+                <select class="form-select" aria-label="Default select example"
+                        aria-placeholder="Select your country">
+                    <option value="0">Select your country</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="col-12 col-sm-6">
+                <label>City*</label>
+                <select class="form-select" aria-label="Default select example"
+                        aria-placeholder="Select your country">
+                    <option value="0">Select your city</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+      
+        <div class="form-group mt-3">
+            <label for="exampleFormControlTextarea1">My Profile*</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+                      placeholder="Enter your comments..."></textarea>
+        </div>
+     
+          <div class="row mt-3">
+            <div class="col-12 ">
+                <label>Status</label>
+                <select class="form-select" aria-label="Default select example"
+                        aria-placeholder="Select your country">
+                    <option value="0">In-Active</option>
+                    <option value="1">Active</option>
+                  
+                </select>
+            </div>
+           
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 text-end apply2">
+                <button type="button" class="btn btn-outline apply">
                     Save
+
                 </button>
             </div>
         </div>
+
+
+
     </form>
+
 </div>
 <div class="border mt-3" id="edit" style="display: none;">
     <h3 class="p-3 m-0" style="background-color: #F8F9FC;"> Edit User </h3>
@@ -200,6 +302,25 @@
 
 
 
+<script>
+    var readURL = function(input) {
+    if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+    $('.ProfileImage').attr('src', e.target.result);
+
+    }
+
+    reader.readAsDataURL(input.files[0]);
+    }
+    }
+    $("#profileImageInput").on('change', function(){
+
+    readURL(this);
+
+    });
+
+</script>
 
 
 

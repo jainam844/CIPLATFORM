@@ -24,53 +24,41 @@ namespace CIPLATFORM.Respository.Repositories
         {
             AdminViewModel um = new AdminViewModel();
             um.users = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
-            um.cmspages= _CiPlatformContext.CmsPages.Where( x=> x.DeletedAt == null).ToList();
+            um.cmspages = _CiPlatformContext.CmsPages.Where(x => x.DeletedAt == null).ToList();
             um.missions = _CiPlatformContext.Missions.Where(x => x.DeletedAt == null).ToList();
-            um.missionthemes= _CiPlatformContext.MissionThemes.ToList();
-            um.missionSkills = _CiPlatformContext.MissionSkills.Include(x => x.Mission).Include(x => x.Skill).Where(x => x.DeletedAt == null).ToList();
-            um.missionapplications = _CiPlatformContext.MissionApplications.Include(x => x.Mission).Include(x => x.User).Where(x => x.ApprovalStatus == "Pending").ToList();
-
-            um.stories=_CiPlatformContext.Stories.Where(x => x.Status == "PENDING" || x.Status == "DRAFT").ToList();
-
-
-
-
-            //um.users = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
-            //um.missions = _CiPlatformContext.Missions.Where(x => x.DeletedAt == null).ToList();
-            //um.CmsPages = _CiPlatformContext.CmsPages.Where(x => x.DeletedAt == null).ToList();
-            //um.missionapplications = _CiPlatformContext.MissionApplications.Include(x => x.Mission).Include(x => x.User).Where(x => x.ApprovalStatus == "Pending").ToList();
-            //um.stories = _CiPlatformContext.Stories.Include(x => x.User).Where(x => x.Status == "PENDING" || x.Status == "DRAFT").Where(x => x.DeletedAt == null).ToList();
+            um.missionthemes = _CiPlatformContext.MissionThemes.Where(x => x.DeletedAt == null).ToList();
             //um.missionSkills = _CiPlatformContext.MissionSkills.Include(x => x.Mission).Include(x => x.Skill).Where(x => x.DeletedAt == null).ToList();
-            //um.missionThemes = _CiPlatformContext.MissionThemes.Where(x => x.DeletedAt == null).ToList();
+            um.skills = _CiPlatformContext.Skills.Where(x => x.DeletedAt == null).ToList();
+            um.missionapplications = _CiPlatformContext.MissionApplications.Include(x => x.Mission).Include(x => x.User).Where(x => x.ApprovalStatus == "Pending").ToList();
+            um.stories = _CiPlatformContext.Stories.Include(x => x.User).Where(x => x.Status == "PENDING" || x.Status == "DRAFT").Where(x => x.DeletedAt == null).ToList();
             return um;
         }
         public AdminViewModel Usersearch(string search, int pg)
         {
             var pageSize = 5;
-            AdminViewModel obj=getData();
-
-
-
+            AdminViewModel obj = getData();
 
             if (search != null)
             {
                 search = search.ToLower();
                 obj.users = obj.users.Where(x => x.FirstName.ToLower().Contains(search)).ToList();
-                obj.cmspages = obj.cmspages.Where(x=>x.Title.ToLower().Contains(search)).ToList();
-                obj.missions=obj.missions.Where(x=>x.Title.ToLower().Contains(search) || x.MissionType.ToLower().Contains(search)).ToList();
+                obj.cmspages = obj.cmspages.Where(x => x.Title.ToLower().Contains(search)).ToList();
+                obj.missions = obj.missions.Where(x => x.Title.ToLower().Contains(search) || x.MissionType.ToLower().Contains(search)).ToList();
                 obj.missionthemes = obj.missionthemes.Where(x => x.Title.ToLower().Contains(search)).ToList();
-                obj.missionSkills=obj.missionSkills.Where(x=>x.Skill.SkillName.ToLower().Contains(search)).ToList();
-                obj.missionapplications=obj.missionapplications.Where(x=>x.Mission.Title.ToLower().Contains(search)).ToList();
-                obj.stories=obj.stories.Where(x=>x.Title.ToLower().Contains(search)).ToList();
-            
+                //obj.missionSkills=obj.missionSkills.Where(x=>x.Skill.SkillName.ToLower().Contains(search)).ToList();
+                obj.skills = obj.skills.Where(x => x.SkillName.ToLower().Contains(search)).ToList();
+                obj.missionapplications = obj.missionapplications.Where(x => x.Mission.Title.ToLower().Contains(search)).ToList();
+                obj.stories = obj.stories.Where(x => x.Title.ToLower().Contains(search)).ToList();
+
             }
             if (pg != 0)
             {
                 obj.users = obj.users.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
                 obj.cmspages = obj.cmspages.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
                 obj.missions = obj.missions.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
-                obj.missionthemes=obj.missionthemes.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
-                obj.missionSkills = obj.missionSkills.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
+                obj.missionthemes = obj.missionthemes.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
+                //obj.missionSkills = obj.missionSkills.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
+                obj.skills = obj.skills.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
                 obj.missionapplications = obj.missionapplications.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
                 obj.stories = obj.stories.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
             }
@@ -79,19 +67,124 @@ namespace CIPLATFORM.Respository.Repositories
 
         }
 
+
+
         public bool addcms(AdminViewModel obj, int command)
         {
-            CmsPage cp=new CmsPage();
+            if (command == 2)
             {
-                cp.Title = obj.CmsPage.Title;
-                cp.Description = obj.CmsPage.Description;
-                cp.Slug = obj.CmsPage.Slug; 
+                if (obj.CmsPage.CmsPageId == 0)
+                {
+                    CmsPage cms = new CmsPage();
+                    {
+                        cms.Title = obj.CmsPage.Title;
+                        cms.Description = obj.CmsPage.Description;
+                        cms.Slug = obj.CmsPage.Slug;
+                    }
+                    _CiPlatformContext.Add(cms);
+                    _CiPlatformContext.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    CmsPage cms = _CiPlatformContext.CmsPages.FirstOrDefault(x => x.CmsPageId == obj.CmsPage.CmsPageId);
+                    {
+                        cms.Title = obj.CmsPage.Title;
+                        cms.Description = obj.CmsPage.Description;
+                        cms.Slug = obj.CmsPage.Slug;
+                        cms.UpdatedAt = DateTime.Now;
+                    }
+                    _CiPlatformContext.Update(cms);
+                    _CiPlatformContext.SaveChanges();
+                    return false;
+                }
+
             }
-            _CiPlatformContext.Add(cp);
-            _CiPlatformContext.SaveChanges();
-          return true;
+            if (command == 4)
+            {
+                if (obj.missionTheme.MissionThemeId == 0)
+                {
+                    MissionTheme missionTheme = new MissionTheme();
+                    {
+                        missionTheme.Title = obj.missionTheme.Title;
+
+                        missionTheme.Status = obj.missionTheme.Status;
+                    }
+                    _CiPlatformContext.Add(missionTheme);
+                    _CiPlatformContext.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    MissionTheme missionTheme = _CiPlatformContext.MissionThemes.FirstOrDefault(x => x.MissionThemeId == obj.missionTheme.MissionThemeId);
+                    {
+                        missionTheme.Title = obj.missionTheme.Title;
+
+                        missionTheme.Status = obj.missionTheme.Status;
+                        missionTheme.UpdatedAt = DateTime.Now;
+                    }
+                    _CiPlatformContext.Update(missionTheme);
+                    _CiPlatformContext.SaveChanges();
+                    return false;
+                }
+
+            }
+
+
+            if (command == 5)
+            {
+                if (obj.skill.SkillId == 0)
+                {
+                    Skill skill = new Skill();
+                    {
+                        skill.SkillName = obj.skill.SkillName;
+
+                        skill.Status = obj.skill.Status;
+                    }
+                    _CiPlatformContext.Add(skill);
+                    _CiPlatformContext.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    Skill skill = _CiPlatformContext.Skills.FirstOrDefault(x => x.SkillId == obj.skill.SkillId);
+                    {
+                        skill.SkillName = obj.skill.SkillName;
+
+                        skill.Status = obj.skill.Status;
+                        skill.UpdatedAt = DateTime.Now;
+                    }
+                    _CiPlatformContext.Update(skill);
+                    _CiPlatformContext.SaveChanges();
+                    return false;
+                }
+
+            }
+            return true;
+
+
         }
-        public bool deleteactivity(int id,int page)
+        public AdminViewModel EditForm(int id, string page)
+        {
+            AdminViewModel am = new AdminViewModel();
+            {
+                if (page == "nav-cms")
+                {
+                    am.CmsPage = _CiPlatformContext.CmsPages.FirstOrDefault(x => x.CmsPageId == id);
+                }
+                if (page == "nav-theme")
+                {
+                    am.missionTheme = _CiPlatformContext.MissionThemes.FirstOrDefault(x => x.MissionThemeId == id);
+                }
+                if (page == "nav-skill")
+                {
+                    am.skill = _CiPlatformContext.Skills.FirstOrDefault(x => x.SkillId == id);
+                }
+            }
+            return am;
+        }
+
+        public bool deleteactivity(int id, int page)
         {
             if (id != 0)
             {
@@ -114,6 +207,27 @@ namespace CIPLATFORM.Respository.Repositories
                     Mission missions = _CiPlatformContext.Missions.FirstOrDefault(x => x.MissionId == id);
                     missions.DeletedAt = DateTime.Now;
                     _CiPlatformContext.Missions.Update(missions);
+                    _CiPlatformContext.SaveChanges();
+                }
+                if (page == 4)
+                {
+                    MissionTheme theme = _CiPlatformContext.MissionThemes.FirstOrDefault(x => x.MissionThemeId == id);
+                    theme.DeletedAt = DateTime.Now;
+                    _CiPlatformContext.MissionThemes.Update(theme);
+                    _CiPlatformContext.SaveChanges();
+                }
+                if (page == 5)
+                {
+                    Skill skill = _CiPlatformContext.Skills.FirstOrDefault(x => x.SkillId == id);
+                    skill.DeletedAt = DateTime.Now;
+                    _CiPlatformContext.Skills.Update(skill);
+                    _CiPlatformContext.SaveChanges();
+                }
+                if (page == 6)
+                {
+                    Story story = _CiPlatformContext.Stories.FirstOrDefault(x => x.StoryId == id);
+                    story.DeletedAt = DateTime.Now;
+                    _CiPlatformContext.Stories.Update(story);
                     _CiPlatformContext.SaveChanges();
                 }
 

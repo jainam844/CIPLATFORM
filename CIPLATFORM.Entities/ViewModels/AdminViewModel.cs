@@ -16,7 +16,12 @@ namespace CIPLATFORM.Entities.ViewModels
         public List<Mission> missions { get; set; }=new List<Mission>();
         public List<MissionApplication>? missionapplications { get; set; } =new List<MissionApplication>();
         public List<MissionTheme> missionthemes { get; set; } = new List<MissionTheme> ();
-        public List<MissionSkill> missionSkills { get; set; } = new List<MissionSkill> ();
+        public MissionTheme missionTheme { get; set; }
+        //public List<MissionSkill> missionSkills { get; set; } = new List<MissionSkill> ();
+        //public MissionSkill missionSkill { get; set; }
+        public List<Skill> skills { get; set; }
+        public Skill skill { get; set; }
+   
         public List<Story> stories { get; set; } =new List<Story>();
     }
 }

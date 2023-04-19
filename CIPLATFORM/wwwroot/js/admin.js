@@ -86,3 +86,51 @@ function searchuser(pg, key) {
         },
     });
 }
+
+
+function getdata(x, id) {
+
+    var page = document.getElementById(x);
+
+    var addForm = page.querySelector("#edit");
+
+
+
+    $.ajax({
+        url: "/Admin/EditForm",
+        method: "Post",
+        data:
+        {
+            "id": id,
+            "page": x,
+        },
+        success: function (data) {
+
+            console.log(data);
+            var htmlObject = document.createElement('div');
+            htmlObject.innerHTML = data;
+
+            var abc = htmlObject.querySelector("#edit");
+            abc.style.display = "block";
+
+            console.log(abc);
+            console.log(addForm);
+
+            addForm.replaceWith(abc);
+            if (x == "nav-cms") {
+                var abc = document.getElementById("cms2");
+                CKEDITOR.replace(abc);
+            }
+            //if (y == 3) {
+            // var abc = document.getElementById("mission2");
+            // CKEDITOR.replace(abc);
+            //}
+        },
+        error: function (e) {
+      
+            console.log("Bye");
+            alert('Error');
+        },
+    });
+
+}

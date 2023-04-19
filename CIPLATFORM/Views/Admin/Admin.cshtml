@@ -57,6 +57,13 @@
             toastr.error('@TempData["decline"]')
         </script>
     }
+       @if (TempData["false"] != null)
+    {
+        <script type="text/javascript">
+            toastr.error('@TempData["false"]')
+        </script>
+    }
+
 
     <div class="container-fluid p-0">
         <div class="row flex-nowrap g-0">
@@ -181,7 +188,7 @@
                     <div class="tab-content" id="nav-tabContent">
 
                         <div class="tab-pane fade show active" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab">
-
+                            <div id="pageContent">
                             <h4 class="pt-3 pb-2">User</h4>
                             <div class="row mt-3 g-0">
                                 <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
@@ -199,6 +206,7 @@
                                     </button>
                                 </div>
                             </div>
+                             </div>
                             <div id="hi1">
 
                                 @{
@@ -210,6 +218,8 @@
 
 
                         <div class="tab-pane fade" id="nav-cms" role="tabpanel" aria-labelledby="nav-cms-tab">
+                             <div id="pageContent">
+
                             <h4 class="pt-3 pb-2">CMS Page</h4>
                             <div class="row mt-3 g-0">
                                 <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
@@ -226,6 +236,7 @@
                                     </button>
                                 </div>
                             </div>
+                            </div>
                             <div id="hi2">
                                 @{
                                     Html.RenderPartial("_CMSPages");
@@ -237,6 +248,7 @@
 
 
                         <div class="tab-pane fade" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
+                             <div id="pageContent">
                             <h4>Mission</h4>
                             <hr class="m-0">
                             <div class="row mt-3 g-0">
@@ -253,6 +265,7 @@
                                     </button>
                                 </div>
                             </div>
+                             </div>
                             <div id="hi3">
                                 @{
                                     Html.RenderPartial("_Mission");
@@ -262,6 +275,7 @@
                         </div>
 
                         <div class="tab-pane fade" id="nav-theme" role="tabpanel" aria-labelledby="nav-theme-tab">
+                              <div id="pageContent">
                             <h4 class="pt-3 pb-2">Theme</h4>
                             <hr class="m-0">
                             <div class="row mt-3 g-0">
@@ -278,6 +292,7 @@
                                     </button>
                                 </div>
                             </div>
+                              </div>
                             <div id="hi4">
                                 @{
                                     Html.RenderPartial("_MissionTheme");
@@ -288,6 +303,7 @@
                         </div>
 
                         <div class="tab-pane fade" id="nav-skill" role="tabpanel" aria-labelledby="nav-skill-tab">
+                                 <div id="pageContent">
                             <h4 class="pt-3 pb-2">Skills</h4>
                             <hr class="m-0">
                             <div class="row mt-3 g-0">
@@ -304,6 +320,7 @@
                                     </button>
                                 </div>
                             </div>
+                                 </div>
                             <div id="hi5">
                                 @{
                                     Html.RenderPartial("_MissionSkill");
@@ -315,6 +332,7 @@
                         </div>
 
                         <div class="tab-pane fade" id="nav-application" role="tabpanel" aria-labelledby="nav-application-tab">
+                              <div id="pageContent">
                             <h4 class="pt-3 pb-2">Application</h4>
                             <div class="row mt-3 g-0">
                                 <div class="col-12 col-lg-6 col-xl-3 col-sm-8">
@@ -328,6 +346,7 @@
 
                                 <div class="col-12 col-lg-6 col-sm-4 col-xl-9">
                                 </div>
+                                         </div>
                                 <div id="hi6">
                                     @{
                                         Html.RenderPartial("_MissionApplication");
@@ -342,6 +361,7 @@
                         </div>
 
                         <div class="tab-pane fade" id="nav-story" role="tabpanel" aria-labelledby="nav-story-tab">
+                              <div id="pageContent">
                             <h4 class="pt-3 pb-2">Story</h4>
 
                             <div class="row mt-3 g-0">
@@ -354,6 +374,7 @@
                                 </div>
                                 <div class="col-12 col-lg-6 col-sm-4 col-xl-9">
                                 </div>
+                                   </div>
                                 <div id="hi7">
                                     @{
                                         Html.RenderPartial("_Story");
@@ -383,32 +404,48 @@
 
 
     <script>
-        function addform(x) {
+ function addform(x) {
+            console.log(x);
             var page = document.getElementById(x);
+            console.log(page);
             var cmsPage = page.querySelector("#cmspage");
             var addForm = page.querySelector("#add");
+            var pageContent = page.querySelector("#pageContent");
             cmsPage.style.display = "none";
+            pageContent.style.display = "none";
             addForm.style.display = 'block';
         }
         function addpage(x) {
+            console.log(x);
             var page = document.getElementById(x);
+            console.log(page);
             var cmsPage = page.querySelector("#cmspage");
             var addForm = page.querySelector("#add");
+            var pageContent = page.querySelector("#pageContent");
             cmsPage.style.display = "block";
+            pageContent.style.display = "block";
             addForm.style.display = 'none';
         }
         function editform(x) {
+            console.log(x);
             var page = document.getElementById(x);
+            console.log(page);
             var cmsPage = page.querySelector("#cmspage");
             var addForm = page.querySelector("#edit");
+            var pageContent = page.querySelector("#pageContent");
             cmsPage.style.display = "none";
+            pageContent.style.display = "none";
             addForm.style.display = 'block';
         }
         function editpage(x) {
+            console.log(x);
             var page = document.getElementById(x);
+            console.log(page);
             var cmsPage = page.querySelector("#cmspage");
             var addForm = page.querySelector("#edit");
+            var pageContent = page.querySelector("#pageContent");
             cmsPage.style.display = "block";
+            pageContent.style.display = "block";
             addForm.style.display = 'none';
         }
 

@@ -119,18 +119,39 @@
 
                         <div class="col-12 col-md-6 mt-2" id="recommand" >
 
-                            <button type="button"  class="btn btn-outline-dark rounded-pill w-100 dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-square-fill"></i>
-                                Recommend to a Co-Worker
+                                 <button type="button" class="btn btn-outline w-100  rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal"  style="background: #F8863400 0% 0% no-repeat padding-box;
+                                border: 2px solid #020201;
+                              border-radius: 24px;
+                                opacity: 1; color:#020202">
+                                 <i class="bi bi-square-fill  "><span> Recommend to a Co-Worker</span></i>
                             </button>
-                            <ul class="dropdown-menu "  aria-labelledby="dropdownMenuButton1" onclick="recommandStory(@Model.story.StoryId)" >
 
-                                @foreach (var item in Model.coworkers)
-                                {
+                          
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body"  onclick="recommandStory(@Model.story.StoryId)">
 
-                                    <li><input type="checkbox" value="@item.UserId" /> @item.FirstName @item.LastName </li>
-                                }
-                            </ul>
+
+                                                 @foreach (var item in Model.coworkers)
+                                                {
+
+                                                 <div class="d-flex justify-content-start">      <input type="checkbox" value="@item.UserId" /> @item.FirstName @item.LastName
+                                                  <span class="ms-3" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"> @item.FirstName @item.LastName</span> </div>
+                                                }
+                                        
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                      
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-12 col-md-6  mt-2 apply2">
