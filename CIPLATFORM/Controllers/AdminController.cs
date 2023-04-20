@@ -16,6 +16,18 @@ namespace CIPLATFORM.Controllers
         }
         public IActionResult Admin()
         {
+            string name = HttpContext.Session.GetString("Uname");
+            ViewBag.Uname = name;
+
+            string avtar = HttpContext.Session.GetString("Avatar");
+            ViewBag.Avtar = avtar;
+
+            if (name != null)
+            {
+                int UserId = (int)HttpContext.Session.GetInt32("UId");
+                ViewBag.UId = UserId;
+            }
+
             AdminViewModel am = _AdminRepository.getData();
             ViewBag.Totalpages1 = Math.Ceiling(am.users.Count() / 5.0);
             am.users = am.users.Skip((1 - 1) * 5).Take(5).ToList();
@@ -45,6 +57,8 @@ namespace CIPLATFORM.Controllers
             ViewBag.Totalpages7 = Math.Ceiling(am.stories.Count() / 5.0);
             am.stories = am.stories.Skip((1 - 1) * 5).Take(5).ToList();
             ViewBag.pg_no = 1;
+
+
 
             return View(am);
         }

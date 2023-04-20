@@ -12,6 +12,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using SmtpClient = MailKit.Net.Smtp.SmtpClient;
+using CIPLATFORM.Entities.ViewModels;
 
 namespace CIPLATFORM.Respository.Repositories
 {
@@ -23,10 +24,20 @@ namespace CIPLATFORM.Respository.Repositories
         {
             _CiPlatformContext = CiPlatformContext;
         }
-        public User login(User obj)
+        //public User login(User obj)
+        //{
+        //    var user = _CiPlatformContext.Users.FirstOrDefault(U => U.Email == obj.Email && U.Password == obj.Password);
+
+        //    return user;
+        //}
+        public Login login(Login obj)
         {
-            var user = _CiPlatformContext.Users.FirstOrDefault(U => U.Email == obj.Email && U.Password == obj.Password);
-            return user;
+            Login lgn = new Login();
+            {
+                lgn.user = _CiPlatformContext.Users.FirstOrDefault(u => u.Email == obj.Email && u.Password == obj.Password);
+                lgn.admin = _CiPlatformContext.Admins.FirstOrDefault(a => a.Email == obj.Email && a.Password == a.Password);
+            }
+            return lgn;
         }
         public User register(User obj)
         {

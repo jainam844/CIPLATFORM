@@ -21,39 +21,78 @@ namespace CIPLATFORM.Controllers
         {
             return View();
         }
+        //[HttpPost]
+        //public IActionResult login(User obj)
+        //{
+        //    var user=_UserRepository.login(obj);
+        //   if(user==null)
+        //    {
+        //        TempData["loginerror"] = "Invalid Email Or Password.Plz Verify..!!";
+
+        //        return View();
+        //    }
+        //    HttpContext.Session.SetString("Uname", user.FirstName + " " + user.LastName);
+
+
+        //    HttpContext.Session.SetInt32("UId", (Int32)user.UserId);
+
+        //    if (user.Avatar != null)
+        //    {
+        //        HttpContext.Session.SetString("Avatar", user.Avatar);
+        //    }
+
+        //    else
+        //    {
+        //        HttpContext.Session.SetString("Avatar", "");
+        //    }
+
+
+
+
+        //    TempData["logins"] = "Successfully logged.!!";
+
+        //    return RedirectToAction("HomeGrid", "Platform");
+
+
+        //}
         [HttpPost]
-        public IActionResult login(User obj)
+        public IActionResult Login(Login obj)
         {
-            var user=_UserRepository.login(obj);
-           if(user==null)
+            Login login = _UserRepository.login(obj);
+            if (login.user == null && login.admin == null)
             {
-                TempData["loginerror"] = "Invalid Email Or Password.Plz Verify..!!";
-               
+                TempData["loginerror"] = "Email Or Password Is Inavalid!!!!!";
                 return View();
             }
-            HttpContext.Session.SetString("Uname", user.FirstName + " " + user.LastName);
-
-
-            HttpContext.Session.SetInt32("UId", (Int32)user.UserId);
-
-            if (user.Avatar != null)
+            else if (login.admin != null)
             {
-                HttpContext.Session.SetString("Avatar", user.Avatar);
-            }
-
-            else
-            {
+                HttpContext.Session.SetString("Uname", login.admin.FirstName + " " + login.admin.LastName);
+                HttpContext.Session.SetInt32("UId", (Int32)login.admin.AdminId);
                 HttpContext.Session.SetString("Avatar", "");
+                TempData["logins"] = "logged as a admin Successfull";
+                return RedirectToAction("Admin", "Admin");
+            }
+            else if (login.user != null)
+            {
+                HttpContext.Session.SetString("Uname", login.user.FirstName + " " + login.user.LastName);
+                HttpContext.Session.SetInt32("UId", (Int32)login.user.UserId);
+                if (login.user.Avatar != null)
+                {
+                    HttpContext.Session.SetString("Avatar", login.user.Avatar);
+                }
+                else
+                {
+                    HttpContext.Session.SetString("Avatar", "");
+                }
+                TempData["logins"] = "logged Successfull";
+                return RedirectToAction("HomeGrid", "Platform");
             }
 
 
-          
 
-            TempData["logins"] = "Successfully logged.!!";
+            return View();
 
-            return RedirectToAction("HomeGrid", "Platform");
 
-          
         }
 
         public IActionResult forgot()

@@ -110,7 +110,7 @@ namespace CIPLATFORM.Respository.Repositories
             List<Mission> relatedMissions = missions.Where(x => x.OrganizationName == mission.OrganizationName || x.ThemeId == mission.ThemeId || x.CountryId == mission.CountryId).ToList();
             relatedMissions.Remove(mission);
 
-            List<Comment> comments = _CiPlatformContext.Comments.Include(m => m.User).Where(x => x.MissionId == mid && x.ApprovalStatus== "Published").ToList();
+            List<Comment> comments = _CiPlatformContext.Comments.Include(m => m.User).Where(x => x.MissionId == mid && x.ApprovalStatus == "Published").ToList();
             List<User> users = _CiPlatformContext.Users.ToList();
             List<FavoriteMission> favoriteMission = _CiPlatformContext.FavoriteMissions.ToList();
             MissionListingViewModel CardDetail = new MissionListingViewModel();
@@ -119,6 +119,7 @@ namespace CIPLATFORM.Respository.Repositories
                 CardDetail.missionmedias = photos;
                 CardDetail.missiondocuments = documents;
                 //CardDetail.rating = rating;
+                //CardDetail.UserRating=_CiPlatformContext.MissionRatings.Where(x => x.MissionId == mid).
                 CardDetail.missionapplications = applications;
                 CardDetail.missionskills = missionSkills;
                 CardDetail.relatedmissions = relatedMissions;
@@ -174,31 +175,41 @@ namespace CIPLATFORM.Respository.Repositories
         //Star Rating
         public bool MissionRating(int userId, int mid, int rating)
         {
-            MissionRating CheckRating = _CiPlatformContext.MissionRatings.FirstOrDefault(a => a.UserId == userId && a.MissionId == mid);
-            if (CheckRating != null)
+            MissionApplication ma = _CiPlatformContext.MissionApplications.FirstOrDefault(a => a.UserId == userId && a.MissionId == mid && a.ApprovalStatus == "Approve");
+            if (ma != null)
             {
 
-                //CheckRating.UserId = userId;
-                //CheckRating.MissionId = mid;
-                CheckRating.Rating = rating;
-                CheckRating.UpdatedAt = DateTime.Now;
 
-                _CiPlatformContext.Update(CheckRating);
-                _CiPlatformContext.SaveChanges();
+                MissionRating CheckRating = _CiPlatformContext.MissionRatings.FirstOrDefault(a => a.UserId == userId && a.MissionId == mid);
+                if (CheckRating != null)
+                {
 
-                return false;
+                    //CheckRating.UserId = userId;
+                    //CheckRating.MissionId = mid;
+                    CheckRating.Rating = rating;
+                    CheckRating.UpdatedAt = DateTime.Now;
+
+                    _CiPlatformContext.Update(CheckRating);
+                    _CiPlatformContext.SaveChanges();
+
+                    return false;
+                }
+                else
+                {
+                    MissionRating missionRating = new MissionRating();
+                    missionRating.UserId = userId;
+                    missionRating.MissionId = mid;
+                    missionRating.Rating = rating;
+
+
+                    _CiPlatformContext.Add(missionRating);
+                    _CiPlatformContext.SaveChanges();
+                    return true;
+                }
             }
             else
             {
-                MissionRating missionRating = new MissionRating();
-                missionRating.UserId = userId;
-                missionRating.MissionId = mid;
-                missionRating.Rating = rating;
-
-
-                _CiPlatformContext.Add(missionRating);
-                _CiPlatformContext.SaveChanges();
-                return true;
+                return false;
             }
         }
         public void addComment(int mid, int uid, string comnt)
@@ -316,7 +327,7 @@ namespace CIPLATFORM.Respository.Repositories
         }
         public List<StoryMedium> smedia(int sid)
         {
-            List<StoryMedium> photos = _CiPlatformContext.StoryMedia.Where(x => x.StoryId == sid && x.Type=="png").ToList();
+            List<StoryMedium> photos = _CiPlatformContext.StoryMedia.Where(x => x.StoryId == sid && x.Type == "png").ToList();
             return photos;
         }
 
@@ -503,8 +514,8 @@ namespace CIPLATFORM.Respository.Repositories
         {
             StoryListingViewModel obj = new StoryListingViewModel();
             Story story = _CiPlatformContext.Stories.FirstOrDefault(m => m.MissionId == mid && m.UserId == uid && m.Status == "DRAFT");
-          
-           
+
+
             if (story != null)
             {
                 List<StoryMedium> simgs = _CiPlatformContext.StoryMedia.Where(m => m.StoryId == story.StoryId && m.Type == "png").ToList();
@@ -519,7 +530,7 @@ namespace CIPLATFORM.Respository.Repositories
                 foreach (var item in simgs)
                 {
                     obj.simg.Add(item.Path);
-                 
+
                     story.StoryMedia.Remove(item);
                 }
                 story.StoryMedia.Remove(url);

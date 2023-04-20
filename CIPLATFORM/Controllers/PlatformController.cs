@@ -118,6 +118,12 @@ namespace CIPLATFORM.Controllers
             {
                 int UserId = (int)HttpContext.Session.GetInt32("UId");
                 ViewBag.UId = UserId;
+
+                var rating = _CiPlatformContext.MissionRatings.FirstOrDefault(x => x.UserId == UserId && x.MissionId == mid);
+                if(rating != null)
+                {
+                    ViewBag.rating = rating.Rating;
+                }
             }
 
             string avtar = HttpContext.Session.GetString("Avatar");

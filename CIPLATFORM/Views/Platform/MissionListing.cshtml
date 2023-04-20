@@ -133,12 +133,12 @@
                         </div>
                         <div class="col-12 col-md-6 col-sm-12 mt-2" id="recommand" onchange="recommandToCoWorker(@Model.missions.MissionId)">
 
-              
-                            <button type="button" class="btn btn-outline w-100  rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal"  style="background: #F8863400 0% 0% no-repeat padding-box;
+
+                            <button type="button" class="btn btn-outline w-100  rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background: #F8863400 0% 0% no-repeat padding-box;
                                 border: 2px solid #020201;
                               border-radius: 24px;
                                 opacity: 1; color:#020202">
-                                 <i class="bi bi-square-fill  "><span> Recommend to a Co-Worker</span></i>
+                                <i class="bi bi-square-fill  "><span> Recommend to a Co-Worker</span></i>
                             </button>
 
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -151,36 +151,65 @@
                                         <div class="modal-body">
 
 
-                                                @foreach (var item in Model.coworkers)
-                                                {
+                                            @foreach (var item in Model.coworkers)
+                                            {
 
-                                                 <div class="d-flex justify-content-start">       <input type="checkbox" value="@item.UserId" class="d-flex justify-content-center ms-3" />
-                                                  <span class="ms-3" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"> @item.FirstName @item.LastName</span> </div>
-                                                }
-                                        
+                                                <div class="d-flex justify-content-start">
+                                                    <input type="checkbox" value="@item.UserId" class="d-flex justify-content-center ms-3" />
+                                                    <span class="ms-3" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"> @item.FirstName @item.LastName</span>
+                                                </div>
+                                            }
+
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                      
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
 
-               
+
                         </div>
                     </div>
                     <div class="wrapper  d-flex justify-content-center mt-3">
                         <hr class="divider">
                         <p class="d-none" id="getMissionId">@Model.missions.MissionId</p>
 
+
+
                         <div class='rating' id="mission-rating">
-                            <span class="fa fa-star star1" value="5"></span>
-                            <span class="fa fa-star star1" value="4"></span>
-                            <span class="fa fa-star star1" value="3"></span>
-                            <span class="fa fa-star star1" value="2"></span>
-                            <span class="fa fa-star star1" value="1"></span>
+
+
+                            @if (ViewBag.rating != null)
+                            {
+                                for (int j = 5; j > (@ViewBag.rating); j--)
+                                {
+
+                                    <span class="bi bi-star star1" value="@j"></span>
+
+
+                                }
+                                for (var j = (@ViewBag.rating); j >= 1; j--)
+                                {
+
+                                    <span class="bi bi-star-fill star1 text-warning" value="@j"></span>
+
+
+                                }
+
+
+                            }
+                            else
+                            {
+                                <span class="bi bi-star star1" value="5"></span>
+                                <span class="bi bi-star star1" value="4"></span>
+                                <span class="bi bi-star star1" value="3"></span>
+                                <span class="bi bi-star star1" value="2"></span>
+                                <span class="bi bi-star star1" value="1"></span>
+                            }
+
                         </div>
                         <hr class="divider">
                     </div>
@@ -431,28 +460,7 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <hr>
-
-
-
-
-
 <div class="container">
 
     <div class="row ">
@@ -586,19 +594,12 @@
 </div>
 @*    </div>*@
 
-
-
-
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 
 <script>
-
-
-
 
     let slideIndex = 1;
                     showSlides(slideIndex);
@@ -630,72 +631,56 @@
                     }
 
 
-
-
-
-
 </script>
 
 
 <script>
 
+            $('#mission-rating .bi').click(function() {
 
-                  // Handles the hover over the stars
+                   var rating = $(this).attr('value');
 
-
-    @*var id =$('#getMissionId').text();*@
-
-
-
-    $('#mission-rating .fa-star').click(function() {
-           var rating = $(this).attr('value');
-
-    console.log(rating);
-    var id = parseInt($('#getMissionId').text());
-    console.log(id);
-    $.ajax({
-        url:"/Platform/MissionRating",
-    method:"Post",
-    data:{
-        "mid":id,
-    "rating":rating
-                 },
-    success:function(data){
+            console.log(rating);
+            var id = parseInt($('#getMissionId').text());
+            console.log(id);
+            $.ajax({
+                url:"/Platform/MissionRating",
+            method:"Post",
+            data:{
+                "mid":id,
+            "rating":rating
+                         },
+            success:function(data){
 
 
-        toastr.options = {
-            "closeButton": true,
-            "progressBar": true
-        };
-    if(data == true)
-    {
-        toastr.success('Applied Rating successfully');
-                 }
-    else
-    {
-        toastr.error('Your Rating Updated successfully');
-                 }
-
-             },
-    error: function (e) {
-        console.log("Bye");
-    alert('Error');
-                 },
-
-             });
-
-             })
+                //toastr.options = {
+                //    "closeButton": true,
+                //    "progressBar": true
+                //};
+            if(data == true)
+            {
+                //toastr.success('Applied Rating successfully');
+         setTimeout(function(){
+       window.location.reload();
+    }, 3000);
 
 
+                         }
+            else
+            {
+                //toastr.error('Your Rating Updated successfully');
+                         location.reload();
+                         }
 
+                     },
+            error: function (e) {
+                console.log("Bye");
+            alert('Error');
+                         },
 
+                     });
 
-
-
-
-
-
-
+                     })
 </script>
 
 

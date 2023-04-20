@@ -25,6 +25,7 @@ namespace CIPLATFORM.Entities.ViewModels
         //public List<Comment> Comments { get; set; }
 
         public List<User>? coworkers { get; set; }
+        public int UserRating { get; set; }
 
         public List<FavoriteMission> favoriteMissions { get; set; }
 

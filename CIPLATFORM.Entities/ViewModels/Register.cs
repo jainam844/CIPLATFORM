@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CIPLATFORM.Entities.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,6 +8,18 @@ using System.Threading.Tasks;
 
 namespace CIPLATFORM.Entities.ViewModels
 {
+
+
+
+    public class Login
+    {
+        [Required(ErrorMessage = "Please enter Email.")]
+        public string Email { get; set; } = null!;
+        [Required(ErrorMessage = "Please enter Password.")]
+        public string Password { get; set; } = null!;
+        public User user { get; set; }
+        public Admin admin { get; set; }
+    }
     public class Register
 
     {

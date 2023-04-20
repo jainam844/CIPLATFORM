@@ -27,7 +27,64 @@
             background-color: #5A4181 !Important;
             border: solid 1px #5A4181;
         }
-      
+
+    .apply {
+        width: 100px;
+        border-radius: 20px;
+        color: #F88634;
+        border: 2px solid #F88634;
+    }
+
+    .apply2 :hover {
+        background-color: #ffaf75;
+    }
+
+    .scroll-hide select {
+        max-height: 200px;
+        max-width: 400px;
+        border: 2px solid #f3f3f3;
+        padding-left: 16px;
+        overflow: auto;
+        /* this will hide the scrollbar in mozilla based browsers */
+        overflow: -moz-scrollbars-none;
+        scrollbar-width: none;
+        /* this will hide the scrollbar in internet explorers */
+        -ms-overflow-style: none;
+    }
+
+        /* this will hide the scrollbar in webkit based browsers - safari, chrome, etc */
+        .scroll-hide select::-webkit-scrollbar {
+            width: 0 !important;
+            display: none;
+        }
+
+
+
+    .profile-nav {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .nav-item {
+        list-style-type: None;
+    }
+
+    .profile {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    /* .search {
+                width: 15px;
+                height: 15px;
+            } */
+
+    .h-item {
+        height: 40px;
+    }
+
     .Avatarfile {
         width: 125px;
         height: 125px;
@@ -129,48 +186,18 @@
 <div class="border mt-3" id="add" style="display: none;">
     <h3 class="p-3 m-0" style="background-color: #F8F9FC;"> Add User</h3>
     <hr class="m-0">
-    @*  <form action="" class="px-3">
-        <label for="select mission" class="mt-3"> Title </label>
-        <input type="text" class="form-control" id="formGroupExampleInput">
-        <label for="user1" class="mt-3"> Description</label>
-        <textarea id="user1" cols="172" rows="10" maxlength="40000"></textarea>
-        <script>
-        var abc = document.getElementById("user1");
-        CKEDITOR.replace(abc);
-        </script>
-        <label for="select mission" class="mt-3"> Slug </label>
-        <input type="text" class="form-control" id="formGroupExampleInput">
-
-        <label class="mb-1 mt-3">Mission</label>
-        <select type="text" class="form-select form-control">
-        <option value="1">Select your mission</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        </select>
-        <div class="row my-3">
-        <div class="col-10"></div>
-        <div class="col-2">
-        <button type="button" class="cancell rounded-pill btn btn-outline-dark"
-        onclick="addpage('nav-user');">
-        Cancel
-        </button>
-        <button type="submit" class="threebt rounded-pill btn btn-outline-warning"
-        value="2" name="command">
-        Save
-        </button>
-        </div>
-        </div>
-        </form>*@
+  
     <form class="px-3">
         <div class="row">
-             <div class="col-lg-12 ">
+            <div class="col-lg-12 ">
 
-                <div class="border p-3 d-flex justify-content-center align-items-center flex-column">
+                <div class=" p-3 d-flex justify-content-center align-items-center flex-column">
 
                     <input id="profileImageInput" type="file" class="Avatarfile" accept="image/jpeg, image/png, image/jpg" />
-                     <span style="color: #414141;" class="">Evan Donohue</span>
-                        </div>
+
+                    <img src="~/images/volunteer1.png" style="border-radius: 50%; height:125px; width:125px" class="ProfileImage">
+                    <span style="color: #414141;" class="">Evan Donohue</span>
+                </div>
             </div>
 
         </div>
@@ -200,12 +227,12 @@
                 <input type="text" class="form-control" placeholder="Enter your employee id">
             </div>
             <div class="col-12 col-sm-6">
-                  <label>Department</label>
+                <label>Department</label>
                 <input type="text" class="form-control" placeholder="Enter your manager details">
             </div>
         </div>
 
-          <div class="row mt-3">
+        <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Country*</label>
                 <select class="form-select" aria-label="Default select example"
@@ -227,32 +254,44 @@
                 </select>
             </div>
         </div>
-      
+
         <div class="form-group mt-3">
             <label for="exampleFormControlTextarea1">My Profile*</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
                       placeholder="Enter your comments..."></textarea>
         </div>
-     
-          <div class="row mt-3">
+
+        <div class="row mt-3">
             <div class="col-12 ">
                 <label>Status</label>
                 <select class="form-select" aria-label="Default select example"
                         aria-placeholder="Select your country">
                     <option value="0">In-Active</option>
                     <option value="1">Active</option>
-                  
+
                 </select>
             </div>
-           
+
         </div>
         <div class="row mt-3">
-            <div class="col-12 text-end apply2">
+            <div class="col-10  ">
+            </div>
+            <div class="col-1">
+                  <button type="button" class="cancell rounded-pill btn btn-outline-dark"
+                    onclick="addpage('nav-user');">
+                Cancel
+            </button>
+            </div>
+            
+          
+            <div class="apply2 col-1">
                 <button type="button" class="btn btn-outline apply">
                     Save
 
                 </button>
             </div>
+
+
         </div>
 
 
@@ -263,64 +302,167 @@
 <div class="border mt-3" id="edit" style="display: none;">
     <h3 class="p-3 m-0" style="background-color: #F8F9FC;"> Edit User </h3>
     <hr class="m-0">
-    <form action="" class="px-3">
-        <label for="select mission" class="mt-3"> Title </label>
-        <input type="text" class="form-control" id="formGroupExampleInput">
-        <label for="user2" class="mt-3"> Description</label>
-        <textarea id="user2" cols="172" rows="10" maxlength="40000"></textarea>
-        <script>
-            var abc = document.getElementById("user2");
-            CKEDITOR.replace(abc);
-        </script>
-        <label for="select mission" class="mt-3"> Slug </label>
-        <input type="text" class="form-control" id="formGroupExampleInput">
+    <form class="px-3">
+        <div class="row">
+            <div class="col-lg-12 ">
 
-        <label class="mb-1 mt-3">Mission</label>
-        <select type="text" class="form-select form-control">
-            <option value="1">Select your mission</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-        </select>
-        <div class="row my-3">
-            <div class="col-10"></div>
-            <div class="col-2">
-                <button type="button" class="cancell rounded-pill btn btn-outline-dark"
-                        onclick="editpage('nav-user');">
-                    Cancel
-                </button>
-                <button type="submit" class="threebt rounded-pill btn btn-outline-warning"
-                        value="2" name="command">
-                    Save
-                </button>
+                <div class=" p-3 d-flex justify-content-center align-items-center flex-column">
+
+                    <input id="profileImageInput1" type="file" class="Avatarfile" accept="image/jpeg, image/png, image/jpg" />
+
+                    <img src="~/images/volunteer1.png" style="border-radius: 50%; height:125px; width:125px" class="ProfileImage1">
+                    <span style="color: #414141;" class="">Evan Donohue</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 col-sm-6">
+                <label>Name</label>
+                <input type="text" class="form-control" placeholder="Enter your name">
+            </div>
+            <div class="col-12 col-sm-6">
+                <label>Surname</label>
+                <input type="text" class="form-control" placeholder="Enter your surname">
             </div>
         </div>
+        <div class="row mt-3">
+            <div class="col-12 col-sm-6">
+                <label>Email</label>
+                <input type="email" class="form-control" placeholder="Enter Email">
+            </div>
+            <div class="col-12 col-sm-6">
+                <label>Password</label>
+                <input type="password" class="form-control" placeholder="Enter Password">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 col-sm-6">
+                <label>Employee ID</label>
+                <input type="text" class="form-control" placeholder="Enter your employee id">
+            </div>
+            <div class="col-12 col-sm-6">
+                <label>Department</label>
+                <input type="text" class="form-control" placeholder="Enter your manager details">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 col-sm-6">
+                <label>Country*</label>
+                <select class="form-select" aria-label="Default select example"
+                        aria-placeholder="Select your country">
+                    <option value="0">Select your country</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="col-12 col-sm-6">
+                <label>City*</label>
+                <select class="form-select" aria-label="Default select example"
+                        aria-placeholder="Select your country">
+                    <option value="0">Select your city</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <label for="exampleFormControlTextarea1">My Profile*</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+                      placeholder="Enter your comments..."></textarea>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 ">
+                <label>Status</label>
+                <select class="form-select" aria-label="Default select example"
+                        aria-placeholder="Select your country">
+                    <option value="0">In-Active</option>
+                    <option value="1">Active</option>
+
+                </select>
+            </div>
+
+        </div>
+        <div class="row mt-3">
+            <div class="col-10  ">
+            </div>
+            <div class="col-1">
+                  <button type="button" class="cancell rounded-pill btn btn-outline-dark"
+                    onclick="editpage('nav-user');">
+                Cancel
+            </button>
+            </div>
+            
+          
+            <div class="apply2 col-1">
+                <button type="button" class="btn btn-outline apply">
+                    Save
+
+                </button>
+            </div>
+
+
+        </div>
+
+
+
     </form>
 </div>
 
 
+ <script>
+        var readURL = function(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+        $('.ProfileImage').attr('src', e.target.result);
+
+        }
+
+        reader.readAsDataURL(input.files[0]);
+        }
+        }
+        $("#profileImageInput").on('change', function(){
+
+        readURL(this);
+
+        });
+
+    </script>
+    <script>
+        var readURL1 = function(input) {
+        if (input.files && input.files[0]) {
+        var reader1 = new FileReader();
+        reader1.onload = function (e) {
+        $('.ProfileImage1').attr('src', e.target.result);
+
+        }
+
+        reader1.readAsDataURL(input.files[0]);
+        }
+        }
+        $("#profileImageInput1").on('change', function(){
+
+        readURL1(this);
+
+        });
+
+    </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
 
 
 
-<script>
-    var readURL = function(input) {
-    if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-    $('.ProfileImage').attr('src', e.target.result);
-
-    }
-
-    reader.readAsDataURL(input.files[0]);
-    }
-    }
-    $("#profileImageInput").on('change', function(){
-
-    readURL(this);
-
-    });
-
-</script>
 
 
 

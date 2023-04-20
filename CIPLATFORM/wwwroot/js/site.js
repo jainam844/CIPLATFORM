@@ -32,7 +32,7 @@
 
 
 function GetCity() {
-  
+
     var countryIds = [];
     var countrydiv = document.getElementById("countryId");
     var list = countrydiv.getElementsByTagName("input");
@@ -306,7 +306,7 @@ function AddMissionToFavourite(missionId) {
                 $('#addToFav').css("color", "red");
                 toastr.success("Added To the favourite");
                 document.getElementById(missionId).className = "bi bi-heart-fill text-danger";
-               
+
 
             }
             else {
@@ -319,7 +319,7 @@ function AddMissionToFavourite(missionId) {
                 $('#addToFav').addClass("bi bi-heart");
                 toastr.error('Remove From the favourite');
                 document.getElementById(missionId).className = "bi bi-heart";
-               
+
 
             }
 

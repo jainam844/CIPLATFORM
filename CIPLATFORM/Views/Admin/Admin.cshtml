@@ -29,35 +29,35 @@
 <body>
 
     @if (TempData["true"] != null)
-{
+    {
 
 
-    <script type="text/javascript">
-        toastr.success('@TempData["true"]')
-    </script>
-}
-@if (TempData["delete"] != null)
-{
+        <script type="text/javascript">
+            toastr.success('@TempData["true"]')
+        </script>
+    }
+    @if (TempData["delete"] != null)
+    {
 
 
-    <script type="text/javascript">
-        toastr.success('@TempData["delete"]')
-    </script>
-}
+        <script type="text/javascript">
+            toastr.success('@TempData["delete"]')
+        </script>
+    }
 
- @if (TempData["accept"] != null)
+    @if (TempData["accept"] != null)
     {
         <script type="text/javascript">
             toastr.success('@TempData["accept"]')
         </script>
     }
-     @if (TempData["decline"] != null)
+    @if (TempData["decline"] != null)
     {
         <script type="text/javascript">
             toastr.error('@TempData["decline"]')
         </script>
     }
-       @if (TempData["false"] != null)
+    @if (TempData["false"] != null)
     {
         <script type="text/javascript">
             toastr.error('@TempData["false"]')
@@ -168,15 +168,12 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                    style="color: black;" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Evan Donohue
+                                    @ViewBag.Uname
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action1</a></li>
-                                    <li><a class="dropdown-item" href="#">Action1</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Action1</a></li>
+                                    <li><a class="dropdown-item" asp-controller="User" asp-action="login">  <span>Log Out </span> </a></li>
+
+
                                 </ul>
                             </li>
                         </form>
@@ -189,24 +186,24 @@
 
                         <div class="tab-pane fade show active" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab">
                             <div id="pageContent">
-                            <h4 class="pt-3 pb-2">User</h4>
-                            <div class="row mt-3 g-0">
-                                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="form-group has-search">
-                                        <span class="form-control-feedback"> <i class="bi bi-search"></i> </span>
-                                        <input class="form-control mx-1" type="text" placeholder="Search Users..."
-                                               aria-label="Search" id="searchuser" onkeyup="searchuser(1,'user')">
+                                <h4 class="pt-3 pb-2">User</h4>
+                                <div class="row mt-3 g-0">
+                                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                                        <div class="form-group has-search">
+                                            <span class="form-control-feedback"> <i class="bi bi-search"></i> </span>
+                                            <input class="form-control mx-1" type="text" placeholder="Search Users..."
+                                                   aria-label="Search" id="searchuser" onkeyup="searchuser(1,'user')">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-8 col-xl-9 text-sm-end mt-3 mt-sm-0">
+                                        <button type="button" onclick="addform('nav-user');"
+                                                class="btn btn-outline-warning rounded-pill">
+                                            <i class="bi bi-plus"></i>
+                                            Add
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 col-lg-8 col-xl-9 text-sm-end mt-3 mt-sm-0">
-                                    <button type="button" onclick="addform('nav-user');"
-                                            class="btn btn-outline-warning rounded-pill">
-                                        <i class="bi bi-plus"></i>
-                                        Add
-                                    </button>
-                                </div>
                             </div>
-                             </div>
                             <div id="hi1">
 
                                 @{
@@ -218,24 +215,24 @@
 
 
                         <div class="tab-pane fade" id="nav-cms" role="tabpanel" aria-labelledby="nav-cms-tab">
-                             <div id="pageContent">
+                            <div id="pageContent">
 
-                            <h4 class="pt-3 pb-2">CMS Page</h4>
-                            <div class="row mt-3 g-0">
-                                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="form-group has-search">
-                                        <span class="form-control-feedback"><i class="bi bi-search"></i></span>
-                                        <input type="text" class="form-control " id="searchcms" onkeyup="searchuser(1,'cms')" placeholder="Search">
+                                <h4 class="pt-3 pb-2">CMS Page</h4>
+                                <div class="row mt-3 g-0">
+                                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                                        <div class="form-group has-search">
+                                            <span class="form-control-feedback"><i class="bi bi-search"></i></span>
+                                            <input type="text" class="form-control " id="searchcms" onkeyup="searchuser(1,'cms')" placeholder="Search">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-8 col-xl-9 text-sm-end mt-3 mt-sm-0">
+                                        <button type="button" class="btn btn-outline-warning rounded-pill"
+                                                onclick="addform('nav-cms')">
+                                            <i class="bi bi-plus"></i>
+                                            Add
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 col-lg-8 col-xl-9 text-sm-end mt-3 mt-sm-0">
-                                    <button type="button" class="btn btn-outline-warning rounded-pill"
-                                            onclick="addform('nav-cms')">
-                                        <i class="bi bi-plus"></i>
-                                        Add
-                                    </button>
-                                </div>
-                            </div>
                             </div>
                             <div id="hi2">
                                 @{
@@ -248,24 +245,24 @@
 
 
                         <div class="tab-pane fade" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
-                             <div id="pageContent">
-                            <h4>Mission</h4>
-                            <hr class="m-0">
-                            <div class="row mt-3 g-0">
-                                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="form-group has-search">
-                                        <span class="form-control-feedback"><i class="bi bi-search"></i></span>
-                                        <input type="text" class="form-control " id="searchmission" onkeyup="searchuser(1,'mission')" placeholder="Search">
+                            <div id="pageContent">
+                                <h4>Mission</h4>
+                                <hr class="m-0">
+                                <div class="row mt-3 g-0">
+                                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                                        <div class="form-group has-search">
+                                            <span class="form-control-feedback"><i class="bi bi-search"></i></span>
+                                            <input type="text" class="form-control " id="searchmission" onkeyup="searchuser(1,'mission')" placeholder="Search">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-8 col-xl-9 text-sm-end mt-3 mt-sm-0">
+                                        <button type="button" class="btn btn-outline-warning rounded-pill" onclick="addform('nav-mission');">
+                                            <i class="bi bi-plus"></i>
+                                            Add
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 col-lg-8 col-xl-9 text-sm-end mt-3 mt-sm-0">
-                                    <button type="button" class="btn btn-outline-warning rounded-pill" onclick="addform('nav-mission');">
-                                        <i class="bi bi-plus"></i>
-                                        Add
-                                    </button>
-                                </div>
                             </div>
-                             </div>
                             <div id="hi3">
                                 @{
                                     Html.RenderPartial("_Mission");
@@ -275,24 +272,24 @@
                         </div>
 
                         <div class="tab-pane fade" id="nav-theme" role="tabpanel" aria-labelledby="nav-theme-tab">
-                              <div id="pageContent">
-                            <h4 class="pt-3 pb-2">Theme</h4>
-                            <hr class="m-0">
-                            <div class="row mt-3 g-0">
-                                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="form-group has-search">
-                                        <span class="form-control-feedback"><i class="bi bi-search"></i></span>
-                                        <input type="text" class="form-control " id="searchtheme" onkeyup="searchuser(1,'missiontheme')" placeholder="Search">
+                            <div id="pageContent">
+                                <h4 class="pt-3 pb-2">Theme</h4>
+                                <hr class="m-0">
+                                <div class="row mt-3 g-0">
+                                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                                        <div class="form-group has-search">
+                                            <span class="form-control-feedback"><i class="bi bi-search"></i></span>
+                                            <input type="text" class="form-control " id="searchtheme" onkeyup="searchuser(1,'missiontheme')" placeholder="Search">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-8 col-xl-9 text-sm-end mt-3 mt-sm-0">
+                                        <button type="button" class="btn btn-outline-warning rounded-pill" onclick="addform('nav-theme');">
+                                            <i class="bi bi-plus"></i>
+                                            Add
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 col-lg-8 col-xl-9 text-sm-end mt-3 mt-sm-0">
-                                    <button type="button" class="btn btn-outline-warning rounded-pill" onclick="addform('nav-theme');">
-                                        <i class="bi bi-plus"></i>
-                                        Add
-                                    </button>
-                                </div>
                             </div>
-                              </div>
                             <div id="hi4">
                                 @{
                                     Html.RenderPartial("_MissionTheme");
@@ -303,24 +300,24 @@
                         </div>
 
                         <div class="tab-pane fade" id="nav-skill" role="tabpanel" aria-labelledby="nav-skill-tab">
-                                 <div id="pageContent">
-                            <h4 class="pt-3 pb-2">Skills</h4>
-                            <hr class="m-0">
-                            <div class="row mt-3 g-0">
-                                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-                                    <div class="form-group has-search">
-                                        <span class="form-control-feedback"><i class="bi bi-search"></i></span>
-                                        <input type="text" class="form-control " id="searchskill" onkeyup="searchuser(1,'missionskill')" placeholder="Search">
+                            <div id="pageContent">
+                                <h4 class="pt-3 pb-2">Skills</h4>
+                                <hr class="m-0">
+                                <div class="row mt-3 g-0">
+                                    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                                        <div class="form-group has-search">
+                                            <span class="form-control-feedback"><i class="bi bi-search"></i></span>
+                                            <input type="text" class="form-control " id="searchskill" onkeyup="searchuser(1,'missionskill')" placeholder="Search">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-lg-8 col-xl-9 text-sm-end mt-3 mt-sm-0">
+                                        <button type="button" class="btn btn-outline-warning rounded-pill" onclick="addform('nav-skill');">
+                                            <i class="bi bi-plus"></i>
+                                            Add
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6 col-lg-8 col-xl-9 text-sm-end mt-3 mt-sm-0">
-                                    <button type="button" class="btn btn-outline-warning rounded-pill" onclick="addform('nav-skill');">
-                                        <i class="bi bi-plus"></i>
-                                        Add
-                                    </button>
-                                </div>
                             </div>
-                                 </div>
                             <div id="hi5">
                                 @{
                                     Html.RenderPartial("_MissionSkill");
@@ -332,21 +329,21 @@
                         </div>
 
                         <div class="tab-pane fade" id="nav-application" role="tabpanel" aria-labelledby="nav-application-tab">
-                              <div id="pageContent">
-                            <h4 class="pt-3 pb-2">Application</h4>
-                            <div class="row mt-3 g-0">
-                                <div class="col-12 col-lg-6 col-xl-3 col-sm-8">
+                            <div id="pageContent">
+                                <h4 class="pt-3 pb-2">Application</h4>
+                                <div class="row mt-3 g-0">
+                                    <div class="col-12 col-lg-6 col-xl-3 col-sm-8">
 
-                                    <div class="form-group has-search">
-                                        <span class=" form-control-feedback"><i class="bi bi-search"></i></span>
-                                        <input type="text" class="form-control " id="searchma" onkeyup="searchuser(1,'missionapplication')" placeholder="Search">
+                                        <div class="form-group has-search">
+                                            <span class=" form-control-feedback"><i class="bi bi-search"></i></span>
+                                            <input type="text" class="form-control " id="searchma" onkeyup="searchuser(1,'missionapplication')" placeholder="Search">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-12 col-lg-6 col-sm-4 col-xl-9">
                                     </div>
                                 </div>
-
-
-                                <div class="col-12 col-lg-6 col-sm-4 col-xl-9">
-                                </div>
-                                         </div>
                                 <div id="hi6">
                                     @{
                                         Html.RenderPartial("_MissionApplication");
@@ -361,20 +358,20 @@
                         </div>
 
                         <div class="tab-pane fade" id="nav-story" role="tabpanel" aria-labelledby="nav-story-tab">
-                              <div id="pageContent">
-                            <h4 class="pt-3 pb-2">Story</h4>
+                            <div id="pageContent">
+                                <h4 class="pt-3 pb-2">Story</h4>
 
-                            <div class="row mt-3 g-0">
-                                <div class="col-12 col-lg-6 col-xl-3 col-sm-8">
+                                <div class="row mt-3 g-0">
+                                    <div class="col-12 col-lg-6 col-xl-3 col-sm-8">
 
-                                    <div class="form-group has-search">
-                                        <span class=" form-control-feedback"><i class="bi bi-search"></i></span>
-                                        <input type="text" class="form-control " id="searchstory" onkeyup="searchuser(1,'story')" placeholder="Search">
+                                        <div class="form-group has-search">
+                                            <span class=" form-control-feedback"><i class="bi bi-search"></i></span>
+                                            <input type="text" class="form-control " id="searchstory" onkeyup="searchuser(1,'story')" placeholder="Search">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-sm-4 col-xl-9">
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-6 col-sm-4 col-xl-9">
-                                </div>
-                                   </div>
                                 <div id="hi7">
                                     @{
                                         Html.RenderPartial("_Story");
@@ -404,56 +401,55 @@
 
 
     <script>
- function addform(x) {
-            console.log(x);
-            var page = document.getElementById(x);
-            console.log(page);
-            var cmsPage = page.querySelector("#cmspage");
-            var addForm = page.querySelector("#add");
-            var pageContent = page.querySelector("#pageContent");
-            cmsPage.style.display = "none";
-            pageContent.style.display = "none";
-            addForm.style.display = 'block';
-        }
-        function addpage(x) {
-            console.log(x);
-            var page = document.getElementById(x);
-            console.log(page);
-            var cmsPage = page.querySelector("#cmspage");
-            var addForm = page.querySelector("#add");
-            var pageContent = page.querySelector("#pageContent");
-            cmsPage.style.display = "block";
-            pageContent.style.display = "block";
-            addForm.style.display = 'none';
-        }
-        function editform(x) {
-            console.log(x);
-            var page = document.getElementById(x);
-            console.log(page);
-            var cmsPage = page.querySelector("#cmspage");
-            var addForm = page.querySelector("#edit");
-            var pageContent = page.querySelector("#pageContent");
-            cmsPage.style.display = "none";
-            pageContent.style.display = "none";
-            addForm.style.display = 'block';
-        }
-        function editpage(x) {
-            console.log(x);
-            var page = document.getElementById(x);
-            console.log(page);
-            var cmsPage = page.querySelector("#cmspage");
-            var addForm = page.querySelector("#edit");
-            var pageContent = page.querySelector("#pageContent");
-            cmsPage.style.display = "block";
-            pageContent.style.display = "block";
-            addForm.style.display = 'none';
-        }
+        function addform(x) {
+                   console.log(x);
+                   var page = document.getElementById(x);
+                   console.log(page);
+                   var cmsPage = page.querySelector("#cmspage");
+                   var addForm = page.querySelector("#add");
+                   var pageContent = page.querySelector("#pageContent");
+                   cmsPage.style.display = "none";
+                   pageContent.style.display = "none";
+                   addForm.style.display = 'block';
+               }
+               function addpage(x) {
+                   console.log(x);
+                   var page = document.getElementById(x);
+                   console.log(page);
+                   var cmsPage = page.querySelector("#cmspage");
+                   var addForm = page.querySelector("#add");
+                   var pageContent = page.querySelector("#pageContent");
+                   cmsPage.style.display = "block";
+                   pageContent.style.display = "block";
+                   addForm.style.display = 'none';
+               }
+               function editform(x) {
+                   console.log(x);
+                   var page = document.getElementById(x);
+                   console.log(page);
+                   var cmsPage = page.querySelector("#cmspage");
+                   var addForm = page.querySelector("#edit");
+                   var pageContent = page.querySelector("#pageContent");
+                   cmsPage.style.display = "none";
+                   pageContent.style.display = "none";
+                   addForm.style.display = 'block';
+               }
+               function editpage(x) {
+                   console.log(x);
+                   var page = document.getElementById(x);
+                   console.log(page);
+                   var cmsPage = page.querySelector("#cmspage");
+                   var addForm = page.querySelector("#edit");
+                   var pageContent = page.querySelector("#pageContent");
+                   cmsPage.style.display = "block";
+                   pageContent.style.display = "block";
+                   addForm.style.display = 'none';
+               }
 
 
     </script>
 
-
-
+   
 
 
 
