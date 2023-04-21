@@ -28,9 +28,12 @@ namespace CIPLATFORM.Entities.ViewModels
         [Required(ErrorMessage = "Please enter Your Last Name.")]
         public string? LastName { get; set; }
         [Required(ErrorMessage = "Please enter Your Email Address.")]
+
         public string Email { get; set; } = null!;
-        [Required(ErrorMessage = "Please enter Your Password.")]
-        public string Password { get; set; } = null!;
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d).+$", ErrorMessage = "Password must contain at least one uppercase letter and one digit")]
+        [StringLength(20, MinimumLength = 8, ErrorMessage = "Password must be between 8 and 20 characters long")]
+        public string Password { get; set; }
+
 
         [Required(ErrorMessage = "Please enter ConfirmPassword.")]
         [Compare("Password", ErrorMessage = "Password must match")]

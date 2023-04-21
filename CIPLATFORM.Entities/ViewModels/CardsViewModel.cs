@@ -18,6 +18,7 @@ namespace CIPLATFORM.Entities.ViewModels
         public List<MissionSkill> missionskill { get; set; }
 
         public List<FavoriteMission> favoriteMissions { get; set; }
+        public List<User>? coworkers { get; set; }
 
     }
 }

@@ -88,7 +88,8 @@ namespace CIPLATFORM.Controllers
 
             List<Mission> cards = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort, pg, @ViewBag.UId);
             CardsViewModel platformModel = new CardsViewModel();
-
+            //CardsViewModel platformModel = _CiPlatformContext.GetCardDetail();
+            platformModel = _PlatformRepository.getCards();
             platformModel.missions = cards;
             if (cards.Count == 0)
             {
@@ -129,7 +130,12 @@ namespace CIPLATFORM.Controllers
             string avtar = HttpContext.Session.GetString("Avatar");
             ViewBag.Avtar = avtar;
 
+
             MissionListingViewModel ml = _PlatformRepository.GetCardDetail(mid);
+
+            ViewBag.Totalpages = Math.Ceiling(ml.missionapplications.Count() / 1.0);
+            ml.missionapplications = ml.missionapplications.Skip((1 - 1) * 1).Take(1).ToList();
+            ViewBag.pg_no = 1;
 
             return View(ml);
 
@@ -347,6 +353,23 @@ namespace CIPLATFORM.Controllers
 
             StoryListingViewModel volunteerModel = _PlatformRepository.GetStory(sid);
 
+        }
+
+
+
+
+        [HttpPost]
+        public IActionResult AddUserToRecentVolunteerList(int id, int userId, int pg)
+        {
+            MissionListingViewModel ml = _PlatformRepository.GetCardDetail(id);
+            //List<User> volunteers = _PlatformRepository.GetVolunteers(id, userId, pg);
+           
+            ViewBag.Totalpages = Math.Ceiling(ml.missionapplications.Count() / 6.0);
+            ml.missionapplications = ml.missionapplications.Skip((pg - 1) * 6).Take(6).ToList();
+            ViewBag.pg_no = pg;
+
+
+            return PartialView("_RecentVol",ml);
         }
 
     }

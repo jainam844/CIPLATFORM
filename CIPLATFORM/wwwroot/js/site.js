@@ -123,36 +123,6 @@ function GetProfileCity() {
 
 
 
-//function Previous(pg) {
-//    pg = pg - 1;
-
-//    $.ajax({
-//        url: "/Platform/Filter",
-//        method: "POST",
-//        data: {
-//            "pg": pg,
-//        },
-//        success: function (data) {
-//            $("#filter").html(data);
-//        }
-//    });
-//}
-
-//function NextPage(pg) {
-//    pg = pg + 1;
-//    console.log(pg);
-//    $.ajax({
-//        url: "/Platform/Filter",
-//        method: "POST",
-//        data: {
-//            "pg": pg,
-//        },
-//        success: function (data) {
-//            $("#filter").html(data);
-//        }
-//    });
-//}
-
 
 /*filter */
 function temp(pg) {
@@ -568,7 +538,7 @@ function getActivity(x) {
                 },
                 success: function (data) {
                     console.log(data);
-                    debugger
+                
                     $("#TimesheetTime").empty();
                     $("#TimesheetTime").html(data);
                 },
@@ -625,13 +595,3 @@ function getgoalActivity(x) {
 
 
 
-
-
-
-// Handles the hover over the stars
-
-
-
-//function preventBack() { window.history.forward(); }
-//setTimeout("preventBack()", 0);
-//window.onunload = function () { null }

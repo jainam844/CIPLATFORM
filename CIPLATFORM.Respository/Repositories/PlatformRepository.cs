@@ -66,14 +66,14 @@ namespace CIPLATFORM.Respository.Repositories
         }
         public List<Mission> GetMissionDetails()
         {
-            List<Mission> missionDetails = _CiPlatformContext.Missions.Include(m => m.City).Include(m => m.Theme).Include(m => m.MissionMedia).Include(m => m.MissionRatings).Include(m => m.GoalMissions).Include(m => m.MissionSkills).Include(m => m.FavoriteMissions).Include(m => m.MissionApplications).ToList();
+            List<Mission> missionDetails = _CiPlatformContext.Missions.Include(m => m.City).Include(m => m.Theme).Include(m => m.MissionMedia).Include(m => m.MissionRatings).Include(m => m.GoalMissions).Include(x => x.MissionApplications).Include(m => m.MissionSkills).Include(m => m.FavoriteMissions).Include(m => m.MissionApplications).ToList();
             return missionDetails;
         }
 
 
         public CardsViewModel getCards()
         {
-            List<Mission> missions = _CiPlatformContext.Missions.ToList();
+            List<Mission> missions = _CiPlatformContext.Missions.Include(x=>x.MissionApplications).ToList();
             List<MissionMedium> media = _CiPlatformContext.MissionMedia.Where(x => x.Default == 1).ToList();
             List<MissionSkill> missionSkills = _CiPlatformContext.MissionSkills.ToList();
             List<MissionTheme> missionThemes = _CiPlatformContext.MissionThemes.ToList();
@@ -81,7 +81,7 @@ namespace CIPLATFORM.Respository.Repositories
             List<City> cities = _CiPlatformContext.Cities.ToList();
             List<Country> countries = _CiPlatformContext.Countries.ToList();
             List<FavoriteMission> favoriteMission = _CiPlatformContext.FavoriteMissions.ToList();
-
+            List<User> users=_CiPlatformContext.Users.ToList();
             CardsViewModel missionCards = new CardsViewModel();
             {
 
@@ -93,6 +93,7 @@ namespace CIPLATFORM.Respository.Repositories
                 missionCards.countries = countries;
                 missionCards.cities = cities;
                 missionCards.favoriteMissions = favoriteMission;
+                missionCards.coworkers = users;
             }
             return missionCards;
 
@@ -638,6 +639,21 @@ namespace CIPLATFORM.Respository.Repositories
 
             return missioncards;
 
+        }
+
+
+
+
+        public List<User> GetVolunteers(int id, int userId, int pg)
+        {
+            var data = _CiPlatformContext.MissionApplications
+            .Include(ma => ma.User)
+            .Where(ma => ma.MissionId == id);
+
+            var volunteers = data
+            .Select(ma => ma.User).ToList();
+
+            return volunteers;
         }
     }
 }
