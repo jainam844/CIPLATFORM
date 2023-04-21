@@ -3,7 +3,7 @@
 }
 
 
-@model CIPLATFORM.Entities.ViewModels.Register;
+@model CIPLATFORM.Entities.ViewModels.Login;
 <!doctype html>
 <html lang="en">
 <head>
@@ -112,8 +112,11 @@
 @*            <div class="d-flex pt-3 mt-3 justify-content-center" style="font-size:25px;color:#00e600;">@TempData["success"]</div>
             <div class="d-flex pt-3 mt-3 justify-content-center" style="font-size:25px;color: #ff3333;">@TempData["loginerror"]</div>
             <div class="d-flex pt-3 mt-3 justify-content-center" style="font-size:25px;color: #ff3333;">@TempData["Message"]</div>*@
-            <form class="formmain" asp-action="login">
 
+          
+
+            <form class="formmain" asp-action="login">
+                  <input asp-for="returnUrl" type="hidden" class="form-control form-control-sm" id="exampleInputEmail1" aria-label="Large" aria-describedby="emailHelp">
                 <div class="form-group">
                     <label for="exampleInputEmail1"> Email address </label>
 

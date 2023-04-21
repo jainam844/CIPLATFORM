@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 
 namespace CIPLATFORM.Controllers
 {
+    [Authorize]
     public class PlatformController : Controller
     {
         public readonly IPlatformRepository _PlatformRepository;
@@ -20,6 +21,7 @@ namespace CIPLATFORM.Controllers
         }
 
         /*Home-page*/
+ 
         public IActionResult HomeGrid()
         {
 
@@ -73,7 +75,7 @@ namespace CIPLATFORM.Controllers
             var json = JsonConvert.SerializeObject(city);
             return Json(json);
         }
-        public IActionResult Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort, int pg)
+        public IActionResult Filter(List<int>? cityId, List<int>? countryId, List<int>? themeId, List<int>? skillId, string? search, int? sort, int pg,int view)
         {
             string name = HttpContext.Session.GetString("Uname");
             ViewBag.Uname = name;
@@ -104,7 +106,15 @@ namespace CIPLATFORM.Controllers
             ViewBag.Totalpages = Math.Ceiling(_PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort, 0, @ViewBag.UId).Count / 3.0);
             platformModel.missions = cards.Skip((1 - 1) * 3).Take(3).ToList();
 
-            return PartialView("_FilterMission", platformModel);
+            if (view == 0 || view == 1)
+            {
+                return PartialView("_GridCard", platformModel);
+            }
+            else
+            {
+                return PartialView("_ListCard", platformModel);
+            }
+           
 
         }
 
@@ -132,13 +142,27 @@ namespace CIPLATFORM.Controllers
 
 
             MissionListingViewModel ml = _PlatformRepository.GetCardDetail(mid);
+         
+            var pag = _PlatformRepository.getMisAppList(0, (long)mid);
+            ViewBag.Totalpag = Math.Ceiling(pag.Count() / 1.0);
+            ViewBag.pag = pag.Skip((1 - 1) * 1).Take(1).ToList();
+            ViewBag.pag_no = 1;
 
-            ViewBag.Totalpages = Math.Ceiling(ml.missionapplications.Count() / 1.0);
-            ml.missionapplications = ml.missionapplications.Skip((1 - 1) * 1).Take(1).ToList();
-            ViewBag.pg_no = 1;
+
 
             return View(ml);
 
+        }
+
+        [HttpPost]
+        public IActionResult rVolunteer(int pg, long missionId)
+        {
+            List<MissionListingViewModel> rVolunteer = _PlatformRepository.getMisAppList(pg, missionId);
+
+            ViewBag.Totalpag = Math.Ceiling(_PlatformRepository.getMisAppList(0, missionId).Count() / 1.0);
+            ViewBag.pag = rVolunteer.Skip((1 - 1) * 1).Take(1).ToList();
+            ViewBag.pag_no = 1;
+            return PartialView("_RecentVol");
         }
 
         [HttpPost]
@@ -358,19 +382,6 @@ namespace CIPLATFORM.Controllers
 
 
 
-        [HttpPost]
-        public IActionResult AddUserToRecentVolunteerList(int id, int userId, int pg)
-        {
-            MissionListingViewModel ml = _PlatformRepository.GetCardDetail(id);
-            //List<User> volunteers = _PlatformRepository.GetVolunteers(id, userId, pg);
-           
-            ViewBag.Totalpages = Math.Ceiling(ml.missionapplications.Count() / 6.0);
-            ml.missionapplications = ml.missionapplications.Skip((pg - 1) * 6).Take(6).ToList();
-            ViewBag.pg_no = pg;
-
-
-            return PartialView("_RecentVol",ml);
-        }
 
     }
 }

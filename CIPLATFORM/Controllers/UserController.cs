@@ -4,6 +4,8 @@ using CIPLATFORM.Entities.Models;
 using CIPLATFORM.Respository.Interface;
 using CIPLATFORM.Entities.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
 
 namespace CIPLATFORM.Controllers
 {
@@ -15,50 +17,55 @@ namespace CIPLATFORM.Controllers
 
         public UserController(IUserRepository UserRepository)
         {
-           _UserRepository = UserRepository;
+            _UserRepository = UserRepository;
         }
-        public IActionResult login()
+        public IActionResult login(String returnUrl = "")
         {
-            return View();
+            Login login = new Login();
+            {
+                login.returnUrl = returnUrl;
+            }
+            return View(login);
         }
-        //[HttpPost]
-        //public IActionResult login(User obj)
-        //{
-        //    var user=_UserRepository.login(obj);
-        //   if(user==null)
-        //    {
-        //        TempData["loginerror"] = "Invalid Email Or Password.Plz Verify..!!";
-
-        //        return View();
-        //    }
-        //    HttpContext.Session.SetString("Uname", user.FirstName + " " + user.LastName);
-
-
-        //    HttpContext.Session.SetInt32("UId", (Int32)user.UserId);
-
-        //    if (user.Avatar != null)
-        //    {
-        //        HttpContext.Session.SetString("Avatar", user.Avatar);
-        //    }
-
-        //    else
-        //    {
-        //        HttpContext.Session.SetString("Avatar", "");
-        //    }
-
-
-
-
-        //    TempData["logins"] = "Successfully logged.!!";
-
-        //    return RedirectToAction("HomeGrid", "Platform");
-
-
-        //}
+      
         [HttpPost]
-        public IActionResult Login(Login obj)
+        public IActionResult login(Login obj)
         {
+
             Login login = _UserRepository.login(obj);
+            string role = "";
+            if (login.admin != null)
+            {
+                role = "Admin";
+            }
+            else
+            {
+                role = "user";
+            }
+            var claims = new List<Claim>
+                {
+                        new Claim("role",role),
+                        new Claim("Name", $"{login.user.FirstName} {login.user.LastName}"),
+                        new Claim("Email", login.user.Email),
+                        new Claim("Uid", login.user.UserId.ToString()),
+                };
+            var identity = new ClaimsIdentity(claims, "AuthCookie");
+            var Principle = new ClaimsPrincipal(identity);
+            HttpContext.User = Principle;
+            var abc = HttpContext.SignInAsync(Principle);
+
+
+            HttpContext.Session.SetString("Uname", login.user.FirstName + " " + login.user.LastName);
+            HttpContext.Session.SetInt32("UId", (Int32)login.user.UserId);
+            if (login.user.Avatar != null)
+            {
+                HttpContext.Session.SetString("Avatar", login.user.Avatar);
+            }
+            else
+            {
+                HttpContext.Session.SetString("Avatar", "");
+            }
+
             if (login.user == null && login.admin == null)
             {
                 TempData["loginerror"] = "Email Or Password Is Inavalid!!!!!";
@@ -66,31 +73,22 @@ namespace CIPLATFORM.Controllers
             }
             else if (login.admin != null)
             {
-                HttpContext.Session.SetString("Uname", login.admin.FirstName + " " + login.admin.LastName);
-                HttpContext.Session.SetInt32("UId", (Int32)login.admin.AdminId);
-                HttpContext.Session.SetString("Avatar", "");
                 TempData["logins"] = "logged as a admin Successfull";
-                return RedirectToAction("Admin", "Admin");
             }
-            else if (login.user != null)
+            else if (login.admin == null)
             {
-                HttpContext.Session.SetString("Uname", login.user.FirstName + " " + login.user.LastName);
-                HttpContext.Session.SetInt32("UId", (Int32)login.user.UserId);
-                if (login.user.Avatar != null)
-                {
-                    HttpContext.Session.SetString("Avatar", login.user.Avatar);
-                }
-                else
-                {
-                    HttpContext.Session.SetString("Avatar", "");
-                }
+
                 TempData["logins"] = "logged Successfull";
-                return RedirectToAction("HomeGrid", "Platform");
+
             }
 
 
 
-            return View();
+            if (!string.IsNullOrEmpty(obj.returnUrl))
+            {
+                return LocalRedirect(obj.returnUrl);
+            }
+            return RedirectToAction("HomeGrid", "Platform");
 
 
         }
@@ -101,7 +99,7 @@ namespace CIPLATFORM.Controllers
         }
 
         [HttpPost]
-      
+
         public IActionResult forgot(ForgotPwd obj)
         {
             User user1 = new User();
@@ -125,7 +123,7 @@ namespace CIPLATFORM.Controllers
             return View();
         }
 
-   
+
 
         public IActionResult newpassword()
         {
@@ -178,7 +176,7 @@ namespace CIPLATFORM.Controllers
                 if (check != null)
                 {
                     TempData["unsuccess"] = "User already exist";
-                  
+
                     return View();
                 }
                 else
@@ -191,7 +189,12 @@ namespace CIPLATFORM.Controllers
         }
 
 
-
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync().Wait();
+            HttpContext.Session.Clear();
+            return RedirectToAction("login", "User");
+        }
 
 
 

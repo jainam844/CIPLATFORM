@@ -10,6 +10,7 @@ namespace CIPLATFORM.Entities.ViewModels
     public class MissionListingViewModel
     {
         public Mission missions { get; set; }
+        public User users { get; set; }
         public List<MissionMedium> missionmedias { get; set; }
         public List<MissionDocument>? missiondocuments { get; set; }
 
@@ -28,6 +29,9 @@ namespace CIPLATFORM.Entities.ViewModels
         public int UserRating { get; set; }
 
         public List<FavoriteMission> favoriteMissions { get; set; }
+        public long MissionId { get; set; }
+        public string Avatar { get; set; }
+        public string UserName { get; set; }
 
     }
 }

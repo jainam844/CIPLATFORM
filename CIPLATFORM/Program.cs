@@ -1,9 +1,20 @@
 using CIPLATFORM.Entities.Data;
 using CIPLATFORM.Respository.Interface;
 using CIPLATFORM.Respository.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAuthentication();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/User/login";
+        options.LogoutPath = "/User/Logout";
+    });
+
+
 
 // Add services to the container.
 builder.Services.AddDbContext<CiPlatformContext>();
@@ -34,8 +45,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+
 app.UseSession();
+app.UseAuthentication();
+app.UseAuthorization();
 
 //app.MapControllerRoute(
 //    name: "default",

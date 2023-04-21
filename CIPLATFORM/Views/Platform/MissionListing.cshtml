@@ -267,6 +267,12 @@
 
                                 </button>
                             }
+                            else if (Model.missions.EndDate < DateTime.Now)
+                            {
+                                <button type="button" class="btn btn-outline apply" id="applyMission" onclick="applyMission(@Model.missions.MissionId)" disabled>
+                                    Enddate has been passed
+                                </button>
+                            }
                             else
                             {
                                 <button type="button" class="btn btn-outline apply" id="applyMission" onclick="applyMission(@Model.missions.MissionId)">
@@ -427,11 +433,11 @@
                     </div>
                 </div>
             </div>
-            <div class="border mt-3"  id="recentVolunter">
+            <div class="border mt-3" id="recentVolunter">
                 @{
-    Html.RenderPartial("_RecentVol");
+                    Html.RenderPartial("_RecentVol");
 
-}
+                }
 
             </div>
         </div>
@@ -630,7 +636,7 @@
             success:function(data){
 
 
-             
+
             if(data == true)
             {
                 //toastr.success('Applied Rating successfully');
@@ -657,6 +663,31 @@
                      })
 </script>
 
+<script>
+                  function rVolunteer(pg, missionId) {
+
+    if (pg == undefined) {
+    pg = 1;
+    }
+    console.log(pg);
+
+    $.ajax({
+
+    url: "/Platform/rVolunteer",
+    method: "POST",
+    data: {
+    "pg": pg,
+    "missionId": missionId,
+    },
+    success: function (data) {
+    $('#recentVolunter').html(data);
+    },
+    error: function (request, error) {
+    console.log(error);
+    }
+    })
+    }
+</script>
 
 
 @* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

@@ -65,14 +65,14 @@
 
                     @if (Model.Avatar != null)
                     {
-                          <img src=~/images/@Model.Avatar style="border-radius: 50%; height:125px; width:125px" class="ProfileImage">
+                        <img src=~/images/@Model.Avatar style="border-radius: 50%; height:125px; width:125px" class="ProfileImage">
                     }
                     else
                     {
                         <img src="~/images/user1.png" style="border-radius: 50%; height:125px; width:125px" class="ProfileImage">
                     }
 
-                 
+
 
 
                     <span style="color: #414141;" class="">Evan Donohue</span>
@@ -82,7 +82,7 @@
                     </button>
 
 
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -124,12 +124,13 @@
 
                 <div class="row mt-3">
                     <div class="col-12 col-sm-6">
-                        <label>Name</label>
-                        <input type="text" asp-for="FirstName" class="form-control" placeholder="Enter your name">
+                        <input type="text" id="Name" asp-for="FirstName" class="form-control" placeholder="Enter your name" onkeyup="validation();">
+                        <div id="NameError" style="color:red;"></div>
                     </div>
                     <div class="col-12 col-sm-6">
-                        <label>Surname</label>
-                        <input type="text" asp-for="LastName" class="form-control" placeholder="Enter your surname">
+                      <input type="text" id="SName" asp-for="LastName" class="form-control" placeholder="Enter your surname" onkeyup="validation();">
+                        <span id="SNameError" style="color:red;"></span>
+
                     </div>
                 </div>
                 <div class="row mt-3">
@@ -169,7 +170,7 @@
                         <label>Country*</label>
 
                         <select class="form-select" asp-for="CountryId" aria-label="Default select example" data-bs-display="static"
-                                aria-placeholder="Select your country" id="countryId" onchange=" GetProfileCity();">
+                                aria-placeholder="Select your country" id="countryId" onchange=" GetProfileCity(); validation();">
                             <option value="0" selected>Select your country</option>
                             @foreach (var item in @ViewBag.countries)
                             {
@@ -177,10 +178,12 @@
                                 <option value="@item.CountryId"> @item.Name</option>
                             }
                         </select>
+                         <span id="CountryError" style="color:red;"></span>
+
                     </div>
                     <div class="col-12 col-sm-6">
                         <label>City*</label>
-                        <select class="form-select" asp-for="CityId" aria-label="Default select example" data-bs-display="static"
+                        <select class="form-select" asp-for="CityId" aria-label="Default select example" data-bs-display="static" onchange="validation();"
                                 aria-placeholder="Select your city" id="selectCityList">
                             <option value="0" selected>Select your city</option>
                             @foreach (var item in @ViewBag.Cities)
@@ -191,6 +194,7 @@
                             }
 
                         </select>
+                        <span id="CityError" style="color:red;"></span>
                     </div>
                 </div>
                 <h4 style="color: #414141;" class="mt-3">Professional Information</h4>
@@ -304,7 +308,7 @@
 
                 <div class="row mt-3">
                     <div class="col-12 text-end apply2">
-                        <button type="submit" value="3" name="save" class="btn btn-outline apply">
+                        <button type="submit" id="Updateprofile" value="3" name="save" class="btn btn-outline apply">
                             Save
 
                         </button>
@@ -386,7 +390,42 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
         integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous"></script>
+<script>
 
+    function validation(){
+
+    var City = $("#selectCityList").val();
+    var Country = $("#countryId").val();
+    var Name = $("#Name").val();
+    var SName = $("#SName").val();
+    console.log(City);
+    console.log(Country);
+    console.log(Name);
+    console.log(SName);
+
+    document.querySelector('#Updateprofile').disabled = true;
+
+    if(Name.length == 0){
+    $("#NameError").text("Plaease enter the name first");
+    }
+    else if(SName.length == 0){
+    $("#SNameError").text("Plaease enter the Last name first");
+    }
+    else if(Country == 0){
+    $("#CountryError").text("Plaease select the Country ");
+    }
+    else if(City == 0){
+    $("#CityError").text("Plaease select the city");
+    }
+    else{
+    $("#CityError").text("");
+    $("#CountryError").text("");
+    $("#NameError").text("");
+    $("#SNameError").text("");
+    document.querySelector('#Updateprofile').disabled = false;
+    }
+    }
+</script>
 
 <script>
     var readURL = function(input) {
@@ -408,46 +447,46 @@
 
 </script>
 
-<script>
-      function printSelect()
-      {
-          console.log("Add TO Skill Text");
-        var selectValue = document.getElementById("selected_features");
-          console.log(selectValue);
+@*<script>
+    function printSelect()
+    {
+    console.log("Add TO Skill Text");
+    var selectValue = document.getElementById("selected_features");
+    console.log(selectValue);
 
-             var list = selectValue.getElementsByTagName("option");
-              console.log(list);
-               $("#PrintSkills").empty();
+    var list = selectValue.getElementsByTagName("option");
+    console.log(list);
+    $("#PrintSkills").empty();
 
-             for (i = 0; i < list.length; i++)
-             {
-                document.getElementById("PrintSkills").innerHTML +=
-                `<li>
-                    <input asp-for="skillsToAdd" name="skillsToAdd" type="hidden"value="${list[i].value}" \ >  ${list[i].text}
-                 </li>`;
-                console.log(list[i].text);
-             }
+    for (i = 0; i < list.length; i++)
+    {
+    document.getElementById("PrintSkills").innerHTML +=
+    `<li>
+    <input asp-for="skillsToAdd" name="skillsToAdd" type="hidden"value="${list[i].value}" \ >  ${list[i].text}
+    </li>`;
+    console.log(list[i].text);
     }
-</script>
+    }
+    </script>
 
 
-<script>
+    <script>
     console.log("hi");
     var exampleModal = document.getElementById('exampleModal')
     exampleModal.addEventListener('show.bs.modal', function (event) {
 
-        var button = event.relatedTarget
+    var button = event.relatedTarget
 
-        var recipient = button.getAttribute('data-bs-whatever')
+    var recipient = button.getAttribute('data-bs-whatever')
 
-        var modalTitle = exampleModal.querySelector('.modal-title')
-        var modalBodyInput = exampleModal.querySelector('.modal-body input')
+    var modalTitle = exampleModal.querySelector('.modal-title')
+    var modalBodyInput = exampleModal.querySelector('.modal-body input')
 
-        modalTitle.textContent = 'New message to ' + recipient
-        modalBodyInput.value = recipient
+    modalTitle.textContent = 'New message to ' + recipient
+    modalBodyInput.value = recipient
     })
-</script>
-
+    </script>
+*@
 <script>
     console.log("hi");
     var exampleModal = document.getElementById('exampleModal1')

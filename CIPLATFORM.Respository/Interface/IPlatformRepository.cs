@@ -51,8 +51,8 @@ namespace CIPLATFORM.Respository.Interface
         public bool SaveImage(StoryListingViewModel obj, List<IFormFile> file);
 
         public StoryListingViewModel getData(int mid, int uid);
-        public List<User> GetVolunteers(int id, int userId, int pg);
-
+     
+        List<MissionListingViewModel> getMisAppList(int pg, long missionId);
 
     }
 }

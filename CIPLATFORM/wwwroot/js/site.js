@@ -86,8 +86,7 @@ function GetCity() {
 
 
 function GetProfileCity() {
-    debugger
-
+    
     var countryId = $('#countryId').find(":selected").val();
     debugger
     $.ajax({
@@ -123,7 +122,21 @@ function GetProfileCity() {
 
 
 
+var view = 1;
 
+$(document).ready(function () {
+    $("#list").click(function () {
+        view = 2;
+        temp();
+        console.log(view);
+    });
+
+    $("#grid").click(function () {
+
+        view = 1;
+        temp();
+    });
+})
 /*filter */
 function temp(pg) {
 
@@ -231,17 +244,16 @@ function temp(pg) {
             'search': search,
             'sort': sort,
             'pg': pg,
+            'view':view,
 
         },
-        dataType: "html", // return datatype like JSON and HTML
+        dataType: "html", 
         success: function (data) {
 
             $("#filter").empty();
             console.log("grid Hii");
             $("#filter").html(data);
-            //$("#list-view").empty();
-            //console.log("list Hii");
-            //$("#list-view").html(data);
+          
 
 
             var div1 = document.getElementById("list-view");

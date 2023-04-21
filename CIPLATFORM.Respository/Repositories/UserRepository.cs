@@ -24,12 +24,7 @@ namespace CIPLATFORM.Respository.Repositories
         {
             _CiPlatformContext = CiPlatformContext;
         }
-        //public User login(User obj)
-        //{
-        //    var user = _CiPlatformContext.Users.FirstOrDefault(U => U.Email == obj.Email && U.Password == obj.Password);
-
-        //    return user;
-        //}
+      
         public Login login(Login obj)
         {
             Login lgn = new Login();

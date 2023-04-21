@@ -2,11 +2,13 @@
 using CIPLATFORM.Entities.Models;
 using CIPLATFORM.Entities.ViewModels;
 using CIPLATFORM.Respository.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace CIPLATFORM.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
 

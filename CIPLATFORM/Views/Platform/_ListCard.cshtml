@@ -116,27 +116,27 @@
                                                     <h5 class="modal-title" id="exampleModalToggleLabel">Recommand To Co-Worker</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                               <div class="modal-body" style="background-color:#F9F9F8" onclick="recommandToCoWorker(@item.MissionId)">
+                                                <div class="modal-body" style="background-color:#F9F9F8" onclick="recommandToCoWorker(@item.MissionId)">
 
 
-                                        @foreach (var item1 in Model.coworkers)
-                                        {
+                                                    @foreach (var item1 in Model.coworkers)
+                                                    {
 
-                                        <div class="d-flex justify-content-start">
-                                        <input type="checkbox" value="@item1.UserId" />
-                                        <span class="ms-3" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"> @item1.FirstName @item1.LastName</span>
-                                        </div>
-                                        }
+                                                        <div class="d-flex justify-content-start">
+                                                            <input type="checkbox" value="@item1.UserId" />
+                                                            <span class="ms-3" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"> @item1.FirstName @item1.LastName</span>
+                                                        </div>
+                                                    }
 
-                                        </div>
+                                                </div>
                                                 <div class="modal-footer">
                                                     <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                
-                                    <button  class="btn btn-box rounded-5" data-bs-toggle="modal"  style="background-color: black ; opacity: 50%;" href="#exampleModalToggle" role="button">  <img src="~/images/user.png" class=" img-fluid cancle-img" alt=""></button>
+
+                                    <button class="btn btn-box rounded-5" data-bs-toggle="modal" style="background-color: black ; opacity: 50%;" href="#exampleModalToggle" role="button">  <img src="~/images/user.png" class=" img-fluid cancle-img" alt=""></button>
                                     @* <button class="btn btn-box rounded-5" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: black ; opacity: 50%;">
                                         <img src="~/images/user.png" class=" img-fluid cancle-img" alt="">
                                         </button>*@
@@ -201,21 +201,76 @@
                             <div class="row mt-1">
                                 <div class="col-sm-7">
                                     <div class="apply2">
-                                        <button type="button" class="btn btn-outline apply">
-                                            <a asp-controller="Platform" asp-action="MissionListing" style="text-decoration:none;color:black" asp-route-mid="@item.MissionId"> Apply <i class=" ms-2 bi bi-arrow-right-short"></i></a>
-
-                                        </button>
+                                        @{
+                                            if (item.MissionApplications.Any(m => m.UserId == ViewBag.UId && m.ApprovalStatus == "Approve"))
+                                            {
+                                                <button type="button" class="btn btn-outline apply">
+                                                    <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@item.MissionId" style="text-decoration:none;color:black">
+                                                        View Deatail
+                                                        <i class=" ms-2 bi bi-arrow-right-short"></i>
+                                                    </a>
+                                                </button>
+                                            }
+                                            else if (item.EndDate < DateTime.Now)
+                                            {
+                                                <button type="button" class="btn btn-outline apply">
+                                                    <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@item.MissionId" style="text-decoration:none;color:black">
+                                                        View Deatail
+                                                        <i class=" ms-2 bi bi-arrow-right-short"></i>
+                                                    </a>
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <button type="button" class="btn btn-outline apply">
+                                                    <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@item.MissionId" style="text-decoration:none;color:black"> Apply <i class=" ms-2 bi bi-arrow-right-short"></i></a>
+                                                </button>
+                                            }
+                                        }
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
                                     <div class="row">
                                         <div class="col-6">
                                             <i class="bi bi-person-check " style="font-size: 25px;"></i>
-                                            <span> 10 <br> seats left</span>
+                                            @{
+                                                if (item.MissionType == "Goal")
+                                                {
+                                                    int seates = @item.GoalMissions.FirstOrDefault().GoalValue;
+                                                    int apply = @item.MissionApplications.Count();
+                                                    int left = seates - apply;
+
+                                                    <span>@left</span>
+                                                    <br>
+                                                    <span>seats left</span>
+                                                }
+                                                else
+                                                {
+                                                    int apply = @item.MissionApplications.Count();
+                                                    <span>@apply</span>
+                                                    <br>
+                                                    <span>Already Volunteered</span>
+                                                }
+                                            }
                                         </div>
-                                        <div class="col-6 d-flex justify-content-end">
-                                            <i class="bi bi-clock" style="font-size: 25px;"></i>
-                                            <span> @item.EndDate.ToString().Substring(0,10)  <br> Deadline</span>
+                                        <div class="col-6 justify-content-end">
+                                            @{
+                                                if (item.MissionType == "Goal")
+                                                {
+                                                    int seates = @item.GoalMissions.FirstOrDefault().GoalValue;
+                                                    int apply = @item.MissionApplications.Count();
+                                                    float per = (((float)apply / (float)seates) * (float)(100));
+                                                    <input type="range" class="mt-1 i1" id="slider" name="slider" min="0" max="100" value=@per>
+                                                    <p>@apply Achieved</p>
+                                                }
+                                                else
+                                                {
+                                                    <i class="bi bi-clock"></i>
+                                                    <span>@item.EndDate.ToString().Substring(0,10)</span>
+                                                    <br>
+                                                    <span class="small text-muted">&nbsp &nbsp Deadline</span>
+                                                }
+                                            }
                                         </div>
                                     </div>
                                 </div>

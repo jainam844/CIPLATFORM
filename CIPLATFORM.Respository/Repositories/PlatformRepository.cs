@@ -73,7 +73,7 @@ namespace CIPLATFORM.Respository.Repositories
 
         public CardsViewModel getCards()
         {
-            List<Mission> missions = _CiPlatformContext.Missions.Include(x=>x.MissionApplications).ToList();
+            List<Mission> missions = _CiPlatformContext.Missions.Include(x => x.MissionApplications).ToList();
             List<MissionMedium> media = _CiPlatformContext.MissionMedia.Where(x => x.Default == 1).ToList();
             List<MissionSkill> missionSkills = _CiPlatformContext.MissionSkills.ToList();
             List<MissionTheme> missionThemes = _CiPlatformContext.MissionThemes.ToList();
@@ -81,7 +81,7 @@ namespace CIPLATFORM.Respository.Repositories
             List<City> cities = _CiPlatformContext.Cities.ToList();
             List<Country> countries = _CiPlatformContext.Countries.ToList();
             List<FavoriteMission> favoriteMission = _CiPlatformContext.FavoriteMissions.ToList();
-            List<User> users=_CiPlatformContext.Users.ToList();
+            List<User> users = _CiPlatformContext.Users.ToList();
             CardsViewModel missionCards = new CardsViewModel();
             {
 
@@ -644,16 +644,37 @@ namespace CIPLATFORM.Respository.Repositories
 
 
 
-        public List<User> GetVolunteers(int id, int userId, int pg)
+       
+
+
+
+        public List<MissionListingViewModel> getMisAppList(int pg, long missionId)
         {
-            var data = _CiPlatformContext.MissionApplications
-            .Include(ma => ma.User)
-            .Where(ma => ma.MissionId == id);
+            var pageSize = 1;
+            List<MissionApplication> missionApplications = _CiPlatformContext.MissionApplications.Where(m => m.ApprovalStatus == "Approve" && m.MissionId == missionId).Include(x => x.User).ToList();
 
-            var volunteers = data
-            .Select(ma => ma.User).ToList();
+            List<MissionListingViewModel> misView = new List<MissionListingViewModel>();
+            foreach (MissionApplication app in missionApplications)
+            {
+                MissionListingViewModel mView = new MissionListingViewModel();
+                User user = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == app.UserId);
+                mView.MissionId = missionId;
+                mView.Avatar = user.Avatar;
+                mView.UserName = user.FirstName + " " + user.LastName;
 
-            return volunteers;
+                misView.Add(mView);
+            }
+
+
+            if (pg != 0)
+            {
+                misView = misView.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
+            }
+
+            return misView;
         }
+
+
+
     }
 }

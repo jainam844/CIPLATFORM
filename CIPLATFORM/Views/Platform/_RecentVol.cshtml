@@ -12,19 +12,60 @@
                     </button>
                 </li>
             </ul>
-            <div class="row mt-3">
-                @foreach (var data in Model.missionapplications)
-                {
-                    <div class="col-4">
-                        <div class="row">
-                            <img src=~/images/@data.User.Avatar class="img50" alt="">
-                        </div>
-                        <div class="row">
-                            <span class="d-flex justify-content-center">   @data.User.FirstName </span>
-                        </div>
+
+            @foreach (var ii in @ViewBag.pag)
+            {
+                <div class="row ">
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 volunteer-profile text-center">
+                        <img src="~/images/@ii.Avatar" class="rounded-circle" width="60" height="60"><br>
+                        <p class="text-muted"> @ii.UserName</p>
                     </div>
-                }
-            </div>
+
+                </div>
+                <hr>
+                <p class="text-center text-muted">
+                    @*1 - 9 of 25 Recent Volunteers *@
+
+                    @*Navbar change karvu*@
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center" onchange="rVolunteer()">
+                            <li class="page-item">
+                                <button class="page-link" onclick="rVolunteer(1,@ii.MissionId)">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </button>
+                            </li>
+                            @{
+                                double totalpages = ViewBag.Totalpag;
+
+                                for (int i = 1; i <= totalpages; i++)
+                                {
+                                    @if (i == ViewBag.pag_no)
+                                    {
+                                        <li class="page-item ">
+                                            <button class="page-link" onclick="rVolunteer(@i,@ii.MissionId )">@i </button>
+
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li class="page-item">
+                                            <button class="page-link" onclick="rVolunteer(@i,@ii.MissionId )">@i</button>
+                                        </li>
+                                    }
+                                }
+                            }
+
+                            <li class="page-item">
+                                <button class="page-link" onclick="rVolunteer(@ViewBag.Totalpag,@ii.MissionId )">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </p>
+            }
         </div>
     </div>
 </div>
@@ -32,100 +73,7 @@
 
 
 
-@*
-
-    <nav aria-label="Page navigation example mt-4">
-    <ul class="pagination justify-content-center">
-
-    @{
-    double totalpages = ViewBag.Totalpages;
 
 
 
-    for (int i = 1; i <= totalpages; i++)
-    {
-    @if (i == ViewBag.pg_no)
-    {
-    <li class="page-item ">
-    <a class="page-link">@i </a>
-
-    </li>
-    }
-    else
-    {
-    <li class="page-item">
-    <a class="page-link">@i</a>
-    </li>
-    }
-
-
-    }
-    }
-
-
-
-
-    </ul>
-    </nav>
-*@
-
-
-
-
-
-
-
-
-@*<nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center" onclick="AddUserToRecent()">
-
-        @{
-            double totalpages = ViewBag.Totalpages;
-            int pg = 1;
-            for (int i = 1; i <= totalpages; i++)
-            {
-                @if (i == ViewBag.pg_no)
-                {
-                    <li class="page-item ">
-                        <a class="page-link" onclick="AddUserToRecent(@Model.missions.MissionId,@ViewBag.UId,@i)">@i </a>
-
-                    </li>
-                }
-                else
-                {
-                    <li class="page-item">
-                        <a class="page-link" onclick="AddUserToRecent(@Model.missions.MissionId,@ViewBag.UId ,@i)">@i</a>
-                    </li>
-                }
-
-
-            }
-        }
-
-    </ul>
-</nav>*@
-
-<script>
-              function PageIndex(x, y) {
-    console.log(x,y);
-    $.ajax({
-        url: '/Platform/recentVolunteers',
-        method: "POST",
-        data: {
-            'mid': x,
-            'pageIndex': y
-        },
-        success: function (data) {
-            debugger
-            console.log(data);
-            console.log("Pagination");
-            $("#recentVolunter").html(data);
-        },
-        error: function (request, error) {
-            console.log("Error in Pagination");
-           alert('Error in Pagination');
-        },
-    });
-}
-</script>
 

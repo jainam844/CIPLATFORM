@@ -1,6 +1,4 @@
-﻿
-
-@using CIPLATFORM.Entities.ViewModels
+﻿@using CIPLATFORM.Entities.ViewModels
 @model ProfileViewModel
 
 
@@ -44,7 +42,7 @@
         max-height: 800px;
         max-width: 800px;
         /* border: 2px solid #f3f3f3;
-        padding-left: 16px;*/
+            padding-left: 16px;*/
         overflow: auto;
         /* this will hide the scrollbar in mozilla based browsers */
         overflow: -moz-scrollbars-none;
@@ -130,8 +128,8 @@
                                                 </button>
 
                                                 <button type="button" class="btn p-0" @*data-bs-toggle="modal"*@ @*data-bs-target="#TimesheetDelete"*@ onclick=" if (confirm('Are you sure you want to delete?')) { return location.href=' @Url.Action("DeleteActivity", "Admin" ,new {tid = @obj.TimesheetId})' } ">
-                                                <i class="bi bi-trash ms-3"></i>
-                                            </button>
+                                                    <i class="bi bi-trash ms-3"></i>
+                                                </button>
                                             </td>
                                         </tr>
                                     }
@@ -181,7 +179,7 @@
                                             <button type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#TimesheetGoal" onclick="getgoalActivity(@obj.TimesheetId)">
                                                 <i class="bi bi-pencil-square" style="color: coral;"></i>
                                             </button>
-                                            <button type="button" class="btn p-0"  onclick=" if (confirm('Are you sure you want to delete?')) { return location.href=' @Url.Action("DeleteActivity", "Profile" ,new {tid = @obj.TimesheetId})' } ">
+                                            <button type="button" class="btn p-0" onclick=" if (confirm('Are you sure you want to delete?')) { return location.href=' @Url.Action("DeleteActivity", "Profile" ,new {tid = @obj.TimesheetId})' } ">
                                                 <i class="bi bi-trash ms-3"></i>
                                             </button>
                                         </td>
@@ -195,3 +193,77 @@
         </div>
     </div>
 </div>
+
+
+
+<script>
+
+    function Timevalidation()
+    {
+        var Mission = $("#Mission").val();
+        var Date = $("#sDate").val();
+        var Hours = $("#Hours").val();
+        var Minutes = $("#Minutes").val();
+        console.log(Mission);
+        console.log(Date);
+        console.log(Hours);
+        console.log(Minutes);
+
+        document.getElementById('Submitbtn').disabled = true;
+
+
+        if(Mission == 0){
+            $("#MissionError").text("Plaease select the Mission First");
+         }
+        else if(Date.length == 0){
+            $("#DateError").text("Plaease enter the Valid Date");
+        }
+        else if(Hours == 0 && Minutes == 0){
+            $("#TimeError").text("Plaease enter the Valid Time");
+        }
+
+
+        else{
+            $("#MissionError").text("");
+            $("#TimeError").text("");
+            $("#DateError").text("");
+            document.getElementById('Submitbtn').disabled = false;
+         }
+    }
+</script>
+
+
+
+
+
+
+<script>
+
+    function Goalvalidation()
+    {
+    var Mission = $("#GMission").val();
+    var Date = $("#Date").val();
+    var Goal = $("#Goal").val();
+
+    console.log(Mission);
+    console.log(Date);
+    console.log(Goal);
+    document.getElementById('GSubmitbtn').disabled = true;
+
+    if(Mission == 0){
+    $("#GMissionError").text("Plaease select the Mission First");
+    }
+    else if(Goal == 0){
+    $("#GoalError").text("Plaease enter the Valid Goal value");
+    }
+    else if(Date.length == 0){
+    $("#GDateError").text("Plaease enter the Valid Date");
+    }
+    else{
+    $("#GMissionError").text("");
+    $("#GDateError").text("");
+    $("#GoalError").text("");
+    document.getElementById('GSubmitbtn').disabled = false;
+    }
+    }
+</script>
