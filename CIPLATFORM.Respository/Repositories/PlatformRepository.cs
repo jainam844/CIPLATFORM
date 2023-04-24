@@ -108,8 +108,21 @@ namespace CIPLATFORM.Respository.Repositories
             //int rating = avgRating(mid);
             List<MissionSkill> missionSkills = _CiPlatformContext.MissionSkills.Include(m => m.Skill).Where(x => x.MissionId == mid).ToList();
             List<MissionApplication> applications = _CiPlatformContext.MissionApplications.Include(m => m.User).Where(x => x.MissionId == mid).ToList();
-            List<Mission> relatedMissions = missions.Where(x => x.OrganizationName == mission.OrganizationName || x.ThemeId == mission.ThemeId || x.CountryId == mission.CountryId).ToList();
-            relatedMissions.Remove(mission);
+
+
+            //List<Mission> relatedMissions = missions.Where(x => x.OrganizationName == mission.OrganizationName || x.ThemeId == mission.ThemeId || x.CountryId == mission.CountryId).ToList();
+            //relatedMissions.Remove(mission);
+
+            List<Mission> relatedMissions = missions.Where(a => a.MissionId != mission.MissionId &&
+(a.ThemeId == mission.ThemeId || (a.CityId == mission.CityId || a.CountryId == mission.CountryId ||
+a.OrganizationName == mission.OrganizationName))
+)
+.OrderByDescending(a => a.ThemeId == mission.ThemeId)
+.ThenByDescending(a => a.CityId == mission.CityId)
+.ThenByDescending(a => a.CountryId == mission.CountryId)
+.ThenByDescending(a => a.OrganizationName == mission.OrganizationName)
+.Take(3)
+.ToList();
 
             List<Comment> comments = _CiPlatformContext.Comments.Include(m => m.User).Where(x => x.MissionId == mid && x.ApprovalStatus == "Published").ToList();
             List<User> users = _CiPlatformContext.Users.ToList();
@@ -248,6 +261,25 @@ namespace CIPLATFORM.Respository.Repositories
                 return false;
             }
         }
+        public bool MIcheck(int mid, int userId, List<int> ToUserId)
+        {
+            MissionInvite mi = new MissionInvite();
+            {
+                foreach (var item in ToUserId)
+                {
+                    mi = _CiPlatformContext.MissionInvites.FirstOrDefault(x => x.MissionId == mid && x.FromUserId == userId && x.ToUserId == item);
+
+                }
+                if (mi == null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
 
         public void RecommandToCoWorker(int FromUserId, List<int> ToUserId, int mid)
         {
@@ -310,12 +342,32 @@ namespace CIPLATFORM.Respository.Repositories
             return StoryDetail;
         }
 
+        public StoryView addView(int sid, int UId)
+        {
+            StoryView sv = _CiPlatformContext.StoryViews.FirstOrDefault(x => x.StoryId == sid && x.UserId == UId);
+            if (sv == null)
+            {
+                StoryView sv1 = new StoryView();
+                {
+                    sv1.StoryId = sid;
+                    sv1.UserId = UId;
+                    _CiPlatformContext.StoryViews.Add(sv1);
+                    _CiPlatformContext.SaveChanges();
+                }
+                return sv1;
+            }
+            else
+            {
+                return sv;
+            }
+
+        }
 
 
         public StoryListingViewModel GetStory(int sid)
         {
 
-            Story story = _CiPlatformContext.Stories.Include(m => m.User).FirstOrDefault(m => m.StoryId == sid);
+            Story story = _CiPlatformContext.Stories.Include(m => m.User).Include(m => m.StoryViews).FirstOrDefault(m => m.StoryId == sid);
             List<StoryMedium> photos = smedia(sid);
             List<User> users = _CiPlatformContext.Users.ToList();
             StoryListingViewModel StoryDetail = new StoryListingViewModel();
@@ -331,7 +383,25 @@ namespace CIPLATFORM.Respository.Repositories
             List<StoryMedium> photos = _CiPlatformContext.StoryMedia.Where(x => x.StoryId == sid && x.Type == "png").ToList();
             return photos;
         }
+        public bool MIcheckStory(int sid, int userId, List<int> ToUserId)
+        {
+            StoryInvite si = new StoryInvite();
+            {
+                foreach (var item in ToUserId)
+                {
+                    si = _CiPlatformContext.StoryInvites.FirstOrDefault(x => x.StoryId == sid && x.FromUserId == userId && x.ToUserId == item);
 
+                }
+                if (si == null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
         public void RecommandStory(int FromUserId, List<int> ToUserId, int sid)
         {
             var fromUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == FromUserId && u.DeletedAt == null);
@@ -644,7 +714,7 @@ namespace CIPLATFORM.Respository.Repositories
 
 
 
-       
+
 
 
 

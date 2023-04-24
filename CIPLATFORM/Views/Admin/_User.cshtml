@@ -187,13 +187,13 @@
     <h3 class="p-3 m-0" style="background-color: #F8F9FC;"> Add User</h3>
     <hr class="m-0">
   
-    <form class="px-3">
+    <form class="px-3" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="col-lg-12 ">
 
                 <div class=" p-3 d-flex justify-content-center align-items-center flex-column">
 
-                    <input id="profileImageInput" type="file" class="Avatarfile" accept="image/jpeg, image/png, image/jpg" />
+                    <input id="profileImageInput" asp-for="Avatarfile" type="file" class="Avatarfile" accept="image/jpeg, image/png, image/jpg" />
 
                     <img src="~/images/volunteer1.png" style="border-radius: 50%; height:125px; width:125px" class="ProfileImage">
                     <span style="color: #414141;" class="">Evan Donohue</span>
@@ -204,67 +204,72 @@
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Name</label>
-                <input type="text" class="form-control" placeholder="Enter your name">
+                <input type="text"  asp-for="user.FirstName" class="form-control" placeholder="Enter your name">
             </div>
             <div class="col-12 col-sm-6">
                 <label>Surname</label>
-                <input type="text" class="form-control" placeholder="Enter your surname">
+                <input type="text" asp-for="user.LastName"  class="form-control" placeholder="Enter your surname">
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Email</label>
-                <input type="email" class="form-control" placeholder="Enter Email">
+                <input type="email" asp-for="user.Email" class="form-control" placeholder="Enter Email">
             </div>
             <div class="col-12 col-sm-6">
                 <label>Password</label>
-                <input type="password" class="form-control" placeholder="Enter Password">
+                <input type="password" asp-for="user.Password" class="form-control" placeholder="Enter Password">
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Employee ID</label>
-                <input type="text" class="form-control" placeholder="Enter your employee id">
+                <input type="text" asp-for="user.EmployeeId" class="form-control" placeholder="Enter your employee id">
             </div>
             <div class="col-12 col-sm-6">
                 <label>Department</label>
-                <input type="text" class="form-control" placeholder="Enter your manager details">
+                <input type="text" asp-for="user.Department" class="form-control" placeholder="Enter your manager details">
             </div>
         </div>
 
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Country*</label>
-                <select class="form-select" aria-label="Default select example"
+                <select class="form-select" asp-for ="user.CountryId" aria-label="Default select example"
                         aria-placeholder="Select your country">
                     <option value="0">Select your country</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    @foreach(var item in @Model.countries)
+                    {
+                         <option value="@item.CountryId">@item.Name</option>
+                  
+                    }
+                   
                 </select>
             </div>
             <div class="col-12 col-sm-6">
                 <label>City*</label>
-                <select class="form-select" aria-label="Default select example"
+                <select class="form-select" asp-for ="user.CityId" aria-label="Default select example"
                         aria-placeholder="Select your country">
                     <option value="0">Select your city</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                     @foreach(var item in @Model.cities){
+                         <option value="@item.CityId">@item.Name</option>
+                
+                     }
+                    
                 </select>
             </div>
         </div>
 
         <div class="form-group mt-3">
             <label for="exampleFormControlTextarea1">My Profile*</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+            <textarea class="form-control" asp-for="user.ProfileText" id="exampleFormControlTextarea1" rows="4"
                       placeholder="Enter your comments..."></textarea>
         </div>
 
         <div class="row mt-3">
             <div class="col-12 ">
                 <label>Status</label>
-                <select class="form-select" aria-label="Default select example"
+                <select class="form-select" asp-for="user.Status" aria-label="Default select example"
                         aria-placeholder="Select your country">
                     <option value="0">In-Active</option>
                     <option value="1">Active</option>
@@ -285,7 +290,7 @@
             
           
             <div class="apply2 col-1">
-                <button type="button" class="btn btn-outline apply">
+                <button type="submit" name="command" value="1"  class="btn btn-outline apply">
                     Save
 
                 </button>

@@ -1,5 +1,4 @@
-﻿
-input[type=range] {
+﻿input[type=range] {
     -webkit-appearance: none;
     width: 150px;
     height: 10px;
@@ -7,31 +6,18 @@ input[type=range] {
     border-radius: 5px;
 }
 
-input[type=range]:focus {
-    outline: none;
-}
+    input[type=range]:focus {
+        outline: none;
+    }
 
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    background-color: #ddd;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-input[type=range]::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background-color: #4CAF50;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-
-
-
-
+    input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        background-color: orange;
+        border-radius: 50%;
+        cursor: pointer;
+    }
 
 @media only screen and (min-width:417px) and (max-width:425px) {
 
@@ -43,11 +29,6 @@ input[type=range]::-moz-range-thumb {
 
 
 
-@media only screen and (min-width:300px)and (max-width:350px) {
-    input[type=range].i1 {
-        width: 120px;
-    }
-}
 
 * {
     box-sizing: border-box;
@@ -136,7 +117,7 @@ input[type=range]::-moz-range-thumb {
 }
 
 .b2 {
-    border: 2px solid rgb(219, 210, 210);
+    border: 2px solid gray;
     border-radius: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 5px;

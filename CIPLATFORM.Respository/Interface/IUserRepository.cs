@@ -15,7 +15,8 @@ namespace CIPLATFORM.Respository.Interface
     User register(User obj);
         User forgot(User obj);
         PasswordReset newpassword(User obj, string token);
-
+        public bool checktime(string token);
+        public bool checktoken(string token);
     }
    
 }

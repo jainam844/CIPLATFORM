@@ -1,179 +1,155 @@
 ﻿@*<div class="container-fluid">
     <div class="container">
-    <div class="row d-flex">
-    <nav class="navbar  navbar-expand-lg bg-body-tertiary p-0">
-    <div class="container-fluid">
-    <div class="d-flex align-items-center col-lg-6 col-12  .navbar-search-sm" role="search">
+        <div class="row d-flex">
+            <nav class="navbar  navbar-expand-lg bg-body-tertiary p-0">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center col-lg-6 col-12  .navbar-search-sm" role="search">
 
-    <img src="~/images/search.png" class="search" />
-    <input class="form-control mx-1" type="text" placeholder="Search Missions..."
-    aria-label="Search" id="searchb" onkeyup="temp(1)">
+                        <img src="~/images/search.png" class="search" />
+                        <input class="form-control mx-1" type="search" placeholder="Search Missions..."
+                               aria-label="Search" id="searchb" onkeyup="temp()">
+                    </div>
 
-    </div>
+                    <div class="col-lg-6 col-12 anchor">
+                        <div class="row">
+                            <div class=" col-6 col-sm-3 dropdown ">
+                                <select id="countryId" onchange="temp(); GetCity();" class="form-select select-menu  profile-name d-flex justify-content-between h-100 w-100 "
+                                        aria-label="Default select example" style="box-shadow: none;">
+                                    <option selected>Country</option>
+                                    @foreach (var obj in @ViewBag.countries)
+                                    {
+                                        <option value="@obj.CountryId">@obj.Name</option>
+                                    }
+                                </select>
+                               
+                            </div>
+                            <div class=" col-6 col-sm-3 dropdown">
+                                <button class="h-item border d-flex  bg-light align-items-center justify-content-between w-100 p-0" type="button"
+                                        data-bs-toggle="dropdown">
+                                    <select class="form-select select-menu profile-name d-flex justify-content-between h-100 w-100"
+                                            aria-label="Default select example" style="box-shadow: none;" id="selectCityList" onchange="temp()">
 
-    <div class="col-lg-6 col-12 anchor">
-    <div class="row">
+                                        <option selected>City</option>
+                                        @foreach (var item in @ViewBag.Cities)
+                                        {
 
-    <div class=" col-6 col-sm-3 dropdown ">
-    <div class="form-select  border-white xyz" aria-label="Default select example" placeholder="Country" id="countryId" onchange="temp(1); GetCity();">
-    <a class="nav-link  text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Country
-    </a>
-    <ul class="dropdown-menu">
+                                            <option value="@item.CityId"> @item.Name</option>
+                                        }
+                                    </select>
+                                </button>
+                            </div>
+                            <div class=" col-6 col-sm-3 pt-3 pt-sm-0 dropdown">
+                                <button class="h-item border d-flex border align-items-center justify-content-between w-100 h-100 p-0" style="background-color:white;" type="button"
+                                        data-bs-toggle="dropdown">
+                                    <span class="profile-name d-flex ps-2">Themes</span>
+                                    <img src="~/images/drop-down.png" class="pe-2" alt="Profile-dropdown" />
+                                </button>
+                                <ul class="dropdown-menu scroll_dropdown" aria-labelledby="dropdownMenuButton1" id="theme" onchange="temp()">
+                                    @foreach (var item in @ViewBag.themes)
+                                    {
 
-    @foreach (var item in @ViewBag.Countries)
-    {
+                                        <li><input type="checkbox" value="@item.MissionThemeId" /> @item.Title </li>
+                                    }
+                                </ul>
+                            </div>
+                            <div class=" col-6 col-sm-3 pt-3 pt-sm-0 dropdown">
+                                <button class="h-item border d-flex  align-items-center justify-content-between w-100 h-100 p-0" style="background-color:white;" type="button"
+                                        data-bs-toggle="dropdown">
+                                    <span class="profile-name d-flex ps-2">Skills</span>
+                                    <img src="~/images/drop-down.png" class="pe-2" alt="Profile-dropdown" />
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end w-100" id="skill" onchange="temp()">
+                                    @foreach (var item in @ViewBag.skills)
+                                    {
 
-    <li><input type="checkbox" value="@item.CountryId" /> @item.Name </li>
-    }
-    </ul>
-    </div>
-    <div class=" col-6 col-sm-3 dropdown">
+                                        <li><input type="checkbox" value="@item.SkillId" /> @item.Skill.SkillName </li>
+                                    }
+                                </ul>
+                            </div>
+                           
 
-    <div class="form-select border-white xyz " aria-label="Default select example" onchange="temp(1)">
-    <a class="nav-link  text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    City
-    </a>
-    <ul class="dropdown-menu" id="selectCityList">
-    @foreach (var item in @ViewBag.Cities)
-    {
-    <li>
-    <input type="checkbox" value="@item.CityId" />
-    @item.Name
-    </li>
-    }
-    </ul>
-    </div>
-    </div>
-    <div class=" col-6 col-sm-3 pt-3 pt-sm-0 dropdown">
-    <div class="h-item border-white xyz    d-flex  align-items-center justify-content-between w-100 h-100 p-0  "
-    data-bs-toggle="dropdown">
-    <span class="ms-2"> Themes</span>
-    <img src="~/images/drop-down.png" class="me-2" alt="Profile-dropdown" />
-    </div>
-    <ul class="dropdown-menu  " aria-labelledby="dropdownMenuButton1" onchange="temp()" ; id="theme">
-    @foreach (var item in @ViewBag.themes)
-    {
+                        </div>
+                    </div>
 
-    <li><input type="checkbox" value="@item.MissionThemeId" /> @item.Title </li>
-    }
-    </ul>
+                </div>
+            </nav>
+        </div>
     </div>
-    <div class=" col-6 col-sm-3 pt-3 pt-sm-0 dropdown">
-    <div class="h-item border-white xyz  d-flex align-items-center justify-content-between w-100 h-100 p-0 "
-    data-bs-toggle="dropdown">
-    <span class="profile-name d-flex ms-2">Skills</span>
-    <img src="~/images/drop-down.png" class="me-2" alt="Profile-dropdown" />
-    </div>
-    <ul class="dropdown-menu dropdown-menu-end w-100" id="skill" onchange="temp()">
-    @foreach (var item in @ViewBag.skills)
-    {
+</div>*@
 
-    <li><input type="checkbox" value="@item.SkillId" /> @item.Skill.SkillName </li>
-    }
-    </ul>
-    </div>
-    </div>
-    </div>
-    </div>
-    </nav>
-    </div>
-    </div>
-    </div>
-*@
+
+<div class="container">
 <div class="row">
-    <div class="col-6 ">
-        <form class="d-flex mt-md-3" role="search">
+    <div class="col-lg-6 col-12 ">
+        <form class="d-flex mt-md-3 " role="search">
             <i class="bi bi-search mt-2 ms-2"></i>
-            @*  <input class="form-control border-white" type="search" placeholder="Search Mission " aria-label="Search" id="searchb" onkeyup="story(); temp(1); ">*@
             <input class="form-control mx-1" type="text" placeholder="Search Missions..."
                    aria-label="Search" id="searchb" onkeyup="temp(1)">
         </form>
     </div>
-    <div class="col-6 ">
-        <button class="btn btn-outline-secondary d-md-none w-100" data-mdb-ripple-color="dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <div class="col-lg-6 col-12 mt-3">
+        @*<button class="btn btn-outline-secondary d-md-none w-100" data-mdb-ripple-color="dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             Filter Missions
-        </button>
+        </button>*@
 
-        <div class="collapse d-md-flex " id="collapseExample">
-            <div class="form-select  border-white xyz" aria-label="Default select example" placeholder="Country" id="countryId" onchange="temp(1); GetCity();">
-                @*<option selected>Country</option>
-                    @foreach (var item in @ViewBag.Countries)
-                    {
-                    <option value="@item.CountryId"> @item.Name</option>
-                    }*@
-
+        <div class="row">
+            <div class="col-6 col-sm-3  border-white xyz p-0" aria-label="Default select example" placeholder="Country" id="countryId" onchange="temp(1); GetCity();   filterBadges();">
                 <a class="nav-link  text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Country
+                    Country <i class="bi bi-chevron-down ms-2"></i>
                 </a>
+                
                 <ul class="dropdown-menu">
 
-                    @foreach (var item in @ViewBag.Countries)
+                    @foreach (var item in @ViewBag.countries)
                     {
 
-                        <li><input type="checkbox" value="@item.CountryId" /> @item.Name </li>
+                        <li><input type="checkbox" name="country" id="@item.CountryId" class="country_@item.CountryId" value="@item.Name" /> @item.Name </li>
                     }
                 </ul>
             </div>
-            <div class="form-select border-white xyz " aria-label="Default select example" onchange="temp(1)">
+            <div class="col-6 col-sm-3  border-white xyz p-0" aria-label="Default select example" onchange="temp(1);   filterBadges();">
 
-                <a class="nav-link  text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    City
+                <a class="nav-link  text-dark" href="#" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
+                    City <i class="bi bi-chevron-down ms-2"></i>
                 </a>
                 <ul class="dropdown-menu" id="selectCityList">
                     @foreach (var item in @ViewBag.Cities)
                     {
                         <li>
-                            <input type="checkbox" value="@item.CityId" />
+                            <input type="checkbox" name="city" id="@item.CityId" class="city_@item.CityId" value="@item.Name" />
                             @item.Name
                         </li>
                     }
-                    @* <select>
-                        <option selected>City</option>
-                        @foreach (var item in @ViewBag.Cities)
-                        {
-                        <option value="@item.CityId"> @item.Name</option>
-                        }
-
-                        </select>*@
                 </ul>
             </div>
-            <div class="form-select border-white xyz" aria-label="Default select example" id="theme" onchange="temp(1)">
+            <div class="col-6 col-sm-3  border-white xyz p-0" aria-label="Default select example" id="theme" onchange="temp(1);   filterBadges();">
                 <a class="nav-link  text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Themes
+                    Themes <i class="bi bi-chevron-down ms-2"></i>
                 </a>
                 <ul class="dropdown-menu">
 
                     @foreach (var item in @ViewBag.Themes)
                     {
 
-                        <li><input type="checkbox" value="@item.MissionThemeId" /> @item.Title </li>
+                        <li><input type="checkbox" name="theme" id="@item.MissionThemeId" class="theme_@item.MissionThemeId" value="@item.Title" /> @item.Title </li>
                     }
                 </ul>
             </div>
-            <div class="form-select  border-white xyz" aria-label="Default select example" id="skill" onchange="temp(1)">
+            <div class="col-6 col-sm-3  border-white xyz p-0" aria-label="Default select example" id="skill" onchange="temp(1);   filterBadges(); ">
 
                 <a class="nav-link  text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Skills
+                    Skills <i class="bi bi-chevron-down ms-2"></i>
                 </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-end">
 
                     @foreach (var item in @ViewBag.Skills)
                     {
 
-                        <li><input type="checkbox" value="@item.SkillId" /> @item.Skill.SkillName </li>
+                        <li><input type="checkbox" name="skill" id="@item.SkillId" class="skill_@item.SkillId" value="@item.Skill.SkillName" /> @item.Skill.SkillName </li>
                     }
                 </ul>
-                @*
-                    <option selected>Skills</option>
-                    @foreach (var item in @ViewBag.Skills)
-                    {
-                    <option value="1"> @item.SkillName</option>
-                    }*@
-
             </div>
         </div>
-
-
     </div>
+</div>
 </div>

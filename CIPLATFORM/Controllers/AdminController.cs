@@ -111,6 +111,14 @@ namespace CIPLATFORM.Controllers
         [HttpPost]
         public IActionResult Admin(AdminViewModel obj, int command)
         {
+            if (command == 1)
+            {
+                bool userpage = _AdminRepository.addcms(obj, command);
+                if (userpage)
+                    TempData["true"] = "CMS Activity added Successfully";
+                else
+                    TempData["false"] = "CMS Activity updated Successfully";
+            }
             if (command == 2)
             {
                 bool addcmspage = _AdminRepository.addcms(obj, command);

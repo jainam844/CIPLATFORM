@@ -3,8 +3,6 @@
 
 
 
-
-
 <link rel="stylesheet" href="~/css/Home.css">
 
 
@@ -59,7 +57,7 @@
 <!-- navbar-2 -->
 
 
-<hr class="d-none d-md-block">
+<hr class="d-none d-md-block m-0">
 @{
     Html.RenderPartial("navbar2");
 
@@ -67,7 +65,9 @@
 
 
 <hr>
+<div class="container mt-3" id="filter-button" >
 
+</div>
 
 <!-- explore -->
 
@@ -110,7 +110,7 @@
 
 
 
-<script>
+@*<script>
         window.onload = opengrid();
         function opengrid() {
         console.log("Grid");
@@ -128,7 +128,7 @@
         div2.style.display = 'none';
         console.log("Done");
     }
-</script>
+</script>*@
 
 
 

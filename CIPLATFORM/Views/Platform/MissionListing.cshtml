@@ -46,7 +46,7 @@
                         {
                             <div class="col">
                                 <img class="demo cursor" src=~/images/@(Model.missionmedias[i-1].MediaPath) onclick="currentSlide(@i)" style="width:100%;">
-                            </div>
+                   </div>
                         }
                     </div>
                 </div>
@@ -79,27 +79,45 @@
 
                     <div class="row ">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-6 mt-3 ">
-                            <img src="~/images/Seats-left.png">
-                            <span class="ten">10 </span>
-                            <p class="mx-4" style="color: #757575;">Seats left</p>
+                           @{
+                                        if (@Model.missions.MissionType == "Goal")
+                                        {
+                                            int seates = @Model.missions.GoalMissions.FirstOrDefault().GoalValue;
+                                            int apply = @Model.missions.MissionApplications.Count();
+                                            int left = seates - apply;
+
+                                            <span>@left</span>
+                                            <br>
+                                            <span>seats left</span>
+                                        }
+                                        else
+                                        {
+                                            int apply = @Model.missions.MissionApplications.Count();
+                                            <span>@apply</span>
+                                            <br>
+                                            <span>Already Volunteered</span>
+                                        }
+                                    }
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
 
-                            <img src="~/images/mission.png" class="mission me-2" style="color:#F88634;
-                                            height:20px;
-                                            width:20px;">
-                            <input type="range" class="mt-1 i1" id="slider" name="slider" min="0" max="100"
-                                   value="0">
+                           @{
+                                        if (@Model.missions.MissionType == "Goal")
+                                        {
+                                            int seates = @Model.missions.GoalMissions.FirstOrDefault().GoalValue;
+                                            int apply = @Model.missions.MissionApplications.Count();
+                                            float per1 = (((float)apply / (float)seates) * (float)(100));
+                                            <input type="range" class="mt-1 i1" id="slider" name="slider" min="0" max="100" value=@per1>
+                                            <p>@apply Achieved</p>
+                                        }
+                                        else
+                                        {
+                                            <i class="bi bi-clock"></i> @Model.missions.EndDate.ToString().Substring(0,10)
+                                            <br>
+                                            <span class="small text-muted">&nbsp &nbsp Deadline</span>
+                                        }
+                                    }
 
-                            <div class="row">
-                                <div class="col-12">
-                                    <p class=" d-flex justify-content-start ms-5" style="color:#757575;">
-                                        8000
-                                        achieved
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                     <div class="row">
@@ -145,10 +163,10 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Recommand To Co-Worker</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body">
+                                        <div class="modal-body" style="background-color:#F9F9F8" >
 
 
                                             @foreach (var item in Model.coworkers)
@@ -174,73 +192,40 @@
                         </div>
                     </div>
                     <div class="wrapper  d-flex justify-content-center mt-3">
-                        <hr class="divider">
-                        <p class="d-none" id="getMissionId">@Model.missions.MissionId</p>
-
-
-
-                        <div class='rating' id="mission-rating">
-
-
-                            @if (ViewBag.rating != null)
-                            {
-                                for (int j = 5; j > (@ViewBag.rating); j--)
-                                {
-
-                                    <span class="bi bi-star star1" value="@j"></span>
-
-
-                                }
-                                for (var j = (@ViewBag.rating); j >= 1; j--)
-                                {
-
-                                    <span class="bi bi-star-fill star1 text-warning" value="@j"></span>
-
-
-                                }
-
-
-                            }
-                            else
-                            {
-                                <span class="bi bi-star star1" value="5"></span>
-                                <span class="bi bi-star star1" value="4"></span>
-                                <span class="bi bi-star star1" value="3"></span>
-                                <span class="bi bi-star star1" value="2"></span>
-                                <span class="bi bi-star star1" value="1"></span>
-                            }
-
-                        </div>
+                        <hr class="divider" >
+                        @{
+                            Html.RenderPartial("_Rating");
+                        }
                         <hr class="divider">
                     </div>
                     <div class="container-fluid row row-cols-2 row-cols-sm-4 g-2 mt-3 ">
                         <div class="col ">
-                            <div class="h-100 border">
+                            <div class="h-100 " style="border:2px solid grey;">
 
-                                <i class="bi bi-geo-alt"></i>
-                                <p class=" small">@Model.missions.City.Name</p>
+                                <i class="bi bi-geo-alt ms-2"></i>
+                                <p class=" small ms-2"> <br />@Model.missions.City.Name</p>
 
                             </div>
                         </div>
                         <div class="col ">
-                            <div class=" h-100  border">
+                            <div class=" h-100  " style="border:2px solid grey;">
 
-                                <i class="bi bi-globe"></i>
-                                <p class=" small">@Model.missions.Theme.Title</p>
+                                <i class="bi bi-globe ms-2"></i>
+                                <p class=" small ms-2"><br /> @Model.missions.Theme.Title</p>
                             </div>
                         </div>
                         <div class="col">
-                            <div class=" h-100 border">
+                            <div class=" h-100 " style="border:2px solid grey;">
 
-                                <i class="bi bi-calendar3">@Model.missions.StartDate.ToString().Substring(0,10) <br> until @Model.missions.EndDate.ToString().Substring(0,10) </i>
-                                <p class=" small"></p>
+                                <i class="bi bi-calendar3 ms-2">  </i>
+                                <p class=" small ms-2"><br /> @Model.missions.StartDate.ToString().Substring(0,10) <br> until @Model.missions.EndDate.ToString().Substring(0,10)</p>
                             </div>
                         </div>
                         <div class="col">
-                            <div class=" h-100  border">
-                                <i class="bi bi-people">
+                            <div class=" h-100  " style="border:2px solid grey;">
+                                <i class="bi bi-people ms-2">
                                 </i>
-                                <p class=" small">@Model.missions.OrganizationName</p>
+                                <p class=" small ms-2"> <br />@Model.missions.OrganizationName</p>
                             </div>
                         </div>
                     </div>
@@ -616,52 +601,6 @@
 
 </script>
 
-
-<script>
-
-            $('#mission-rating .bi').click(function() {
-
-                   var rating = $(this).attr('value');
-
-            console.log(rating);
-            var id = parseInt($('#getMissionId').text());
-            console.log(id);
-            $.ajax({
-                url:"/Platform/MissionRating",
-            method:"Post",
-            data:{
-                "mid":id,
-            "rating":rating
-                         },
-            success:function(data){
-
-
-
-            if(data == true)
-            {
-                //toastr.success('Applied Rating successfully');
-         setTimeout(function(){
-       window.location.reload();
-    }, 3000);
-
-
-                         }
-            else
-            {
-                //toastr.error('Your Rating Updated successfully');
-                         location.reload();
-                         }
-
-                     },
-            error: function (e) {
-                console.log("Bye");
-            alert('Error');
-                         },
-
-                     });
-
-                     })
-</script>
 
 <script>
                   function rVolunteer(pg, missionId) {

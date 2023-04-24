@@ -24,7 +24,7 @@ namespace CIPLATFORM.Respository.Repositories
         {
             _CiPlatformContext = CiPlatformContext;
         }
-      
+
         public Login login(Login obj)
         {
             Login lgn = new Login();
@@ -36,7 +36,7 @@ namespace CIPLATFORM.Respository.Repositories
         }
         public User register(User obj)
         {
-            var user = _CiPlatformContext.Users.FirstOrDefault(u=>u.Email==obj.Email);
+            var user = _CiPlatformContext.Users.FirstOrDefault(u => u.Email == obj.Email);
             if (user == null)
             {
                 _CiPlatformContext.Users.Add(obj);
@@ -47,12 +47,12 @@ namespace CIPLATFORM.Respository.Repositories
         public User forgot(User obj)
         {
 
-            var user = _CiPlatformContext.Users.FirstOrDefault(u => u.Email ==(obj.Email.ToLower()) && u.DeletedAt == null);
-            if(user == null)
+            var user = _CiPlatformContext.Users.FirstOrDefault(u => u.Email == (obj.Email.ToLower()) && u.DeletedAt == null);
+            if (user == null)
             {
                 return null;
             }
-           
+
 
             #region Genrate Token
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -94,6 +94,33 @@ namespace CIPLATFORM.Respository.Repositories
 
             return user;
         }
+
+        public bool checktime(string token)
+        {
+            PasswordReset pr = _CiPlatformContext.PasswordResets.FirstOrDefault(x => x.Token == token);
+            if (pr == null)
+            {
+                return true;
+            }
+            DateTime dateTimeVariable = pr.CreatedAt;
+            if (DateTime.Now.Subtract(dateTimeVariable).TotalHours > 2)
+            {
+                return false;
+            }
+            return true;
+        }
+        public bool checktoken(string token)
+        {
+            PasswordReset pr = _CiPlatformContext.PasswordResets.FirstOrDefault(x => x.Token == token);
+            if (pr == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         public PasswordReset newpassword(User obj, string token)
         {
             var validToken = _CiPlatformContext.PasswordResets.FirstOrDefault(x => x.Token == token);
@@ -114,7 +141,7 @@ namespace CIPLATFORM.Respository.Repositories
         }
 
     }
-    
+
 
 }
 
@@ -130,4 +157,3 @@ namespace CIPLATFORM.Respository.Repositories
 
 
 
-  

@@ -53,6 +53,10 @@ namespace CIPLATFORM.Respository.Interface
         public StoryListingViewModel getData(int mid, int uid);
      
         List<MissionListingViewModel> getMisAppList(int pg, long missionId);
+        public bool MIcheck(int mid, int userId, List<int> ToUserId);
+        public bool MIcheckStory(int sid, int userId, List<int> ToUserId);
+
+        public StoryView addView(int sid, int UId);
 
     }
 }

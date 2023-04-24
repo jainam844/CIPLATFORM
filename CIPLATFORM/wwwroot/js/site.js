@@ -38,7 +38,7 @@ function GetCity() {
     var list = countrydiv.getElementsByTagName("input");
     for (i = 0; i < list.length; i++) {
         if (list[i].checked) {
-            countryIds.push(list[i].value);
+            countryIds.push(list[i].id);
         }
 
     }
@@ -68,7 +68,7 @@ function GetCity() {
                 //`;
 
                 document.getElementById("selectCityList").innerHTML += `
-                     <li><input type="checkbox" value="${name.CityId}" />${name.Name}</li>
+                     <li><input type="checkbox" name="city" id="${name.CityId}" class="city_${name.CityId}" value="${name.Name}" />${name.Name}</li>
                     `;
             })
             document.getElementById("selectCityList").innerHTML += `
@@ -82,7 +82,90 @@ function GetCity() {
         },
     });
 }
+function filterBadges() {
 
+    $("#filter-button").empty();
+    $('input[name="country"]:checked').each(function () {
+        document.getElementById("filter-button").innerHTML += `
+<button class="filter rounded-pill border" id="${this.value}" >
+<div style="width:max-content">${this.value} <i onclick="removeFilter(${this.id},'country')" class="bi bi-x"></i></div>
+</button>
+`
+    });
+    $('input[name="city"]:checked').each(function () {
+
+        document.getElementById("filter-button").innerHTML += `
+<button class="filter rounded-pill border" id="${this.value}" >
+<div style="width:max-content">${this.value} <i onclick="removeFilter(${this.id},'city')" class="bi bi-x"></i></div>
+</button>
+`
+    });
+    $('input[name="theme"]:checked').each(function () {
+
+        document.getElementById("filter-button").innerHTML += `
+<button class="filter rounded-pill border" id="${this.value}">
+<div style="width:max-content">${this.value} <i onclick="removeFilter(${this.id},'theme')" class="bi bi-x"></i></div>
+</button>
+`
+    });
+
+    $('input[name="skill"]:checked').each(function () {
+
+        document.getElementById("filter-button").innerHTML += `
+<button class="filter rounded-pill border" id="${this.value}">
+<div style="width:max-content">${this.value} <i onclick="removeFilter(${this.id},'skill')" class="bi bi-x"></i></div>
+</button>
+`
+    });
+
+    document.getElementById("filter-button").innerHTML += `
+<button class="clearall p-0 rounded-pill border" onclick="clearAll()">Clear all</button>
+`
+}
+
+function removeFilter(checkboxId, type) {
+    console.log("rm" + checkboxId);
+    if (type == 'country') {
+        $(".country_" + checkboxId).prop("checked", false);
+        GetCity();
+    }
+    if (type == 'city') {
+        $(".city_" + checkboxId).prop("checked", false);
+    }
+    if (type == 'theme') {
+        $(".theme_" + checkboxId).prop("checked", false);
+    }
+    if (type == 'skill') {
+        $(".skill_" + checkboxId).prop("checked", false);
+    }
+
+    temp();
+    filterBadges();
+
+}
+function clearAll() {
+
+    $('input[name="country"]:checked').each(function () {
+
+        $(".country_" + this.id).prop("checked", false);
+    });
+    $('input[name="city"]:checked').each(function () {
+
+        $(".city_" + this.id).prop("checked", false);
+    });
+    $('input[name="theme"]:checked').each(function () {
+
+        $(".theme_" + this.id).prop("checked", false);
+    });
+    $('input[name="skill"]:checked').each(function () {
+
+        $(".skill_" + this.id).prop("checked", false);
+    });
+
+    filterBadges();
+    temp();
+    $(".clearall").addClass("d-none");
+}
 
 
 function GetProfileCity() {
@@ -177,7 +260,7 @@ function temp(pg) {
     var list = div1.getElementsByTagName("input");
     for (i = 0; i < list.length; i++) {
         if (list[i].checked) {
-            checkedcntryvalues.push(list[i].value);
+            checkedcntryvalues.push(list[i].id);
         }
 
     }
@@ -189,7 +272,7 @@ function temp(pg) {
     var list = div.getElementsByTagName("input");
     for (i = 0; i < list.length; i++) {
         if (list[i].checked) {
-            checkedvalues.push(list[i].value);
+            checkedvalues.push(list[i].id);
         }
 
     }
@@ -204,7 +287,7 @@ function temp(pg) {
     var list = div2.getElementsByTagName("input");
     for (i = 0; i < list.length; i++) {
         if (list[i].checked) {
-            checkedthemevalues.push(list[i].value);
+            checkedthemevalues.push(list[i].id);
         }
 
     }
@@ -217,7 +300,7 @@ function temp(pg) {
     var list = div3.getElementsByTagName("input");
     for (i = 0; i < list.length; i++) {
         if (list[i].checked) {
-            checkedskillvalues.push(list[i].value);
+            checkedskillvalues.push(list[i].id);
         }
 
     }
@@ -287,8 +370,9 @@ function AddMissionToFavourite(missionId) {
                 $('#addToFav').addClass("bi bi-heart-fill");
                 $('#addToFav').css("color", "red");
                 toastr.success("Added To the favourite");
-                document.getElementById(missionId).className = "bi bi-heart-fill text-danger";
 
+                document.getElementById("add_"+missionId).className = "bi bi-heart-fill text-danger";
+               
 
             }
             else {
@@ -300,8 +384,8 @@ function AddMissionToFavourite(missionId) {
                 $('#addToFav').removeClass();
                 $('#addToFav').addClass("bi bi-heart");
                 toastr.error('Remove From the favourite');
-                document.getElementById(missionId).className = "bi bi-heart";
-
+                document.getElementById("add_"+missionId).className = "bi bi-heart";
+                
 
             }
 

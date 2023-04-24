@@ -218,8 +218,12 @@ namespace CIPLATFORM.Controllers
         public void RecommandToCoWorker(List<int> toUserId, int mid)
         {
             int FromUserId = (int)HttpContext.Session.GetInt32("UId");
-
-            _PlatformRepository.RecommandToCoWorker(FromUserId, toUserId, mid);
+            bool check = _PlatformRepository.MIcheck(mid, FromUserId, toUserId);
+            if (check)
+            {
+                _PlatformRepository.RecommandToCoWorker(FromUserId, toUserId, mid);
+            }
+       
 
             MissionListingViewModel volunteerModel = _PlatformRepository.GetCardDetail(mid);
 
@@ -362,9 +366,14 @@ namespace CIPLATFORM.Controllers
         {
             string name = HttpContext.Session.GetString("Uname");
             ViewBag.Uname = name;
-            StoryListingViewModel sl = _PlatformRepository.GetStory(sid);
             string avtar = HttpContext.Session.GetString("Avatar");
             ViewBag.Avtar = avtar;
+
+            int UId = (int)HttpContext.Session.GetInt32("UId");
+            StoryView sv = _PlatformRepository.addView(sid, UId);
+
+            StoryListingViewModel sl = _PlatformRepository.GetStory(sid);
+          
             return View(sl);
         }
 
@@ -372,9 +381,11 @@ namespace CIPLATFORM.Controllers
         public void RecommandStory(List<int> toUserId, int sid)
         {
             int FromUserId = (int)HttpContext.Session.GetInt32("UId");
-
-            _PlatformRepository.RecommandStory(FromUserId, toUserId, sid);
-
+            bool check = _PlatformRepository.MIcheckStory(sid, FromUserId, toUserId);
+            if (check)
+            {
+                _PlatformRepository.RecommandStory(FromUserId, toUserId, sid);
+            }
             StoryListingViewModel volunteerModel = _PlatformRepository.GetStory(sid);
 
         }

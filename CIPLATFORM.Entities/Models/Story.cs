@@ -29,5 +29,7 @@ public partial class Story
 
     public virtual ICollection<StoryMedium> StoryMedia { get; } = new List<StoryMedium>();
 
+    public virtual ICollection<StoryView> StoryViews { get; } = new List<StoryView>();
+
     public virtual User User { get; set; } = null!;
 }

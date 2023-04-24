@@ -31,8 +31,17 @@ namespace CIPLATFORM.Controllers
         [HttpPost]
         public IActionResult login(Login obj)
         {
-
+            if (obj.Email == null || obj.Password == null)
+            {
+                TempData["loginerror"] = "Email and Password Is required!!!!!";
+                return View();
+            }
             Login login = _UserRepository.login(obj);
+            if (login.user == null && login.admin == null)
+            {
+                TempData["loginerror"] = "Email Or Password Is Inavalid!!!!!";
+                return View();
+            }
             string role = "";
             if (login.admin != null)
             {
@@ -42,6 +51,7 @@ namespace CIPLATFORM.Controllers
             {
                 role = "user";
             }
+
             var claims = new List<Claim>
                 {
                         new Claim("role",role),
@@ -66,12 +76,8 @@ namespace CIPLATFORM.Controllers
                 HttpContext.Session.SetString("Avatar", "");
             }
 
-            if (login.user == null && login.admin == null)
-            {
-                TempData["loginerror"] = "Email Or Password Is Inavalid!!!!!";
-                return View();
-            }
-            else if (login.admin != null)
+            
+             if (login.admin != null)
             {
                 TempData["logins"] = "logged as a admin Successfull";
             }
@@ -125,8 +131,14 @@ namespace CIPLATFORM.Controllers
 
 
 
-        public IActionResult newpassword()
+        public IActionResult newpassword(string token)
         {
+            bool ct = _UserRepository.checktoken(token);
+            if (!ct)
+            {
+                TempData["Message"] = "Your token is Invalid Cannot open the page";
+                return RedirectToAction("Login");
+            }
             return View();
         }
         [HttpPost]
@@ -134,24 +146,34 @@ namespace CIPLATFORM.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User();
+                bool time = _UserRepository.checktime(token);
+                if (!time)
                 {
-
-                    user.Password = obj.Password;
-
-
-                }
-                var validToken = _UserRepository.newpassword(user, token);
-
-                if (validToken != null)
-                {
-                    TempData["Message"] = "Your Password is changed";
+                    TempData["Message"] = " Your token is Expired ";
                     return RedirectToAction("Login");
                 }
-                TempData["Message"] = "Token not Found";
-                return RedirectToAction("Login");
+                else
+                {
+                    User user = new User();
+                    {
+
+                        user.Password = obj.Password;
+
+
+                    }
+                    var validToken = _UserRepository.newpassword(user, token);
+
+                    if (validToken != null)
+                    {
+                        TempData["Message"] = "Your Password is changed";
+                        return RedirectToAction("Login");
+                    }
+                    TempData["Message"] = "Token not Found";
+                    return RedirectToAction("Login");
+                }
             }
-            return View();
+            TempData["Message"] = "Error Occured..!!";
+            return RedirectToAction("Login");
         }
 
         public IActionResult register()

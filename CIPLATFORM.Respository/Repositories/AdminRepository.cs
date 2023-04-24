@@ -24,6 +24,8 @@ namespace CIPLATFORM.Respository.Repositories
         {
             AdminViewModel um = new AdminViewModel();
             um.users = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
+            um.cities = _CiPlatformContext.Cities.ToList();
+            um.countries= _CiPlatformContext.Countries.ToList();
             um.cmspages = _CiPlatformContext.CmsPages.Where(x => x.DeletedAt == null).ToList();
             um.missions = _CiPlatformContext.Missions.Where(x => x.DeletedAt == null).ToList();
             um.missionthemes = _CiPlatformContext.MissionThemes.Where(x => x.DeletedAt == null).ToList();
@@ -71,6 +73,48 @@ namespace CIPLATFORM.Respository.Repositories
 
         public bool addcms(AdminViewModel obj, int command)
         {
+            if (command == 1)
+            {
+                if (obj.user.UserId == 0)
+                {
+                    User user = new User();
+                    {
+                        if (obj.Avatarfile != null)
+                        {
+                            user.Avatar = obj.Avatarfile.FileName;
+                        }
+                        user.FirstName = obj.user.FirstName;
+                        user.LastName = obj.user.LastName;
+                        user.Email = obj.user.Email;
+                        user.Password = obj.user.Password;
+                        user.EmployeeId = obj.user.EmployeeId;
+                        user.Department=obj.user.Department;
+                        user.Country = obj.user.Country;
+                        user.City = obj.user.City;
+                        user.ProfileText = obj.user.ProfileText;
+                        user.Status = obj.user.Status;
+                    }
+                    _CiPlatformContext.Add(user);
+                    _CiPlatformContext.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    CmsPage cms = _CiPlatformContext.CmsPages.FirstOrDefault(x => x.CmsPageId == obj.CmsPage.CmsPageId);
+                    {
+                        cms.Title = obj.CmsPage.Title;
+                        cms.Description = obj.CmsPage.Description;
+                        cms.Slug = obj.CmsPage.Slug;
+                        cms.UpdatedAt = DateTime.Now;
+                    }
+                    _CiPlatformContext.Update(cms);
+                    _CiPlatformContext.SaveChanges();
+                    return false;
+                }
+
+            }
+
+
             if (command == 2)
             {
                 if (obj.CmsPage.CmsPageId == 0)

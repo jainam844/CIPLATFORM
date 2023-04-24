@@ -50,10 +50,7 @@ app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Platform}/{action=HomeGrid}"
-//    );
+
 
 app.MapControllerRoute(
     name: "default",
@@ -61,21 +58,6 @@ app.MapControllerRoute(
     );
 
 
-
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Profile}/{action=Profile}"
-//    );
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Platform}/{action=ShareStory}"
-//    );
-
-
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Platform}/{action=MissionListing}"
-//    );
 
 
 
