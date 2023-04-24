@@ -86,7 +86,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Chane Password</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
                                     <button type="button" class="btn-close" aria-label="Close" data-dismiss="modal"></button>
                                 </div>
 
@@ -94,7 +94,7 @@
 
                                     <input type="text" asp-for="resetPass.OldPassword" class="form-control " placeholder="Enter old password">
 
-                                    <input type="text" asp-for="resetPass.Password" class="form-control mt-3" placeholder="Enter  New password">
+                                    <input type="text" asp-for="resetPass.Password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  class="form-control mt-3" placeholder="Enter  New password">
 
                                     <input type="text" asp-for="resetPass.ConfirmPassword" class="form-control mt-3"
                                            placeholder="Enter Confirm password">
@@ -170,7 +170,7 @@
                         <label>Country*</label>
 
                         <select class="form-select" asp-for="CountryId" aria-label="Default select example" data-bs-display="static"
-                                aria-placeholder="Select your country" id="countryId" onchange=" GetProfileCity(); validation();">
+                                aria-placeholder="Select your country" id="countryId" onchange=" GetsCity(); validation();">
                             <option value="0" selected>Select your country</option>
                             @foreach (var item in @ViewBag.countries)
                             {

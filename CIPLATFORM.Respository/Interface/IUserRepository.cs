@@ -12,6 +12,7 @@ namespace CIPLATFORM.Respository.Interface
     {
         //User login(User obj);
         public Login login(Login obj);
+
     User register(User obj);
         User forgot(User obj);
         PasswordReset newpassword(User obj, string token);

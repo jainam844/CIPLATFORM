@@ -4,27 +4,29 @@
 <style>
 
     input[type=range] {
-                -webkit-appearance: none;
-                width: 150px;
-                height: 10px;
-                background-color: #F88634;
-                border-radius: 5px;
-            }
-            input[type=range]:focus {
-                outline: none;
-            }
-            input[type=range]::-webkit-slider-thumb {
-                -webkit-appearance: none;
-                width: 20px;
-                height: 20px;
-                background-color:orange;
-                border-radius: 50%;
-                cursor: pointer;
+        -webkit-appearance: none;
+        width: 150px;
+        height: 10px;
+        background-color: #F88634;
+        border-radius: 5px;
+    }
 
-            }
-            .main-page{
-                color:red !important;
-            }
+        input[type=range]:focus {
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background-color: orange;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+    .main-page {
+        color: red !important;
+    }
 </style>
 <div id="grid">
 
@@ -51,18 +53,18 @@
                         <div class="row">
                             <div class="col-6 ps-0">
 
-                               @{
+                                @{
                                     if (item.MissionApplications.Any(m => m.UserId == ViewBag.UId && m.ApprovalStatus == "Approve"))
                                     {
                                         <p class="text">
-                                            <button class="btn rounded-5 disabled" style="background-color:green ; opacity: 50%; border-radius:0px 20px 20px 0px;">
+                                            <button class="btn rounded-5 disabled" style="background-color:orange ; opacity: 50%; border-radius:0px 20px 20px 0px;">
 
                                                 <span style="color:#D3E0D1 ; ">Applied</span>
                                             </button>
                                         </p>
                                     }
                                 }
-                               
+
 
                             </div>
                             <div class="col-6">
@@ -110,7 +112,7 @@
                                             <h5 class="modal-title" id="exampleModalLabel">Recommand To Co-Worker</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body" style="background-color:#F9F9F8"  onclick="recommandToCoWorker(@item.MissionId)">
+                                        <div class="modal-body" style="background-color:#F9F9F8" onclick="recommandToCoWorker(@item.MissionId)">
 
 
                                             @foreach (var item1 in Model.coworkers)
@@ -162,13 +164,40 @@
                                         <i class="bi bi-star"></i>
                                         <i class="bi bi-star"></i>*@
                                     @* @(item.MissionRatings.FirstOrDefault()?.Rating)*@
-                                    @for (int i = 1; i <= (int)@item.MissionRatings.Average(x => x.Rating); i++)
-                                    {
+                                    @* @for (int i = 1; i <= (int)@item.MissionRatings.Average(x => x.Rating); i++)
+                                        {
                                         <i class="bi bi-star-fill" style="color: #F8D441;"></i>
-                                    }
-                                    @for (int i = 1; i <= 5 - (int)@item.MissionRatings.Average(x => x.Rating); i++)
-                                    {
+                                        }
+                                        @for (int i = 1; i <= 5 - (int)@item.MissionRatings.Average(x => x.Rating); i++)
+                                        {
                                         <i class="bi bi-star" style="color: #F8D441;"></i>
+                                        }*@
+
+                                    @if (true)
+                                    {
+
+                                        var ratings = item.MissionRatings.Average(x => x.Rating);
+                                        var fullStars = (int)ratings;
+                                        var partialStar = ratings - fullStars;
+                                        var emptyStars = 5 - fullStars - (partialStar > 0 ? 1 : 0);
+
+
+
+                                        @for (var i = 0; i < fullStars; i++)
+                                        {
+                                            <i class="bi bi-star-fill" style="color: #F8D441;"></i>
+                                        }
+                                        @if (partialStar > 0)
+                                        {
+                                            <i class="bi bi-star-half" style="color: #F8D441;"></i>
+                                        }
+                                        @for (var i = 0; i < emptyStars; i++)
+                                        {
+                                            <i class="bi bi-star" style="color: #F8D441;"></i>
+                                        }
+
+
+
                                     }
 
                                 </div>
@@ -251,7 +280,7 @@
 
                         <hr>
                         <div class="d-flex justify-content-center apply2">
-@{
+                            @{
                                 if (item.MissionApplications.Any(m => m.UserId == ViewBag.UId && m.ApprovalStatus == "Approve"))
                                 {
                                     <button type="button" class="btn btn-outline apply">
@@ -261,9 +290,9 @@
                                         </a>
                                     </button>
                                 }
-                                 else if (item.EndDate < DateTime.Now)
+                                else if (item.EndDate < DateTime.Now)
                                 {
-                                     <button type="button" class="btn btn-outline apply">
+                                    <button type="button" class="btn btn-outline apply">
                                         <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@item.MissionId" style="text-decoration:none;color:black">
                                             View Deatail
                                             <i class=" ms-2 bi bi-arrow-right-short"></i>
@@ -297,7 +326,7 @@
 
 <nav aria-label="Page navigation example mt-4">
     <ul class="pagination justify-content-center" onchange="temp()">
-  
+
         @{
             double totalpages = ViewBag.Totalpages;
 
@@ -325,6 +354,6 @@
 
 
 
-       
+
     </ul>
 </nav>

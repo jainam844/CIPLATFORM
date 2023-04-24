@@ -1,32 +1,32 @@
 ﻿
-//function GetCity() {
-//    var countryId = $('#countryId').find(":selected").val();
+function GetsCity() {
+    var countryId = $('#countryId').find(":selected").val();
 
-//    $.ajax(
-//        {
-//        url: "/Platform/GetCitys",
-//        method: "GET",
-//        data: {
-//            "countryId": countryId
-//        },
-//        success: function (data) {
-//            data = JSON.parse(data);
-//            $("#selectCityList").empty();
-//            document.getElementById("selectCityList").innerHTML += `
-//        <option value=${name}> City </option>
-//        `;
-//            data.forEach((name) => {
-//                document.getElementById("selectCityList").innerHTML += `
-//        <option value=${name.CityId} >${name.Name}</option>
-//        `;
-//            })
-//        },
-//        error: function (error) {
-//            console.log("Bye city");
-//            console.log(error);
-//        }
-//    })
-//}
+    $.ajax(
+        {
+        url: "/Platform/GetCitys",
+        method: "GET",
+        data: {
+            "countryId": countryId
+        },
+        success: function (data) {
+            data = JSON.parse(data);
+            $("#selectCityList").empty();
+            document.getElementById("selectCityList").innerHTML += `
+        <option value=${name}> City </option>
+        `;
+            data.forEach((name) => {
+                document.getElementById("selectCityList").innerHTML += `
+        <option value=${name.CityId} >${name.Name}</option>
+        `;
+            })
+        },
+        error: function (error) {
+            console.log("Bye city");
+            console.log(error);
+        }
+    })
+}
 
 
 

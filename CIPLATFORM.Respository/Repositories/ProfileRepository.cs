@@ -13,6 +13,7 @@ using MailKit.Security;
 using MimeKit.Text;
 using SmtpClient = MailKit.Net.Smtp.SmtpClient;
 using Microsoft.EntityFrameworkCore;
+using System.Web.Helpers;
 
 namespace CIPLATFORM.Respository.Repositories
 {
@@ -65,10 +66,11 @@ namespace CIPLATFORM.Respository.Repositories
             User pm = _CiPlatformContext.Users.FirstOrDefault(x => x.UserId == UId);
             if (pm != null)
             {
-                if (user.resetPass.OldPassword == pm.Password)
+                bool isPasswordMatch = Crypto.VerifyHashedPassword(pm.Password, user.resetPass.OldPassword);
+                if (isPasswordMatch)
                 {
                     {
-                        pm.Password = user.resetPass.Password;
+                        pm.Password = Crypto.HashPassword(user.resetPass.Password);
 
                     }
                     _CiPlatformContext.Users.Update(pm);
@@ -83,6 +85,7 @@ namespace CIPLATFORM.Respository.Repositories
 
             return true;
         }
+
         public bool saveProfile(ProfileViewModel user, int UId)
         {
 

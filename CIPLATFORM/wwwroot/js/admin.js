@@ -121,10 +121,16 @@ function getdata(x, id) {
                 var abc = document.getElementById("cms2");
                 CKEDITOR.replace(abc);
             }
-            //if (y == 3) {
-            // var abc = document.getElementById("mission2");
-            // CKEDITOR.replace(abc);
-            //}
+          
+            console.log(x);
+            if (x == "nav-user") {
+             
+                $("#profileImageInput1").on('change', function () {
+                    console.log("2");
+                    readURL1(this);
+
+                });
+            }
         },
         error: function (e) {
       
@@ -134,3 +140,6 @@ function getdata(x, id) {
     });
 
 }
+
+
+

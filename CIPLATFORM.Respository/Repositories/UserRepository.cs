@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SmtpClient = MailKit.Net.Smtp.SmtpClient;
 using CIPLATFORM.Entities.ViewModels;
+using System.Web.Helpers;
 
 namespace CIPLATFORM.Respository.Repositories
 {
@@ -28,9 +29,18 @@ namespace CIPLATFORM.Respository.Repositories
         public Login login(Login obj)
         {
             Login lgn = new Login();
+
             {
-                lgn.user = _CiPlatformContext.Users.FirstOrDefault(u => u.Email == obj.Email && u.Password == obj.Password);
                 lgn.admin = _CiPlatformContext.Admins.FirstOrDefault(a => a.Email == obj.Email && a.Password == a.Password);
+                lgn.user = _CiPlatformContext.Users.FirstOrDefault(u => u.Email == obj.Email);
+                if (Crypto.VerifyHashedPassword(lgn.user.Password, obj.Password))
+                {
+                    return lgn;
+                }
+                else
+                {
+                    return null;
+                }
             }
             return lgn;
         }

@@ -405,14 +405,42 @@
                     <div class="row">
                         <div class="col-3 pe-0 mb-3">Rating</div>
                         <div class="col-9">
-                            @for (int i = 1; i <= (int)@Model.missions.MissionRatings.Average(x => x.Rating); i++)
+                        @*    @for (int i = 1; i <= (int)@Model.missions.MissionRatings.Average(x => x.Rating); i++)
                             {
                                 <i class="bi bi-star-fill" style="color: #F8D441;"></i>
                             }
                             @for (int i = 1; i <= 5 - (int)@Model.missions.MissionRatings.Average(x => x.Rating); i++)
                             {
                                 <i class="bi bi-star" style="color: #F8D441;"></i>
-                            }
+                            }*@
+
+                                  @if (true)
+                                    {
+
+                                        var ratings = Model.missions.MissionRatings.Average(x => x.Rating);
+                                        var fullStars = (int)ratings;
+                                        var partialStar = ratings - fullStars;
+                                        var emptyStars = 5 - fullStars - (partialStar > 0 ? 1 : 0);
+
+
+
+                                        @for (var i = 0; i < fullStars; i++)
+                                        {
+                                            <i class="bi bi-star-fill" style="color: #F8D441;"></i>
+                                        }
+                                        @if (partialStar > 0)
+                                        {
+                                            <i class="bi bi-star-half" style="color: #F8D441;"></i>
+                                        }
+                                        @for (var i = 0; i < emptyStars; i++)
+                                        {
+                                            <i class="bi bi-star" style="color: #F8D441;"></i>
+                                        }
+
+
+
+                                    }
+
                             (by @Model.missions.MissionRatings.Count volunteers)
                         </div>
                     </div>

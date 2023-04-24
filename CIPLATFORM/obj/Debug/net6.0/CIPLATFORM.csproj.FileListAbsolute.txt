@@ -590,3 +590,9 @@ D:\JAINAM\CIPLATFORM\CIPLATFORM\bin\Debug\net6.0\ref\CIPLATFORM.dll
 D:\JAINAM\CIPLATFORM\CIPLATFORM\bin\Debug\net6.0\CIPLATFORM.pdb
 D:\JAINAM\CIPLATFORM\CIPLATFORM\obj\Debug\net6.0\CIPLATFORM.csproj.CopyComplete
 D:\JAINAM\CIPLATFORM\CIPLATFORM\obj\Debug\net6.0\CIPLATFORM.genruntimeconfig.cache
+D:\JAINAM\CIPLATFORM\CIPLATFORM\bin\Debug\net6.0\System.Web.Razor.dll
+D:\JAINAM\CIPLATFORM\CIPLATFORM\bin\Debug\net6.0\System.Web.Helpers.dll
+D:\JAINAM\CIPLATFORM\CIPLATFORM\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+D:\JAINAM\CIPLATFORM\CIPLATFORM\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+D:\JAINAM\CIPLATFORM\CIPLATFORM\bin\Debug\net6.0\System.Web.WebPages.dll
+D:\JAINAM\CIPLATFORM\CIPLATFORM\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll

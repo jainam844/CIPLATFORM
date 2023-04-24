@@ -65,49 +65,7 @@ namespace CIPLATFORM.Controllers
             return View(am);
         }
 
-        //public IActionResult Admin(AdminViewModel obj, int command)
-        //{
-
-
-        //    AdminViewModel am = _AdminRepository.getData();
-        //    ViewBag.Totalpages1 = Math.Ceiling(am.users.Count() / 5.0);
-        //    am.users = am.users.Skip((1 - 1) * 5).Take(5).ToList();
-
-
-        //    ViewBag.Totalpages2 = Math.Ceiling(am.cmspages.Count() / 5.0);
-        //    am.cmspages = am.cmspages.Skip((1 - 1) * 5).Take(5).ToList();
-        //    ViewBag.pg_no = 1;
-
-        //    ViewBag.Totalpages3 = Math.Ceiling(am.missions.Count() / 5.0);
-        //    am.missions = am.missions.Skip((1 - 1) * 5).Take(5).ToList();
-        //    ViewBag.pg_no = 1;
-
-        //    ViewBag.Totalpages4 = Math.Ceiling(am.missionthemes.Count() / 5.0);
-        //    am.missionthemes = am.missionthemes.Skip((1 - 1) * 5).Take(5).ToList();
-        //    ViewBag.pg_no = 1;
-
-        //    ViewBag.Totalpages5 = Math.Ceiling(am.missionSkills.Count() / 5.0);
-        //    am.missionSkills = am.missionSkills.Skip((1 - 1) * 5).Take(5).ToList();
-        //    ViewBag.pg_no = 1;
-
-        //    ViewBag.Totalpages6 = Math.Ceiling(am.missionapplications.Count() / 5.0);
-        //    am.missionapplications = am.missionapplications.Skip((1 - 1) * 5).Take(5).ToList();
-        //    ViewBag.pg_no = 1;
-
-
-        //    ViewBag.Totalpages7 = Math.Ceiling(am.stories.Count() / 5.0);
-        //    am.stories = am.stories.Skip((1 - 1) * 5).Take(5).ToList();
-        //    ViewBag.pg_no = 1;
-        //    bool addcmspage = _AdminRepository.addcms(obj, command);
-        //    AdminViewModel am1 = _AdminRepository.getData();
-        //    if (addcmspage)
-        //    {
-        //        TempData["true"] = "CMS Activity added successfully";
-        //    }
-        //    return View(am1);
-
-        //}
-
+        
         [HttpPost]
         public IActionResult Admin(AdminViewModel obj, int command)
         {
@@ -115,9 +73,9 @@ namespace CIPLATFORM.Controllers
             {
                 bool userpage = _AdminRepository.addcms(obj, command);
                 if (userpage)
-                    TempData["true"] = "CMS Activity added Successfully";
+                    TempData["true"] = "User  added Successfully";
                 else
-                    TempData["false"] = "CMS Activity updated Successfully";
+                    TempData["false"] = "User  updated Successfully";
             }
             if (command == 2)
             {
@@ -209,7 +167,13 @@ namespace CIPLATFORM.Controllers
             am.stories = am.stories.Skip((1 - 1) * 5).Take(5).ToList();
             ViewBag.pg_no = 1;
 
-            if (page == "nav-cms")
+            if (page == "nav-user")
+            {
+                am.user = _AdminRepository.EditForm(id, page).user;
+                return PartialView("_User", am);
+            }
+
+            else if (page == "nav-cms")
             {
                 am.CmsPage = _AdminRepository.EditForm(id,page).CmsPage;
                 return PartialView("_CMSPages", am);

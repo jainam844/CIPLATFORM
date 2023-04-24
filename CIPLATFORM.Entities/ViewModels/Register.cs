@@ -60,9 +60,9 @@ namespace CIPLATFORM.Entities.ViewModels
     public class ResetPwd
     {
 
-
-        [Required(ErrorMessage = "Password is Required")]
-        public string Password { get; set; } = null!;
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d).+$", ErrorMessage = "Password must contain at least one uppercase letter and one digit")]
+        [StringLength(20, MinimumLength = 8, ErrorMessage = "Password must be between 8 and 20 characters long")]
+        public string Password { get; set; }
 
         [Compare("Password", ErrorMessage = "Password must match")]
         [Required(ErrorMessage = "Confirm PassWord is Required")]

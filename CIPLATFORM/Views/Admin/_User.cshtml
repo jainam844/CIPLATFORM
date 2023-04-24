@@ -77,9 +77,9 @@
     }
 
     /* .search {
-                width: 15px;
-                height: 15px;
-            } */
+                    width: 15px;
+                    height: 15px;
+                } */
 
     .h-item {
         height: 40px;
@@ -135,7 +135,7 @@
 
                     <td style=" text-align:center;">
                         <button type="button" class="btn p-0"
-                            onclick="editform('nav-user');">
+                            onclick="editform('nav-user'); getdata('nav-user',@obj.UserId);">
                             <i class="bi bi-pencil-square" style="color: coral;"></i>
                         </button>
 
@@ -186,7 +186,7 @@
 <div class="border mt-3" id="add" style="display: none;">
     <h3 class="p-3 m-0" style="background-color: #F8F9FC;"> Add User</h3>
     <hr class="m-0">
-  
+
     <form class="px-3" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="col-lg-12 ">
@@ -204,11 +204,11 @@
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Name</label>
-                <input type="text"  asp-for="user.FirstName" class="form-control" placeholder="Enter your name">
+                <input type="text" asp-for="user.FirstName" class="form-control" placeholder="Enter your name">
             </div>
             <div class="col-12 col-sm-6">
                 <label>Surname</label>
-                <input type="text" asp-for="user.LastName"  class="form-control" placeholder="Enter your surname">
+                <input type="text" asp-for="user.LastName" class="form-control" placeholder="Enter your surname">
             </div>
         </div>
         <div class="row mt-3">
@@ -235,27 +235,28 @@
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Country*</label>
-                <select class="form-select" asp-for ="user.CountryId" aria-label="Default select example"
+                <select class="form-select" asp-for="user.CountryId" aria-label="Default select example" id="countryIdx" onchange="GetsCity('x');"
                         aria-placeholder="Select your country">
                     <option value="0">Select your country</option>
-                    @foreach(var item in @Model.countries)
+                    @foreach (var item in @Model.countries)
                     {
-                         <option value="@item.CountryId">@item.Name</option>
-                  
+                        <option value="@item.CountryId">@item.Name</option>
+
                     }
-                   
+
                 </select>
             </div>
             <div class="col-12 col-sm-6">
                 <label>City*</label>
-                <select class="form-select" asp-for ="user.CityId" aria-label="Default select example"
+                <select class="form-select" asp-for="user.CityId" aria-label="Default select example" id="selectCityListx"
                         aria-placeholder="Select your country">
                     <option value="0">Select your city</option>
-                     @foreach(var item in @Model.cities){
-                         <option value="@item.CityId">@item.Name</option>
-                
-                     }
-                    
+                    @foreach (var item in @Model.cities)
+                    {
+                        <option value="@item.CityId">@item.Name</option>
+
+                    }
+
                 </select>
             </div>
         </div>
@@ -270,7 +271,7 @@
             <div class="col-12 ">
                 <label>Status</label>
                 <select class="form-select" asp-for="user.Status" aria-label="Default select example"
-                        aria-placeholder="Select your country">
+                        aria-placeholder="Select your status">
                     <option value="0">In-Active</option>
                     <option value="1">Active</option>
 
@@ -282,15 +283,15 @@
             <div class="col-10  ">
             </div>
             <div class="col-1">
-                  <button type="button" class="cancell rounded-pill btn btn-outline-dark"
-                    onclick="addpage('nav-user');">
-                Cancel
-            </button>
+                <button type="button" class="cancell rounded-pill btn btn-outline-dark"
+                        onclick="addpage('nav-user');">
+                    Cancel
+                </button>
             </div>
-            
-          
+
+
             <div class="apply2 col-1">
-                <button type="submit" name="command" value="1"  class="btn btn-outline apply">
+                <button type="submit" name="command" value="1" class="btn btn-outline apply">
                     Save
 
                 </button>
@@ -307,15 +308,16 @@
 <div class="border mt-3" id="edit" style="display: none;">
     <h3 class="p-3 m-0" style="background-color: #F8F9FC;"> Edit User </h3>
     <hr class="m-0">
-    <form class="px-3">
+    <form class="px-3" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="col-lg-12 ">
 
                 <div class=" p-3 d-flex justify-content-center align-items-center flex-column">
 
-                    <input id="profileImageInput1" type="file" class="Avatarfile" accept="image/jpeg, image/png, image/jpg" />
+                    <input id="profileImageInput1" asp-for="Avatarfile" type="file" class="Avatarfile" accept="image/jpeg, image/png, image/jpg" />
+                    <input asp-for="user.UserId" type="hidden" class="form-control" id="formGroupExampleInput">
 
-                    <img src="~/images/volunteer1.png" style="border-radius: 50%; height:125px; width:125px" class="ProfileImage1">
+                    <img src="~/images/@Model.user.Avatar" style="border-radius: 50%; height:125px; width:125px" class="ProfileImage1">
                     <span style="color: #414141;" class="">Evan Donohue</span>
                 </div>
             </div>
@@ -324,60 +326,66 @@
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Name</label>
-                <input type="text" class="form-control" placeholder="Enter your name">
+                <input type="text" asp-for="user.FirstName" class="form-control" placeholder="Enter your name">
             </div>
             <div class="col-12 col-sm-6">
                 <label>Surname</label>
-                <input type="text" class="form-control" placeholder="Enter your surname">
+                <input type="text" asp-for="user.LastName" class="form-control" placeholder="Enter your surname">
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Email</label>
-                <input type="email" class="form-control" placeholder="Enter Email">
+                <input type="email" asp-for="user.Email" class="form-control" placeholder="Enter Email">
             </div>
             <div class="col-12 col-sm-6">
-                <label>Password</label>
-                <input type="password" class="form-control" placeholder="Enter Password">
+                @*                <label>Password</label>
+                    <input type="password asp-for="user.Password"  class="form-control" placeholder="Enter Password">*@
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Employee ID</label>
-                <input type="text" class="form-control" placeholder="Enter your employee id">
+                <input type="text" asp-for="user.EmployeeId" class="form-control" placeholder="Enter your employee id">
             </div>
             <div class="col-12 col-sm-6">
                 <label>Department</label>
-                <input type="text" class="form-control" placeholder="Enter your manager details">
+                <input type="text" asp-for="user.Department" class="form-control" placeholder="Enter your manager details">
             </div>
         </div>
 
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Country*</label>
-                <select class="form-select" aria-label="Default select example"
+                <select class="form-select" asp-for="user.CountryId" aria-label="Default select example" id="countryIdy" onchange="GetsCity('y');"
                         aria-placeholder="Select your country">
                     <option value="0">Select your country</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    @foreach (var item in @Model.countries)
+                    {
+                        <option value="@item.CountryId">@item.Name</option>
+
+                    }
+
                 </select>
             </div>
             <div class="col-12 col-sm-6">
                 <label>City*</label>
-                <select class="form-select" aria-label="Default select example"
+                <select class="form-select" asp-for="user.CityId" aria-label="Default select example" id="selectCityListy"
                         aria-placeholder="Select your country">
                     <option value="0">Select your city</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    @foreach (var item in @Model.cities)
+                    {
+                        <option value="@item.CityId">@item.Name</option>
+
+                    }
+
                 </select>
             </div>
         </div>
 
         <div class="form-group mt-3">
             <label for="exampleFormControlTextarea1">My Profile*</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"
+            <textarea asp-for="user.ProfileText" class="form-control" id="exampleFormControlTextarea1" rows="4"
                       placeholder="Enter your comments..."></textarea>
         </div>
 
@@ -385,7 +393,7 @@
             <div class="col-12 ">
                 <label>Status</label>
                 <select class="form-select" aria-label="Default select example"
-                        aria-placeholder="Select your country">
+                        asp-for="user.Status" aria-placeholder="Select your country">
                     <option value="0">In-Active</option>
                     <option value="1">Active</option>
 
@@ -397,15 +405,15 @@
             <div class="col-10  ">
             </div>
             <div class="col-1">
-                  <button type="button" class="cancell rounded-pill btn btn-outline-dark"
-                    onclick="editpage('nav-user');">
-                Cancel
-            </button>
+                <button type="button" class="cancell rounded-pill btn btn-outline-dark"
+                        onclick="editpage('nav-user');">
+                    Cancel
+                </button>
             </div>
-            
-          
+
+
             <div class="apply2 col-1">
-                <button type="button" class="btn btn-outline apply">
+                <button type="submit" name="command" value="1" class="btn btn-outline apply">
                     Save
 
                 </button>
@@ -420,44 +428,85 @@
 </div>
 
 
- <script>
-        var readURL = function(input) {
-        if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-        $('.ProfileImage').attr('src', e.target.result);
+<script>
+    var readURL = function(input) {
+    if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+    $('.ProfileImage').attr('src', e.target.result);
 
-        }
+    }
 
-        reader.readAsDataURL(input.files[0]);
-        }
-        }
-        $("#profileImageInput").on('change', function(){
+    reader.readAsDataURL(input.files[0]);
+    }
+    }
+    $("#profileImageInput").on('change', function(){
 
-        readURL(this);
+    readURL(this);
 
-        });
+    });
 
-    </script>
-    <script>
-        var readURL1 = function(input) {
-        if (input.files && input.files[0]) {
-        var reader1 = new FileReader();
-        reader1.onload = function (e) {
-        $('.ProfileImage1').attr('src', e.target.result);
+</script>
+<script>
+    var readURL1 = function(input) {
+    if (input.files && input.files[0]) {
+    var reader1 = new FileReader();
+    reader1.onload = function (e) {
+    $('.ProfileImage1').attr('src', e.target.result);
 
-        }
+    }
 
-        reader1.readAsDataURL(input.files[0]);
-        }
-        }
-        $("#profileImageInput1").on('change', function(){
+    reader1.readAsDataURL(input.files[0]);
+    }
+    }
+    $("#profileImageInput1").on('change', function(){
 
-        readURL1(this);
+    readURL1(this);
 
-        });
+    });
 
-    </script>
+</script>
+<script>
+
+
+    function GetsCity(x) {
+    if (x != undefined) {
+    var countryId = $('#countryId' + x).find(":selected").val();
+    var city = "selectCityList" + x;
+    }
+    else {
+    var countryId = $('#countryId').find(":selected").val();
+    var city = "selectCityList";
+    }
+    $.ajax({
+    url: "/Platform/GetCitys",
+    method: "GET",
+    data: {
+    "countryId": countryId
+    },
+    success: function (data) {
+    data = JSON.parse(data);
+    $("#"+city).empty();
+
+    document.getElementById(city).innerHTML += `
+    <option value=${name}> City </option>
+    `;
+    data.forEach((name) => {
+    document.getElementById(city).innerHTML += `
+    <option value=${name.CityId} >${name.Name}</option>
+    `;
+    })
+    },
+    error: function (e) {
+    console.log("Bye city");
+    alert('Error');
+    },
+    });
+
+    }
+
+
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
         integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"

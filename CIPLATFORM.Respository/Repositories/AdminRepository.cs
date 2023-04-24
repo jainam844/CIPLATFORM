@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Helpers;
 
 namespace CIPLATFORM.Respository.Repositories
 {
@@ -86,7 +87,7 @@ namespace CIPLATFORM.Respository.Repositories
                         user.FirstName = obj.user.FirstName;
                         user.LastName = obj.user.LastName;
                         user.Email = obj.user.Email;
-                        user.Password = obj.user.Password;
+                        user.Password = Crypto.HashPassword(obj.user.Password);
                         user.EmployeeId = obj.user.EmployeeId;
                         user.Department=obj.user.Department;
                         user.Country = obj.user.Country;
@@ -100,14 +101,25 @@ namespace CIPLATFORM.Respository.Repositories
                 }
                 else
                 {
-                    CmsPage cms = _CiPlatformContext.CmsPages.FirstOrDefault(x => x.CmsPageId == obj.CmsPage.CmsPageId);
+                    User user = _CiPlatformContext.Users.FirstOrDefault(x => x.UserId == obj.user.UserId);
                     {
-                        cms.Title = obj.CmsPage.Title;
-                        cms.Description = obj.CmsPage.Description;
-                        cms.Slug = obj.CmsPage.Slug;
-                        cms.UpdatedAt = DateTime.Now;
+                        if (obj.Avatarfile != null)
+                        {
+                            user.Avatar = obj.Avatarfile.FileName;
+                        }
+                        user.FirstName = obj.user.FirstName;
+                        user.LastName = obj.user.LastName;
+                        user.Email = obj.user.Email;
+                      
+                        user.EmployeeId = obj.user.EmployeeId;
+                        user.Department = obj.user.Department;
+                        user.Country = obj.user.Country;
+                        user.City = obj.user.City;
+                        user.ProfileText = obj.user.ProfileText;
+                        user.Status = obj.user.Status;
+                        user.UpdatedAt = DateTime.Now;
                     }
-                    _CiPlatformContext.Update(cms);
+                    _CiPlatformContext.Update(user);
                     _CiPlatformContext.SaveChanges();
                     return false;
                 }
@@ -212,6 +224,10 @@ namespace CIPLATFORM.Respository.Repositories
         {
             AdminViewModel am = new AdminViewModel();
             {
+                if (page == "nav-user")
+                {
+                    am.user = _CiPlatformContext.Users.FirstOrDefault(x => x.UserId == id);
+                }
                 if (page == "nav-cms")
                 {
                     am.CmsPage = _CiPlatformContext.CmsPages.FirstOrDefault(x => x.CmsPageId == id);

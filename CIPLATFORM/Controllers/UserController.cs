@@ -6,6 +6,7 @@ using CIPLATFORM.Entities.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
+using System.Web.Helpers;
 
 namespace CIPLATFORM.Controllers
 {
@@ -157,7 +158,7 @@ namespace CIPLATFORM.Controllers
                     User user = new User();
                     {
 
-                        user.Password = obj.Password;
+                        user.Password = Crypto.HashPassword(obj.Password); ;
 
 
                     }
@@ -191,7 +192,8 @@ namespace CIPLATFORM.Controllers
                     user.FirstName = obj.FirstName;
                     user.LastName = obj.LastName;
                     user.Email = obj.Email;
-                    user.Password = obj.Password;
+                    //user.Password = obj.Password;
+                    user.Password = Crypto.HashPassword(obj.Password);
                     user.PhoneNumber = obj.PhoneNumber;
                 }
                 var check = _UserRepository.register(user);

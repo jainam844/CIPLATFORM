@@ -313,7 +313,7 @@ a.OrganizationName == mission.OrganizationName))
                 var email = new MimeMessage();
                 email.From.Add(MailboxAddress.Parse(fromEmailId));
                 email.To.Add(MailboxAddress.Parse(toEmailId));
-                email.Subject = "Reset Your Password";
+                email.Subject = "Recommand to Mission";
                 email.Body = new TextPart(TextFormat.Html) { Text = mailBody };
 
                 // send email
@@ -434,7 +434,7 @@ a.OrganizationName == mission.OrganizationName))
                 var email = new MimeMessage();
                 email.From.Add(MailboxAddress.Parse(fromEmailId));
                 email.To.Add(MailboxAddress.Parse(toEmailId));
-                email.Subject = "Reset Your Password";
+                email.Subject = "Recommand To Story";
                 email.Body = new TextPart(TextFormat.Html) { Text = mailBody };
 
                 // send email

@@ -142,6 +142,10 @@
               "target": "Package",
               "version": "[3.5.0, )"
             },
+            "Microsoft.AspNet.WebPages": {
+              "target": "Package",
+              "version": "[3.2.9, )"
+            },
             "Microsoft.AspNetCore.Session": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -237,6 +241,10 @@
             "MailKit": {
               "target": "Package",
               "version": "[3.5.0, )"
+            },
+            "Microsoft.AspNet.WebPages": {
+              "target": "Package",
+              "version": "[3.2.9, )"
             },
             "Microsoft.AspNetCore.Session": {
               "target": "Package",
