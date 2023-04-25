@@ -90,8 +90,8 @@ namespace CIPLATFORM.Respository.Repositories
                         user.Password = Crypto.HashPassword(obj.user.Password);
                         user.EmployeeId = obj.user.EmployeeId;
                         user.Department=obj.user.Department;
-                        user.Country = obj.user.Country;
-                        user.City = obj.user.City;
+                        user.CountryId = obj.user.CountryId;
+                        user.CityId = obj.user.CityId;
                         user.ProfileText = obj.user.ProfileText;
                         user.Status = obj.user.Status;
                     }
@@ -110,11 +110,10 @@ namespace CIPLATFORM.Respository.Repositories
                         user.FirstName = obj.user.FirstName;
                         user.LastName = obj.user.LastName;
                         user.Email = obj.user.Email;
-                      
                         user.EmployeeId = obj.user.EmployeeId;
                         user.Department = obj.user.Department;
-                        user.Country = obj.user.Country;
-                        user.City = obj.user.City;
+                        user.CountryId = obj.user.CountryId;
+                        user.CityId = obj.user.CityId;
                         user.ProfileText = obj.user.ProfileText;
                         user.Status = obj.user.Status;
                         user.UpdatedAt = DateTime.Now;
@@ -231,6 +230,11 @@ namespace CIPLATFORM.Respository.Repositories
                 if (page == "nav-cms")
                 {
                     am.CmsPage = _CiPlatformContext.CmsPages.FirstOrDefault(x => x.CmsPageId == id);
+                }
+
+                if (page == "nav-mission")
+                {
+                    am.mission = _CiPlatformContext.Missions.Include(x => x.GoalMissions).FirstOrDefault(x => x.MissionId == id);
                 }
                 if (page == "nav-theme")
                 {

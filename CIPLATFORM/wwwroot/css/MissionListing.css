@@ -1,23 +1,4 @@
-﻿input[type=range] {
-    -webkit-appearance: none;
-    width: 150px;
-    height: 10px;
-    background-color: #F88634;
-    border-radius: 5px;
-}
-
-    input[type=range]:focus {
-        outline: none;
-    }
-
-    input[type=range]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 20px;
-        height: 20px;
-        background-color: orange;
-        border-radius: 50%;
-        cursor: pointer;
-    }
+﻿
 
 @media only screen and (min-width:417px) and (max-width:425px) {
 
@@ -336,3 +317,6 @@
         color: gold;
     }
 
+input[type="range"]:disabled {
+    background:red;
+}

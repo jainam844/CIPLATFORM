@@ -38,6 +38,10 @@ namespace CIPLATFORM.Controllers
                 return View();
             }
             Login login = _UserRepository.login(obj);
+            if(login == null)
+            {
+                login = new Login();
+            }
             if (login.user == null && login.admin == null)
             {
                 TempData["loginerror"] = "Email Or Password Is Inavalid!!!!!";
@@ -173,8 +177,8 @@ namespace CIPLATFORM.Controllers
                     return RedirectToAction("Login");
                 }
             }
-            TempData["Message"] = "Error Occured..!!";
-            return RedirectToAction("Login");
+            //TempData["Message"] = "Error Occured..!!";
+            return View();
         }
 
         public IActionResult register()
@@ -184,6 +188,7 @@ namespace CIPLATFORM.Controllers
 
         [HttpPost]
         public IActionResult register(Register obj)
+        
         {
             if (ModelState.IsValid)
             {

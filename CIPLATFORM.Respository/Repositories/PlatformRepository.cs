@@ -81,7 +81,7 @@ namespace CIPLATFORM.Respository.Repositories
             List<City> cities = _CiPlatformContext.Cities.ToList();
             List<Country> countries = _CiPlatformContext.Countries.ToList();
             List<FavoriteMission> favoriteMission = _CiPlatformContext.FavoriteMissions.ToList();
-            List<User> users = _CiPlatformContext.Users.ToList();
+            List<User> users = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
             CardsViewModel missionCards = new CardsViewModel();
             {
 
@@ -105,27 +105,36 @@ namespace CIPLATFORM.Respository.Repositories
 
             List<MissionMedium> photos = media(mid);
             List<MissionDocument> documents = document(mid);
-            //int rating = avgRating(mid);
+ 
             List<MissionSkill> missionSkills = _CiPlatformContext.MissionSkills.Include(m => m.Skill).Where(x => x.MissionId == mid).ToList();
             List<MissionApplication> applications = _CiPlatformContext.MissionApplications.Include(m => m.User).Where(x => x.MissionId == mid).ToList();
 
-
-            //List<Mission> relatedMissions = missions.Where(x => x.OrganizationName == mission.OrganizationName || x.ThemeId == mission.ThemeId || x.CountryId == mission.CountryId).ToList();
-            //relatedMissions.Remove(mission);
-
-            List<Mission> relatedMissions = missions.Where(a => a.MissionId != mission.MissionId &&
-(a.ThemeId == mission.ThemeId || (a.CityId == mission.CityId || a.CountryId == mission.CountryId ||
-a.OrganizationName == mission.OrganizationName))
-)
-.OrderByDescending(a => a.ThemeId == mission.ThemeId)
-.ThenByDescending(a => a.CityId == mission.CityId)
-.ThenByDescending(a => a.CountryId == mission.CountryId)
-.ThenByDescending(a => a.OrganizationName == mission.OrganizationName)
-.Take(3)
-.ToList();
+              List<Mission> relatedMissions = missions.Where(a => a.MissionId != mission.MissionId &&
+            ((a.CityId == mission.CityId || a.CountryId == mission.CountryId || a.ThemeId == mission.ThemeId ||
+            a.OrganizationName == mission.OrganizationName))
+            )
+            .OrderByDescending(a => a.OrganizationName)
+            .ThenByDescending(a => a.ThemeId)
+            .ThenByDescending(a => a.CountryId)
+            .ThenByDescending(a => a.CityId)
+            .Take(3)
+            .ToList();
+                
 
             List<Comment> comments = _CiPlatformContext.Comments.Include(m => m.User).Where(x => x.MissionId == mid && x.ApprovalStatus == "Published").ToList();
             List<User> users = _CiPlatformContext.Users.ToList();
+
+
+            var allUser = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
+            var alreaduInvite = _CiPlatformContext.MissionInvites.Include(x => x.ToUser).ToList();
+            foreach (var i in alreaduInvite)
+            {
+                allUser = allUser.Where(x => x.UserId != i.ToUserId).ToList();
+            }
+
+           
+
+
             List<FavoriteMission> favoriteMission = _CiPlatformContext.FavoriteMissions.ToList();
             MissionListingViewModel CardDetail = new MissionListingViewModel();
             {
@@ -138,7 +147,8 @@ a.OrganizationName == mission.OrganizationName))
                 CardDetail.missionskills = missionSkills;
                 CardDetail.relatedmissions = relatedMissions;
                 CardDetail.comments = comments;
-                CardDetail.coworkers = users;
+                CardDetail.coworkers = allUser;
+                CardDetail.alreadyinvite = alreaduInvite;
                 CardDetail.favoriteMissions = favoriteMission;
             }
 
@@ -285,10 +295,7 @@ a.OrganizationName == mission.OrganizationName))
         {
             var fromUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == FromUserId && u.DeletedAt == null);
             var fromEmailId = fromUser.Email;
-            //if (user1 == null)
-            //{
-            //    return null;
-            //}
+      
 
             foreach (var user in ToUserId)
             {
@@ -330,7 +337,7 @@ a.OrganizationName == mission.OrganizationName))
 
         public StoryListingViewModel GetStoryDetail()
         {
-            List<Story> stories = _CiPlatformContext.Stories.Include(m => m.User).Include(m => m.StoryMedia).Include(m => m.Mission).ToList();
+            List<Story> stories = _CiPlatformContext.Stories.Include(m => m.User).Include(m => m.StoryMedia).Include(m => m.Mission).Where(m => m.Status== "PUBLISHED").ToList();
             //List<StoryMedium> photos = smedia(sid);
             StoryListingViewModel StoryDetail = new StoryListingViewModel();
             {

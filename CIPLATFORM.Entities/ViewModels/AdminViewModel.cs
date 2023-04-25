@@ -24,11 +24,18 @@ namespace CIPLATFORM.Entities.ViewModels
         public List<MissionApplication>? missionapplications { get; set; } =new List<MissionApplication>();
         public List<MissionTheme> missionthemes { get; set; } = new List<MissionTheme> ();
         public MissionTheme missionTheme { get; set; }
-        //public List<MissionSkill> missionSkills { get; set; } = new List<MissionSkill> ();
-        //public MissionSkill missionSkill { get; set; }
+      
         public List<Skill> skills { get; set; }
         public Skill skill { get; set; }
    
         public List<Story> stories { get; set; } =new List<Story>();
+
+
+
+
+        public Mission mission { get; set; } = new Mission();
+        public List<MissionMedium> missionMedia = new List<MissionMedium>();
+        public List<MissionDocument> missionDocuments = new List<MissionDocument>();
+        public List<MissionSkill> missionSkills = new List<MissionSkill>();
     }
 }

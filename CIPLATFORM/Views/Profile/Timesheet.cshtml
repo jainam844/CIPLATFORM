@@ -72,6 +72,12 @@
                 toastr.success('@TempData["true"]')
             </script>
         }
+         @if (TempData["error"] != null)
+        {
+            <script type="text/javascript">
+                toastr.error('@TempData["error"]')
+            </script>
+        }
         @if (TempData["false"] != null)
         {
             <script type="text/javascript">
@@ -127,7 +133,7 @@
                                                     <i class="bi bi-pencil-square" style="color: coral;"></i>
                                                 </button>
 
-                                                <button type="button" class="btn p-0" @*data-bs-toggle="modal"*@ @*data-bs-target="#TimesheetDelete"*@ onclick=" if (confirm('Are you sure you want to delete?')) { return location.href=' @Url.Action("DeleteActivity", "Admin" ,new {tid = @obj.TimesheetId})' } ">
+                                                <button type="button" class="btn p-0" @*data-bs-toggle="modal"*@ @*data-bs-target="#TimesheetDelete"*@ onclick=" if (confirm('Are you sure you want to delete?')) { return location.href=' @Url.Action("DeleteActivity", "Profile" ,new {tid = @obj.TimesheetId})' } ">
                                                     <i class="bi bi-trash ms-3"></i>
                                                 </button>
                                             </td>

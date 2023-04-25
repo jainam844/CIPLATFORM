@@ -131,6 +131,10 @@ function getdata(x, id) {
 
                 });
             }
+            if (x == "nav-mission") {
+                var abc = document.getElementById("mission2");
+                CKEDITOR.replace(abc);
+            }
         },
         error: function (e) {
       

@@ -3,28 +3,28 @@
 
 
 <div class='rating' id="mission-rating">
-  
 
 
-          @if (ViewBag.rating != null)
-        {
+
+    @if (ViewBag.rating != null)
+    {
         for (int j = 5; j > (@ViewBag.rating); j--)
         {
 
-        <span class="bi bi-star star1" value="@j"></span>
+            <span class="bi bi-star star1" value="@j"></span>
 
 
         }
         for (var j = (@ViewBag.rating); j >= 1; j--)
         {
 
-        <span class="bi bi-star-fill star1 text-warning" value="@j"></span>
+            <span class="bi bi-star-fill star1 text-warning" value="@j"></span>
 
 
         }
 
 
-        }
+    }
     else
     {
         <span class="bi bi-star star1" value="5"></span>
@@ -40,49 +40,43 @@
 
 <script>
 
-            $('#mission-rating .bi').click(function() {
+    $('#mission-rating .bi').click(function() {
 
-                   var rating = $(this).attr('value');
+           var rating = $(this).attr('value');
 
-            console.log(rating);
-            var id = parseInt($('#getMissionId').text());
-            console.log(id);
-            $.ajax({
-                url:"/Platform/MissionRating",
-            method:"Post",
-            data:{
-                "mid":id,
-            "rating":rating
-                         },
-            success:function(data){
+    console.log(rating);
+    var id = parseInt($('#getMissionId').text());
+    console.log(id);
+    $.ajax({
+        url:"/Platform/MissionRating",
+    method:"Post",
+    data:{
+        "mid":id,
+    "rating":rating
+                 },
+    success:function(data){
 
 
 
-            if(data == true)
-            {
-                toastr.success('Applied Rating successfully');
-                  setTimeout(function(){
+    if(data == true)
+    {
+
+         location.reload();
+
+                 }
+    else
+    {
         location.reload();
-    }, 1000);
 
+                 }
 
-                         }
-            else
-            {
-                toastr.error('Your Rating Updated successfully');
-                setTimeout(function(){
-        location.reload();
-    }, 1000);
+             },
+    error: function (e) {
+        console.log("Bye");
+    alert('Error');
+                 },
 
-                         }
+             });
 
-                     },
-            error: function (e) {
-                console.log("Bye");
-            alert('Error');
-                         },
-
-                     });
-
-                     })
+             })
 </script>

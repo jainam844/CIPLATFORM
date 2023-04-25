@@ -49,7 +49,7 @@
                 </select>
                 <div id="GMissionError" style="color:red"></div>
                 <label class="mb-1 mt-3">Actions</label>
-                <input type="number" id="Goal" asp-for="Timesheet.Action" class="form-control" placeholder="Enter Actions" onkeyup="Goalvalidation();">
+                <input type="number" id="Goal"  min="0"  asp-for="Timesheet.Action" class="form-control" placeholder="Enter Actions" onkeyup="Goalvalidation();">
                 <div id="GoalError" style="color:red"></div>
                 <label class="mb-1 mt-3"> Date </label>
                 <div class="form-group">

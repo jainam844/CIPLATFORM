@@ -204,11 +204,14 @@
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Name</label>
-                <input type="text" asp-for="user.FirstName" class="form-control" placeholder="Enter your name">
+                <input type="text" asp-for="user.FirstName" class="form-control" placeholder="Enter your name" id="Name" onkeyup="validation();">
+                 <div id="NameError" style="color:red;"></div>
             </div>
             <div class="col-12 col-sm-6">
                 <label>Surname</label>
-                <input type="text" asp-for="user.LastName" class="form-control" placeholder="Enter your surname">
+                <input type="text" asp-for="user.LastName" class="form-control" placeholder="Enter your surname" id="SName" onkeyup="validation();">
+                  <span id="SNameError" style="color:red;"></span>
+
             </div>
         </div>
         <div class="row mt-3">
@@ -235,7 +238,7 @@
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Country*</label>
-                <select class="form-select" asp-for="user.CountryId" aria-label="Default select example" id="countryIdx" onchange="GetsCity('x');"
+                <select class="form-select" asp-for="user.CountryId" aria-label="Default select example" id="countryIdx" onchange="GetsCity('x');validation();"
                         aria-placeholder="Select your country">
                     <option value="0">Select your country</option>
                     @foreach (var item in @Model.countries)
@@ -245,10 +248,11 @@
                     }
 
                 </select>
+                    <span id="CountryError" style="color:red;"></span>
             </div>
             <div class="col-12 col-sm-6">
                 <label>City*</label>
-                <select class="form-select" asp-for="user.CityId" aria-label="Default select example" id="selectCityListx"
+                <select class="form-select" asp-for="user.CityId" aria-label="Default select example" id="selectCityListx" onchange="validation();"
                         aria-placeholder="Select your country">
                     <option value="0">Select your city</option>
                     @foreach (var item in @Model.cities)
@@ -258,6 +262,7 @@
                     }
 
                 </select>
+                 <span id="CityError" style="color:red;"></span>
             </div>
         </div>
 
@@ -291,7 +296,7 @@
 
 
             <div class="apply2 col-1">
-                <button type="submit" name="command" value="1" class="btn btn-outline apply">
+                <button type="submit" name="command" value="1" class="btn btn-outline apply"  id="Updateprofile" disabled>
                     Save
 
                 </button>
@@ -507,6 +512,48 @@
 
 
 </script>
+
+
+
+
+<script>
+
+    function validation(){
+
+    var City = $("#selectCityListx").val();
+    var Country = $("#countryIdx").val();
+    var Name = $("#Name").val();
+    var SName = $("#SName").val();
+
+    console.log(City);
+    console.log(Country);
+    console.log(Name);
+    console.log(SName);
+
+    document.querySelector('#Updateprofile').disabled = true;
+
+    if(Name.length == 0){
+    $("#NameError").text("Plaease enter the name first");
+    }
+    else if(SName.length == 0){
+    $("#SNameError").text("Plaease enter the Last name first");
+    }
+    else if(Country == 0){
+    $("#CountryError").text("Plaease select the Country ");
+    }
+    else if(City == 0){
+    $("#CityError").text("Plaease select the city");
+    }
+    else{
+    $("#CityError").text("");
+    $("#CountryError").text("");
+    $("#NameError").text("");
+    $("#SNameError").text("");
+    document.querySelector('#Updateprofile').disabled = false;
+    }
+    }
+</script>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
         integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"

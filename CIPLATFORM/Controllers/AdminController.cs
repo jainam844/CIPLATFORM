@@ -85,6 +85,14 @@ namespace CIPLATFORM.Controllers
                 else
                     TempData["false"] = "CMS Activity updated Successfully";
             }
+            if (command == 3)
+            {
+                bool addcmspage = _AdminRepository.addcms(obj, command);
+                if (addcmspage)
+                    TempData["true"] = "mission added Successfully";
+                else
+                    TempData["false"] = "mission updated Successfully";
+            }
             if (command == 4)
             {
                 bool missiontheme = _AdminRepository.addcms(obj, command);
@@ -177,6 +185,14 @@ namespace CIPLATFORM.Controllers
             {
                 am.CmsPage = _AdminRepository.EditForm(id,page).CmsPage;
                 return PartialView("_CMSPages", am);
+            }
+            else if (page == "nav-mission")
+            {
+                am.mission = _AdminRepository.EditForm(id, page).mission;
+                am.missionthemes = _AdminRepository.getData().missionthemes;
+                am.skills = _AdminRepository.getData().skills;
+                //am.Avatarfile.FileName = am.user.Avatar;
+                return PartialView("_Mission", am);
             }
             else if (page == "nav-theme")
             {

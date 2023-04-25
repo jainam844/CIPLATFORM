@@ -57,9 +57,9 @@
                                     if (item.MissionApplications.Any(m => m.UserId == ViewBag.UId && m.ApprovalStatus == "Approve"))
                                     {
                                         <p class="text">
-                                            <button class="btn rounded-5 disabled" style="background-color:orange ; opacity: 50%; border-radius:0px 20px 20px 0px;">
+                                            <button class="btn rounded-5 disabled" style="background-color:green; opacity: 60%; border-radius:0px 20px 20px 0px;">
 
-                                                <span style="color:#D3E0D1 ; ">Applied</span>
+                                                <span style="color:white ; ">Applied</span>
                                             </button>
                                         </p>
                                     }
@@ -147,31 +147,7 @@
                                     @item.OrganizationName
                                 </div>
                                 <div class="col-md-6">
-                                    @*   @if (true)
-                                        {
-                                        for (var i = 0; i < (@item.MissionRatings.Rating); i++)
-                                        {
-                                        <i class="bi bi-star-fill checked"></i>
-                                        }
-                                        for (var i = 0; i < 5 - (@item.MissionRatings.Rating); i++)
-                                        {
-                                        <i class="bi bi-star"></i>
-                                        }
-                                        }*@
-                                    @*   <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>
-                                        <i class="bi bi-star"></i>*@
-                                    @* @(item.MissionRatings.FirstOrDefault()?.Rating)*@
-                                    @* @for (int i = 1; i <= (int)@item.MissionRatings.Average(x => x.Rating); i++)
-                                        {
-                                        <i class="bi bi-star-fill" style="color: #F8D441;"></i>
-                                        }
-                                        @for (int i = 1; i <= 5 - (int)@item.MissionRatings.Average(x => x.Rating); i++)
-                                        {
-                                        <i class="bi bi-star" style="color: #F8D441;"></i>
-                                        }*@
+                             
 
                                     @if (true)
                                     {

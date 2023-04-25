@@ -546,12 +546,9 @@ function recommandStory(x) {
             "sid": Storyd
         },
         success: function (data) {
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            };
+           
             console.log(toUserId);
-            toastr.success('Email Sent  successfully');
+           
         }
         ,
         error: function (e) {

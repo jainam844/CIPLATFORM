@@ -86,15 +86,16 @@
     <hr class="m-0">
     <form method="post" class="px-3">
         <label for="select mission" class="mt-3"> Skill Name </label>
-        <input type="text" asp-for="skill.SkillName" class="form-control" id="formGroupExampleInput">
+        <input type="text" asp-for="skill.SkillName" class="form-control"  id="skillTitle1" onkeyup="skillvalidation(1);">
 
-
+          <div id="skillTitleError1"  style="color:red;">This Feild is Required</div>
         <label class="mb-1 mt-3">Status</label>
-       <select type="text" asp-for="skill.Status" class="form-select form-control">
+       <select type="text" asp-for="skill.Status" class="form-select form-control"  id="skillSlug1" onkeyup="skillvalidation(1);" >
             <option value="1">Active</option>
             <option value="0">In-Active</option>
 
         </select>
+          <div id="skillSlugError1"  style="color:red;">This Feild is Required</div>
         <div class="row my-3">
             <div class="col-10"></div>
             <div class="col-2">
@@ -102,8 +103,8 @@
                         onclick="addpage('nav-skill');">
                     Cancel
                 </button>
-                <button type="submit" class="threebt rounded-pill btn btn-outline-warning"
-                        value="5" name="command">
+                <button type="submit" class="threebt rounded-pill btn btn-outline-warning" id="skillsubmitbtn1"
+                        value="5" name="command" disabled>
                     Save
                 </button>
             </div>
@@ -118,15 +119,17 @@
     <hr class="m-0">
     <form method="post" class="px-3">
         <label for="select mission" class="mt-3"> Skill Name </label>
-        <input type="text"  asp-for="skill.SkillName" class="form-control" id="formGroupExampleInput">
+        <input type="text"  asp-for="skill.SkillName" class="form-control"  id="skillTitle2" onkeyup="skillvalidation(2);">
+            <div id="skillTitleError2"  style="color:red;"></div>
          <input asp-for="skill.SkillId" type="hidden" class="form-control" id="formGroupExampleInput">
 
         <label class="mb-1 mt-3">Status</label>
-        <select type="text" asp-for="skill.Status" class="form-select form-control">
+        <select type="text" asp-for="skill.Status" class="form-select form-control"  id="skillSlug2" onkeyup="skillvalidation(2);">
             <option value="1">Active</option>
             <option value="0">In-Active</option>
 
         </select>
+         <div id="skillSlugError2"  style="color:red;"></div>
         <div class="row my-3">
             <div class="col-10"></div>
             <div class="col-2">
@@ -134,8 +137,8 @@
                         onclick="editpage('nav-skill');">
                     Cancel
                 </button>
-                <button type="submit" class="threebt rounded-pill btn btn-outline-warning"
-                        value="5" name="command">
+                <button type="submit" class="threebt rounded-pill btn btn-outline-warning"  id="skillsubmitbtn2"
+                        value="5" name="command" disabled>
                     Save
                 </button>
             </div>
@@ -144,3 +147,27 @@
 </div>
 
 
+
+<script>
+    function skillvalidation(x)
+    {
+    var Title = $("#skillTitle"+x).val();
+    var Slug = $("#skillSlug"+x).val();
+
+    console.log(Title);
+    console.log(Slug);
+    document.getElementById('skillsubmitbtn'+x).disabled = true;
+
+    if(Title.length == 0){
+    $("#skillTitleError"+x).text("Plaease enter the title First");
+    }
+    else if(Slug.length == 0){
+    $("#skillSlugError"+x).text("Plaease enter the slug First");
+    }
+    else{
+    $("#skillTitleError"+x).text("");
+    $("#skillSlugError"+x).text("");
+    document.getElementById('skillsubmitbtn'+x).disabled = false;
+    }
+    }
+</script>
