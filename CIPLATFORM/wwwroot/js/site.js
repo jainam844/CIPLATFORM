@@ -548,7 +548,7 @@ function recommandStory(x) {
         success: function (data) {
            
             console.log(toUserId);
-           
+            toastr.success('Email Sent  successfully');
         }
         ,
         error: function (e) {

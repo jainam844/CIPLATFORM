@@ -29,13 +29,22 @@ namespace CIPLATFORM.Entities.ViewModels
         public Skill skill { get; set; }
    
         public List<Story> stories { get; set; } =new List<Story>();
-
-
-
-
+        public List<MissionTheme> newmissionThemes { get; set; } = new List<MissionTheme>();
+        public List<Skill> newskills { get; set; } = new List<Skill>();
         public Mission mission { get; set; } = new Mission();
         public List<MissionMedium> missionMedia = new List<MissionMedium>();
-        public List<MissionDocument> missionDocuments = new List<MissionDocument>();
-        public List<MissionSkill> missionSkills = new List<MissionSkill>();
+        public List<IFormFile>? missionDocuments { get; set; }
+        public List<IFormFile>? missionDs { get; set; }
+        public string? url { get; set; }
+        public List<long> editmissionSkills { get; set; } = new List<long>();
+
+
+
+
+        public List<Banner> banners = new List<Banner>();
+        public int BannerPage = 1;
+
+        public Banner banner { get; set; } = new Banner();
+
     }
 }

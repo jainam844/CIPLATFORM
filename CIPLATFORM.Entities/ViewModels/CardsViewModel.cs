@@ -19,6 +19,7 @@ namespace CIPLATFORM.Entities.ViewModels
 
         public List<FavoriteMission> favoriteMissions { get; set; }
         public List<User>? coworkers { get; set; }
+    
 
     }
 }

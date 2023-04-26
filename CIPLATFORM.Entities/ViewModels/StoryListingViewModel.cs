@@ -18,6 +18,7 @@ namespace CIPLATFORM.Entities.ViewModels
 
         public List<string> simg { get; set; } = new List<string>();
         public string url { get; set; }
+        public List<StoryInvite>? alreadyinvite { get; set; }
 
     }
 }

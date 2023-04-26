@@ -77,9 +77,9 @@
     }
 
     /* .search {
-                    width: 15px;
-                    height: 15px;
-                } */
+                        width: 15px;
+                        height: 15px;
+                    } */
 
     .h-item {
         height: 40px;
@@ -204,24 +204,26 @@
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Name</label>
-                <input type="text" asp-for="user.FirstName" class="form-control" placeholder="Enter your name" id="Name" onkeyup="validation();">
-                 <div id="NameError" style="color:red;"></div>
+                <input type="text" asp-for="user.FirstName" class="form-control" placeholder="Enter your name" id="UserNamex" onkeyup="Uservalidation('x');">
+                <div id="UNameErrorx" style="color:red;"></div>
             </div>
             <div class="col-12 col-sm-6">
                 <label>Surname</label>
-                <input type="text" asp-for="user.LastName" class="form-control" placeholder="Enter your surname" id="SName" onkeyup="validation();">
-                  <span id="SNameError" style="color:red;"></span>
+                <input type="text" asp-for="user.LastName" class="form-control" placeholder="Enter your surname" id="USNamex" onkeyup="Uservalidation('x');">
+                <div id="USNameErrorx" style="color:red;"></div>
 
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Email</label>
-                <input type="email" asp-for="user.Email" class="form-control" placeholder="Enter Email">
+                <input type="text" asp-for="user.Email" class="form-control" placeholder="Enter Email" id="UserEmailx" onkeyup="Uservalidation('x');">
+                <div id="UEmailErrorx" style="color:red;"></div>
             </div>
             <div class="col-12 col-sm-6">
                 <label>Password</label>
-                <input type="password" asp-for="user.Password" class="form-control" placeholder="Enter Password">
+                <input type="password" asp-for="user.Password" class="form-control" placeholder="Enter Password" id="UserPassx" onkeyup="Uservalidation('x');">
+                <div id="UPassErrorx" style="color:red;"></div>
             </div>
         </div>
         <div class="row mt-3">
@@ -238,7 +240,7 @@
         <div class="row mt-3">
             <div class="col-12 col-sm-6">
                 <label>Country*</label>
-                <select class="form-select" asp-for="user.CountryId" aria-label="Default select example" id="countryIdx" onchange="GetsCity('x');validation();"
+                <select class="form-select" asp-for="user.CountryId" aria-label="Default select example" id="countryIdx" onchange="GetsCity('x');Uservalidation('x');"
                         aria-placeholder="Select your country">
                     <option value="0">Select your country</option>
                     @foreach (var item in @Model.countries)
@@ -248,11 +250,11 @@
                     }
 
                 </select>
-                    <span id="CountryError" style="color:red;"></span>
+                <div id="UCountryErrorx" style="color:red;"></div>
             </div>
             <div class="col-12 col-sm-6">
                 <label>City*</label>
-                <select class="form-select" asp-for="user.CityId" aria-label="Default select example" id="selectCityListx" onchange="validation();"
+                <select class="form-select" asp-for="user.CityId" aria-label="Default select example" id="selectCityListx" onchange="Uservalidation('x');"
                         aria-placeholder="Select your country">
                     <option value="0">Select your city</option>
                     @foreach (var item in @Model.cities)
@@ -262,7 +264,7 @@
                     }
 
                 </select>
-                 <span id="CityError" style="color:red;"></span>
+                <div id="UCityErrorx" style="color:red;"></div>
             </div>
         </div>
 
@@ -296,7 +298,7 @@
 
 
             <div class="apply2 col-1">
-                <button type="submit" name="command" value="1" class="btn btn-outline apply"  id="Updateprofile" disabled>
+                <button type="submit" name="command" value="1" class="btn btn-outline apply"  id="UserSubmitbtnx" disabled>
                     Save
 
                 </button>
@@ -517,40 +519,51 @@
 
 
 <script>
+    function Uservalidation(x){
+        var Name = $("#UserName"+x).val();
+        var SName = $("#USName"+x).val();
+        var Email = $("#UserEmail"+x).val();
+        if(x == 'x'){
+        var Pass = $("#UserPass"+x).val();
+        }
+        var City = $("#selectCityList"+x).val();
+        var Country = $("#countryId"+x).val();
+        console.log(City);
+        console.log(Country);
+        console.log(Name);
+        console.log(SName);
 
-    function validation(){
+        document.querySelector('#UserSubmitbtn'+x).disabled = true;
 
-    var City = $("#selectCityListx").val();
-    var Country = $("#countryIdx").val();
-    var Name = $("#Name").val();
-    var SName = $("#SName").val();
-
-    console.log(City);
-    console.log(Country);
-    console.log(Name);
-    console.log(SName);
-
-    document.querySelector('#Updateprofile').disabled = true;
-
-    if(Name.length == 0){
-    $("#NameError").text("Plaease enter the name first");
-    }
-    else if(SName.length == 0){
-    $("#SNameError").text("Plaease enter the Last name first");
-    }
-    else if(Country == 0){
-    $("#CountryError").text("Plaease select the Country ");
-    }
-    else if(City == 0){
-    $("#CityError").text("Plaease select the city");
-    }
-    else{
-    $("#CityError").text("");
-    $("#CountryError").text("");
-    $("#NameError").text("");
-    $("#SNameError").text("");
-    document.querySelector('#Updateprofile').disabled = false;
-    }
+        if(Name.length == 0){
+            $("#UNameError"+x).text("Plaease enter the name first");
+        }
+        else if(SName.length == 0){
+            $("#USNameError"+x).text("Plaease enter the Last name first");
+        }
+        else if(Email.length == 0){
+            $("#UEmailError"+x).text("Plaease enter the Last name first");
+        }
+        else if(x == 'x' && Pass.length == 0){
+            $("#UPassError"+x).text("Plaease enter the Last name first");
+        }
+        else if(Country == 0){
+            $("#UCountryError"+x).text("Plaease select the Country ");
+         }
+        else if(City == 0){
+            $("#UCityError"+x).text("Plaease select the city");
+         }
+        else{
+            $("#UCityError"+x).text("");
+            $("#UCountryError"+x).text("");
+            $("#UNameError"+x).text("");
+            $("#USNameError"+x).text("");
+            $("#UEmailError"+x).text("");
+            if(x=='x'){
+            $("#UPassError"+x).text("");
+            }
+            document.querySelector('#UserSubmitbtn'+x).disabled = false;
+         }
     }
 </script>
 

@@ -81,7 +81,7 @@
                     <div class="row ">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-6 mt-3 ">
                             @{
-                                if (@Model.missions.MissionType == "Goal")
+                                if (@Model.missions.MissionType == "Goal"  && @Model.missions.GoalMissions.Count > 0)
                                 {
                                     int seates = @Model.missions.GoalMissions.FirstOrDefault().GoalValue;
                                     int apply = @Model.missions.MissionApplications.Count();
@@ -103,7 +103,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-6 mt-3">
 
                             @{
-                                if (Model.missions.MissionType == "Goal")
+                                if (Model.missions.MissionType == "Goal"  && @Model.missions.GoalMissions.Count > 0)
                                 {
                                     int seates = @Model.missions.GoalMissions.FirstOrDefault().GoalValue;
                                     int apply = @Model.missions.MissionApplications.Count();
@@ -416,7 +416,8 @@
                             <div class="col-9">
 
 
-                                @{
+                                 @if(Model.missions.MissionRatings.Count > 0){
+ 
 
                                     var ratings = Model.missions.MissionRatings.Average(x => x.Rating);
                                     var fullStars = (int)ratings;

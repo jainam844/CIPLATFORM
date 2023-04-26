@@ -178,6 +178,10 @@ namespace CIPLATFORM.Controllers
             if (page == "nav-user")
             {
                 am.user = _AdminRepository.EditForm(id, page).user;
+                if(am.user.CountryId != null)
+                {
+                    am.cities=_AdminRepository.getData().cities.Where(x=>x.CountryId==am.user.CountryId).ToList();  
+                }
                 return PartialView("_User", am);
             }
 
@@ -191,7 +195,10 @@ namespace CIPLATFORM.Controllers
                 am.mission = _AdminRepository.EditForm(id, page).mission;
                 am.missionthemes = _AdminRepository.getData().missionthemes;
                 am.skills = _AdminRepository.getData().skills;
-                //am.Avatarfile.FileName = am.user.Avatar;
+               if(am.mission.CountryId != null)
+                {
+                    am.cities=_AdminRepository.getData().cities.Where(x=>x.CountryId==am.mission.CountryId).ToList();
+                }
                 return PartialView("_Mission", am);
             }
             else if (page == "nav-theme")

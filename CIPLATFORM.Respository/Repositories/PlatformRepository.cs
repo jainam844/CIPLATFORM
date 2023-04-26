@@ -36,10 +36,7 @@ namespace CIPLATFORM.Respository.Repositories
         }
         public List<City> GetCityData(List<int>? countryId)
         {
-            //List<City> city = _CiPlatformContext.Cities.Where(i => i.CountryId == countryId).ToList();
-            //return city;
-
-
+            
             List<City> city = _CiPlatformContext.Cities.Where(i => countryId.Contains((int)i.CountryId)).ToList();
             if (countryId.Count == 0)
                 city = _CiPlatformContext.Cities.ToList();
@@ -83,6 +80,7 @@ namespace CIPLATFORM.Respository.Repositories
             List<FavoriteMission> favoriteMission = _CiPlatformContext.FavoriteMissions.ToList();
             List<User> users = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
             CardsViewModel missionCards = new CardsViewModel();
+
             {
 
                 missionCards.missions = missions;
@@ -126,15 +124,12 @@ namespace CIPLATFORM.Respository.Repositories
 
 
             var allUser = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
-            var alreaduInvite = _CiPlatformContext.MissionInvites.Include(x => x.ToUser).ToList();
+            var alreaduInvite = _CiPlatformContext.MissionInvites.Where(x=>x.MissionId==mid).Include(x => x.ToUser).ToList();
             foreach (var i in alreaduInvite)
             {
                 allUser = allUser.Where(x => x.UserId != i.ToUserId).ToList();
             }
-
-           
-
-
+         
             List<FavoriteMission> favoriteMission = _CiPlatformContext.FavoriteMissions.ToList();
             MissionListingViewModel CardDetail = new MissionListingViewModel();
             {
@@ -338,6 +333,8 @@ namespace CIPLATFORM.Respository.Repositories
         public StoryListingViewModel GetStoryDetail()
         {
             List<Story> stories = _CiPlatformContext.Stories.Include(m => m.User).Include(m => m.StoryMedia).Include(m => m.Mission).Where(m => m.Status== "PUBLISHED").ToList();
+
+
             //List<StoryMedium> photos = smedia(sid);
             StoryListingViewModel StoryDetail = new StoryListingViewModel();
             {
@@ -377,11 +374,20 @@ namespace CIPLATFORM.Respository.Repositories
             Story story = _CiPlatformContext.Stories.Include(m => m.User).Include(m => m.StoryViews).FirstOrDefault(m => m.StoryId == sid);
             List<StoryMedium> photos = smedia(sid);
             List<User> users = _CiPlatformContext.Users.ToList();
+
+
+            var allUser = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
+            var alreaduInvite = _CiPlatformContext.StoryInvites.Where(x => x.StoryId == sid).Include(x => x.ToUser).ToList();
+            foreach (var i in alreaduInvite)
+            {
+                allUser = allUser.Where(x => x.UserId != i.ToUserId).ToList();
+            }
             StoryListingViewModel StoryDetail = new StoryListingViewModel();
             {
                 StoryDetail.storymedias = photos;
                 StoryDetail.story = story;
                 StoryDetail.coworkers = users;
+                StoryDetail.alreadyinvite = alreaduInvite;
             }
             return StoryDetail;
         }
@@ -428,6 +434,7 @@ namespace CIPLATFORM.Respository.Repositories
                     invite.FromUserId = FromUserId;
                     invite.ToUserId = user;
                     invite.StoryId = sid;
+                  
                 }
                 _CiPlatformContext.Add(invite);
                 _CiPlatformContext.SaveChanges();
@@ -707,7 +714,9 @@ namespace CIPLATFORM.Respository.Repositories
 
 
                 }
-
+                if (sort == 4)
+                    missioncards = missioncards.OrderBy(i => i.GoalMissions.Count).ToList();
+              
             }
             if (pg != 0)
             {

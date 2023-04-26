@@ -452,11 +452,55 @@
                    pageContent.style.display = "block";
                    addForm.style.display = 'none';
                }
-
-
     </script>
 
-       
+      <script>
+        const inputDiv = document.querySelector(".input-div")
+         const input = document.querySelector("#imageupload")
+         const output = document.querySelector("#preview")
+         let imagesArray = []
+
+         input.addEventListener("change", () => {
+
+             const files = input.files
+             for (let i = 0; i < files.length; i++) {
+                 imagesArray.push(files[i])
+             }
+               console.log(files);
+             displayImages()
+
+         })
+
+         inputDiv.addEventListener("drop", () => {
+             e.preventDefault()
+             const files = e.dataTransfer.files
+             for (let i = 0; i < files.length; i++) {
+                 if (!files[i].type.match("image")) continue;
+
+                 if (imagesArray.every(image => image.name !== files[i].name))
+                     imagesArray.push(files[i])
+             }
+               console.log(files);
+             displayImages()
+         })
+          function displayImages() {
+
+             let images = ""
+             imagesArray.forEach((image, index) => {
+                 images += `<div class="image storyimages">
+                                             <img src="${URL.createObjectURL(image)}" alt="image">
+                                             <span onclick="deleteImg(${index})">&times;</span>
+                                           </div>`
+             })
+             output.innerHTML = images
+         }
+
+         function deleteImg(index) {
+             imagesArray.splice(index, 1)
+             displayImages()
+         }
+
+    </script> 
    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

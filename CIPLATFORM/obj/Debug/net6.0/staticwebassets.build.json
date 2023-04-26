@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DiV3ELdTM4QG/N8JS7rhXDwz1UIbtHOWdwzFCemeMyg=",
+  "Hash": "QnnkYPsSZoQjhpANgbdMEduOJ4BSIm4+qZFcAt6woUw=",
   "Source": "CIPLATFORM",
   "BasePath": "_content/CIPLATFORM",
   "Mode": "Default",
@@ -474,6 +474,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\A\\Nourish-the-Children-in--African-country-1.png"
+    },
+    {
+      "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\Plantation-and-Afforestation-programme.png",
+      "SourceId": "CIPLATFORM",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\",
+      "BasePath": "_content/CIPLATFORM",
+      "RelativePath": "images/A/Plantation-and-Afforestation-programme.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\A\\Plantation-and-Afforestation-programme.png"
     },
     {
       "Identity": "D:\\JAINAM\\CIPLATFORM\\CIPLATFORM\\wwwroot\\images\\A\\volunteer7.png",

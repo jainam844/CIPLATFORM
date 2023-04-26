@@ -38,10 +38,10 @@ namespace CIPLATFORM.Controllers
                 return View();
             }
             Login login = _UserRepository.login(obj);
-            if(login == null)
-            {
-                login = new Login();
-            }
+            //if(login == null)
+            //{
+            //    login = new Login();
+            //}
             if (login.user == null && login.admin == null)
             {
                 TempData["loginerror"] = "Email Or Password Is Inavalid!!!!!";
@@ -115,10 +115,7 @@ namespace CIPLATFORM.Controllers
         {
             User user1 = new User();
             {
-
                 user1.Email = obj.Email;
-
-
             }
             if (ModelState.IsValid)
             {
@@ -161,13 +158,9 @@ namespace CIPLATFORM.Controllers
                 {
                     User user = new User();
                     {
-
-                        user.Password = Crypto.HashPassword(obj.Password); ;
-
-
+                    user.Password = Crypto.HashPassword(obj.Password); 
                     }
                     var validToken = _UserRepository.newpassword(user, token);
-
                     if (validToken != null)
                     {
                         TempData["Message"] = "Your Password is changed";
@@ -177,7 +170,6 @@ namespace CIPLATFORM.Controllers
                     return RedirectToAction("Login");
                 }
             }
-            //TempData["Message"] = "Error Occured..!!";
             return View();
         }
 
@@ -197,7 +189,6 @@ namespace CIPLATFORM.Controllers
                     user.FirstName = obj.FirstName;
                     user.LastName = obj.LastName;
                     user.Email = obj.Email;
-                    //user.Password = obj.Password;
                     user.Password = Crypto.HashPassword(obj.Password);
                     user.PhoneNumber = obj.PhoneNumber;
                 }
@@ -205,7 +196,6 @@ namespace CIPLATFORM.Controllers
                 if (check != null)
                 {
                     TempData["unsuccess"] = "User already exist";
-
                     return View();
                 }
                 else
@@ -224,8 +214,5 @@ namespace CIPLATFORM.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("login", "User");
         }
-
-
-
     }
 }

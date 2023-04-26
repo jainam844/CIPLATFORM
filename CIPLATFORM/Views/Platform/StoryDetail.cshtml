@@ -28,38 +28,6 @@
         <div class="row g-0">
             <div class="col-lg-6 ">
 
-                @*    <div class="container p-0 pb-5 h-100" style="max-width: 100%; height: 100%;">
-
-
-                    @for (int i = 1; i <= Model.storymedias.Count; i++)
-                    {
-                    <div class="mySlides h-100">
-
-
-                    <img src=~/images/@(Model.storymedias[i-1].Path) style="width:100%; ">
-                    </div>
-                    }
-
-
-
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-                    <div class="container-fluid row ps-4 g-2 ">
-
-                    @for (int i = 1; i <= Model.storymedias.Count; i++)
-                    {
-                    <div class="col ">
-                    <div class="card h-75">
-
-                    <img src=~/images/@(Model.storymedias[i-1].Path) style="width:100%; ">
-                    </div>
-                    </div>
-                    }
-
-                    </div>
-                    </div>*@
-
                 <div class="container p-0 pb-5 h-100" style="max-width: 100%; height: 100%;">
                     @for (int i = 1; i <= Model.storymedias.Count; i++)
                     {
@@ -107,7 +75,7 @@
                                 <i class="bi bi-eye"></i>
                                 @Model.story.StoryViews.Count
                             </button>
-                            @*  <button id="reset" >Reset</button>*@
+                         
                         </div>
                     </div>
                     <p>
@@ -132,7 +100,16 @@
                                             <h5 class="modal-title" id="exampleModalLabel">Recommand To Co-Worker</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body" style="background-color:#F9F9F8"  onclick="recommandStory(@Model.story.StoryId)">
+                                        <div class="modal-body" style="background-color:#F9F9F8"  onchange="recommandStory(@Model.story.StoryId)">
+                                              @foreach (var item in Model.alreadyinvite)
+                                                {
+
+                                                    <div class="d-flex justify-content-start">
+                                                      <i class="bi bi-check-circle-fill text-black"></i>
+                                                        <span class="ms-3" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"> @item.ToUser.FirstName @item.ToUser.LastName</span>
+                                                    </div>
+                                                } 
+
 
 
                                             @foreach (var item in Model.coworkers)

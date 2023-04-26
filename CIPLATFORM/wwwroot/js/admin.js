@@ -112,7 +112,15 @@ function getdata(x, id) {
 
             var abc = htmlObject.querySelector("#edit");
             abc.style.display = "block";
-
+            if (x == "nav-mission") {
+                var missionSkill = abc.querySelector("#photos");
+                console.log(missionSkill);
+                var ck = [];
+                missionSkill.querySelectorAll(".Dimg").forEach((element) => {
+                    ck.push(element.value);
+                });
+                console.log(ck);
+            }
             console.log(abc);
             console.log(addForm);
 
@@ -121,7 +129,7 @@ function getdata(x, id) {
                 var abc = document.getElementById("cms2");
                 CKEDITOR.replace(abc);
             }
-          
+    
             console.log(x);
             if (x == "nav-user") {
              
@@ -134,6 +142,103 @@ function getdata(x, id) {
             if (x == "nav-mission") {
                 var abc = document.getElementById("mission2");
                 CKEDITOR.replace(abc);
+
+
+
+                const inputDiv = document.querySelector(".input-div")
+                const input = document.querySelector("#imageupload")
+                const output = document.querySelector("#preview")
+                let imagesArray = []
+
+                input.addEventListener("change", () => {
+
+                    const files = input.files
+                    for (let i = 0; i < files.length; i++) {
+                        imagesArray.push(files[i])
+                    }
+                    console.log(files);
+                    displayImages()
+
+                })
+
+                inputDiv.addEventListener("drop", () => {
+                    e.preventDefault()
+                    const files = e.dataTransfer.files
+                    for (let i = 0; i < files.length; i++) {
+                        if (!files[i].type.match("image")) continue;
+
+                        if (imagesArray.every(image => image.name !== files[i].name))
+                            imagesArray.push(files[i])
+                    }
+                    console.log(files);
+                    displayImages()
+                })
+                function displayImages() {
+
+                    let images = ""
+                    imagesArray.forEach((image, index) => {
+                        images += `<div class="image storyimages">
+                                        <img src="${URL.createObjectURL(image)}" alt="image">
+                                        <span onclick="deleteImg(${index})">&times;</span>
+                                   </div>`
+                    })
+                    output.innerHTML = images
+                }
+
+                function deleteImg(index) {
+                    imagesArray.splice(index, 1)
+                    displayImages()
+                }
+
+                if (ck.length > 0) {
+
+                    function toDataUrl(url, callback) {
+                        console.log(url);
+                        var newUrl = url;
+                        var xhr = new XMLHttpRequest();
+                        xhr.onload = function () {
+                            callback(xhr.response);
+
+                        };
+                        xhr.open('GET', newUrl);
+                        xhr.responseType = 'blob';
+                        xhr.send();
+                    }
+                    const dT = new DataTransfer();
+                    let image;
+                    let images = ""
+                    let returnImage = ""
+                    ck.forEach((img, index) => {
+                        returnImage = img;
+                        img = "/images/" + img;
+                        toDataUrl(img, function (x) {
+                            image = x;
+                            dT.items.add(new File([image], returnImage, {
+                                type: "image/png"
+                            }));
+                            imagesArray.push(new File([image], returnImage, {
+                                type: "image/png"
+                            }));
+                            document.querySelector('#imageupload').files = dT.files;
+                            console.log(document.querySelector('#imageupload'));
+                            console.log(document.querySelector('#imageupload').files);
+                        });
+
+
+                        images += `<div class="image">
+                                        <img src="${img}" alt="image">
+                                        <span onclick="deleteImg(${index})">&times;</span>
+                                   </div>`
+
+                    });
+
+                    output.innerHTML = images;
+
+                }
+                else {
+                    output.innerHTML = "No Images Are Choosen";
+                }
+
             }
         },
         error: function (e) {

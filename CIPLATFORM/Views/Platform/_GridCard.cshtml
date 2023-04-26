@@ -149,7 +149,7 @@
                                 <div class="col-md-6">
                              
 
-                                    @if (true)
+                                    @if (item.MissionRatings.Count > 0)
                                     {
 
                                         var ratings = item.MissionRatings.Average(x => x.Rating);
@@ -186,7 +186,7 @@
                                 <div class="d-flex justify-content-center .left .right ">
                                     @*   @item.StartDate.ToShortDateString() until @item.EndDate.ToShortDateString()*@
                                     @{
-                                        if (item.MissionType == "Goal")
+                                        if (item.MissionType == "Goal" && item.GoalMissions.Count > 0)
                                         {
                                             <span class="textline">@item.GoalMissions.FirstOrDefault()?.GoalObjectiveText </span>
                                         }
@@ -209,7 +209,7 @@
                             <div class="row mt-2">
                                 <div class="col-6 ">
                                     @{
-                                        if (item.MissionType == "Goal")
+                                        if (item.MissionType == "Goal"  && item.GoalMissions.Count > 0)
                                         {
                                             int seates = @item.GoalMissions.FirstOrDefault().GoalValue;
                                             int apply = @item.MissionApplications.Count();
@@ -232,7 +232,7 @@
                                 <div class="col-6 ">
 
                                     @{
-                                        if (item.MissionType == "Goal")
+                                        if (item.MissionType == "Goal"  && item.GoalMissions.Count > 0)
                                         {
                                             int seates = @item.GoalMissions.FirstOrDefault().GoalValue;
                                             int apply = @item.MissionApplications.Count();
