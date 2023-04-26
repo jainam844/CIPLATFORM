@@ -394,7 +394,32 @@
                         </div>
 
                         <div class="tab-pane fade" id="nav-banner" role="tabpanel" aria-labelledby="nav-banner-tab">
-                            <h4 class="pt-3 pb-2">Banner</h4>
+                                  <div id="pageContent">
+
+                                <h4>Banner</h4>
+                                <hr class="m-0">
+                                <div class="row mt-3 g-0">
+                                    @*<div class="col-12 col-xl-3 col-lg-6 col-sm-8">
+                                        <div class="form-group has-search">
+                                            <span class="form-control-feedback"><i class="bi bi-search"></i></span>
+                                            <input type="text" class="form-control" id="search8" placeholder="Search" onkeyup="AdminSearch(8);">
+                                        </div>
+                                    </div>*@
+                                    @*col-xl-9 col-lg-6 col-sm-4 *@
+
+                                    <div class="col-12 text-end">
+                                         <button type="button" class="btn btn-outline-warning rounded-pill" onclick="addform('nav-banner',8);">
+                                            <i class="bi bi-plus"></i>
+                                            Add
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                             <div id="hi8">
+                                @{
+                                    Html.RenderPartial("_Banner");
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>

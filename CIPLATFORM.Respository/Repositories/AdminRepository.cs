@@ -35,6 +35,7 @@ namespace CIPLATFORM.Respository.Repositories
             um.skills = _CiPlatformContext.Skills.Where(x => x.DeletedAt == null).ToList();
             um.missionapplications = _CiPlatformContext.MissionApplications.Include(x => x.Mission).Include(x => x.User).Where(x => x.ApprovalStatus == "Pending").ToList();
             um.stories = _CiPlatformContext.Stories.Include(x => x.User).Where(x => x.Status == "PENDING" || x.Status == "DRAFT").Where(x => x.DeletedAt == null).ToList();
+            um.banners = _CiPlatformContext.Banners.Where(x => x.DeletedAt == null).ToList();
             return um;
         }
         public AdminViewModel Usersearch(string search, int pg)
@@ -53,6 +54,7 @@ namespace CIPLATFORM.Respository.Repositories
                 obj.skills = obj.skills.Where(x => x.SkillName.ToLower().Contains(search)).ToList();
                 obj.missionapplications = obj.missionapplications.Where(x => x.Mission.Title.ToLower().Contains(search)).ToList();
                 obj.stories = obj.stories.Where(x => x.Title.ToLower().Contains(search)).ToList();
+                //obj.banner = obj.banners.Where(x => x.SortOrder.Contains(search)).ToList();
 
             }
             if (pg != 0)
@@ -65,6 +67,7 @@ namespace CIPLATFORM.Respository.Repositories
                 obj.skills = obj.skills.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
                 obj.missionapplications = obj.missionapplications.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
                 obj.stories = obj.stories.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
+                obj.banners = obj.banners.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
             }
             return obj;
 
@@ -381,6 +384,34 @@ namespace CIPLATFORM.Respository.Repositories
                 }
 
             }
+            if (command == 8)
+            {
+                if (obj.banner.BannerId == 0)
+                {
+                    Banner banner = new Banner();
+                    {
+                        banner.Text = obj.banner.Text;
+                        banner.SortOrder = obj.banner.SortOrder;
+                        banner.Image=obj.banner.Image;          
+                    }
+                    _CiPlatformContext.Add(banner);
+                    _CiPlatformContext.SaveChanges();
+
+                }
+                else
+                {
+                    Banner banner=_CiPlatformContext.Banners.FirstOrDefault(x=>x.BannerId==obj.banner.BannerId);
+                    {
+                        banner.Text = obj.banner.Text;
+                        banner.SortOrder = obj.banner.SortOrder;
+                        banner.Image = obj.banner.Image;
+                    }
+                    _CiPlatformContext.Update(banner);
+                    _CiPlatformContext.SaveChanges();
+                    return false;
+                }
+            }
+
             return true;
 
 
@@ -409,6 +440,10 @@ namespace CIPLATFORM.Respository.Repositories
                 if (page == "nav-skill")
                 {
                     am.skill = _CiPlatformContext.Skills.FirstOrDefault(x => x.SkillId == id);
+                }
+                if (page == "nav-banner")
+                {
+                    am.banner = _CiPlatformContext.Banners.FirstOrDefault(x => x.BannerId == id);
                 }
             }
             return am;
@@ -458,6 +493,14 @@ namespace CIPLATFORM.Respository.Repositories
                     Story story = _CiPlatformContext.Stories.FirstOrDefault(x => x.StoryId == id);
                     story.DeletedAt = DateTime.Now;
                     _CiPlatformContext.Stories.Update(story);
+                    _CiPlatformContext.SaveChanges();
+                }
+
+                if (page == 8)
+                {
+                    Banner banner = _CiPlatformContext.Banners.FirstOrDefault(x => x.BannerId == id);
+                    banner.DeletedAt = DateTime.Now;
+                    _CiPlatformContext.Banners.Update(banner);
                     _CiPlatformContext.SaveChanges();
                 }
 

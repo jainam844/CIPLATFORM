@@ -62,6 +62,11 @@ namespace CIPLATFORM.Controllers
 
 
 
+            ViewBag.Totalpages8 = Math.Ceiling(am.banners.Count() / 5.0);
+            am.banners = am.banners.Skip((1 - 1) * 5).Take(5).ToList();
+            ViewBag.pg_no = 1;
+
+
             return View(am);
         }
 
@@ -109,6 +114,15 @@ namespace CIPLATFORM.Controllers
                 else
                     TempData["false"] = "MissionTheme updated Successfully";
             }
+            if (command == 8)
+            {
+                bool missionskill = _AdminRepository.addcms(obj, command);
+                if (missionskill)
+                    TempData["true"] = "Banner added Successfully";
+                else
+                    TempData["false"] = "Banner updated Successfully";
+            }
+
             AdminViewModel am = _AdminRepository.getData();
             ViewBag.Totalpages1 = Math.Ceiling(am.users.Count() / 5.0);
             am.users = am.users.Skip((1 - 1) * 5).Take(5).ToList();
@@ -137,6 +151,10 @@ namespace CIPLATFORM.Controllers
 
             ViewBag.Totalpages7 = Math.Ceiling(am.stories.Count() / 5.0);
             am.stories = am.stories.Skip((1 - 1) * 5).Take(5).ToList();
+            ViewBag.pg_no = 1;
+
+            ViewBag.Totalpages8 = Math.Ceiling(am.banners.Count() / 5.0);
+            am.banners = am.banners.Skip((1 - 1) * 5).Take(5).ToList();
             ViewBag.pg_no = 1;
             return View(am);
         }
@@ -175,6 +193,10 @@ namespace CIPLATFORM.Controllers
             am.stories = am.stories.Skip((1 - 1) * 5).Take(5).ToList();
             ViewBag.pg_no = 1;
 
+            ViewBag.Totalpages8 = Math.Ceiling(am.banners.Count() / 5.0);
+            am.banners = am.banners.Skip((1 - 1) * 5).Take(5).ToList();
+            ViewBag.pg_no = 1;
+
             if (page == "nav-user")
             {
                 am.user = _AdminRepository.EditForm(id, page).user;
@@ -210,6 +232,11 @@ namespace CIPLATFORM.Controllers
             {
                 am.skill = _AdminRepository.EditForm(id, page).skill;
                 return PartialView("_MissionSkill", am);
+            }
+            else if (page == "nav-banner")
+            {
+                am.banner = _AdminRepository.EditForm(id, page).banner;
+                return PartialView("_Banner", am);
             }
             return PartialView("_CMSPages", am);
         }
@@ -256,7 +283,7 @@ namespace CIPLATFORM.Controllers
             ViewBag.Totalpages6 = Math.Ceiling(x.missionapplications.Count() / 5.0);
             ViewBag.Totalpages7 = Math.Ceiling(x.stories.Count() / 5.0);
 
-
+            ViewBag.Totalpages8 = Math.Ceiling(x.banners.Count() / 5.0);
 
 
             if (key == "user")
@@ -288,6 +315,10 @@ namespace CIPLATFORM.Controllers
             if (key == "story")
             {
                 return PartialView("_Story", fusers);
+            }
+            if (key == "banner")
+            {
+                return PartialView("_Banner", fusers);
             }
             return View(fusers);
 

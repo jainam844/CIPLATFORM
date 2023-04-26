@@ -28,6 +28,8 @@ function searchuser(pg, key) {
     if (key == "story") {
         var search = document.getElementById("searchstory").value;
     }
+ 
+
     
     
     
@@ -74,6 +76,10 @@ function searchuser(pg, key) {
             else if (key == "story") {
                 $("#hi7").empty();
                 $("#hi7").html(data);
+            }
+            else if (key == "banner") {
+                $("#hi8").empty();
+                $("#hi8").html(data);
             }
 
 
