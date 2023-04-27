@@ -223,38 +223,10 @@ $(document).ready(function () {
 /*filter */
 function temp(pg) {
 
-
     if (pg == undefined) {
         pg = 1;
     }
     console.log(pg);
-
-
-
-
-    //var checkedcntryvalues = [];
-    //var div1 = document.getElementById("countryId");
-    //var list = div1.getElementsByTagName("option");
-    //for (i = 0; i < list.length; i++) {
-    //    if (list[i].selected) {
-    //        checkedcntryvalues.push(list[i].value);
-    //    }
-
-    //}
-    //console.log(checkedcntryvalues);
-
-
-    //var checkedvalues = [];
-    //var div = document.getElementById("selectCityList");
-    //var list = div.getElementsByTagName("option");
-    //for (i = 0; i < list.length; i++) {
-    //    if (list[i].selected) {
-    //        checkedvalues.push(list[i].value);
-    //    }
-
-    //}
-    //console.log(checkedvalues);
-
     var checkedcntryvalues = [];
     var div1 = document.getElementById("countryId");
     var list = div1.getElementsByTagName("input");
@@ -336,8 +308,6 @@ function temp(pg) {
             $("#filter").empty();
             console.log("grid Hii");
             $("#filter").html(data);
-          
-
 
             var div1 = document.getElementById("list-view");
             div1.style.display = 'none';

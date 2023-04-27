@@ -70,7 +70,7 @@ namespace CIPLATFORM.Respository.Repositories
 
         public CardsViewModel getCards()
         {
-            List<Mission> missions = _CiPlatformContext.Missions.Include(x => x.MissionApplications).ToList();
+            List<Mission> missions = _CiPlatformContext.Missions.Where(x => x.DeletedAt == null).Include(x => x.MissionApplications).ToList();
             List<MissionMedium> media = _CiPlatformContext.MissionMedia.Where(x => x.Default == 1).ToList();
             List<MissionSkill> missionSkills = _CiPlatformContext.MissionSkills.ToList();
             List<MissionTheme> missionThemes = _CiPlatformContext.MissionThemes.ToList();
@@ -676,8 +676,6 @@ namespace CIPLATFORM.Respository.Repositories
             if (cityId.Count > 0)
             {
                 missioncards = missioncards.Where(c => cityId.Contains((int)c.CityId)).ToList();
-
-
             }
             if (themeId.Count > 0)
 

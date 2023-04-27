@@ -34,8 +34,8 @@
     </table>
 
     
-    <nav aria-label="Page navigation example mt-5" id="cmspage">
-        <ul class="pagination justify-content-end me-5" onchange="searchuser(1,'cms')">
+    <nav aria-label="Page navigation example mt-5" id="banner">
+        <ul class="pagination justify-content-end me-5" onchange="searchuser(1,'banner')">
 
             @{
                 double totalpages = ViewBag.Totalpages8;
@@ -47,14 +47,14 @@
                     @if (i == ViewBag.pg_no)
                     {
                         <li class="page-item  ">
-                            <a class="page-link  " onclick="searchuser(@i,'cms')">@i </a>
+                            <a class="page-link  " onclick="searchuser(@i,'banner')">@i </a>
 
                         </li>
                     }
                     else
                     {
                         <li class="page-item">
-                            <a class="page-link" onclick="searchuser(@i,'cms')">@i</a>
+                            <a class="page-link" onclick="searchuser(@i,'banner')">@i</a>
                         </li>
                     }
 

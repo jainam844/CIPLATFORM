@@ -18,6 +18,7 @@ namespace CIPLATFORM.Respository.Interface
         PasswordReset newpassword(User obj, string token);
         public bool checktime(string token);
         public bool checktoken(string token);
+        public AdminViewModel getbanners();
     }
    
 }

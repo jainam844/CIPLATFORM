@@ -473,47 +473,6 @@
     });
 
 </script>
-<script>
-
-
-    function GetsCity(x) {
-    if (x != undefined) {
-    var countryId = $('#countryId' + x).find(":selected").val();
-    var city = "selectCityList" + x;
-    }
-    else {
-    var countryId = $('#countryId').find(":selected").val();
-    var city = "selectCityList";
-    }
-    $.ajax({
-    url: "/Platform/GetCitys",
-    method: "GET",
-    data: {
-    "countryId": countryId
-    },
-    success: function (data) {
-    data = JSON.parse(data);
-    $("#"+city).empty();
-
-    document.getElementById(city).innerHTML += `
-    <option value=${name}> City </option>
-    `;
-    data.forEach((name) => {
-    document.getElementById(city).innerHTML += `
-    <option value=${name.CityId} >${name.Name}</option>
-    `;
-    })
-    },
-    error: function (e) {
-    console.log("Bye city");
-    alert('Error');
-    },
-    });
-
-    }
-
-
-</script>
 
 
 

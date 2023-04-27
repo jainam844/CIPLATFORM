@@ -38,9 +38,6 @@ namespace CIPLATFORM.Entities.ViewModels
         public string? url { get; set; }
         public List<long> editmissionSkills { get; set; } = new List<long>();
 
-
-
-
         public List<Banner> banners = new List<Banner>();
         public int BannerPage = 1;
 

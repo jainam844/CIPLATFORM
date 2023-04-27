@@ -41,7 +41,7 @@
 
 
         <script type="text/javascript">
-            toastr.success('@TempData["delete"]')
+            toastr.error('@TempData["delete"]')
         </script>
     }
 
@@ -60,7 +60,7 @@
     @if (TempData["false"] != null)
     {
         <script type="text/javascript">
-            toastr.error('@TempData["false"]')
+            toastr.success('@TempData["false"]')
         </script>
     }
 
@@ -171,14 +171,14 @@
                                     @ViewBag.Uname
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                                <li><a class="dropdown-item" asp-controller="Profile" asp-action="Profile"> <span>Add Profile </span> </a></li>
-                            <li><a class="dropdown-item" asp-controller="Profile" asp-action="Timesheet"> <span>Volunteering Timesheet</span></a></li>
-                          
+                                    <li><a class="dropdown-item" asp-controller="Profile" asp-action="Profile"> <span>Add Profile </span> </a></li>
+                                    <li><a class="dropdown-item" asp-controller="Profile" asp-action="Timesheet"> <span>Volunteering Timesheet</span></a></li>
 
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" asp-controller="User" asp-action="Logout">  <span>Log Out </span> </a></li>
+
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" asp-controller="User" asp-action="Logout">  <span>Log Out </span> </a></li>
 
 
                                 </ul>
@@ -394,28 +394,28 @@
                         </div>
 
                         <div class="tab-pane fade" id="nav-banner" role="tabpanel" aria-labelledby="nav-banner-tab">
-                                  <div id="pageContent">
+                            <div id="pageContent">
 
                                 <h4>Banner</h4>
                                 <hr class="m-0">
                                 <div class="row mt-3 g-0">
                                     @*<div class="col-12 col-xl-3 col-lg-6 col-sm-8">
                                         <div class="form-group has-search">
-                                            <span class="form-control-feedback"><i class="bi bi-search"></i></span>
-                                            <input type="text" class="form-control" id="search8" placeholder="Search" onkeyup="AdminSearch(8);">
+                                        <span class="form-control-feedback"><i class="bi bi-search"></i></span>
+                                        <input type="text" class="form-control" id="search8" placeholder="Search" onkeyup="AdminSearch(8);">
                                         </div>
-                                    </div>*@
+                                        </div>*@
                                     @*col-xl-9 col-lg-6 col-sm-4 *@
 
                                     <div class="col-12 text-end">
-                                         <button type="button" class="btn btn-outline-warning rounded-pill" onclick="addform('nav-banner',8);">
+                                        <button type="button" class="btn btn-outline-warning rounded-pill" onclick="addform('nav-banner',8);">
                                             <i class="bi bi-plus"></i>
                                             Add
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                             <div id="hi8">
+                            <div id="hi8">
                                 @{
                                     Html.RenderPartial("_Banner");
                                 }
@@ -479,7 +479,7 @@
                }
     </script>
 
-      <script>
+    <script>
         const inputDiv = document.querySelector(".input-div")
          const input = document.querySelector("#imageupload")
          const output = document.querySelector("#preview")
@@ -525,14 +525,14 @@
              displayImages()
          }
 
-    </script> 
-   
+    </script>
+    
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
-
-
 
 
 

@@ -51,6 +51,15 @@ namespace CIPLATFORM.Respository.Repositories
             }
          
         }
+
+        public AdminViewModel getbanners()
+        {
+            AdminViewModel am = new AdminViewModel();
+            {
+                am.banners = _CiPlatformContext.Banners.Where(x => x.DeletedAt == null).OrderBy(x => x.SortOrder).ToList();
+            }
+            return am;
+        }
         public User register(User obj)
         {
             var user = _CiPlatformContext.Users.FirstOrDefault(u => u.Email == obj.Email);

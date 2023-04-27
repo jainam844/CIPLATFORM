@@ -82,7 +82,7 @@ namespace CIPLATFORM.Controllers
             string avtar = HttpContext.Session.GetString("Avatar");
             ViewBag.Avtar = avtar;
             if (name != null)
-            {
+            {   
                 int UserId = (int)HttpContext.Session.GetInt32("UId");
                 ViewBag.UId = UserId;
             }
@@ -90,7 +90,6 @@ namespace CIPLATFORM.Controllers
 
             List<Mission> cards = _PlatformRepository.Filter(cityId, countryId, themeId, skillId, search, sort, pg, @ViewBag.UId);
             CardsViewModel platformModel = new CardsViewModel();
-            //CardsViewModel platformModel = _CiPlatformContext.GetCardDetail();
             platformModel = _PlatformRepository.getCards();
             platformModel.missions = cards;
             if (cards.Count == 0)
