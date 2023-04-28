@@ -63,7 +63,7 @@ namespace CIPLATFORM.Respository.Repositories
         }
         public List<Mission> GetMissionDetails()
         {
-            List<Mission> missionDetails = _CiPlatformContext.Missions.Include(m => m.City).Include(m => m.Theme).Include(m => m.MissionMedia).Include(m => m.MissionRatings).Include(m => m.GoalMissions).Include(x => x.MissionApplications).Include(m => m.MissionSkills).Include(m => m.FavoriteMissions).Include(m => m.MissionApplications).ToList();
+            List<Mission> missionDetails = _CiPlatformContext.Missions.Include(m => m.City).Include(m => m.Theme).Include(m => m.MissionMedia).Include(m => m.MissionRatings).Include(m => m.GoalMissions).Include(x => x.MissionApplications).Include(m => m.MissionSkills).Include(m => m.FavoriteMissions).Include(m => m.MissionApplications).Where(x=>x.DeletedAt==null).ToList();
             return missionDetails;
         }
 
@@ -96,7 +96,7 @@ namespace CIPLATFORM.Respository.Repositories
             return missionCards;
 
         }
-        public MissionListingViewModel GetCardDetail(int mid)
+        public MissionListingViewModel GetCardDetail(int mid,int uid)
         {
             List<Mission> missions = GetMissionDetails();
             Mission mission = missions.FirstOrDefault(x => x.MissionId == mid);
@@ -124,7 +124,7 @@ namespace CIPLATFORM.Respository.Repositories
 
 
             var allUser = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
-            var alreaduInvite = _CiPlatformContext.MissionInvites.Where(x=>x.MissionId==mid).Include(x => x.ToUser).ToList();
+            var alreaduInvite = _CiPlatformContext.MissionInvites.Where(x=>x.MissionId==mid&&x.FromUserId==uid).Include(x => x.ToUser).ToList();
             foreach (var i in alreaduInvite)
             {
                 allUser = allUser.Where(x => x.UserId != i.ToUserId).ToList();
@@ -135,9 +135,7 @@ namespace CIPLATFORM.Respository.Repositories
             {
                 CardDetail.missions = mission;
                 CardDetail.missionmedias = photos;
-                CardDetail.missiondocuments = documents;
-                //CardDetail.rating = rating;
-                //CardDetail.UserRating=_CiPlatformContext.MissionRatings.Where(x => x.MissionId == mid).
+                CardDetail.missiondocuments = documents;              
                 CardDetail.missionapplications = applications;
                 CardDetail.missionskills = missionSkills;
                 CardDetail.relatedmissions = relatedMissions;
@@ -386,7 +384,7 @@ namespace CIPLATFORM.Respository.Repositories
             {
                 StoryDetail.storymedias = photos;
                 StoryDetail.story = story;
-                StoryDetail.coworkers = users;
+                StoryDetail.coworkers = allUser;
                 StoryDetail.alreadyinvite = alreaduInvite;
             }
             return StoryDetail;

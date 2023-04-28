@@ -608,21 +608,31 @@
 
                                 <div class="d-flex justify-content-center .left .right ">
 
-                                    @if (Model.relatedmissions[i].StartDate != null && Model.relatedmissions[i].EndDate != null)
-                                    {
 
-                                        if (Model.relatedmissions[i].StartDate <= DateTime.Now && DateTime.Now <= Model.relatedmissions[i].EndDate)
-                                        {
-                                            <span>Ongoing Opportunity</span>
-                                        }
-                                        else
-                                        {
-                                            <span>@Model.relatedmissions[i].StartDate.ToString().Substring(0,10) until @Model.relatedmissions[i].EndDate.ToString().Substring(0,10) </span>
-                                        }
+                                    @if (Model.missions.MissionType == "Goal")
+                                    {
+                                        <span class="textline">@Model.missions.GoalMissions.FirstOrDefault()?.GoalObjectiveText </span>
+                                    }
+                                    else if (@Model.missions.StartDate <= DateTime.Now && DateTime.Now <= @Model.missions.EndDate)
+                                    {
+                                        <span>Ongoing Opportunity</span>
+
+
                                     }
                                     else
                                     {
-                                        <span>There Is No Date..!!</span>
+                                        @if (Model.missions.StartDate != null && Model.missions.EndDate != null)
+                                        {
+                                            <span>
+                                                @Model.missions.StartDate?.ToString().Substring(0,10)
+                                                until
+                                                @Model.missions.EndDate?.ToString().Substring(0,10)
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span>StartDate or EndDate is not provided here</span>
+                                        }
                                     }
                                 </div>
 
@@ -639,7 +649,7 @@
 
                                 </div>
                                 <div class="col-6 ">
-                                    @if (@Model.relatedmissions[i].EndDate!= null)
+                                    @if (@Model.relatedmissions[i].EndDate != null)
                                     {
                                         <i class="bi bi-clock" style="font-size: 25px;"></i>
                                         @Model.relatedmissions[i].EndDate.ToString().Substring(0,10) <br>

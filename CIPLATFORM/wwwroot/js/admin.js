@@ -110,6 +110,8 @@ function getdata(x, id) {
             "id": id,
             "page": x,
         },
+
+
         success: function (data) {
 
             console.log(data);

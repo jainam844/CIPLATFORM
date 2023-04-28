@@ -25,7 +25,7 @@ namespace CIPLATFORM.Controllers
             List<Banner> banners = new List<Banner>();
             banners = _UserRepository.getbanners().banners;
             ViewBag.banners = banners;
-
+            
 
             Login login = new Login();
             {
@@ -37,6 +37,9 @@ namespace CIPLATFORM.Controllers
         [HttpPost]
         public IActionResult login(Login obj)
         {
+            List<Banner> banners = new List<Banner>();
+            banners = _UserRepository.getbanners().banners;
+            ViewBag.banners = banners;
             if (obj.Email == null || obj.Password == null)
             {
                 TempData["loginerror"] = "Email and Password Is required!!!!!";

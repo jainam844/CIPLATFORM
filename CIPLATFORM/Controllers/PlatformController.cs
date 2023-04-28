@@ -140,7 +140,7 @@ namespace CIPLATFORM.Controllers
             ViewBag.Avtar = avtar;
 
 
-            MissionListingViewModel ml = _PlatformRepository.GetCardDetail(mid);
+            MissionListingViewModel ml = _PlatformRepository.GetCardDetail(mid ,ViewBag.UId);
          
             var pag = _PlatformRepository.getMisAppList(0, (long)mid);
             ViewBag.Totalpag = Math.Ceiling(pag.Count() / 1.0);
@@ -224,7 +224,7 @@ namespace CIPLATFORM.Controllers
             }
        
 
-            MissionListingViewModel volunteerModel = _PlatformRepository.GetCardDetail(mid);
+            MissionListingViewModel volunteerModel = _PlatformRepository.GetCardDetail(mid, FromUserId);
 
         }
         public IActionResult nomission()
