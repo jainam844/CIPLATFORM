@@ -150,27 +150,70 @@
                         <div class="card-body">
                             <div class="row">
                                 <h3 class="card-title">@item.Title</h3>
-                                <p class="card-text">
-                                    @item.ShortDescription
-                                </p>
+
+                                @if (item.ShortDescription != null)
+                                {
+                                    <p class="card-text">
+
+                                        @item.ShortDescription
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p class="card-text">
+                                        HELLO WORLD..!!
+
+                                    </p>
+
+                                }
                             </div>
                             <div class="row mt-2">
                                 <div class="col-sm-7">
-                                    @item.OrganizationName
-                                    @{
-                                        if (item.MissionType == "Goal")
-                                        {
-                                            <span class="textline">@item.GoalMissions.FirstOrDefault()?.GoalObjectiveText </span>
-                                        }
-                                        else if (item.StartDate <= DateTime.Now && DateTime.Now <= item.EndDate)
-                                        {
-                                            <span>Ongoing Opportunity</span>
-                                        }
-                                        else
-                                        {
-                                            <span>@item.StartDate.ToString().Substring(0,10) until @item.EndDate.ToString().Substring(0,10) </span>
-                                        }
+                                    @if (item.OrganizationName != null)
+                                    {
+                                        @item.OrganizationName
                                     }
+                                    else
+                                    {
+                                        <span>HELLO ZINDGI..!!</span>
+
+                                    }
+                                    @if (item.MissionRatings.Count > 0)
+                                    {
+
+                                        var ratings = item.MissionRatings.Average(x => x.Rating);
+                                        var fullStars = (int)ratings;
+                                        var partialStar = ratings - fullStars;
+                                        var emptyStars = 5 - fullStars - (partialStar > 0 ? 1 : 0);
+
+
+
+                                        @for (var i = 0; i < fullStars; i++)
+                                        {
+                                            <i class="bi bi-star-fill" style="color: #F8D441;"></i>
+                                        }
+                                        @if (partialStar > 0)
+                                        {
+                                            <i class="bi bi-star-half" style="color: #F8D441;"></i>
+                                        }
+                                        @for (var i = 0; i < emptyStars; i++)
+                                        {
+                                            <i class="bi bi-star" style="color: #F8D441;"></i>
+                                        }
+
+
+
+                                    }
+                                    else
+                                    {
+                                        <i class="bi bi-star" style="color: #F8D441;"></i>
+                                        <i class="bi bi-star" style="color: #F8D441;"></i>
+                                        <i class="bi bi-star" style="color: #F8D441;"></i>
+                                        <i class="bi bi-star" style="color: #F8D441;"></i>
+                                        <i class="bi bi-star" style="color: #F8D441;"></i>
+
+                                    }
+
 
                                 </div>
                                 <div class="col-sm-5">
@@ -179,18 +222,30 @@
                                         <div class=" d-flex justify-content-center b2 ">
 
                                             <div class="d-flex justify-content-center .left .right ">
+
                                                 @{
-                                                    if (item.StartDate <= DateTime.Now && DateTime.Now <= item.EndDate)
+                                                    if (item.MissionType == "Goal" && item.GoalMissions.Count > 0)
+                                                    {
+                                                        <span class="textline">@item.GoalMissions.FirstOrDefault()?.GoalObjectiveText </span>
+                                                    }
+                                                    else if (item.StartDate <= DateTime.Now && DateTime.Now <= item.EndDate)
                                                     {
                                                         <span>Ongoing Opportunity</span>
                                                     }
                                                     else
                                                     {
-                                                        <span>@item.StartDate.ToString().Substring(0,10)  until @item.EndDate.ToString().Substring(0,10) </span>
+                                                        @if (item.StartDate != null && item.EndDate != null)
+                                                        {
+                                                            <span>@item.StartDate.ToString().Substring(0,10) until @item.EndDate.ToString().Substring(0,10) </span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>no date </span>
+
+                                                        }
+
                                                     }
                                                 }
-
-
                                             </div>
 
                                         </div>
@@ -202,6 +257,7 @@
                                 <div class="col-sm-7">
                                     <div class="apply2">
                                         @{
+
                                             if (item.MissionApplications.Any(m => m.UserId == ViewBag.UId && m.ApprovalStatus == "Approve"))
                                             {
                                                 <button type="button" class="btn btn-outline apply">
@@ -211,15 +267,26 @@
                                                     </a>
                                                 </button>
                                             }
-                                            else if (item.EndDate < DateTime.Now)
+                                            else if (@item.EndDate != null)
                                             {
-                                                <button type="button" class="btn btn-outline apply">
-                                                    <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@item.MissionId" style="text-decoration:none;color:black">
-                                                        View Deatail
-                                                        <i class=" ms-2 bi bi-arrow-right-short"></i>
-                                                    </a>
-                                                </button>
+                                                @if (item.EndDate < DateTime.Now)
+                                                {
+                                                    <button type="button" class="btn btn-outline apply">
+                                                        <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@item.MissionId" style="text-decoration:none;color:black">
+                                                            View Deatail
+                                                            <i class=" ms-2 bi bi-arrow-right-short"></i>
+                                                        </a>
+                                                    </button>
+                                                }
+
+                                                else
+                                                {
+                                                    <button type="button" class="btn btn-outline apply">
+                                                        <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@item.MissionId" style="text-decoration:none;color:black"> Apply <i class=" ms-2 bi bi-arrow-right-short"></i></a>
+                                                    </button>
+                                                }
                                             }
+
                                             else
                                             {
                                                 <button type="button" class="btn btn-outline apply">
@@ -234,7 +301,7 @@
                                         <div class="col-6">
                                             <i class="bi bi-person-check " style="font-size: 25px;"></i>
                                             @{
-                                                if (item.MissionType == "Goal")
+                                                if (item.MissionType == "Goal" && item.GoalMissions.Count > 0)
                                                 {
                                                     int seates = @item.GoalMissions.FirstOrDefault().GoalValue;
                                                     int apply = @item.MissionApplications.Count();
@@ -246,29 +313,38 @@
                                                 }
                                                 else
                                                 {
+
                                                     int apply = @item.MissionApplications.Count();
                                                     <span>@apply</span>
                                                     <br>
                                                     <span>Already Volunteered</span>
                                                 }
                                             }
+
                                         </div>
                                         <div class="col-6 justify-content-end">
                                             @{
-                                                if (item.MissionType == "Goal")
+                                                if (item.MissionType == "Goal" && item.GoalMissions.Count > 0)
                                                 {
                                                     int seates = @item.GoalMissions.FirstOrDefault().GoalValue;
                                                     int apply = @item.MissionApplications.Count();
                                                     float per = (((float)apply / (float)seates) * (float)(100));
-                                                    <input type="range" class="mt-1 i1" id="slider" name="slider" min="0" max="100" value=@per>
+                                                    <input type="range" class="mt-1 i1" id="slider" name="slider" min="0" max="100" value=@per disabled>
                                                     <p>@apply Achieved</p>
                                                 }
                                                 else
                                                 {
-                                                    <i class="bi bi-clock"></i>
-                                                    <span>@item.EndDate.ToString().Substring(0,10)</span>
-                                                    <br>
-                                                    <span class="small text-muted">&nbsp &nbsp Deadline</span>
+                                                    @if (@item.EndDate != null)
+                                                    {
+                                                        <i class="bi bi-clock"></i> @item.EndDate.ToString().Substring(0,10)
+                                                        <br>
+                                                        <span class="small text-muted">&nbsp &nbsp Deadline</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>No EnDate..!!</span>
+                                                    }
+
                                                 }
                                             }
                                         </div>

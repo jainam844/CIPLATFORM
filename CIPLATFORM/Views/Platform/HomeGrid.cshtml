@@ -7,36 +7,32 @@
 
 
 <style>
-    
 
-.pagination > li > a
-{
-    background-color: white;
-    color: #5A4181;
-}
 
-.pagination > li > a:focus,
-.pagination > li > a:hover,
-.pagination > li > span:focus,
-.pagination > li > span:hover
-{
-    color: #FFFFFF;
-    background-color: #F88634;
-    border-color: #ddd;
-}
+    .pagination > li > a {
+        background-color: white;
+        color: #5A4181;
+    }
 
-.pagination > .active > a
-{
-    color: white;
-    background-color: #5A4181 !Important;
-    border: solid 1px #5A4181 !Important;
-}
+        .pagination > li > a:focus,
+        .pagination > li > a:hover,
+        .pagination > li > span:focus,
+        .pagination > li > span:hover {
+            color: #FFFFFF;
+            background-color: #F88634;
+            border-color: #ddd;
+        }
 
-.pagination > .active > a:hover
-{
-    background-color: #5A4181 !Important;
-    border: solid 1px #5A4181;
-}
+    .pagination > .active > a {
+        color: white;
+        background-color: #5A4181 !Important;
+        border: solid 1px #5A4181 !Important;
+    }
+
+        .pagination > .active > a:hover {
+            background-color: #5A4181 !Important;
+            border: solid 1px #5A4181;
+        }
 </style>
 
 
@@ -45,9 +41,9 @@
 
     <script type="text/javascript">
 
-         toastr.success('@TempData["logins"]');
+        toastr.success('@TempData["logins"]');
 
-                           
+
     </script>
 
 }
@@ -65,8 +61,7 @@
 
 
 <hr>
-<div class="container mt-3" id="filter-button" >
-
+<div class="container mt-3" id="filter-button">
 </div>
 
 <!-- explore -->
@@ -80,18 +75,17 @@
                 <option value="1">New to Old</option>
                 <option value="2">Old to New</option>
                 <option value="3">Favourite Mission</option>
-                    <option value="4">Total Seats</option>
-
-
+                <option value="4">Total Seats</option>
+                   <option value="5">Total Seats By Descending</option>
             </select>
         </div>
         <div class="">
-           
-            <a id="grid" ><i class="bi bi-grid"></i></a>
+
+            <a id="grid"><i class="bi bi-grid"></i></a>
         </div>
         <div class="">
-          
-            <a  id="list" ><i class="bi bi-list"></i></a>
+
+            <a id="list"><i class="bi bi-list"></i></a>
         </div>
     </div>
 </div>
@@ -112,24 +106,24 @@
 
 
 @*<script>
-        window.onload = opengrid();
-        function opengrid() {
-        console.log("Grid");
-        var div1 = document.getElementById("list-view");
-        var div2 = document.getElementById("grid-view");
-        div1.style.display = 'none';
-        div2.style.display = 'block';
-        console.log("Done");
+    window.onload = opengrid();
+    function opengrid() {
+    console.log("Grid");
+    var div1 = document.getElementById("list-view");
+    var div2 = document.getElementById("grid-view");
+    div1.style.display = 'none';
+    div2.style.display = 'block';
+    console.log("Done");
     }
     function openlist() {
-        console.log("List");
-        var div1 = document.getElementById("list-view");
-        var div2 = document.getElementById("grid-view");
-        div1.style.display = 'block';
-        div2.style.display = 'none';
-        console.log("Done");
+    console.log("List");
+    var div1 = document.getElementById("list-view");
+    var div2 = document.getElementById("grid-view");
+    div1.style.display = 'block';
+    div2.style.display = 'none';
+    console.log("Done");
     }
-</script>*@
+    </script>*@
 
 
 

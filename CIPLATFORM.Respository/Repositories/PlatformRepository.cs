@@ -123,8 +123,8 @@ namespace CIPLATFORM.Respository.Repositories
             List<User> users = _CiPlatformContext.Users.ToList();
 
 
-            var allUser = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
-            var alreaduInvite = _CiPlatformContext.MissionInvites.Where(x=>x.MissionId==mid&&x.FromUserId==uid).Include(x => x.ToUser).ToList();
+            List<User> allUser = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
+            List<MissionInvite> alreaduInvite = _CiPlatformContext.MissionInvites.Where(x=>x.MissionId==mid && x.FromUserId==uid).Include(x => x.ToUser).ToList();
             foreach (var i in alreaduInvite)
             {
                 allUser = allUser.Where(x => x.UserId != i.ToUserId).ToList();
@@ -366,7 +366,7 @@ namespace CIPLATFORM.Respository.Repositories
         }
 
 
-        public StoryListingViewModel GetStory(int sid)
+        public StoryListingViewModel GetStory(int sid,int uid)
         {
 
             Story story = _CiPlatformContext.Stories.Include(m => m.User).Include(m => m.StoryViews).FirstOrDefault(m => m.StoryId == sid);
@@ -374,8 +374,8 @@ namespace CIPLATFORM.Respository.Repositories
             List<User> users = _CiPlatformContext.Users.ToList();
 
 
-            var allUser = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
-            var alreaduInvite = _CiPlatformContext.StoryInvites.Where(x => x.StoryId == sid).Include(x => x.ToUser).ToList();
+            List<User> allUser = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
+            List<StoryInvite> alreaduInvite = _CiPlatformContext.StoryInvites.Where(x => x.StoryId == sid&& x.FromUserId==uid).Include(x => x.ToUser).ToList();
             foreach (var i in alreaduInvite)
             {
                 allUser = allUser.Where(x => x.UserId != i.ToUserId).ToList();
@@ -536,33 +536,39 @@ namespace CIPLATFORM.Respository.Repositories
         public bool SaveImage(StoryListingViewModel obj, List<IFormFile> file)
         {
             var xyz = _CiPlatformContext.Stories.FirstOrDefault(x => x.Title == obj.story.Title);
-            var filePaths = new List<string>();
-            foreach (var formFile in file)
+            if (file != null)
             {
-                StoryMedium mediaobj = new StoryMedium();
-                mediaobj.StoryId = xyz.StoryId;
-                mediaobj.Path = formFile.FileName;
-                mediaobj.Type = "png";
+                List<StoryMedium> check = _CiPlatformContext.StoryMedia.Where(x => x.StoryId == xyz.StoryId && x.Type == "png").ToList();
+                _CiPlatformContext.StoryMedia.RemoveRange(check);
 
-                _CiPlatformContext.StoryMedia.Add(mediaobj);
-                _CiPlatformContext.SaveChanges();
+                var filePaths = new List<string>();
 
-                if (formFile.Length > 0)
+                foreach (var formFile in file)
                 {
-                    // full path to file in temp location
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/A", formFile.FileName); //we are using Temp file name just for the example. Add your own file path.
-                    if (File.Exists(filePath) == false)
-                    {
-                        filePaths.Add(filePath);
-                        using (var stream = new FileStream(filePath, FileMode.Create))
-                        {
-                            formFile.CopyToAsync(stream);
-                        }
-                    }
+                    StoryMedium mediaobj = new StoryMedium();
+                    mediaobj.StoryId = xyz.StoryId;
+                    mediaobj.Path = formFile.FileName;
+                    mediaobj.Type = "png";
 
+                    _CiPlatformContext.StoryMedia.Add(mediaobj);
+                    _CiPlatformContext.SaveChanges();
+
+                    if (formFile.Length > 0)
+                    {
+                     
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/A", formFile.FileName); //we are using Temp file name just for the example. Add your own file path.
+                        if (File.Exists(filePath) == false)
+                        {
+                            filePaths.Add(filePath);
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                formFile.CopyToAsync(stream);
+                            }
+                        }
+
+                    }
                 }
             }
-
             if (obj.url != null)
             {
                 var checkurl = _CiPlatformContext.StoryMedia.Where(m => m.StoryId == xyz.StoryId && m.Type == "video").FirstOrDefault();
@@ -711,8 +717,15 @@ namespace CIPLATFORM.Respository.Repositories
 
                 }
                 if (sort == 4)
-                    missioncards = missioncards.OrderBy(i => i.GoalMissions.Count).ToList();
-              
+                {
+                    missioncards = missioncards.Where(x=>x.MissionType=="Goal").OrderBy(i => i.GoalMissions.FirstOrDefault().GoalValue).ToList();
+                }
+                if (sort == 5)
+                {
+                    missioncards = missioncards.Where(x => x.MissionType == "Goal").OrderByDescending(i => i.GoalMissions.FirstOrDefault().GoalValue).ToList();
+                }
+
+
             }
             if (pg != 0)
             {
@@ -722,14 +735,6 @@ namespace CIPLATFORM.Respository.Repositories
             return missioncards;
 
         }
-
-
-
-
-
-
-
-
         public List<MissionListingViewModel> getMisAppList(int pg, long missionId)
         {
             var pageSize = 1;

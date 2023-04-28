@@ -36,8 +36,8 @@
                             Select Mission
                         </label>
                         <div class="col-lg-12">
-                            <select class="form-select" aria-label="Default select example" id="getData" aria-placeholder="Select your mission" asp-for="story.MissionId" onchange="Sdata();">
-                                <option value="0">Select your mission</option>
+                            <select class="form-select" aria-label="Default select example" id="getData" aria-placeholder="Select your mission" asp-for="story.MissionId" onchange="Sdata();" required>
+                                <option value="">Select your mission</option>
                                 @foreach (var obj in Model.missions)
                                 {
                                     <option value="@obj.Mission.MissionId">@obj.Mission.Title</option>
@@ -51,7 +51,7 @@
                         </label>
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <input type="text" asp-for="story.Title" class="form-control" id="formGroupExampleInput" placeholder="Enter story title">
+                                <input type="text" asp-for="story.Title" class="form-control" id="formGroupExampleInput" placeholder="Enter story title" required>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                         </label>
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <input type="date" id="sDate" asp-for="story.PublishedAt" class="form-control">
+                                <input type="date" id="sDate" asp-for="story.PublishedAt" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                 </div><br>
                 <div class="row">
                     <div class="col-lg-6 col-md-3 col-2">
-                        <button class="cancell rounded-pill btn btn-outline-dark">Cancel</button>
+                        <button type="button" class="cancell rounded-pill btn btn-outline-dark">Cancel</button>
                     </div>
                     <div class="col-lg-6 col-md-9 col-10 text-end">
 
@@ -315,14 +315,17 @@
                                 /*returnImage = image;*/
                                 showImg = "/images/A/" + image;
                                 toDataUrl(showImg, function (x) {
-                                    image = x;
+                                    image1 = x;
                                     
-                                    dT.items.add(new File([image], image, {
+                                    dT.items.add(new File([image1], image, {
                                         type: "image/png"
                                     }));
-                                    imagesArray.push(new File([image], image, {
+                                    imagesArray.push(new File([image1], image, {
                                         type: "image/png"
                                     }));
+                                    
+                                     document.querySelector('#imageupload').files = dT.files;
+
                                 
                                 });
                                 images += `<div class="image"><img src="${showImg}" alt="image"><span onclick="deleteImage(${index})">&times;</span></div>`

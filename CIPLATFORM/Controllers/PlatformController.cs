@@ -371,7 +371,7 @@ namespace CIPLATFORM.Controllers
             int UId = (int)HttpContext.Session.GetInt32("UId");
             StoryView sv = _PlatformRepository.addView(sid, UId);
 
-            StoryListingViewModel sl = _PlatformRepository.GetStory(sid);
+            StoryListingViewModel sl = _PlatformRepository.GetStory(sid, UId);
           
             return View(sl);
         }
@@ -385,7 +385,7 @@ namespace CIPLATFORM.Controllers
             {
                 _PlatformRepository.RecommandStory(FromUserId, toUserId, sid);
             }
-            StoryListingViewModel volunteerModel = _PlatformRepository.GetStory(sid);
+            StoryListingViewModel volunteerModel = _PlatformRepository.GetStory(sid, FromUserId);
 
         }
 

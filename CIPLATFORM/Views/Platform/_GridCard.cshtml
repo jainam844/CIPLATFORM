@@ -102,7 +102,7 @@
                                             <h5 class="modal-title" id="exampleModalLabel">Recommand To Co-Worker</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body" style="background-color:#F9F9F8" onclick="recommandToCoWorker(@item.MissionId)">
+                                        <div class="modal-body" style="background-color:#F9F9F8" onchange="recommandToCoWorker(@item.MissionId)">
 
 
                                             @foreach (var item1 in Model.coworkers)
@@ -185,8 +185,15 @@
                                             <i class="bi bi-star" style="color: #F8D441;"></i>
                                         }
 
-
-
+                                    }
+                                    else
+                                    {
+                                           <i class="bi bi-star" style="color: #F8D441;"></i>
+                                              <i class="bi bi-star" style="color: #F8D441;"></i>
+                                              <i class="bi bi-star" style="color: #F8D441;"></i>
+                                              <i class="bi bi-star" style="color: #F8D441;"></i>
+                                              <i class="bi bi-star" style="color: #F8D441;"></i>
+                                        
                                     }
 
                                 </div>

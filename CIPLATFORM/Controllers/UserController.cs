@@ -13,8 +13,6 @@ namespace CIPLATFORM.Controllers
     public class UserController : Controller
     {
         public readonly IUserRepository _UserRepository;
-        //public readonly CiPlatformContext _CiPlatformDb;
-
 
         public UserController(IUserRepository UserRepository)
         {
@@ -46,10 +44,7 @@ namespace CIPLATFORM.Controllers
                 return View();
             }
             Login login = _UserRepository.login(obj);
-            //if(login == null)
-            //{
-            //    login = new Login();
-            //}
+           
             if (login.user == null && login.admin == null)
             {
                 TempData["loginerror"] = "Email Or Password Is Inavalid!!!!!";
@@ -59,6 +54,7 @@ namespace CIPLATFORM.Controllers
             if (login.admin != null)
             {
                 role = "Admin";
+                //return RedirectToAction("Admin", "Admin");
             }
             else
             {
@@ -93,6 +89,7 @@ namespace CIPLATFORM.Controllers
              if (login.admin != null)
             {
                 TempData["logins"] = "logged as a admin Successfull";
+                return RedirectToAction("Admin", "Admin");
             }
             else if (login.admin == null)
             {

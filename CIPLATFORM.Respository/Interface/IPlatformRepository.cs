@@ -41,7 +41,7 @@ namespace CIPLATFORM.Respository.Interface
         
             public StoryListingViewModel GetStoryDetail();
         public List<StoryMedium> smedia(int sid);
-        public StoryListingViewModel GetStory(int sid);
+        public StoryListingViewModel GetStory(int sid,int uid);
         //public List<Story> GetStoryList(string? search);
         public void RecommandStory(int FromUserId, List<int> ToUserId, int sid);
         public List<Story> StoryFilter(string? search, int pg);
