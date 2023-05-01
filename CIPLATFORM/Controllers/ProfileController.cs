@@ -19,7 +19,6 @@ namespace CIPLATFORM.Controllers
         {
             _ProfileRepository = ProfileRepository;
             _PlatformRepository = PlatformRepository;
-
         }
 
         public IActionResult Profile()

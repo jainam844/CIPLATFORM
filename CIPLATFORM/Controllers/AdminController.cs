@@ -74,6 +74,7 @@ namespace CIPLATFORM.Controllers
         [HttpPost]
         public IActionResult Admin(AdminViewModel obj, int command)
         {
+            //var addMsg = "{0} added Suceessfully."
             if (command == 1)
             {
                 bool userpage = _AdminRepository.addcms(obj, command);

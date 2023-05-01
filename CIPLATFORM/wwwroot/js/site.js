@@ -27,10 +27,6 @@ function GetsCity() {
         }
     })
 }
-
-
-
-
 function GetCity() {
 
     var countryIds = [];
@@ -202,9 +198,6 @@ function GetProfileCity() {
     });
 }
 
-
-
-
 var view = 1;
 
 $(document).ready(function () {
@@ -220,6 +213,7 @@ $(document).ready(function () {
         temp();
     });
 })
+
 /*filter */
 function temp(pg) {
 
@@ -234,7 +228,6 @@ function temp(pg) {
         if (list[i].checked) {
             checkedcntryvalues.push(list[i].id);
         }
-
     }
     console.log(checkedcntryvalues);
 
@@ -452,7 +445,7 @@ function comment(missionid) {
 }
 
 function recommandToCoWorker(x) {
-    //var toUserId = $('#recommand').find(":checked").val();
+   
     var Missiond = x;
     var toUserId = [];
     var recommand = document.getElementById("recommand");
@@ -464,7 +457,6 @@ function recommandToCoWorker(x) {
 
     }
 
-    /* debugger;*/
     $.ajax({
         url: "/Platform/RecommandToCoWorker",
         method: "Post",
@@ -570,9 +562,7 @@ function story(pg) {
             console.log(data);
             $("#StoryFilter").empty();
             $("#StoryFilter").html(data);
-            //$("#StoriesId").empty();
-            //console.log("Filtered Story");
-            //$("#StoriesId").html(data);
+            
 
 
 

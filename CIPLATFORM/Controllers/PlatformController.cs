@@ -170,6 +170,7 @@ namespace CIPLATFORM.Controllers
             var userId = (int)HttpContext.Session.GetInt32("UId");
 
             var fav = _PlatformRepository.addToFav(missionId, userId);
+
             if (fav != true)
             {
                 _CiPlatformContext.SaveChanges();
@@ -223,7 +224,6 @@ namespace CIPLATFORM.Controllers
                 _PlatformRepository.RecommandToCoWorker(FromUserId, toUserId, mid);
             }
        
-
             MissionListingViewModel volunteerModel = _PlatformRepository.GetCardDetail(mid, FromUserId);
 
         }
@@ -388,10 +388,6 @@ namespace CIPLATFORM.Controllers
             StoryListingViewModel volunteerModel = _PlatformRepository.GetStory(sid, FromUserId);
 
         }
-
-
-
-
 
     }
 }

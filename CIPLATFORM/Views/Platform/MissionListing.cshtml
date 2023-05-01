@@ -143,9 +143,7 @@
 
                             @if (Model.favoriteMissions.Any(x => x.MissionId == Model.missions.MissionId && x.UserId == @ViewBag.UId))
                             {
-                                <button type="button" class="btn btn-outline rounded-pill w-100" onclick="AddMissionToFavourite(@Model.missions.MissionId)" style="background: #F8863400 0% 0% no-repeat padding-box;border: 2px solid #020201;
-                               border-radius: 24px;
-                               opacity: 1; color:#020202">
+                                <button type="button" class="btn btn-outline rounded-pill w-100" onclick="AddMissionToFavourite(@Model.missions.MissionId)" style="background: #F8863400 0% 0% no-repeat padding-box;border: 2px solid #020201;    border-radius: 24px; opacity: 1; color:#020202">
                                     <i class="bi bi-heart-fill" style="color:red;" id="addToFav"></i>
 
                                     Add to Favourite

@@ -36,7 +36,7 @@ namespace CIPLATFORM.Respository.Repositories
         }
         public List<City> GetCityData(List<int>? countryId)
         {
-            
+
             List<City> city = _CiPlatformContext.Cities.Where(i => countryId.Contains((int)i.CountryId)).ToList();
             if (countryId.Count == 0)
                 city = _CiPlatformContext.Cities.ToList();
@@ -63,7 +63,7 @@ namespace CIPLATFORM.Respository.Repositories
         }
         public List<Mission> GetMissionDetails()
         {
-            List<Mission> missionDetails = _CiPlatformContext.Missions.Include(m => m.City).Include(m => m.Theme).Include(m => m.MissionMedia).Include(m => m.MissionRatings).Include(m => m.GoalMissions).Include(x => x.MissionApplications).Include(m => m.MissionSkills).Include(m => m.FavoriteMissions).Include(m => m.MissionApplications).Where(x=>x.DeletedAt==null).ToList();
+            List<Mission> missionDetails = _CiPlatformContext.Missions.Include(m => m.City).Include(m => m.Theme).Include(m => m.MissionMedia).Include(m => m.MissionRatings).Include(m => m.GoalMissions).Include(x => x.MissionApplications).Include(m => m.MissionSkills).Include(m => m.FavoriteMissions).Include(m => m.MissionApplications).Where(x => x.DeletedAt == null).ToList();
             return missionDetails;
         }
 
@@ -96,46 +96,45 @@ namespace CIPLATFORM.Respository.Repositories
             return missionCards;
 
         }
-        public MissionListingViewModel GetCardDetail(int mid,int uid)
+        public MissionListingViewModel GetCardDetail(int mid, int uid)
         {
             List<Mission> missions = GetMissionDetails();
             Mission mission = missions.FirstOrDefault(x => x.MissionId == mid);
 
             List<MissionMedium> photos = media(mid);
             List<MissionDocument> documents = document(mid);
- 
+
             List<MissionSkill> missionSkills = _CiPlatformContext.MissionSkills.Include(m => m.Skill).Where(x => x.MissionId == mid).ToList();
             List<MissionApplication> applications = _CiPlatformContext.MissionApplications.Include(m => m.User).Where(x => x.MissionId == mid).ToList();
 
-              List<Mission> relatedMissions = missions.Where(a => a.MissionId != mission.MissionId &&
-            ((a.CityId == mission.CityId || a.CountryId == mission.CountryId || a.ThemeId == mission.ThemeId ||
-            a.OrganizationName == mission.OrganizationName))
-            )
-            .OrderByDescending(a => a.OrganizationName)
-            .ThenByDescending(a => a.ThemeId)
-            .ThenByDescending(a => a.CountryId)
-            .ThenByDescending(a => a.CityId)
-            .Take(3)
-            .ToList();
-                
+            List<Mission> relatedMissions = missions.Where(a => a.MissionId != mission.MissionId &&
+                                           (a.ThemeId == mission.ThemeId || (a.CityId == mission.CityId || a.CountryId == mission.CountryId ||
+                                           a.OrganizationName == mission.OrganizationName)))
+                                           .OrderByDescending(a => a.ThemeId == mission.ThemeId)
+                                           .ThenByDescending(a => a.CityId == mission.CityId)
+                                           .ThenByDescending(a => a.CountryId == mission.CountryId)
+                                           .ThenByDescending(a => a.OrganizationName == mission.OrganizationName)
+                                           .Take(3)
+                                           .ToList();
+
 
             List<Comment> comments = _CiPlatformContext.Comments.Include(m => m.User).Where(x => x.MissionId == mid && x.ApprovalStatus == "Published").ToList();
             List<User> users = _CiPlatformContext.Users.ToList();
 
 
             List<User> allUser = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
-            List<MissionInvite> alreaduInvite = _CiPlatformContext.MissionInvites.Where(x=>x.MissionId==mid && x.FromUserId==uid).Include(x => x.ToUser).ToList();
+            List<MissionInvite> alreaduInvite = _CiPlatformContext.MissionInvites.Where(x => x.MissionId == mid && x.FromUserId == uid).Include(x => x.ToUser).ToList();
             foreach (var i in alreaduInvite)
             {
                 allUser = allUser.Where(x => x.UserId != i.ToUserId).ToList();
             }
-         
+
             List<FavoriteMission> favoriteMission = _CiPlatformContext.FavoriteMissions.ToList();
             MissionListingViewModel CardDetail = new MissionListingViewModel();
             {
                 CardDetail.missions = mission;
                 CardDetail.missionmedias = photos;
-                CardDetail.missiondocuments = documents;              
+                CardDetail.missiondocuments = documents;
                 CardDetail.missionapplications = applications;
                 CardDetail.missionskills = missionSkills;
                 CardDetail.relatedmissions = relatedMissions;
@@ -288,7 +287,7 @@ namespace CIPLATFORM.Respository.Repositories
         {
             var fromUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == FromUserId && u.DeletedAt == null);
             var fromEmailId = fromUser.Email;
-      
+
 
             foreach (var user in ToUserId)
             {
@@ -326,11 +325,9 @@ namespace CIPLATFORM.Respository.Repositories
             }
         }
 
-
-
         public StoryListingViewModel GetStoryDetail()
         {
-            List<Story> stories = _CiPlatformContext.Stories.Include(m => m.User).Include(m => m.StoryMedia).Include(m => m.Mission).Where(m => m.Status== "PUBLISHED").ToList();
+            List<Story> stories = _CiPlatformContext.Stories.Include(m => m.User).Include(m => m.StoryMedia).Include(m => m.Mission).Where(m => m.Status == "PUBLISHED").ToList();
 
 
             //List<StoryMedium> photos = smedia(sid);
@@ -366,7 +363,7 @@ namespace CIPLATFORM.Respository.Repositories
         }
 
 
-        public StoryListingViewModel GetStory(int sid,int uid)
+        public StoryListingViewModel GetStory(int sid, int uid)
         {
 
             Story story = _CiPlatformContext.Stories.Include(m => m.User).Include(m => m.StoryViews).FirstOrDefault(m => m.StoryId == sid);
@@ -375,7 +372,7 @@ namespace CIPLATFORM.Respository.Repositories
 
 
             List<User> allUser = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
-            List<StoryInvite> alreaduInvite = _CiPlatformContext.StoryInvites.Where(x => x.StoryId == sid&& x.FromUserId==uid).Include(x => x.ToUser).ToList();
+            List<StoryInvite> alreaduInvite = _CiPlatformContext.StoryInvites.Where(x => x.StoryId == sid && x.FromUserId == uid).Include(x => x.ToUser).ToList();
             foreach (var i in alreaduInvite)
             {
                 allUser = allUser.Where(x => x.UserId != i.ToUserId).ToList();
@@ -432,7 +429,7 @@ namespace CIPLATFORM.Respository.Repositories
                     invite.FromUserId = FromUserId;
                     invite.ToUserId = user;
                     invite.StoryId = sid;
-                  
+
                 }
                 _CiPlatformContext.Add(invite);
                 _CiPlatformContext.SaveChanges();
@@ -535,13 +532,13 @@ namespace CIPLATFORM.Respository.Repositories
         }
         public bool SaveImage(StoryListingViewModel obj, List<IFormFile> file)
         {
-            var xyz = _CiPlatformContext.Stories.FirstOrDefault(x => x.Title == obj.story.Title);
+            Story xyz = _CiPlatformContext.Stories.FirstOrDefault(x => x.Title == obj.story.Title);
             if (file != null)
             {
                 List<StoryMedium> check = _CiPlatformContext.StoryMedia.Where(x => x.StoryId == xyz.StoryId && x.Type == "png").ToList();
                 _CiPlatformContext.StoryMedia.RemoveRange(check);
 
-                var filePaths = new List<string>();
+                List<string> filePaths = new List<string>();
 
                 foreach (var formFile in file)
                 {
@@ -555,7 +552,7 @@ namespace CIPLATFORM.Respository.Repositories
 
                     if (formFile.Length > 0)
                     {
-                     
+
                         var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/A", formFile.FileName); //we are using Temp file name just for the example. Add your own file path.
                         if (File.Exists(filePath) == false)
                         {
@@ -595,9 +592,6 @@ namespace CIPLATFORM.Respository.Repositories
             }
             return true;
         }
-
-
-
 
         public StoryListingViewModel getData(int mid, int uid)
         {
@@ -669,7 +663,6 @@ namespace CIPLATFORM.Respository.Repositories
                 search = search.ToLower();
                 missioncards = missioncards.Where(x => x.Title.ToLower().Contains(search)).ToList();
 
-
             }
             if (countryId.Count > 0)
             {
@@ -711,14 +704,12 @@ namespace CIPLATFORM.Respository.Repositories
                 }
                 if (sort == 3)
                 {
-
                     missioncards = missioncards.Where(x => x.FavoriteMissions.Any(x => x.UserId == UId)).ToList();
-
 
                 }
                 if (sort == 4)
                 {
-                    missioncards = missioncards.Where(x=>x.MissionType=="Goal").OrderBy(i => i.GoalMissions.FirstOrDefault().GoalValue).ToList();
+                    missioncards = missioncards.Where(x => x.MissionType == "Goal").OrderBy(i => i.GoalMissions.FirstOrDefault().GoalValue).ToList();
                 }
                 if (sort == 5)
                 {
@@ -739,7 +730,6 @@ namespace CIPLATFORM.Respository.Repositories
         {
             var pageSize = 1;
             List<MissionApplication> missionApplications = _CiPlatformContext.MissionApplications.Where(m => m.ApprovalStatus == "Approve" && m.MissionId == missionId).Include(x => x.User).ToList();
-
             List<MissionListingViewModel> misView = new List<MissionListingViewModel>();
             foreach (MissionApplication app in missionApplications)
             {
@@ -748,19 +738,15 @@ namespace CIPLATFORM.Respository.Repositories
                 mView.MissionId = missionId;
                 mView.Avatar = user.Avatar;
                 mView.UserName = user.FirstName + " " + user.LastName;
-
                 misView.Add(mView);
             }
-
-
+ 
             if (pg != 0)
             {
                 misView = misView.Skip((pg - 1) * pageSize).Take(pageSize).ToList();
             }
-
             return misView;
         }
-
 
 
     }

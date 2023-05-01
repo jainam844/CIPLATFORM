@@ -124,31 +124,31 @@ namespace CIPLATFORM.Respository.Repositories
         public bool checktime(string token)
         {
             PasswordReset pr = _CiPlatformContext.PasswordResets.FirstOrDefault(x => x.Token == token);
-            if (pr == null)
-            {
-                return true;
-            }
-            DateTime dateTimeVariable = pr.CreatedAt;
-            if (DateTime.Now.Subtract(dateTimeVariable).TotalHours > 2)
-            {
-                return false;
-            }
-            return true;
+
+            return pr == null || (DateTime.Now.Subtract(pr.CreatedAt).TotalHours < 2);
+            //if (pr == null)
+            //{
+            //    return true;
+            //}
+
+            //DateTime dateTimeVariable = pr.CreatedAt;
+            //if (DateTime.Now.Subtract(dateTimeVariable).TotalHours > 2)
+            //{
+            //    return false;
+            //}
+            //return true;
         }
         public bool checktoken(string token)
         {
             PasswordReset pr = _CiPlatformContext.PasswordResets.FirstOrDefault(x => x.Token == token);
-            if (pr == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return pr != null;
+
+            return pr==null? false:true;
+      
         }
         public PasswordReset newpassword(User obj, string token)
         {
+
             var validToken = _CiPlatformContext.PasswordResets.FirstOrDefault(x => x.Token == token);
             if (validToken == null)
             {
