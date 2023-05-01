@@ -69,8 +69,7 @@ namespace CIPLATFORM.Controllers
 
             return View(am);
         }
-
-        
+    
         [HttpPost]
         public IActionResult Admin(AdminViewModel obj, int command)
         {
@@ -160,8 +159,6 @@ namespace CIPLATFORM.Controllers
             return View(am);
         }
 
-
-
         public IActionResult EditForm(int id, string page)
         {
             AdminViewModel am = _AdminRepository.getData();
@@ -241,8 +238,6 @@ namespace CIPLATFORM.Controllers
             }
             return PartialView("_CMSPages", am);
         }
-
-
 
         public IActionResult DeleteActivity(int id, int page)
         {

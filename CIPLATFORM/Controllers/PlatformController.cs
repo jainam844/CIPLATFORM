@@ -21,7 +21,6 @@ namespace CIPLATFORM.Controllers
         }
 
         /*Home-page*/
- 
         public IActionResult HomeGrid()
         {
 
@@ -200,7 +199,6 @@ namespace CIPLATFORM.Controllers
 
         }
 
-
         [HttpPost]
         public bool applyMission(int missionId)
         {
@@ -284,9 +282,7 @@ namespace CIPLATFORM.Controllers
             sModel.stories = cards.Skip((1 - 1) * 3).Take(3).ToList();
             return PartialView("_StoryCard", sModel);
         }
-
         //page-4
-
         public IActionResult ShareStory()
         {
             string name = HttpContext.Session.GetString("Uname");
@@ -336,8 +332,6 @@ namespace CIPLATFORM.Controllers
             return View();
         }
 
-
-
         [HttpPost]
         public JsonResult CheckData(int mid)
         {
@@ -360,7 +354,6 @@ namespace CIPLATFORM.Controllers
             //return View("~/Story/StoryApply", StoryModel);
         }
 
-
         public IActionResult StoryDetail(int sid)
         {
             string name = HttpContext.Session.GetString("Uname");
@@ -375,7 +368,6 @@ namespace CIPLATFORM.Controllers
           
             return View(sl);
         }
-
 
         public void RecommandStory(List<int> toUserId, int sid)
         {

@@ -26,7 +26,7 @@ namespace CIPLATFORM.Respository.Repositories
             AdminViewModel um = new AdminViewModel();
             um.users = _CiPlatformContext.Users.Where(x => x.DeletedAt == null).ToList();
             um.cities = _CiPlatformContext.Cities.ToList();
-            um.countries= _CiPlatformContext.Countries.ToList();
+            um.countries = _CiPlatformContext.Countries.ToList();
             um.cmspages = _CiPlatformContext.CmsPages.Where(x => x.DeletedAt == null).ToList();
             um.missions = _CiPlatformContext.Missions.Where(x => x.DeletedAt == null).ToList();
             um.missionthemes = _CiPlatformContext.MissionThemes.Where(x => x.DeletedAt == null).ToList();
@@ -34,7 +34,7 @@ namespace CIPLATFORM.Respository.Repositories
             um.newmissionThemes = _CiPlatformContext.MissionThemes.Where(x => x.DeletedAt == null).ToList();
             um.skills = _CiPlatformContext.Skills.Where(x => x.DeletedAt == null).ToList();
             um.missionapplications = _CiPlatformContext.MissionApplications.Include(x => x.Mission).Include(x => x.User).Where(x => x.ApprovalStatus == "Pending").ToList();
-            um.stories = _CiPlatformContext.Stories.Include(x => x.User).Where(x => x.Status == "PENDING" ).Where(x => x.DeletedAt == null).ToList();
+            um.stories = _CiPlatformContext.Stories.Include(x => x.User).Where(x => x.Status == "PENDING").Where(x => x.DeletedAt == null).ToList();
             um.banners = _CiPlatformContext.Banners.Where(x => x.DeletedAt == null).ToList();
             return um;
         }
@@ -73,9 +73,6 @@ namespace CIPLATFORM.Respository.Repositories
 
 
         }
-
-
-
         public bool addcms(AdminViewModel obj, int command)
         {
             if (command == 1)
@@ -93,7 +90,7 @@ namespace CIPLATFORM.Respository.Repositories
                         user.Email = obj.user.Email;
                         user.Password = Crypto.HashPassword(obj.user.Password);
                         user.EmployeeId = obj.user.EmployeeId;
-                        user.Department=obj.user.Department;
+                        user.Department = obj.user.Department;
                         user.CountryId = obj.user.CountryId;
                         user.CityId = obj.user.CityId;
                         user.ProfileText = obj.user.ProfileText;
@@ -298,7 +295,7 @@ namespace CIPLATFORM.Respository.Repositories
                             _CiPlatformContext.SaveChanges();
                         }
                     }
-                    
+
                     if (obj.url != null)
                     {
                         MissionMedium mds = _CiPlatformContext.MissionMedia.FirstOrDefault(x => x.MissionId == mission.MissionId && x.MediaType == "url");
@@ -423,7 +420,7 @@ namespace CIPLATFORM.Respository.Repositories
                     {
                         banner.Text = obj.banner.Text;
                         banner.SortOrder = obj.banner.SortOrder;
-                        banner.Image=obj.banner.Image;          
+                        banner.Image = obj.banner.Image;
                     }
                     _CiPlatformContext.Add(banner);
                     _CiPlatformContext.SaveChanges();
@@ -431,7 +428,7 @@ namespace CIPLATFORM.Respository.Repositories
                 }
                 else
                 {
-                    Banner banner=_CiPlatformContext.Banners.FirstOrDefault(x=>x.BannerId==obj.banner.BannerId);
+                    Banner banner = _CiPlatformContext.Banners.FirstOrDefault(x => x.BannerId == obj.banner.BannerId);
                     {
                         banner.Text = obj.banner.Text;
                         banner.SortOrder = obj.banner.SortOrder;
@@ -479,7 +476,6 @@ namespace CIPLATFORM.Respository.Repositories
             }
             return am;
         }
-
         public bool deleteactivity(int id, int page)
         {
             if (id != 0)
@@ -542,7 +538,6 @@ namespace CIPLATFORM.Respository.Repositories
                 return false;
             }
         }
-
         public bool Approval(int id, int page, int status)
         {
             if (id != 0)

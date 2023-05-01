@@ -208,12 +208,6 @@ namespace CIPLATFORM.Respository.Repositories
 
         }
 
-
-
-
-
-
-
         public ProfileViewModel GetActivity(int obj, int UId)
         {
             Timesheet timesheet = _CiPlatformContext.Timesheets.FirstOrDefault(x => x.TimesheetId == obj);
@@ -287,7 +281,6 @@ namespace CIPLATFORM.Respository.Repositories
                 return true;
             }
         }
-
 
         public bool deletetimesheet(int tid)
         {
