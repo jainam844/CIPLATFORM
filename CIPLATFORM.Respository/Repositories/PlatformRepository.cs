@@ -182,7 +182,7 @@ namespace CIPLATFORM.Respository.Repositories
         public int GetMissionCount()
         {
 
-            int missionNumber = _CiPlatformContext.Missions.Count();
+            int missionNumber = _CiPlatformContext.Missions.Where(x => x.DeletedAt == null).Count();
             return missionNumber;
 
         }
@@ -715,6 +715,24 @@ namespace CIPLATFORM.Respository.Repositories
                 {
                     missioncards = missioncards.Where(x => x.MissionType == "Goal").OrderByDescending(i => i.GoalMissions.FirstOrDefault().GoalValue).ToList();
                 }
+                if (sort == 6)
+                {
+                    List<MissionTheme> missionThemes = _CiPlatformContext.MissionThemes.Include(m => m.Missions).OrderByDescending(m => m.Missions.Count).ToList();
+                    foreach (var theme in missionThemes)
+                    {
+                        temp.AddRange(missioncards.Where(m => m.Theme == theme));
+                    }
+                    missioncards = temp;
+                }
+                //if (sort == 8)
+                //{
+                //    List<FavoriteMission> favoriteMissions = _CiPlatformContext.FavoriteMissions.Include(m => m.Missions).OrderByDescending(x => x.Missions.Count)).ToList();
+                //    foreach (var fav in favoriteMissions)
+                //    {
+                //        temp.AddRange(missioncards.Where(m => m.FavoriteMissions == fav));
+                //    }
+                //    missioncards = temp;
+                //}
 
 
             }

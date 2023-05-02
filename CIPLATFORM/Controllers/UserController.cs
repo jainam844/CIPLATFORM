@@ -96,6 +96,7 @@ namespace CIPLATFORM.Controllers
 
                 TempData["logins"] = "logged Successfull";
 
+              
             }
 
 

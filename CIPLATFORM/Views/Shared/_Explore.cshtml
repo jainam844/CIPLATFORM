@@ -1,0 +1,16 @@
+﻿
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" style="color:black" ;
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            @ViewBag.Uname
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end navbar-links" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" asp-controller="Profile" asp-action="Profile"> <span>Add Profile </span> </a></li>
+                            <li><a class="dropdown-item" asp-controller="Profile" asp-action="Timesheet"> <span>Volunteering Timesheet</span></a></li>
+                           
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" asp-controller="User" asp-action="Logout">  <span>Log Out </span> </a></li>
+                        </ul>
+                    </li>
