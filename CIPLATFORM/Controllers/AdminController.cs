@@ -156,6 +156,17 @@ namespace CIPLATFORM.Controllers
             ViewBag.Totalpages8 = Math.Ceiling(am.banners.Count() / 5.0);
             am.banners = am.banners.Skip((1 - 1) * 5).Take(5).ToList();
             ViewBag.pg_no = 1;
+            string name = HttpContext.Session.GetString("Uname");
+            ViewBag.Uname = name;
+
+            string avtar = HttpContext.Session.GetString("Avatar");
+            ViewBag.Avtar = avtar;
+
+            if (name != null)
+            {
+                int UserId = (int)HttpContext.Session.GetInt32("UId");
+                ViewBag.UId = UserId;
+            }
             return View(am);
         }
 
@@ -236,6 +247,7 @@ namespace CIPLATFORM.Controllers
                 am.banner = _AdminRepository.EditForm(id, page).banner;
                 return PartialView("_Banner", am);
             }
+
             return PartialView("_CMSPages", am);
         }
 
@@ -247,6 +259,17 @@ namespace CIPLATFORM.Controllers
                 TempData["delete"] = "Activity deleted successfully";
             else
                 TempData["delete"] = "Activity cannot deleted";
+            string name = HttpContext.Session.GetString("Uname");
+            ViewBag.Uname = name;
+
+            string avtar = HttpContext.Session.GetString("Avatar");
+            ViewBag.Avtar = avtar;
+
+            if (name != null)
+            {
+                int UserId = (int)HttpContext.Session.GetInt32("UId");
+                ViewBag.UId = UserId;
+            }
             return RedirectToAction("Admin");
 
         }
@@ -257,6 +280,17 @@ namespace CIPLATFORM.Controllers
                 TempData["accept"] = "Request Accepted";
             else
                 TempData["decline"] = "Request declined";
+            string name = HttpContext.Session.GetString("Uname");
+            ViewBag.Uname = name;
+
+            string avtar = HttpContext.Session.GetString("Avatar");
+            ViewBag.Avtar = avtar;
+
+            if (name != null)
+            {
+                int UserId = (int)HttpContext.Session.GetInt32("UId");
+                ViewBag.UId = UserId;
+            }
             return RedirectToAction("Admin");
         }
 

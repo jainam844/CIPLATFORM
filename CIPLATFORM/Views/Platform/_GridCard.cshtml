@@ -28,7 +28,7 @@
         color: red !important;
     }
 </style>
-<div id="grid">
+<div id="grid" class="mb-3">
     @{
         var a = ViewBag.UId;
     }
@@ -38,7 +38,7 @@
         @foreach (var item in Model.missions)
         {
             <div class="col">
-                <div class="card ">
+                <div class="card h-100">
                     <img src=~/images/@(item.MissionMedia.FirstOrDefault()?.MediaPath) class="card-img-top" alt="...">
 
                     <div class="position-relative">
