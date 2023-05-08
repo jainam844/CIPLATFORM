@@ -724,15 +724,32 @@ namespace CIPLATFORM.Respository.Repositories
                     }
                     missioncards = temp;
                 }
-                //if (sort == 8)
-                //{
-                //    List<FavoriteMission> favoriteMissions = _CiPlatformContext.FavoriteMissions.Include(m => m.Missions).OrderByDescending(x => x.Missions.Count)).ToList();
-                //    foreach (var fav in favoriteMissions)
-                //    {
-                //        temp.AddRange(missioncards.Where(m => m.FavoriteMissions == fav));
-                //    }
-                //    missioncards = temp;
-                //}
+                if (sort == 7)
+                {
+                    missioncards = _CiPlatformContext.Missions.Include(m => m.MissionRatings).Where(m => m.DeletedAt == null).OrderByDescending(m => m.MissionRatings.Average(r => r.Rating)).ToList();
+                }
+                if (sort == 8)
+                {
+                    missioncards = missioncards.OrderByDescending(m => m.FavoriteMissions.Count).ToList();
+                }
+                if (sort == 9)
+                {
+                    missioncards = _CiPlatformContext.Missions.Where(m => m.DeletedAt == null).ToList();
+                    Random random = new Random();
+
+                    // Shuffle the missioncards list using the Fisher-Yates algorithm
+                    for (int i = missioncards.Count - 1; i >= 1; i--)
+                    {
+                        // Generate a random index between 0 and i (inclusive)
+                        int j = random.Next(i + 1);
+
+                        // Swap the elements at indices i and j
+                        Mission temp1 = missioncards[i];
+                        missioncards[i] = missioncards[j];
+                        missioncards[j] = temp1;
+                    }
+                }
+
 
 
             }
@@ -758,7 +775,7 @@ namespace CIPLATFORM.Respository.Repositories
                 mView.UserName = user.FirstName + " " + user.LastName;
                 misView.Add(mView);
             }
- 
+
             if (pg != 0)
             {
                 misView = misView.Skip((pg - 1) * pageSize).Take(pageSize).ToList();

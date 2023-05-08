@@ -27,6 +27,10 @@ public partial class Story
 
     public virtual Mission Mission { get; set; } = null!;
 
+    public virtual ICollection<NotificationPreference> NotificationPreferenceMyStoryNavigations { get; } = new List<NotificationPreference>();
+
+    public virtual ICollection<NotificationPreference> NotificationPreferenceRecommendStoryNavigations { get; } = new List<NotificationPreference>();
+
     public virtual ICollection<StoryInvite> StoryInvites { get; } = new List<StoryInvite>();
 
     public virtual ICollection<StoryMedium> StoryMedia { get; } = new List<StoryMedium>();

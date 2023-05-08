@@ -3,25 +3,21 @@ using System.Collections.Generic;
 
 namespace CIPLATFORM.Entities.Models;
 
-public partial class MissionApplication
+public partial class Notification
 {
-    public long MissionApplicationId { get; set; }
-
-    public long MissionId { get; set; }
+    public long NotificationId { get; set; }
 
     public long UserId { get; set; }
 
-    public DateTime AppliedAt { get; set; }
+    public string Message { get; set; } = null!;
 
-    public string ApprovalStatus { get; set; } = null!;
+    public int Status { get; set; }
 
     public DateTime CreatedAt { get; set; }
 
     public DateTime? UpdatedAt { get; set; }
 
     public DateTime? DeletedAt { get; set; }
-
-    public virtual Mission Mission { get; set; } = null!;
 
     public virtual ICollection<NotificationPreference> NotificationPreferences { get; } = new List<NotificationPreference>();
 

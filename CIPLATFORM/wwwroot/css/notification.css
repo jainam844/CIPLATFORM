@@ -1,0 +1,15 @@
+﻿
+.profile-nav1 {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+@media (min-width: 992px) {
+    .dropdown-menu-center {
+        left: 50% !important;
+        right: auto !important;
+        text-align: center !important;
+        transform: translate(-50%, 0) !important;
+    }
+}
