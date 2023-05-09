@@ -546,18 +546,44 @@ namespace CIPLATFORM.Respository.Repositories
                 {
                     if (status == 1)
                     {
-                        MissionApplication ma = _CiPlatformContext.MissionApplications.FirstOrDefault(x => x.MissionApplicationId == id);
+                        MissionApplication ma = _CiPlatformContext.MissionApplications.Include(x=>x.Mission).FirstOrDefault(x => x.MissionApplicationId == id);
+                        NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == ma.UserId);
                         ma.ApprovalStatus = "Approve";
                         _CiPlatformContext.MissionApplications.Update(ma);
                         _CiPlatformContext.SaveChanges();
+                        if (check.MissionApplication == true)
+                        {
+                            NotificationMessage nm = new NotificationMessage();
+                            {
+                                nm.UserId = ma.UserId;
+                                nm.Message = "Your mission application has been approved : " + ma.Mission.Title;
+                                nm.Type = "MissionApplication";
+                                nm.Id = ma.MissionId;
+                            }
+                            _CiPlatformContext.NotificationMessages.Add(nm);
+                            _CiPlatformContext.SaveChanges();
+                        }
                         return true;
                     }
                     if (status == 0)
                     {
-                        MissionApplication ma = _CiPlatformContext.MissionApplications.FirstOrDefault(x => x.MissionApplicationId == id);
+                        MissionApplication ma = _CiPlatformContext.MissionApplications.Include(x => x.Mission).FirstOrDefault(x => x.MissionApplicationId == id);
+                        NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == ma.UserId);
                         ma.ApprovalStatus = "Decline";
                         _CiPlatformContext.MissionApplications.Update(ma);
                         _CiPlatformContext.SaveChanges();
+                        if (check.MissionApplication == true)
+                        {
+                            NotificationMessage nm = new NotificationMessage();
+                            {
+                                nm.UserId = ma.UserId;
+                                nm.Message = "Your mission application has been rejected : " + ma.Mission.Title;
+                                nm.Type = "MissionApplication";
+                                nm.Id = ma.MissionId;
+                            }
+                            _CiPlatformContext.NotificationMessages.Add(nm);
+                            _CiPlatformContext.SaveChanges();
+                        }
                         return false;
                     }
                 }
@@ -566,17 +592,43 @@ namespace CIPLATFORM.Respository.Repositories
                     if (status == 1)
                     {
                         Story story = _CiPlatformContext.Stories.FirstOrDefault(x => x.StoryId == id);
+                        NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == story.UserId);
                         story.Status = "PUBLISHED";
                         _CiPlatformContext.Stories.Update(story);
                         _CiPlatformContext.SaveChanges();
+                        if (check.MissionApplication == true)
+                        {
+                            NotificationMessage nm = new NotificationMessage();
+                            {
+                                nm.UserId = story.UserId;
+                                nm.Message = "Your story  has been approved : " + story.Title;
+                                nm.Type = "Story";
+                                nm.Id = story.StoryId;
+                            }
+                            _CiPlatformContext.NotificationMessages.Add(nm);
+                            _CiPlatformContext.SaveChanges();
+                        }
                         return true;
                     }
                     if (status == 0)
                     {
                         Story story = _CiPlatformContext.Stories.FirstOrDefault(x => x.StoryId == id);
+                        NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == story.UserId);
                         story.Status = "DECLINED";
                         _CiPlatformContext.Stories.Update(story);
                         _CiPlatformContext.SaveChanges();
+                        if (check.MissionApplication == true)
+                        {
+                            NotificationMessage nm = new NotificationMessage();
+                            {
+                                nm.UserId = story.UserId;
+                                nm.Message = "Your story has been rejected : " + story.Title;
+                                nm.Type = "Story";
+                                nm.Id = story.StoryId;
+                            }
+                            _CiPlatformContext.NotificationMessages.Add(nm);
+                            _CiPlatformContext.SaveChanges();
+                        }
                         return false;
                     }
                 }

@@ -652,11 +652,15 @@ function settingsForNotification() {
     var settings = [];
     $('input[name="sn"]:checked').each(function () { Value = this.value; settings.push(Value); });
     console.log(settings);
-    $.ajax({
+    $.ajax(
+        {
         url: "/Platform/settings",
-        method: "post", data: { settings: settings, },
-        success: function () { toastr.success("You have changed your notification setting!!"); },
-        error: function () { toastr.error("Something went wrong!!"); }
+        method: "post",
+        data: {settings: settings},
+        success: function ()
+            { toastr.success("You have changed your notification setting!!"); },
+            error: function ()
+            { toastr.error("Something went wrong!!"); }
     });
 }
 function getsettings() {
@@ -676,3 +680,19 @@ function getsettings() {
     });
 }
 
+
+function getnotification() {
+    $.ajax({
+        url: "/Platform/getnotification",
+        method: "post",
+        data: {},
+        success: function (data) {
+            console.log(data);
+            $("#newnoti").empty();
+            $("#newnoti").html(data);
+        },
+        error: function () {
+            toastr.error("Something went wrong!!");
+        }
+    });
+}

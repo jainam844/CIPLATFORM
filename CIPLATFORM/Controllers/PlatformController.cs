@@ -407,5 +407,20 @@ namespace CIPLATFORM.Controllers
             // Return a boolean value indicating whether the data exists
             return Json(dataExists);
         }
+        public IActionResult getnotification()
+        {
+
+            int UserId = (int)HttpContext.Session.GetInt32("UId");
+            List<NotificationMessage> SM = _PlatformRepository.getnotification(UserId);
+
+            //var dataExists = JsonConvert.SerializeObject(SM);
+
+            CardsViewModel cm = new CardsViewModel();
+            cm.notificationMessages = SM;
+
+            // Return a boolean value indicating whether the data exists
+            //return Json(dataExists);
+            return PartialView("_Notificationlist", cm);
+        }
     }
 }

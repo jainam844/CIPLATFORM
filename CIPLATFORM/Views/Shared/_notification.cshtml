@@ -12,10 +12,10 @@ input[type=checkbox]:checked:before {
 
 <form class="d-flex">
 
-    <div class="collapse navbar-collapse dropdown me-5" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse dropdown me-3 " id="navbarSupportedContent">
 
         <i class="bi bi-bell btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
-           aria-expanded="false" style="font-size:20px;"></i>
+           aria-expanded="false" style="font-size:20px;" onclick="getnotification();"></i>
 
         <ul class="dropdown-menu dropdown-menu-center" style="width:400px;height:500px;overflow-x: hidden;">
             <li class="d-flex justify-content-between align-content-between" style="position: sticky;">
@@ -24,146 +24,12 @@ input[type=checkbox]:checked:before {
                 <a style="text-decoration: none; color: black;" class="me-2" href="#">clear all</a>
             </li>
             <hr style="background-color: rgb(187, 185, 183);">
-            <li class="d-flex justify-content-between align-content-between">
-
-                <div class="row">
-                    <div class="col-1">
-                        <i class="bi bi-plus-circle ms-2"
-                           style="font-size: 20px; "></i>
-                    </div>
-                    <div class="col-9"> New Mission Plantation and Programme</div>
-                    <div class="col-2">
-                        <i class="bi bi-circle-fill "
-                           style="font-size: 12px; color: #ffaf75; "></i>
-                    </div>
-                </div>
-
-            </li>
-            <hr style="background-color: rgb(187, 185, 183);">
-            <li>
-                <div class="row">
-                    <div class="col-1">
-                        <i class="bi bi-plus-circle ms-2"
-                           style="font-size: 20px; "></i>
-                    </div>
-                    <div class="col-9"> New News -New Page</div>
-                    <div class="col-2">
-                        <i class="bi bi-circle-fill "
-                           style="font-size: 12px; color: #ffaf75; "></i>
-                    </div>
-                </div>
-            </li>
-            <hr style="background-color: rgb(187, 185, 183);">
-            <li>
-                <div class="row">
-                    <div class="col-1">
-                        <img src="~/images/user-img.png" class="profile-nav1 ms-2 "
-                             alt="">
-                    </div>
-                    <div class="col-9"> Jainam Shah- Recoomaand to this mission..!!</div>
-                    <div class="col-2">
-                        <i class="bi bi-circle-fill "
-                           style="font-size: 12px; color: #ffaf75; "></i>
-                    </div>
-                </div>
-            </li>
-            <hr style="background-color: rgb(187, 185, 183);">
-            <div class="d-flex justify-content-center align-items-center">
-                <h6>OLDER</h6>
+             <div id="newnoti">
+                @{
+                    Html.RenderPartial("_Notificationlist");
+                }
             </div>
 
-            <hr style="background-color: rgb(187, 185, 183);">
-            <li>
-                <div class="row">
-                    <div class="col-1">
-                        <i class="bi bi-check2-square ms-2"
-                           style="font-size: 20px; "></i>
-                    </div>
-                    <div class="col-9">
-                        Volunteering Request has been approved for this mission
-                        :autominationdata 15141518
-                    </div>
-                    <div class="col-2">
-                        <i class="bi bi-check-lg" style="font-size: 20px; "></i>
-                    </div>
-                </div>
-            </li>
-            <hr style="background-color: rgb(187, 185, 183);">
-            <li>
-                <div class="row">
-                    <div class="col-1">
-                        <i class="bi bi-plus-circle ms-2"
-                           style="font-size: 20px; "></i>
-                    </div>
-                    <div class="col-9"> New Mission- autominationdata 15141518</div>
-                    <div class="col-2">
-                        <i class="bi bi-circle-fill ms-2"
-                           style="font-size: 12px; color: #ffaf75; "></i>
-                    </div>
-                </div>
-            </li>
-            <hr style="background-color: rgb(187, 185, 183);">
-            <li>
-                <div class="row">
-                    <div class="col-1">
-                        <i class="bi bi-check2-square ms-2"
-                           style="font-size: 20px; "></i>
-                    </div>
-                    <div class="col-9">
-                        Volunteering Request has been approved for this mission
-                        :autominationdata 15141518
-                    </div>
-                    <div class="col-2">
-                        <i class="bi bi-circle-fill "
-                           style="font-size: 12px; color: #ffaf75; "></i>
-                    </div>
-                </div>
-            </li>
-            <hr style="background-color: rgb(187, 185, 183);">
-            <li>
-                <div class="row">
-                    <div class="col-1">
-                        <i class="bi bi-plus-circle ms-2"
-                           style="font-size: 20px; "></i>
-                    </div>
-                    <div class="col-9"> New Mission- autominationdata 15141518</div>
-                    <div class="col-2">
-                        <i class="bi bi-circle-fill ms-2"
-                           style="font-size: 12px; color: #ffaf75; "></i>
-                    </div>
-                </div>
-            </li>
-            <hr style="background-color: rgb(187, 185, 183);">
-            <li>
-                <div class="row">
-                    <div class="col-1">
-                        <i class="bi bi-check2-square ms-2"
-                           style="font-size: 20px; "></i>
-                    </div>
-                    <div class="col-9">
-                        Volunteering Request has been approved for this mission
-                        :autominationdata 15141518
-                    </div>
-                    <div class="col-2">
-                        <i class="bi bi-circle-fill "
-                           style="font-size: 12px; color: #ffaf75; "></i>
-                    </div>
-                </div>
-            </li>
-            <hr style="background-color: rgb(187, 185, 183);">
-            <li>
-                <div class="row">
-                    <div class="col-1">
-                        <i class="bi bi-plus-circle ms-2"
-                           style="font-size: 20px; "></i>
-                    </div>
-                    <div class="col-9"> New Mission- autominationdata 15141518</div>
-                    <div class="col-2">
-                        <i class="bi bi-circle-fill ms-2"
-                           style="font-size: 12px; color: #ffaf75; "></i>
-                    </div>
-                </div>
-            </li>
         </ul>
     </div>
     @if (ViewBag.Avtar != "")
@@ -261,7 +127,7 @@ input[type=checkbox]:checked:before {
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn  skill" data-bs-dismiss="modal" onclick="modalReset()">Close</button>
+                <button type="button" class="btn  skill" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn savePassword" data-bs-dismiss="modal" onclick="settingsForNotification()">Save changes</button>
             </div>
         </div>

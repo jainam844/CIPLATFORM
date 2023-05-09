@@ -59,5 +59,6 @@ namespace CIPLATFORM.Respository.Interface
         public StoryView addView(int sid, int UId);
         public void settings(string[] settings, int uid);
         public NotificationSetting getsettings(int uid);
+        public List<NotificationMessage> getnotification(int uid);
     }
 }
