@@ -57,6 +57,7 @@ namespace CIPLATFORM.Respository.Interface
         public bool MIcheckStory(int sid, int userId, List<int> ToUserId);
 
         public StoryView addView(int sid, int UId);
-
+        public void settings(string[] settings, int uid);
+        public NotificationSetting getsettings(int uid);
     }
 }

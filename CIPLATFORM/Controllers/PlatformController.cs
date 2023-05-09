@@ -381,5 +381,31 @@ namespace CIPLATFORM.Controllers
 
         }
 
+        //public void settings(string [] settings)
+        //{
+        //    int UserId = (int)HttpContext.Session.GetInt32("UId");
+
+        //    _PlatformRepository.settings(settings, UserId);
+        //}
+        public void settings(string[] settings)
+        {
+            int UserId = (int)HttpContext.Session.GetInt32("UId");
+
+
+            _PlatformRepository.settings(settings, UserId);
+        }
+        public JsonResult getsettings()
+        {
+
+            int UserId = (int)HttpContext.Session.GetInt32("UId");
+            NotificationSetting SM = _PlatformRepository.getsettings(UserId);
+
+            var dataExists = JsonConvert.SerializeObject(SM);
+
+
+
+            // Return a boolean value indicating whether the data exists
+            return Json(dataExists);
+        }
     }
 }

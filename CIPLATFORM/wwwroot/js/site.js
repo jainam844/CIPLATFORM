@@ -4,28 +4,28 @@ function GetsCity() {
 
     $.ajax(
         {
-        url: "/Platform/GetCitys",
-        method: "GET",
-        data: {
-            "countryId": countryId
-        },
-        success: function (data) {
-            data = JSON.parse(data);
-            $("#selectCityList").empty();
-            document.getElementById("selectCityList").innerHTML += `
+            url: "/Platform/GetCitys",
+            method: "GET",
+            data: {
+                "countryId": countryId
+            },
+            success: function (data) {
+                data = JSON.parse(data);
+                $("#selectCityList").empty();
+                document.getElementById("selectCityList").innerHTML += `
         <option value=${name}> City </option>
         `;
-            data.forEach((name) => {
-                document.getElementById("selectCityList").innerHTML += `
+                data.forEach((name) => {
+                    document.getElementById("selectCityList").innerHTML += `
         <option value=${name.CityId} >${name.Name}</option>
         `;
-            })
-        },
-        error: function (error) {
-            console.log("Bye city");
-            console.log(error);
-        }
-    })
+                })
+            },
+            error: function (error) {
+                console.log("Bye city");
+                console.log(error);
+            }
+        })
 }
 function GetCity() {
 
@@ -165,7 +165,7 @@ function clearAll() {
 
 
 function GetProfileCity() {
-    
+
     var countryId = $('#countryId').find(":selected").val();
     debugger
     $.ajax({
@@ -292,10 +292,10 @@ function temp(pg) {
             'search': search,
             'sort': sort,
             'pg': pg,
-            'view':view,
+            'view': view,
 
         },
-        dataType: "html", 
+        dataType: "html",
         success: function (data) {
 
             $("#filter").empty();
@@ -334,8 +334,8 @@ function AddMissionToFavourite(missionId) {
                 $('#addToFav').css("color", "red");
                 toastr.success("Added To the favourite");
 
-                document.getElementById("add_"+missionId).className = "bi bi-heart-fill text-danger";
-               
+                document.getElementById("add_" + missionId).className = "bi bi-heart-fill text-danger";
+
 
             }
             else {
@@ -347,8 +347,8 @@ function AddMissionToFavourite(missionId) {
                 $('#addToFav').removeClass();
                 $('#addToFav').addClass("bi bi-heart");
                 toastr.error('Remove From the favourite');
-                document.getElementById("add_"+missionId).className = "bi bi-heart";
-                
+                document.getElementById("add_" + missionId).className = "bi bi-heart";
+
 
             }
 
@@ -445,7 +445,7 @@ function comment(missionid) {
 }
 
 function recommandToCoWorker(x) {
-   
+
     var Missiond = x;
     var toUserId = [];
     var recommand = document.getElementById("recommand");
@@ -508,7 +508,7 @@ function recommandStory(x) {
             "sid": Storyd
         },
         success: function (data) {
-           
+
             console.log(toUserId);
             toastr.success('Email Sent  successfully');
         }
@@ -562,7 +562,7 @@ function story(pg) {
             console.log(data);
             $("#StoryFilter").empty();
             $("#StoryFilter").html(data);
-            
+
 
 
 
@@ -591,7 +591,7 @@ function getActivity(x) {
                 },
                 success: function (data) {
                     console.log(data);
-                
+
                     $("#TimesheetTime").empty();
                     $("#TimesheetTime").html(data);
                 },
@@ -647,4 +647,32 @@ function getgoalActivity(x) {
 
 
 
+function settingsForNotification() {
+    var Value;
+    var settings = [];
+    $('input[name="sn"]:checked').each(function () { Value = this.value; settings.push(Value); });
+    console.log(settings);
+    $.ajax({
+        url: "/Platform/settings",
+        method: "post", data: { settings: settings, },
+        success: function () { toastr.success("You have changed your notification setting!!"); },
+        error: function () { toastr.error("Something went wrong!!"); }
+    });
+}
+function getsettings() {
+    $.ajax({
+        url: "/Platform/getsettings",
+        method: "post", data: {},
+        success: function (data) {
+            data = JSON.parse(data);
+            console.log(data);
+            $("#RecommendedMission").prop("checked", data.RecommendedMission);
+            $("#Story").prop("checked", data.Story);
+            $("#NewMission").prop("checked", data.NewMission);
+            $("#RecommendedStory").prop("checked", data.RecommendedStory);
+            $("#MissionApplication").prop("checked", data.MissionApplication);
+            $("#EmailNotification").prop("checked", data.EmailNotification);
+        }, error: function () { toastr.error("Something went wrong!!"); }
+    });
+}
 

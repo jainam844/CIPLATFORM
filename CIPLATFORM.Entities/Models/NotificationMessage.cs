@@ -3,17 +3,13 @@ using System.Collections.Generic;
 
 namespace CIPLATFORM.Entities.Models;
 
-public partial class MissionApplication
+public partial class NotificationMessage
 {
-    public long MissionApplicationId { get; set; }
-
-    public long MissionId { get; set; }
+    public long NotificationMessageId { get; set; }
 
     public long UserId { get; set; }
 
-    public DateTime AppliedAt { get; set; }
-
-    public string ApprovalStatus { get; set; } = null!;
+    public string Message { get; set; } = null!;
 
     public DateTime CreatedAt { get; set; }
 
@@ -21,7 +17,11 @@ public partial class MissionApplication
 
     public DateTime? DeletedAt { get; set; }
 
-    public virtual Mission Mission { get; set; } = null!;
+    public string Type { get; set; } = null!;
+
+    public long Id { get; set; }
+
+    public string Status { get; set; } = null!;
 
     public virtual User User { get; set; } = null!;
 }

@@ -61,10 +61,6 @@ public partial class Mission
 
     public virtual ICollection<MissionSkill> MissionSkills { get; } = new List<MissionSkill>();
 
-    public virtual ICollection<NotificationPreference> NotificationPreferenceNewMissionNavigations { get; } = new List<NotificationPreference>();
-
-    public virtual ICollection<NotificationPreference> NotificationPreferenceRecommendedMissionNavigations { get; } = new List<NotificationPreference>();
-
     public virtual ICollection<Story> Stories { get; } = new List<Story>();
 
     public virtual MissionTheme Theme { get; set; } = null!;

@@ -3,15 +3,11 @@ using System.Collections.Generic;
 
 namespace CIPLATFORM.Entities.Models;
 
-public partial class Notification
+public partial class NotificationSetting
 {
     public long NotificationId { get; set; }
 
     public long UserId { get; set; }
-
-    public string Message { get; set; } = null!;
-
-    public int Status { get; set; }
 
     public DateTime CreatedAt { get; set; }
 
@@ -19,7 +15,17 @@ public partial class Notification
 
     public DateTime? DeletedAt { get; set; }
 
-    public virtual ICollection<NotificationPreference> NotificationPreferences { get; } = new List<NotificationPreference>();
+    public bool? RecommendedMission { get; set; }
+
+    public bool? Story { get; set; }
+
+    public bool? NewMission { get; set; }
+
+    public bool? RecommendedStory { get; set; }
+
+    public bool? MissionApplication { get; set; }
+
+    public bool EmailNotification { get; set; }
 
     public virtual User User { get; set; } = null!;
 }

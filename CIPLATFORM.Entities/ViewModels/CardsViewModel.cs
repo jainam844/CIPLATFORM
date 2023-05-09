@@ -19,7 +19,8 @@ namespace CIPLATFORM.Entities.ViewModels
 
         public List<FavoriteMission> favoriteMissions { get; set; }
         public List<User>? coworkers { get; set; }
-    
+        public NotificationSetting notificationSetting { get; set; } = new NotificationSetting();
+        public List<NotificationMessage> notificationMessages { get; set; } = new List<NotificationMessage>();
 
     }
 }

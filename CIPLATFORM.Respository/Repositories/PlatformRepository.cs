@@ -783,6 +783,76 @@ namespace CIPLATFORM.Respository.Repositories
             return misView;
         }
 
+        public void settings(string[] settings, int uid)
+        {
+            NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == uid);
+            if (check == null)
+            {
+                check = new NotificationSetting();
+                check.UserId = uid;
+
+            }
+            if (settings.Contains("RecommendedMission"))
+            {
+                check.RecommendedMission = true;
+            }
+            else
+            {
+                check.RecommendedMission = false;
+            }
+            if (settings.Contains("Story"))
+            {
+                check.Story = true;
+            }
+            else
+            {
+                check.Story = false;
+            }
+            if (settings.Contains("NewMission"))
+            {
+                check.NewMission = true;
+            }
+            else
+            {
+                check.NewMission = false;
+            }
+            if (settings.Contains("RecommendedStory"))
+            {
+                check.RecommendedStory = true;
+            }
+            else
+            {
+                check.RecommendedStory = false;
+            }
+            if (settings.Contains("MissionApplication"))
+            {
+                check.MissionApplication = true;
+            }
+            else
+            {
+                check.MissionApplication = false;
+            }
+            if (settings.Contains("EmailNotification"))
+            {
+                check.EmailNotification = true;
+            }
+            else
+            {
+                check.EmailNotification = false;
+            }
+            if (check != null)
+            {
+                check.UpdatedAt = DateTime.Now;
+            }
+            _CiPlatformContext.Update(check);
+            _CiPlatformContext.SaveChanges();
+
+        }
+        public NotificationSetting getsettings(int uid)
+        {
+            NotificationSetting ns = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == uid);
+            return ns;
+        }
 
     }
 }
