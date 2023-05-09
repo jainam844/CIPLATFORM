@@ -291,8 +291,11 @@ namespace CIPLATFORM.Respository.Repositories
 
             foreach (var user in ToUserId)
             {
+
                 var toUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == user && u.DeletedAt == null);
-                NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == user);
+
+                //NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == user);
+
                 var toEmailId = toUser.Email;
 
                 MissionInvite invite = new MissionInvite();
@@ -303,21 +306,23 @@ namespace CIPLATFORM.Respository.Repositories
                 }
                 _CiPlatformContext.Add(invite);
                 _CiPlatformContext.SaveChanges();
-
-                
-                if (check.RecommendedMission == true)
+                bool msg = _CiPlatformContext.NotificationSettings.Any(x => x.UserId == user);
+                if (msg)
                 {
-                    NotificationMessage nm = new NotificationMessage();
+                    NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == user);
+                    if (check.RecommendedMission == true)
                     {
-                        nm.UserId = user;
-                        nm.Message = fromUser.FirstName + " Has Recommanded You To This Mission: Check This out" ;
-                        nm.Type = "RecommendedMission";
-                        nm.Id = mid;
+                        NotificationMessage nm = new NotificationMessage();
+                        {
+                            nm.UserId = user;
+                            nm.Message = fromUser.FirstName + " Has Recommanded You To This Mission: Check This out";
+                            nm.Type = "RecommendedMission";
+                            nm.Id = mid;
+                        }
+                        _CiPlatformContext.NotificationMessages.Add(nm);
+                        _CiPlatformContext.SaveChanges();
                     }
-                    _CiPlatformContext.NotificationMessages.Add(nm);
-                    _CiPlatformContext.SaveChanges();
                 }
-
                 #region Send Mail
                 var mailBody = "<h1></h1><br><h2><a href='" + "https://localhost:7028/Platform/MissionListing?mid=" + mid + "'>Check Out this Mission!</a></h2>";
 
@@ -426,7 +431,7 @@ namespace CIPLATFORM.Respository.Repositories
         public void RecommandStory(int FromUserId, List<int> ToUserId, int sid)
         {
             var fromUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == FromUserId && u.DeletedAt == null);
-         
+
             var fromEmailId = fromUser.Email;
             //if (user1 == null)
             //{

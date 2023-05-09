@@ -159,6 +159,7 @@ namespace CIPLATFORM.Respository.Repositories
                 if (obj.mission.MissionId == 0)
                 {
                     Mission mission = new Mission();
+                    List<NotificationSetting> check = _CiPlatformContext.NotificationSettings.Where(x => x.NewMission == true).ToList();
                     {
                         mission.Title = obj.mission.Title;
                         mission.Description = obj.mission.Description;
@@ -172,8 +173,21 @@ namespace CIPLATFORM.Respository.Repositories
                         mission.MissionType = obj.mission.MissionType;
                         mission.Avaibility = obj.mission.Avaibility;
                         mission.ThemeId = obj.mission.ThemeId;
+
                         _CiPlatformContext.Missions.Add(mission);
                         _CiPlatformContext.SaveChanges();
+                        foreach (var item in check)
+                        {
+                            NotificationMessage nm = new NotificationMessage();
+                            {
+                                nm.UserId = item.UserId;
+                                nm.Message = "New Mission -" + mission.Title;
+                                nm.Type = "NewMission";
+                                nm.Id = mission.MissionId;
+                            }
+                            _CiPlatformContext.NotificationMessages.Add(nm);
+                            _CiPlatformContext.SaveChanges();
+                        }
                     }
                     if (obj.missionDocuments != null)
                     {
@@ -546,7 +560,7 @@ namespace CIPLATFORM.Respository.Repositories
                 {
                     if (status == 1)
                     {
-                        MissionApplication ma = _CiPlatformContext.MissionApplications.Include(x=>x.Mission).FirstOrDefault(x => x.MissionApplicationId == id);
+                        MissionApplication ma = _CiPlatformContext.MissionApplications.Include(x => x.Mission).FirstOrDefault(x => x.MissionApplicationId == id);
                         NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == ma.UserId);
                         ma.ApprovalStatus = "Approve";
                         _CiPlatformContext.MissionApplications.Update(ma);
