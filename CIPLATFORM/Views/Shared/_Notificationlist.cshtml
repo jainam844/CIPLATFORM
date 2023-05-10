@@ -1,7 +1,6 @@
 ﻿@using CIPLATFORM.Entities.ViewModels
 @model CardsViewModel
 
-
 @foreach (var item in @Model.notificationMessages)
 {
     @if (item.Type == "MissionApplication")
@@ -13,6 +12,7 @@
                         @if (item.Message.Contains("approved"))
                         {
                             <i class="bi bi-check2-square ms-2" style="font-size: 20px; "></i>
+                             
                         }
                         else
                         {
@@ -74,8 +74,8 @@
             <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@item.Id" style="text-decoration:none; color:black;">
                 <div class="row">
                     <div class="col-1">
-                        @* <img src="~/images/@ViewBag.Avtar" class="profile-nav" alt="">*@
-                        <i class="bi bi-check2-square ms-2" style="font-size: 20px; "></i>
+                          <img src=~/images/@ViewBag.Avtar class="profile-nav" alt="">
+                        @*<i class="bi bi-check2-square ms-2" style="font-size: 20px; "></i>*@
                     </div>
                     <div class="col-9"> @item.Message</div>
 

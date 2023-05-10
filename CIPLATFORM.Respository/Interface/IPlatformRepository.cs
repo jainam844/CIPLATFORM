@@ -60,5 +60,6 @@ namespace CIPLATFORM.Respository.Interface
         public void settings(string[] settings, int uid);
         public NotificationSetting getsettings(int uid);
         public List<NotificationMessage> getnotification(int uid);
+        public int GetnotificationCount(int uid);
     }
 }

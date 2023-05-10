@@ -186,6 +186,13 @@ namespace CIPLATFORM.Respository.Repositories
             return missionNumber;
 
         }
+        public int GetnotificationCount(int uid)
+        {
+
+            int missionNumber = _CiPlatformContext.NotificationMessages.Where(x =>x.UserId==uid && x.DeletedAt == null).Count();
+            return missionNumber;
+
+        }
 
 
         //Star Rating

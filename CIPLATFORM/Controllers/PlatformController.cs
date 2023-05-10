@@ -31,6 +31,8 @@ namespace CIPLATFORM.Controllers
             {
                 int UserId = (int)HttpContext.Session.GetInt32("UId");
                 ViewBag.UId = UserId;
+
+                TempData["msg1"] = _PlatformRepository.GetnotificationCount(UserId);
             }
 
             string avtar = HttpContext.Session.GetString("Avatar");
@@ -54,6 +56,7 @@ namespace CIPLATFORM.Controllers
 
             var totalMission = _PlatformRepository.GetMissionCount();
             ViewBag.totalMission = totalMission;
+
 
 
 
@@ -392,6 +395,8 @@ namespace CIPLATFORM.Controllers
             int UserId = (int)HttpContext.Session.GetInt32("UId");
 
 
+            string avtar = HttpContext.Session.GetString("Avatar");
+            ViewBag.Avtar = avtar;
             _PlatformRepository.settings(settings, UserId);
         }
         public JsonResult getsettings()
@@ -411,15 +416,14 @@ namespace CIPLATFORM.Controllers
         {
 
             int UserId = (int)HttpContext.Session.GetInt32("UId");
-            List<NotificationMessage> SM = _PlatformRepository.getnotification(UserId);
 
-            //var dataExists = JsonConvert.SerializeObject(SM);
+            string avtar = HttpContext.Session.GetString("Avatar");
+            ViewBag.Avtar = avtar;
+            List<NotificationMessage> SM = _PlatformRepository.getnotification(UserId);
 
             CardsViewModel cm = new CardsViewModel();
             cm.notificationMessages = SM;
 
-            // Return a boolean value indicating whether the data exists
-            //return Json(dataExists);
             return PartialView("_Notificationlist", cm);
         }
     }
