@@ -20,14 +20,14 @@
     
 */
 .notification .badge {
-       position: absolute;
+    position: absolute;
     top: -3px;
-    right: 22px;
-    padding: 4px 8px;
+    right: 19px;
+    padding: 3px 4px;
     border-radius: 50%;
     background-color: red;
     color: white;
-    WIDTH: 22px;
+  
     /*  position: absolute;
     top: -4px;
     WIDTH: 24px;
@@ -53,7 +53,7 @@
             <li class="d-flex justify-content-between align-content-between" style="position: sticky;">
                 <i class="bi bi-gear-fill ms-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal10" onclick="getsettings();"> </i>
                 <span>Notification</span>
-                <a style="text-decoration: none; color: black;" class="me-2" href="#">clear all</a>
+                <a style="text-decoration: none; color: black;" onclick="return readNotification('clear');"  class="me-2" href="#">clear all</a>
             </li>
             <hr style="background-color: rgb(187, 185, 183);">
             <div id="newnoti">

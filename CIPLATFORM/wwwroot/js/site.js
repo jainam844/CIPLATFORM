@@ -696,3 +696,24 @@ function getnotification() {
         }
     });
 }
+function readNotification(x, y) {
+    debugger;
+    $.ajax({
+        url: "/Platform/readNotification",
+        method: "post",
+        data: {
+            "id": y,
+            "status": x
+        },
+        success: function (data) {
+
+        },
+        error: function () {
+
+            toastr.error("Something went wrong!!");
+
+        }
+
+    });
+    return true;
+}

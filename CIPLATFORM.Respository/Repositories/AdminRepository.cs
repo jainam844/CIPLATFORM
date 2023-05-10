@@ -16,10 +16,12 @@ namespace CIPLATFORM.Respository.Repositories
     {
 
         public readonly CiPlatformContext _CiPlatformContext;
+        public readonly IPlatformRepository _PlatformRepository;
 
-        public AdminRepository(CiPlatformContext CiPlatformContext)
+        public AdminRepository(CiPlatformContext CiPlatformContext,IPlatformRepository platformRepository)
         {
             _CiPlatformContext = CiPlatformContext;
+            _PlatformRepository = platformRepository;
         }
         public AdminViewModel getData()
         {
@@ -187,6 +189,7 @@ namespace CIPLATFORM.Respository.Repositories
                             }
                             _CiPlatformContext.NotificationMessages.Add(nm);
                             _CiPlatformContext.SaveChanges();
+                            _PlatformRepository.SendMail(nm);
                         }
                     }
                     if (obj.missionDocuments != null)
@@ -576,6 +579,8 @@ namespace CIPLATFORM.Respository.Repositories
                             }
                             _CiPlatformContext.NotificationMessages.Add(nm);
                             _CiPlatformContext.SaveChanges();
+
+                            _PlatformRepository.SendMail(nm);
                         }
                         return true;
                     }
@@ -597,6 +602,7 @@ namespace CIPLATFORM.Respository.Repositories
                             }
                             _CiPlatformContext.NotificationMessages.Add(nm);
                             _CiPlatformContext.SaveChanges();
+                            _PlatformRepository.SendMail(nm);
                         }
                         return false;
                     }
@@ -640,8 +646,11 @@ namespace CIPLATFORM.Respository.Repositories
                                 nm.Type = "Story";
                                 nm.Id = story.StoryId;
                             }
+
                             _CiPlatformContext.NotificationMessages.Add(nm);
                             _CiPlatformContext.SaveChanges();
+
+
                         }
                         return false;
                     }

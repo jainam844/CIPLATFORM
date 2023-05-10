@@ -397,6 +397,7 @@ namespace CIPLATFORM.Controllers
 
             string avtar = HttpContext.Session.GetString("Avatar");
             ViewBag.Avtar = avtar;
+
             _PlatformRepository.settings(settings, UserId);
         }
         public JsonResult getsettings()
@@ -425,6 +426,19 @@ namespace CIPLATFORM.Controllers
             cm.notificationMessages = SM;
 
             return PartialView("_Notificationlist", cm);
+        }
+        public void readNotification(int id, string status)
+        {
+
+            if (status == "read")
+            {
+                _PlatformRepository.readNotification(id);
+            }
+            if (status == "clear")
+            {
+                int UserId = (int)HttpContext.Session.GetInt32("UId");
+                _PlatformRepository.clearNotification(UserId);
+            }
         }
     }
 }

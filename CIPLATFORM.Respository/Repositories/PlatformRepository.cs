@@ -189,7 +189,7 @@ namespace CIPLATFORM.Respository.Repositories
         public int GetnotificationCount(int uid)
         {
 
-            int missionNumber = _CiPlatformContext.NotificationMessages.Where(x =>x.UserId==uid && x.DeletedAt == null).Count();
+            int missionNumber = _CiPlatformContext.NotificationMessages.Where(x =>x.UserId==uid && x.DeletedAt == null && x.Status!= "Cleared").Count();
             return missionNumber;
 
         }
@@ -898,6 +898,54 @@ namespace CIPLATFORM.Respository.Repositories
             return messages;
         }
 
+        public void readNotification(int id)
+        {
+            NotificationMessage nm = _CiPlatformContext.NotificationMessages.FirstOrDefault(m => m.NotificationMessageId == id);
+            nm.Status = "Read";
+            nm.UpdatedAt = DateTime.Now;
+            _CiPlatformContext.NotificationMessages.Update(nm);
+            _CiPlatformContext.SaveChanges();
+        }
+        public void clearNotification(int uid)
+        {
+            List<NotificationMessage> nm = _CiPlatformContext.NotificationMessages.Where(m => m.UserId == uid).ToList();
+            foreach (NotificationMessage m in nm)
+            {
+                m.Status = "Cleared";
+                m.UpdatedAt = DateTime.Now;
+                _CiPlatformContext.NotificationMessages.Update(m);
+                _CiPlatformContext.SaveChanges();
+            }
+        }
 
+
+        public bool SendMail(NotificationMessage message)
+        {
+            string toUser=_CiPlatformContext.Users.FirstOrDefault(m=>m.UserId == message.UserId).Email;
+            #region Send Mail
+            string link = null;
+            if (message.Type == "MissionApplication" || message.Type== "NewMission")
+            {
+                 link = "https://localhost:7028/Platform/MissionListing?mid=";
+            }
+
+            var mailBody = "<h1>"+message.Message+"</h1><br><h2><a href='" + link + message.Id + "'>Check Out this Mission!</a></h2>";
+
+            // create email message
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse("jainamshah492@gmail.com"));
+            email.To.Add(MailboxAddress.Parse(toUser));
+            email.Subject = message.Type;
+            email.Body = new TextPart(TextFormat.Html) { Text = mailBody };
+
+            // send email
+            using var smtp = new SmtpClient();
+            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate("jainamshah492@gmail.com", "aflpkkevlfxzmmtx");
+            smtp.Send(email);
+            smtp.Disconnect(true);
+            #endregion Send Mail
+            return true;
+        }
     }
 }
