@@ -189,7 +189,7 @@ namespace CIPLATFORM.Respository.Repositories
         public int GetnotificationCount(int uid)
         {
 
-            int missionNumber = _CiPlatformContext.NotificationMessages.Where(x =>x.UserId==uid && x.DeletedAt == null && x.Status!= "Cleared").Count();
+            int missionNumber = getnotification(uid).Count;
             return missionNumber;
 
         }
@@ -894,7 +894,37 @@ namespace CIPLATFORM.Respository.Repositories
         }
         public List<NotificationMessage> getnotification(int uid)
         {
-            List<NotificationMessage> messages = _CiPlatformContext.NotificationMessages.Where(x => x.UserId == uid && x.Status != "Cleared").ToList();
+            NotificationSetting ns = _CiPlatformContext.NotificationSettings.FirstOrDefault(m => m.UserId == uid);
+
+
+            List<NotificationMessage> messages = _CiPlatformContext.NotificationMessages.Include(m => m.User).Include(m => m.User.MissionInviteToUsers).Include(m => m.User.MissionInviteFromUsers).Where(x => x.UserId == uid && x.Status != "Cleared").ToList();
+            if (ns.MissionApplication != true)
+            {
+                messages = messages.Where(m => m.Type != "MissionApplication").ToList();
+            }
+            if (ns.Story != true)
+            {
+                messages = messages.Where(m => m.Type != "Story").ToList();
+
+
+            }
+            if (ns.RecommendedMission != true)
+            {
+                messages = messages.Where(m => m.Type != "RecommendedMission").ToList();
+
+            }
+            if (ns.RecommendedStory != true)
+            {
+                messages = messages.Where(m => m.Type != "RecommendedStory").ToList();
+
+            }
+            if (ns.NewMission != true)
+            {
+                messages = messages.Where(m => m.Type != "NewMission").ToList();
+
+            }
+
+
             return messages;
         }
 
@@ -921,15 +951,19 @@ namespace CIPLATFORM.Respository.Repositories
 
         public bool SendMail(NotificationMessage message)
         {
-            string toUser=_CiPlatformContext.Users.FirstOrDefault(m=>m.UserId == message.UserId).Email;
+            string toUser = _CiPlatformContext.Users.FirstOrDefault(m => m.UserId == message.UserId).Email;
             #region Send Mail
             string link = null;
-            if (message.Type == "MissionApplication" || message.Type== "NewMission")
+            if (message.Type == "MissionApplication" || message.Type == "NewMission")
             {
-                 link = "https://localhost:7028/Platform/MissionListing?mid=";
+                link = "https://localhost:7028/Platform/MissionListing?mid=";
+            }
+            if (message.Type == "Story")
+            {
+                link = "https://localhost:7028/Platform/StoryDetail?sid=";
             }
 
-            var mailBody = "<h1>"+message.Message+"</h1><br><h2><a href='" + link + message.Id + "'>Check Out this Mission!</a></h2>";
+            var mailBody = "<h1>" + message.Message + "</h1><br><h2><a href='" + link + message.Id + "'>Check Out this Mission!</a></h2>";
 
             // create email message
             var email = new MimeMessage();

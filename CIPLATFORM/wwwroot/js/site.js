@@ -654,14 +654,12 @@ function settingsForNotification() {
     console.log(settings);
     $.ajax(
         {
-        url: "/Platform/settings",
-        method: "post",
-        data: {settings: settings},
-        success: function ()
-            { toastr.success("You have changed your notification setting!!"); },
-            error: function ()
-            { toastr.error("Something went wrong!!"); }
-    });
+            url: "/Platform/settings",
+            method: "post",
+            data: { settings: settings },
+            success: function () { toastr.success("You have changed your notification setting!!"); },
+            error: function () { toastr.error("Something went wrong!!"); }
+        });
 }
 function getsettings() {
     $.ajax({
@@ -690,6 +688,11 @@ function getnotification() {
             console.log(data);
             $("#newnoti").empty();
             $("#newnoti").html(data);
+            console.log($("#todisplay"));
+            console.log($("#fromdisplay"));
+            var abc = document.querySelector("#fromdisplay").textContent;
+            console.log(abc);
+            $("#todisplay").text(abc);
         },
         error: function () {
             toastr.error("Something went wrong!!");

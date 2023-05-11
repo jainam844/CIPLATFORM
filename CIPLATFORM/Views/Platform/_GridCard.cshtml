@@ -138,7 +138,7 @@
                         {
                             <p class="card-text">
 
-                                @item.ShortDescription
+                                @(item.ShortDescription.Length > 100 ? item.ShortDescription.Substring(0,100) : item.ShortDescription)
                             </p>
                         }
                         else

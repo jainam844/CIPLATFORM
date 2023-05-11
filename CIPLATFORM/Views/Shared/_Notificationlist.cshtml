@@ -1,6 +1,6 @@
 ﻿@using CIPLATFORM.Entities.ViewModels
 @model CardsViewModel
-
+ <span class="badge d-none" id="fromdisplay" value="@TempData["msg1"]">@TempData["msg1"] </span>
 @foreach (var item in @Model.notificationMessages)
 {
     @if (item.Type == "MissionApplication")
@@ -21,6 +21,7 @@
                             {
                                 <i class="bi bi-x-square ms-2" style="font-size: 20px; "></i>
                             }
+                                  
                         </div>
                         <div class="col-9"> @item.Message</div>
 
@@ -33,18 +34,21 @@
                             {
                                 <i class="bi bi-check-circle-fill ms-2" style="color:grey;"></i>
                             }
-
+                                    
                         </div>
 
                     </div>
                 </a>
             </div>
         </li>
+           <hr />
     }
+
     @if (item.Type == "Story")
     {
         <li>
-            <a asp-controller="Platform" asp-action="StoryDetail" asp-route-sid="@item.Id" onclick="return readNotification('read',${name.NotificationMessageId});" style="text-decoration:none; color:black;">
+               <div onclick="return readNotification('read',@item.NotificationMessageId);">
+            <a asp-controller="Platform" asp-action="StoryDetail" asp-route-sid="@item.Id" style="text-decoration:none; color:black;">
                 <div class="row">
                     <div class="col-1">
                         @if (item.Message.Contains("approved"))
@@ -71,16 +75,20 @@
                     </div>
                 </div>
             </a>
+            </div>
         </li>
+       <hr />
     }
+       
     @if (item.Type == "RecommendedMission")
     {
         <li>
-            <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@item.Id" style="text-decoration:none; color:black;" onclick="return readNotification('read',${name.NotificationMessageId});">
+             <div onclick="return readNotification('read',@item.NotificationMessageId);">
+            <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@item.Id" style="text-decoration:none; color:black;" >
                 <div class="row">
                     <div class="col-1">
-                        <img src=~/images/@ViewBag.Avtar class="profile-nav" alt="">
-                        @*<i class="bi bi-check2-square ms-2" style="font-size: 20px; "></i>*@
+                        <img src=~/images/@item.User.MissionInviteToUsers.FirstOrDefault().ToUser.Avatar class="profile-nav" alt="">
+                     
                     </div>
                     <div class="col-9"> @item.Message</div>
 
@@ -91,18 +99,22 @@
                         }
                         else
                         {
-                            <i class="bi bi-check-lg" style="font-size: 20px; "></i>
+                           <i class="bi bi-check-circle-fill ms-2" style="color:grey;"></i>
                         }
 
                     </div>
                 </div>
             </a>
+            </div>
         </li>
+           <hr />
     }
+   
     @if (item.Type == "RecommendedStory")
     {
         <li>
-            <a asp-controller="Platform" asp-action="StoryDetail" asp-route-sid="@item.Id" onclick="return readNotification('read',${name.NotificationMessageId});" style="text-decoration:none; color:black;">
+             <div onclick="return readNotification('read',@item.NotificationMessageId);">
+            <a asp-controller="Platform" asp-action="StoryDetail" asp-route-sid="@item.Id"style="text-decoration:none; color:black;">
                 <div class="row">
                     <div class="col-1">
                         <i class="bi bi-check2-square ms-2" style="font-size: 20px; "></i>
@@ -116,18 +128,22 @@
                         }
                         else
                         {
-                            <i class="bi bi-check-lg" style="font-size: 20px; "></i>
+                           <i class="bi bi-check-circle-fill ms-2" style="color:grey;"></i>
                         }
 
                     </div>
                 </div>
             </a>
+            </div>
         </li>
+           <hr />
     }
+     
     @if (item.Type == "NewMission")
     {
         <li>
-            <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@item.Id" onclick="return readNotification('read',${name.NotificationMessageId});" style="text-decoration:none; color:black;">
+             <div onclick="return readNotification('read',@item.NotificationMessageId);">
+            <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@item.Id" style="text-decoration:none; color:black;">
                 <div class="row">
                     <div class="col-1">
                         <i class="bi bi-check2-square ms-2" style="font-size: 20px; "></i>
@@ -141,12 +157,15 @@
                         }
                         else
                         {
-                            <i class="bi bi-check-lg" style="font-size: 20px; "></i>
+                         <i class="bi bi-check-circle-fill ms-2" style="color:grey;"></i>
                         }
 
                     </div>
                 </div>
             </a>
+            </div>
         </li>
+           <hr />
     }
+
 }

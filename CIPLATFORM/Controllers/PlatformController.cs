@@ -424,7 +424,7 @@ namespace CIPLATFORM.Controllers
 
             CardsViewModel cm = new CardsViewModel();
             cm.notificationMessages = SM;
-
+            TempData["msg1"] = SM.Count;
             return PartialView("_Notificationlist", cm);
         }
         public void readNotification(int id, string status)

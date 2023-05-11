@@ -8,52 +8,50 @@
     input[type=checkbox]:checked:before {
         color: #777777;
     }
-/*    .notification {
-  background-color: #555;
-  color: white;
-  text-decoration: none;
-  padding: 15px 26px;
-  position: relative;
-  display: inline-block;
-  border-radius: 2px;
-}
-    
-*/
-.notification .badge {
-    position: absolute;
-    top: -3px;
-    right: 19px;
-    padding: 3px 4px;
-    border-radius: 50%;
-    background-color: red;
-    color: white;
-  
-    /*  position: absolute;
-    top: -4px;
-    WIDTH: 24px;
-    height: 21px;
-    right: 28px;
-    padding: 4px 8px;
-    border-radius: 126%;
-    background-color: red;*/
-    color: white;
-}
-  
+    /*    .notification {
+      background-color: #555;
+      color: white;
+      text-decoration: none;
+      padding: 15px 26px;
+      position: relative;
+      display: inline-block;
+      border-radius: 2px;
+    }
+
+    */
+    .notification .badge {
+        position: absolute;
+        top: -3px;
+        right: 19px;
+        padding: 3px 4px;
+        border-radius: 50%;
+        background-color: red;
+        color: white;
+        /*  position: absolute;
+        top: -4px;
+        WIDTH: 24px;
+        height: 21px;
+        right: 28px;
+        padding: 4px 8px;
+        border-radius: 126%;
+        background-color: red;*/
+        color: white;
+    }
 </style>
 
 <form class="d-flex">
 
     <div class="collapse navbar-collapse dropdown me-3 " id="navbarSupportedContent">
-       
+
 
         <i class="bi bi-bell btn notification  dropdown-toggle" type="button" data-bs-toggle="dropdown"
-           aria-expanded="false" style="font-size:20px;" onclick="getnotification();"> <span class="badge">@TempData["msg1"] </span></i>
+           aria-expanded="false" style="font-size:20px;" onclick="getnotification();"> <span class="badge" id="todisplay">@TempData["msg1"] </span></i>
 
         <ul class="dropdown-menu dropdown-menu-center" style="width:400px;height:500px;overflow-x: hidden;">
             <li class="d-flex justify-content-between align-content-between" style="position: sticky;">
                 <i class="bi bi-gear-fill ms-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal10" onclick="getsettings();"> </i>
-                <span>Notification</span>
-                <a style="text-decoration: none; color: black;" onclick="return readNotification('clear');"  class="me-2" href="#">clear all</a>
+                <span> <h6>Notification</h6> </span>
+                <a style="text-decoration: none; color: black;" onclick="return readNotification('clear');" class="me-2" href="#"> <h6>clear all</h6> </a>
             </li>
             <hr style="background-color: rgb(187, 185, 183);">
             <div id="newnoti">

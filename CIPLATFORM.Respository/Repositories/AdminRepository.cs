@@ -627,6 +627,7 @@ namespace CIPLATFORM.Respository.Repositories
                             }
                             _CiPlatformContext.NotificationMessages.Add(nm);
                             _CiPlatformContext.SaveChanges();
+                            _PlatformRepository.SendMail(nm);
                         }
                         return true;
                     }
@@ -649,6 +650,7 @@ namespace CIPLATFORM.Respository.Repositories
 
                             _CiPlatformContext.NotificationMessages.Add(nm);
                             _CiPlatformContext.SaveChanges();
+                            _PlatformRepository.SendMail(nm);
 
 
                         }
