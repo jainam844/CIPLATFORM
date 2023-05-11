@@ -423,6 +423,7 @@ namespace CIPLATFORM.Controllers
             List<NotificationMessage> SM = _PlatformRepository.getnotification(UserId);
 
             CardsViewModel cm = new CardsViewModel();
+
             cm.notificationMessages = SM;
             TempData["msg1"] = SM.Count;
             return PartialView("_Notificationlist", cm);

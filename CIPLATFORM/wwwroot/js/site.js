@@ -700,7 +700,7 @@ function getnotification() {
     });
 }
 function readNotification(x, y) {
-    debugger;
+ 
     $.ajax({
         url: "/Platform/readNotification",
         method: "post",
