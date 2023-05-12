@@ -699,6 +699,7 @@ function getnotification() {
         }
     });
 }
+
 function readNotification(x, y) {
  
     $.ajax({
