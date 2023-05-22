@@ -87,8 +87,8 @@
             <a asp-controller="Platform" asp-action="MissionListing" asp-route-mid="@item.Id" style="text-decoration:none; color:black;" >
                 <div class="row">
                     <div class="col-1">
-                        <img src=~/images/@item.User.MissionInviteToUsers.FirstOrDefault().ToUser.Avatar class="profile-nav" alt="">
-                     
+                       @* <img src=~/images/@item.User.MissionInviteToUsers.FirstOrDefault().ToUser.Avatar class="profile-nav" alt="">
+                     *@
                     </div>
                     <div class="col-9"> @item.Message</div>
 

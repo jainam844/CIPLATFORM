@@ -897,7 +897,9 @@ namespace CIPLATFORM.Respository.Repositories
             NotificationSetting ns = _CiPlatformContext.NotificationSettings.FirstOrDefault(m => m.UserId == uid);
 
 
-            List<NotificationMessage> messages = _CiPlatformContext.NotificationMessages.Include(m => m.User).Include(m => m.User.MissionInviteToUsers).Include(m => m.User.MissionInviteFromUsers).Where(x => x.UserId == uid && x.Status != "Cleared").ToList();
+            //List<NotificationMessage> messages = _CiPlatformContext.NotificationMessages.Include(m => m.User).Include(m => m.User.MissionInviteToUsers).Include(m => m.User.MissionInviteFromUsers).Where(x => x.UserId == uid && x.Status != "Cleared").ToList();
+            var messages = _CiPlatformContext.NotificationMessages.FromSql($"exec [GetNotificationMessages1]  @userId={uid}").ToList();
+
             if (ns.MissionApplication != true)
             {
                 messages = messages.Where(m => m.Type != "MissionApplication").ToList();
@@ -923,6 +925,8 @@ namespace CIPLATFORM.Respository.Repositories
                 messages = messages.Where(m => m.Type != "NewMission").ToList();
 
             }
+
+         
 
 
             return messages;

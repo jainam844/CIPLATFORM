@@ -18,7 +18,7 @@ namespace CIPLATFORM.Respository.Repositories
         public readonly CiPlatformContext _CiPlatformContext;
         public readonly IPlatformRepository _PlatformRepository;
 
-        public AdminRepository(CiPlatformContext CiPlatformContext,IPlatformRepository platformRepository)
+        public AdminRepository(CiPlatformContext CiPlatformContext, IPlatformRepository platformRepository)
         {
             _CiPlatformContext = CiPlatformContext;
             _PlatformRepository = platformRepository;
@@ -565,10 +565,32 @@ namespace CIPLATFORM.Respository.Repositories
                     {
                         MissionApplication ma = _CiPlatformContext.MissionApplications.Include(x => x.Mission).FirstOrDefault(x => x.MissionApplicationId == id);
                         NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == ma.UserId);
+
+                        //NotificationSetting messages = _CiPlatformContext.NotificationSettings.FromSql($"exec [GetNotificationSetting1]  @userId={ma.UserId}").FirstOrDefault();
+        
+
+                        if (check == null)
+                        {
+                            NotificationSetting  ns=new NotificationSetting();
+                            ns.UserId=ma.UserId;
+                            ns.NewMission = true;
+                            ns.EmailNotification = true;
+                            ns.MissionApplication = true;
+                            ns.RecommendedMission =true;
+                            ns.RecommendedStory=true;
+                            ns.Story = true;
+                            _CiPlatformContext.NotificationSettings.Add(ns);
+                            _CiPlatformContext.SaveChanges();
+
+                        }
+                        var messages = _CiPlatformContext.NotificationSettings
+.FromSql($"exec [GetNotificationSetting1] @userId={ma.UserId}")
+.AsEnumerable()
+.FirstOrDefault();
                         ma.ApprovalStatus = "Approve";
                         _CiPlatformContext.MissionApplications.Update(ma);
                         _CiPlatformContext.SaveChanges();
-                        if (check.MissionApplication == true)
+                        if (messages.MissionApplication == true)
                         {
                             NotificationMessage nm = new NotificationMessage();
                             {
@@ -588,10 +610,31 @@ namespace CIPLATFORM.Respository.Repositories
                     {
                         MissionApplication ma = _CiPlatformContext.MissionApplications.Include(x => x.Mission).FirstOrDefault(x => x.MissionApplicationId == id);
                         NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == ma.UserId);
+ 
+
+
+                        if (check == null)
+                        {
+                            NotificationSetting ns = new NotificationSetting();
+                            ns.UserId = ma.UserId;
+                            ns.NewMission = true;
+                            ns.EmailNotification = true;
+                            ns.MissionApplication = true;
+                            ns.RecommendedMission = true;
+                            ns.RecommendedStory = true;
+                            ns.Story = true;
+                            _CiPlatformContext.NotificationSettings.Add(ns);
+                            _CiPlatformContext.SaveChanges();
+
+                        }
+                        var messages = _CiPlatformContext.NotificationSettings
+.FromSql($"exec [GetNotificationSetting1] @userId={ma.UserId}")
+.AsEnumerable()
+.FirstOrDefault();
                         ma.ApprovalStatus = "Decline";
                         _CiPlatformContext.MissionApplications.Update(ma);
                         _CiPlatformContext.SaveChanges();
-                        if (check.MissionApplication == true)
+                        if (messages.MissionApplication == true)
                         {
                             NotificationMessage nm = new NotificationMessage();
                             {
@@ -613,10 +656,29 @@ namespace CIPLATFORM.Respository.Repositories
                     {
                         Story story = _CiPlatformContext.Stories.FirstOrDefault(x => x.StoryId == id);
                         NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == story.UserId);
+    
+                        if (check == null)
+                        {
+                            NotificationSetting ns = new NotificationSetting();
+                            ns.UserId = story.UserId;
+                            ns.NewMission = true;
+                            ns.EmailNotification = true;
+                            ns.MissionApplication = true;
+                            ns.RecommendedMission = true;
+                            ns.RecommendedStory = true;
+                            ns.Story = true;
+                            _CiPlatformContext.NotificationSettings.Add(ns);
+                            _CiPlatformContext.SaveChanges();
+
+                        }
+                        var messages = _CiPlatformContext.NotificationSettings
+.FromSql($"exec [GetNotificationSetting1] @userId={story.UserId}")
+.AsEnumerable()
+.FirstOrDefault();
                         story.Status = "PUBLISHED";
                         _CiPlatformContext.Stories.Update(story);
                         _CiPlatformContext.SaveChanges();
-                        if (check.MissionApplication == true)
+                        if (messages.MissionApplication == true)
                         {
                             NotificationMessage nm = new NotificationMessage();
                             {
@@ -635,10 +697,29 @@ namespace CIPLATFORM.Respository.Repositories
                     {
                         Story story = _CiPlatformContext.Stories.FirstOrDefault(x => x.StoryId == id);
                         NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == story.UserId);
+                        
+                        if (check == null)
+                        {
+                            NotificationSetting ns = new NotificationSetting();
+                            ns.UserId = story.UserId;
+                            ns.NewMission = true;
+                            ns.EmailNotification = true;
+                            ns.MissionApplication = true;
+                            ns.RecommendedMission = true;
+                            ns.RecommendedStory = true;
+                            ns.Story = true;
+                            _CiPlatformContext.NotificationSettings.Add(ns);
+                            _CiPlatformContext.SaveChanges();
+
+                        }
+                        var messages = _CiPlatformContext.NotificationSettings
+.FromSql($"exec [GetNotificationSetting1] @userId={story.UserId}")
+.AsEnumerable()
+.FirstOrDefault();
                         story.Status = "DECLINED";
                         _CiPlatformContext.Stories.Update(story);
                         _CiPlatformContext.SaveChanges();
-                        if (check.MissionApplication == true)
+                        if (messages.MissionApplication == true)
                         {
                             NotificationMessage nm = new NotificationMessage();
                             {
