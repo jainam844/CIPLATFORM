@@ -710,7 +710,7 @@ function readNotification(x, y) {
             "status": x
         },
         success: function (data) {
-
+            toastr.error("success!!");
         },
         error: function () {
 

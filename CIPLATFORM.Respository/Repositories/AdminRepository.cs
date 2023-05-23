@@ -178,6 +178,7 @@ namespace CIPLATFORM.Respository.Repositories
 
                         _CiPlatformContext.Missions.Add(mission);
                         _CiPlatformContext.SaveChanges();
+                     
                         foreach (var item in check)
                         {
                             NotificationMessage nm = new NotificationMessage();
@@ -567,7 +568,6 @@ namespace CIPLATFORM.Respository.Repositories
                         NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == ma.UserId);
 
                         //NotificationSetting messages = _CiPlatformContext.NotificationSettings.FromSql($"exec [GetNotificationSetting1]  @userId={ma.UserId}").FirstOrDefault();
-        
 
                         if (check == null)
                         {

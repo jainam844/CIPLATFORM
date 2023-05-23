@@ -440,6 +440,7 @@ namespace CIPLATFORM.Respository.Repositories
             var fromUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == FromUserId && u.DeletedAt == null);
 
             var fromEmailId = fromUser.Email;
+           
             //if (user1 == null)
             //{
             //    return null;
@@ -449,8 +450,25 @@ namespace CIPLATFORM.Respository.Repositories
             {
                 var toUser = _CiPlatformContext.Users.FirstOrDefault(u => u.UserId == user && u.DeletedAt == null);
                 NotificationSetting check = _CiPlatformContext.NotificationSettings.FirstOrDefault(x => x.UserId == user);
-                var toEmailId = toUser.Email;
+                if (check == null)
+                {
+                    NotificationSetting ns = new NotificationSetting();
+                    ns.UserId = user;
+                    ns.NewMission = true;
+                    ns.EmailNotification = true;
+                    ns.MissionApplication = true;
+                    ns.RecommendedMission = true;
+                    ns.RecommendedStory = true;
+                    ns.Story = true;
+                    _CiPlatformContext.NotificationSettings.Add(ns);
+                    _CiPlatformContext.SaveChanges();
 
+                }
+                var toEmailId = toUser.Email;
+                var messages = _CiPlatformContext.NotificationSettings
+.FromSql($"exec [GetNotificationSetting1] @userId={user}")
+.AsEnumerable()
+.FirstOrDefault();
                 StoryInvite invite = new StoryInvite();
                 {
                     invite.FromUserId = FromUserId;
@@ -461,7 +479,7 @@ namespace CIPLATFORM.Respository.Repositories
                 _CiPlatformContext.Add(invite);
                 _CiPlatformContext.SaveChanges();
 
-                if (check.RecommendedMission == true)
+                if (messages.RecommendedMission == true)
                 {
                     NotificationMessage nm = new NotificationMessage();
                     {
